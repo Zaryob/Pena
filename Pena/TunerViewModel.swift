@@ -136,6 +136,7 @@ public final class TunerViewModel {
     @ObservationIgnored private var pendingStringCandidate: GuitarString? = nil
     @ObservationIgnored private var pendingStringCandidateCount = 0
     @ObservationIgnored private var inTuneStabilityTask: Task<Void, Never>?
+    @ObservationIgnored private var referenceToneTask: Task<Void, Never>?
 
     private enum DefaultsKey {
         static let presetID = "pena.presetID"
@@ -203,7 +204,13 @@ public final class TunerViewModel {
     /// (by at least 40 cents) than the current string and hold for a couple of frames before
     /// the display switches, so it doesn't flicker between two adjacent strings.
     public func updateAutoDetection(frequency: Double?) {
-        guard tuningMode == .auto, let freq = frequency else { return }
+        guard tuningMode == .auto,
+              let freq = frequency,
+              freq.isFinite,
+              freq > 0 else {
+            resetPendingStringCandidate()
+            return
+        }
 
         var closestString: GuitarString? = nil
         var minCents = Double.infinity
@@ -215,22 +222,23 @@ public final class TunerViewModel {
             }
         }
         // Ignore anything more than ~220 cents from any real string (speech, room noise, etc.)
-        guard minCents <= 220.0, let matched = closestString else { return }
+        guard minCents <= 220.0, let matched = closestString else {
+            resetPendingStringCandidate()
+            return
+        }
 
         guard let current = lastConfirmedString else {
             commitAutoString(matched)
             return
         }
         guard matched.id != current.id else {
-            pendingStringCandidate = nil
-            pendingStringCandidateCount = 0
+            resetPendingStringCandidate()
             return
         }
 
         let currentCents = abs(1200.0 * log2(freq / current.targetFrequency(a4: a4Frequency)))
         guard currentCents - minCents > 40.0 else {
-            pendingStringCandidate = nil
-            pendingStringCandidateCount = 0
+            resetPendingStringCandidate()
             return
         }
 
@@ -249,6 +257,10 @@ public final class TunerViewModel {
     private func commitAutoString(_ string: GuitarString) {
         lastConfirmedString = string
         selectedString = string
+        resetPendingStringCandidate()
+    }
+
+    private func resetPendingStringCandidate() {
         pendingStringCandidate = nil
         pendingStringCandidateCount = 0
     }
@@ -328,6 +340,11 @@ public final class TunerViewModel {
     }
 
     public func onDisappear() {
+        inTuneStabilityTask?.cancel()
+        inTuneStabilityTask = nil
+        referenceToneTask?.cancel()
+        referenceToneTask = nil
+        isPlayingReferenceTone = false
         audioManager.stop()
     }
 
@@ -362,7 +379,7 @@ public final class TunerViewModel {
 
     public func openAppSettings() {
         #if os(iOS)
-        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(url)
         }
         #endif
@@ -389,9 +406,12 @@ public final class TunerViewModel {
         impact.impactOccurred()
         #endif
 
-        Task { @MainActor in
-            try? await Task.sleep(nanoseconds: 2_500_000_000)
+        referenceToneTask?.cancel()
+        referenceToneTask = Task { [weak self] in
+            try? await Task.sleep(for: .seconds(2.5))
+            guard !Task.isCancelled, let self else { return }
             self.isPlayingReferenceTone = false
+            self.referenceToneTask = nil
         }
     }
 
@@ -408,8 +428,9 @@ public final class TunerViewModel {
 
         let string = activeString
         inTuneStabilityTask = Task { [weak self] in
-            try? await Task.sleep(nanoseconds: 300_000_000)
+            try? await Task.sleep(for: .milliseconds(300))
             guard !Task.isCancelled, let self else { return }
+            self.inTuneStabilityTask = nil
             guard self.tuningStatus == .inTune, self.activeString.id == string.id else { return }
             self.markStringTuned(string)
         }

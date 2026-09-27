@@ -77,4 +77,38 @@ struct StringMatcherTests {
         vm.updateAutoDetection(frequency: 246.94)
         #expect(vm.activeString.id == 2)
     }
+
+    @Test("Resets debounce when candidate readings are not consecutive")
+    @MainActor
+    func resetsDebounceAfterMissingReading() {
+        let vm = TunerViewModel()
+        vm.currentPreset = .standard
+        vm.tuningMode = .auto
+
+        vm.updateAutoDetection(frequency: 82.4)
+        vm.updateAutoDetection(frequency: 246.94)
+        vm.updateAutoDetection(frequency: nil)
+        vm.updateAutoDetection(frequency: 246.94)
+
+        #expect(vm.activeString.id == 6)
+
+        vm.updateAutoDetection(frequency: 246.94)
+        #expect(vm.activeString.id == 2)
+    }
+
+    @Test("Ignores non-finite and non-positive frequencies")
+    @MainActor
+    func ignoresInvalidFrequencies() {
+        let vm = TunerViewModel()
+        vm.currentPreset = .standard
+        vm.tuningMode = .auto
+
+        vm.updateAutoDetection(frequency: 110.0)
+        vm.updateAutoDetection(frequency: .nan)
+        vm.updateAutoDetection(frequency: .infinity)
+        vm.updateAutoDetection(frequency: 0)
+        vm.updateAutoDetection(frequency: -82.4)
+
+        #expect(vm.activeString.id == 5)
+    }
 }
