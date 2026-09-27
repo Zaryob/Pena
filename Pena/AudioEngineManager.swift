@@ -186,6 +186,7 @@ public final class AudioEngineManager: NSObject {
     @ObservationIgnored private var pluckClearTask: Task<Void, Never>?
     @ObservationIgnored private var wasRunningBeforeInterruption = false
     @ObservationIgnored private var isStarting = false
+    @ObservationIgnored private var isRestarting = false
 
     public override init() {
         super.init()
@@ -226,36 +227,31 @@ public final class AudioEngineManager: NSObject {
     }
 
     // MARK: - Session Configuration
-    private func configureAudioSession() async throws {
+    /// Runs audio session property changes and activation completely on a background thread
+    /// to avoid `SessionCore.mm` and `AVAudioSession_iOS.mm` diagnostics about main thread
+    /// stalls while the audio session is active.
+    private nonisolated static func configureAudioSessionInBackground() throws {
         #if os(iOS)
         let session = AVAudioSession.sharedInstance()
-        // `.measurement` disables system AGC/EQ so the mic signal reaches our detector
-        // unprocessed. `.allowBluetoothA2DP` (not `.allowBluetooth`/HFP) lets audio route to
-        // a Bluetooth speaker without downgrading the *input* to a 16kHz phone-call mic.
-        try session.setCategory(
-            .playAndRecord,
-            mode: .measurement,
-            options: [.defaultToSpeaker, .allowBluetoothA2DP]
-        )
-        try session.setPreferredIOBufferDuration(0.01)
-
-        // Activate asynchronously using the modern API or detached background task to
-        // prevent blocking the main thread and avoid `unsafeForcedSync` warnings.
-        if #available(iOS 27.0, *) {
-            try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, any Error>) in
-                session.activate(options: []) { _, error in
-                    if let error {
-                        continuation.resume(throwing: error)
-                    } else {
-                        continuation.resume()
-                    }
-                }
-            }
-        } else {
-            try await Task.detached(priority: .userInitiated) {
-                try AVAudioSession.sharedInstance().setActive(true)
-            }.value
+        if session.category != .playAndRecord || session.mode != .measurement {
+            try session.setCategory(
+                .playAndRecord,
+                mode: .measurement,
+                options: [.defaultToSpeaker, .allowBluetoothA2DP]
+            )
         }
+        if abs(session.preferredIOBufferDuration - 0.01) > 0.001 {
+            try session.setPreferredIOBufferDuration(0.01)
+        }
+        try session.setActive(true)
+        #endif
+    }
+
+    private func configureAudioSession() async throws {
+        #if os(iOS)
+        try await Task.detached(priority: .userInitiated) {
+            try Self.configureAudioSessionInBackground()
+        }.value
         #endif
     }
 
@@ -296,7 +292,9 @@ public final class AudioEngineManager: NSObject {
     /// robust than trying to patch the running graph in place.
     @objc private nonisolated func handleRouteChange(_ notification: Notification) {
         Task { @MainActor [weak self] in
-            guard let self, self.isRunning else { return }
+            guard let self, self.isRunning, !self.isStarting, !self.isRestarting else { return }
+            self.isRestarting = true
+            defer { self.isRestarting = false }
             self.stop()
             self.start()
         }
@@ -305,7 +303,14 @@ public final class AudioEngineManager: NSObject {
     /// Audio engine configuration changes when audio devices appear/disappear or change format.
     @objc private nonisolated func handleEngineConfigurationChange(_ notification: Notification) {
         Task { @MainActor [weak self] in
-            guard let self, self.isRunning else { return }
+            guard let self, self.isRunning, !self.isStarting, !self.isRestarting else { return }
+            if let notifyingEngine = notification.object as? AVAudioEngine,
+               let activeEngine = self.engine,
+               notifyingEngine !== activeEngine {
+                return
+            }
+            self.isRestarting = true
+            defer { self.isRestarting = false }
             self.stop()
             self.start()
         }
@@ -396,12 +401,8 @@ public final class AudioEngineManager: NSObject {
 
         #if os(iOS)
         UIApplication.shared.isIdleTimerDisabled = false
-        if #available(iOS 27.0, *) {
-            AVAudioSession.sharedInstance().deactivate(options: []) { _, _ in }
-        } else {
-            Task.detached(priority: .utility) {
-                try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
-            }
+        Task.detached(priority: .utility) {
+            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
         }
         #endif
     }
@@ -502,22 +503,24 @@ public final class AudioEngineManager: NSObject {
             attachToneSourceNode(to: activeEngine)
         }
         if !activeEngine.isRunning {
-            do {
-                #if os(iOS)
-                if #available(iOS 27.0, *) {
-                    AVAudioSession.sharedInstance().activate(options: []) { _, _ in }
-                } else {
-                    try? AVAudioSession.sharedInstance().setActive(true)
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                do {
+                    try await self.configureAudioSession()
+                    try activeEngine.start()
+                    self.engine = activeEngine
+                    self.triggerTone(frequency: frequency, isPluck: isPluck)
+                } catch {
+                    self.currentError = .tonePlaybackFailed(error.localizedDescription)
                 }
-                #endif
-                try activeEngine.start()
-                engine = activeEngine
-            } catch {
-                currentError = .tonePlaybackFailed(error.localizedDescription)
-                return
             }
+            return
         }
 
+        triggerTone(frequency: frequency, isPluck: isPluck)
+    }
+
+    private func triggerTone(frequency: Double, isPluck: Bool) {
         toneStopTask?.cancel()
         isSuppressingToneAnalysis = true
         toneBox.start(frequency: frequency, decayRate: isPluck ? 1.6 : 0.0001)
