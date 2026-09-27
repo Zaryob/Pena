@@ -1,3 +1,6 @@
+// Developer-only test panel for exercising the pitch pipeline without a guitar. Never
+// compiled into a Release/App Store build.
+#if DEBUG
 import SwiftUI
 
 public struct SimulatorTestBar: View {
@@ -88,3 +91,4 @@ public struct SimulatorTestBar: View {
         .buttonStyle(.plain)
     }
 }
+#endif

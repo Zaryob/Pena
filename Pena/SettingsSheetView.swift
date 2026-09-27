@@ -3,17 +3,17 @@ import SwiftUI
 public struct SettingsSheetView: View {
     @Bindable public var viewModel: TunerViewModel
     @Environment(\.dismiss) private var dismiss
-    
+
     public init(viewModel: TunerViewModel) {
         self.viewModel = viewModel
     }
-    
+
     public var body: some View {
         NavigationStack {
             Form {
                 // Preset Selection
                 Section {
-                    Picker("Akort Düzeni", selection: $viewModel.currentPreset) {
+                    Picker(String(localized: "settings.preset.picker", defaultValue: "Akort Düzeni"), selection: $viewModel.currentPreset) {
                         ForEach(TuningPreset.allPresets) { preset in
                             VStack(alignment: .leading) {
                                 Text(preset.name)
@@ -23,97 +23,106 @@ public struct SettingsSheetView: View {
                         }
                     }
                     .pickerStyle(.navigationLink)
-                    
-                    Text(viewModel.currentPreset.turkishDescription)
+
+                    Text(viewModel.currentPreset.presetDescription)
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 } header: {
-                    Label("Akort Düzeni (Preset)", systemImage: "music.note.list")
+                    Label(String(localized: "settings.preset.header", defaultValue: "Akort Düzeni (Preset)"), systemImage: "music.note.list")
                 }
-                
+
                 // Calibration A4
                 Section {
                     VStack(alignment: .leading, spacing: 10) {
                         HStack {
-                            Text("Referans A4:")
+                            Text(String(localized: "settings.a4.label", defaultValue: "Referans A4:"))
                                 .font(.body)
                             Spacer()
                             Text(String(format: "%.1f Hz", viewModel.a4Frequency))
                                 .font(.system(size: 17, weight: .bold, design: .monospaced))
                                 .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
                         }
-                        
-                        Slider(value: $viewModel.a4Frequency, in: 432.0...448.0, step: 0.5)
+
+                        Slider(value: $viewModel.a4Frequency, in: 415.0...466.0, step: 0.5)
                             .tint(Color(red: 0.85, green: 0.72, blue: 0.35))
-                        
-                        HStack(spacing: 8) {
-                            quickA4Button(432.0, title: "432 Hz (Verdi)")
-                            quickA4Button(440.0, title: "440 Hz (Standart)")
-                            quickA4Button(442.0, title: "442 Hz (Klasik)")
+                            .accessibilityValue(Text(String(format: "%.1f Hz", viewModel.a4Frequency)))
+
+                        HStack(spacing: 6) {
+                            quickA4Button(415.0, title: String(localized: "settings.a4.baroque", defaultValue: "415 Hz (Barok)"))
+                            quickA4Button(440.0, title: String(localized: "settings.a4.standard", defaultValue: "440 Hz (Standart)"))
+                            quickA4Button(442.0, title: String(localized: "settings.a4.classical", defaultValue: "442 Hz (Klasik)"))
+                            quickA4Button(446.0, title: String(localized: "settings.a4.orchestral", defaultValue: "446 Hz (Orkestra)"))
                         }
                     }
                     .padding(.vertical, 4)
                 } header: {
-                    Label("A4 Kalibrasyonu", systemImage: "tuningfork")
+                    Label(String(localized: "settings.a4.header", defaultValue: "A4 Kalibrasyonu"), systemImage: "tuningfork")
                 }
-                
+
                 // Notation Style
                 Section {
-                    Picker("Nota Gösterimi", selection: $viewModel.notationStyle) {
+                    Picker(String(localized: "settings.notation.picker", defaultValue: "Nota Gösterimi"), selection: $viewModel.notationStyle) {
                         ForEach(NotationStyle.allCases) { style in
-                            Text(style.rawValue).tag(style)
+                            Text(style.displayName).tag(style)
                         }
                     }
                     .pickerStyle(.segmented)
                 } header: {
-                    Label("Nota Gösterimi", systemImage: "textformat")
+                    Label(String(localized: "settings.notation.header", defaultValue: "Nota Gösterimi"), systemImage: "textformat")
                 }
-                
-                // Sensitivity & Noise Gate
+
+                // Sensitivity & Tolerance
                 Section {
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            Text("Gürültü Filtresi Eşiği:")
-                                .font(.body)
-                            Spacer()
-                            Text(String(format: "%.3f", viewModel.noiseGateThreshold))
-                                .font(.system(size: 15, weight: .bold, design: .monospaced))
-                                .foregroundStyle(.secondary)
+                    Picker(String(localized: "settings.sensitivity.picker", defaultValue: "Ortam Gürültüsü"), selection: $viewModel.sensitivity) {
+                        ForEach(ListeningSensitivity.allCases) { level in
+                            Text(level.displayName).tag(level)
                         }
-                        
-                        Slider(value: $viewModel.noiseGateThreshold, in: 0.005...0.040, step: 0.002)
                     }
-                    .padding(.vertical, 4)
-                    
-                    Picker("Hassasiyet (Tolerans)", selection: $viewModel.inTuneTolerance) {
-                        Text("±2 cent (Çok Hassas)").tag(2.0)
-                        Text("±3 cent (Standart)").tag(3.0)
-                        Text("±5 cent (Gevşek)").tag(5.0)
+                    .pickerStyle(.segmented)
+
+                    Picker(String(localized: "settings.tolerance.picker", defaultValue: "Hassasiyet (Tolerans)"), selection: $viewModel.inTuneTolerance) {
+                        Text(String(localized: "settings.tolerance.tight", defaultValue: "±2 cent (Çok Hassas)")).tag(2.0)
+                        Text(String(localized: "settings.tolerance.standard", defaultValue: "±3 cent (Standart)")).tag(3.0)
+                        Text(String(localized: "settings.tolerance.loose", defaultValue: "±5 cent (Gevşek)")).tag(5.0)
                     }
                 } header: {
-                    Label("Mikrofon ve Hassasiyet", systemImage: "mic.fill")
+                    Label(String(localized: "settings.mic.header", defaultValue: "Mikrofon ve Hassasiyet"), systemImage: "mic.fill")
+                } footer: {
+                    Text(String(localized: "settings.sensitivity.footer", defaultValue: "Gürültülü bir mekandaysanız 'Gürültülü Ortam' seçeneği, gitarınızın sessiz sesli ortam sesleriyle karışmasını önler."))
                 }
-                
+
                 // Classical Guitar Tuning Tips
                 Section {
                     DisclosureGroup {
                         VStack(alignment: .leading, spacing: 10) {
-                            tipRow(number: "1", title: "Aşağıdan Yukarı Akort Edin", text: "Telin tonunu her zaman pes (gevşek) taraftan sıkarak hedef sese getirin. Böylece kulakçık mekanizması boşluk yapmaz.")
-                            tipRow(number: "2", title: "Naylon Teller Esner", text: "Klasik gitar naylon telleri sıcaklık ve neme duyarlıdır. Yeni takılan telleri hafifçe esnetip tekrar akort edin.")
-                            tipRow(number: "3", title: "Sessiz Ortam", text: "Gitarın gövdesine yakın tutarak ve sessiz bir ortamda akort yapmak en net frekans algısını sağlar.")
+                            tipRow(
+                                number: "1",
+                                title: String(localized: "settings.tip1.title", defaultValue: "Aşağıdan Yukarı Akort Edin"),
+                                text: String(localized: "settings.tip1.text", defaultValue: "Telin tonunu her zaman pes (gevşek) taraftan sıkarak hedef sese getirin. Böylece kulakçık mekanizması boşluk yapmaz.")
+                            )
+                            tipRow(
+                                number: "2",
+                                title: String(localized: "settings.tip2.title", defaultValue: "Naylon Teller Esner"),
+                                text: String(localized: "settings.tip2.text", defaultValue: "Klasik gitar naylon telleri sıcaklık ve neme duyarlıdır. Yeni takılan telleri hafifçe esnetip tekrar akort edin.")
+                            )
+                            tipRow(
+                                number: "3",
+                                title: String(localized: "settings.tip3.title", defaultValue: "Sessiz Ortam"),
+                                text: String(localized: "settings.tip3.text", defaultValue: "Gitarın gövdesine yakın tutarak ve sessiz bir ortamda akort yapmak en net frekans algısını sağlar.")
+                            )
                         }
                         .padding(.vertical, 4)
                     } label: {
-                        Label("Klasik Gitar Akort İpuçları", systemImage: "lightbulb.fill")
+                        Label(String(localized: "settings.tips.header", defaultValue: "Klasik Gitar Akort İpuçları"), systemImage: "lightbulb.fill")
                             .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
                     }
                 }
             }
-            .navigationTitle("Ayarlar")
+            .navigationTitle(String(localized: "settings.title", defaultValue: "Ayarlar"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Tamam") {
+                    Button(String(localized: "common.done", defaultValue: "Tamam")) {
                         dismiss()
                     }
                     .fontWeight(.bold)
@@ -121,15 +130,16 @@ public struct SettingsSheetView: View {
             }
         }
     }
-    
+
     private func quickA4Button(_ freq: Double, title: String) -> some View {
         Button {
             viewModel.a4Frequency = freq
         } label: {
             Text(title)
                 .font(.system(size: 11, weight: .medium))
-                .padding(.horizontal, 8)
+                .padding(.horizontal, 6)
                 .padding(.vertical, 5)
+                .frame(maxWidth: .infinity)
                 .background(
                     Capsule()
                         .fill(viewModel.a4Frequency == freq ? Color(red: 0.85, green: 0.72, blue: 0.35) : Color(white: 0.2))
@@ -138,7 +148,7 @@ public struct SettingsSheetView: View {
         }
         .buttonStyle(.plain)
     }
-    
+
     private func tipRow(number: String, title: String, text: String) -> some View {
         HStack(alignment: .top, spacing: 10) {
             Text(number)
@@ -146,7 +156,7 @@ public struct SettingsSheetView: View {
                 .foregroundStyle(.black)
                 .frame(width: 22, height: 22)
                 .background(Circle().fill(Color(red: 0.85, green: 0.72, blue: 0.35)))
-            
+
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
                     .font(.system(size: 14, weight: .semibold))
@@ -156,5 +166,6 @@ public struct SettingsSheetView: View {
                     .foregroundStyle(.secondary)
             }
         }
+        .accessibilityElement(children: .combine)
     }
 }

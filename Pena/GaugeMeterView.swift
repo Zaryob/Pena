@@ -1,8 +1,9 @@
 import SwiftUI
 
 public struct GaugeMeterView: View {
-    public let cents: Double            // -50.0 to +50.0
+    public let cents: Double            // -50.0 to +50.0, clamped
     public let status: TuningStatus
+    public let tolerance: Double        // in-tune band half-width, in cents
     public let noteLetter: String       // e.g. "E"
     public let octave: String           // e.g. "2"
     public let detectedHz: Double?
@@ -10,10 +11,11 @@ public struct GaugeMeterView: View {
     public let stringName: String       // e.g. "6. Tel - Kalın Mi"
     public let amplitude: Float         // Live RMS amplitude
     public let isPluckDetected: Bool
-    
+
     public init(
         cents: Double,
         status: TuningStatus,
+        tolerance: Double = 3.0,
         noteLetter: String,
         octave: String,
         detectedHz: Double?,
@@ -24,6 +26,7 @@ public struct GaugeMeterView: View {
     ) {
         self.cents = cents
         self.status = status
+        self.tolerance = tolerance
         self.noteLetter = noteLetter
         self.octave = octave
         self.detectedHz = detectedHz
@@ -32,13 +35,30 @@ public struct GaugeMeterView: View {
         self.amplitude = amplitude
         self.isPluckDetected = isPluckDetected
     }
-    
+
     // Normalized amplitude for level meter (0.0 to 1.0)
     private var normalizedLevel: CGFloat {
         let normalized = CGFloat(min(1.0, max(0.0, amplitude * 25.0)))
         return normalized
     }
-    
+
+    private var isOffScale: Bool {
+        detectedHz != nil && abs(cents) >= 49.5
+    }
+
+    private var accessibilityValueText: String {
+        guard detectedHz != nil else {
+            return amplitude > 0.002
+                ? String(localized: "gauge.a11y.hearing_sound", defaultValue: "Ses algılanıyor, nota bekleniyor")
+                : String(localized: "gauge.a11y.waiting", defaultValue: "Ses bekleniyor")
+        }
+        if status == .inTune {
+            return String(localized: "gauge.a11y.in_tune", defaultValue: "Tam akort")
+        }
+        let centsText = String(format: "%.0f", abs(cents))
+        return String(localized: "gauge.a11y.off_tune", defaultValue: "\(centsText) cent, \(status.label)")
+    }
+
     public var body: some View {
         VStack(spacing: 12) {
             // String title & Target Hz header
@@ -46,15 +66,16 @@ public struct GaugeMeterView: View {
                 Text(stringName)
                     .font(.system(size: 15, weight: .semibold, design: .rounded))
                     .foregroundStyle(.secondary)
-                
+
                 Spacer()
-                
-                Text(String(format: "Hedef: %.1f Hz", targetHz))
+
+                Text(String(localized: "gauge.target_hz", defaultValue: "Hedef: \(targetHz.formatted(.number.precision(.fractionLength(1)))) Hz"))
                     .font(.system(size: 13, weight: .medium, design: .monospaced))
                     .foregroundStyle(.secondary.opacity(0.8))
             }
             .padding(.horizontal, 24)
-            
+            .accessibilityHidden(true)
+
             // Main Dial / Arc Meter
             ZStack {
                 // Background Glow when In Tune
@@ -64,12 +85,22 @@ public struct GaugeMeterView: View {
                         .frame(width: 220, height: 220)
                         .blur(radius: 30)
                 }
-                
+
                 // Dial Gauge Arc
-                GaugeArcShape(cents: cents, status: status)
+                GaugeArcShape(cents: cents, status: status, tolerance: tolerance)
                     .frame(height: 140)
                     .padding(.horizontal, 16)
-                
+
+                // Off-scale indicator: the reading is clamped at the edge of the dial, so a
+                // chevron communicates "keep going" beyond what the needle position alone can.
+                if isOffScale {
+                    Image(systemName: cents < 0 ? "chevron.left.2" : "chevron.right.2")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundStyle(status.color)
+                        .offset(x: cents < 0 ? -90 : 90, y: 8)
+                        .transition(.opacity)
+                }
+
                 // Central Note Info Display
                 VStack(spacing: 2) {
                     HStack(alignment: .firstTextBaseline, spacing: 2) {
@@ -77,7 +108,7 @@ public struct GaugeMeterView: View {
                             .font(.system(size: 64, weight: .heavy, design: .rounded))
                             .foregroundStyle(status == .silent ? Color.white.opacity(0.8) : status.color)
                             .shadow(color: status.color.opacity(status == .inTune ? 0.6 : 0.2), radius: 10)
-                        
+
                         Text(octave)
                             .font(.system(size: 26, weight: .bold, design: .rounded))
                             .foregroundStyle(.secondary)
@@ -85,7 +116,7 @@ public struct GaugeMeterView: View {
                     }
                     .scaleEffect(isPluckDetected ? 1.08 : 1.0)
                     .animation(.spring(response: 0.2, dampingFraction: 0.5), value: isPluckDetected)
-                    
+
                     // Detected Frequency readout
                     if let hz = detectedHz {
                         Text(String(format: "%.1f Hz", hz))
@@ -94,7 +125,7 @@ public struct GaugeMeterView: View {
                     } else if amplitude > 0.002 {
                         HStack(spacing: 4) {
                             Circle().fill(Color(red: 0.85, green: 0.72, blue: 0.35)).frame(width: 6, height: 6)
-                            Text("Dinleniyor...")
+                            Text(String(localized: "gauge.listening", defaultValue: "Dinleniyor..."))
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
                         }
@@ -107,14 +138,18 @@ public struct GaugeMeterView: View {
                 .offset(y: 12)
             }
             .frame(height: 170)
-            
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text("\(noteLetter)\(octave)"))
+            .accessibilityValue(Text(accessibilityValueText))
+            .accessibilityAddTraits(.updatesFrequently)
+
             // Cents Deviation & Status Pills
             HStack(spacing: 12) {
                 // Cents pill
                 HStack(spacing: 4) {
-                    Text(detectedHz != nil ? String(format: "%+.0f", cents) : "0")
+                    Text(detectedHz != nil ? String(format: "%+.0f", cents) : "—")
                         .font(.system(size: 15, weight: .bold, design: .monospaced))
-                    Text("cent")
+                    Text(String(localized: "gauge.cent_unit", defaultValue: "cent"))
                         .font(.system(size: 12, weight: .medium))
                         .foregroundStyle(.secondary)
                 }
@@ -128,12 +163,12 @@ public struct GaugeMeterView: View {
                                 .stroke(status.color.opacity(0.3), lineWidth: 1)
                         )
                 )
-                
+
                 // Status guidance pill
                 HStack(spacing: 6) {
                     Image(systemName: status.indicatorIcon)
                         .font(.system(size: 14, weight: .bold))
-                    Text(status == .silent && amplitude > 0.002 ? "SES ALINIYOR" : status.label)
+                    Text(status == .silent && amplitude > 0.002 ? String(localized: "gauge.receiving_sound", defaultValue: "SES ALINIYOR") : status.label)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                 }
                 .padding(.horizontal, 14)
@@ -146,18 +181,19 @@ public struct GaugeMeterView: View {
                 .animation(.easeInOut(duration: 0.2), value: status)
             }
             .padding(.top, 4)
-            
+            .accessibilityHidden(true)
+
             // Live Mic Level Indicator
             HStack(spacing: 8) {
                 Image(systemName: amplitude > 0.002 ? "waveform" : "waveform.slash")
                     .font(.system(size: 11))
                     .foregroundStyle(amplitude > 0.002 ? Color(red: 0.15, green: 0.85, blue: 0.40) : .secondary)
-                
+
                 GeometryReader { geo in
                     ZStack(alignment: .leading) {
                         Capsule()
                             .fill(Color(white: 0.14))
-                        
+
                         Capsule()
                             .fill(
                                 LinearGradient(
@@ -177,6 +213,7 @@ public struct GaugeMeterView: View {
             }
             .padding(.horizontal, 28)
             .padding(.top, 2)
+            .accessibilityHidden(true)
         }
         .padding(.vertical, 14)
         .background(
@@ -206,21 +243,22 @@ public struct GaugeMeterView: View {
 private struct GaugeArcShape: View {
     let cents: Double
     let status: TuningStatus
-    
+    let tolerance: Double
+
     // Angle range: -60 degrees (left, -50 cents) to +60 degrees (right, +50 cents)
     private var needleAngle: Angle {
         let clampedCents = max(-50.0, min(50.0, cents))
         let degrees = (clampedCents / 50.0) * 55.0
         return .degrees(degrees)
     }
-    
+
     var body: some View {
         GeometryReader { proxy in
             let width = proxy.size.width
             let height = proxy.size.height
             let center = CGPoint(x: width / 2.0, y: height + 30)
             let radius = width * 0.46
-            
+
             ZStack {
                 // Background Track Arc
                 Path { path in
@@ -245,10 +283,10 @@ private struct GaugeArcShape: View {
                     style: StrokeStyle(lineWidth: 4, lineCap: .round)
                 )
                 .opacity(0.45)
-                
-                // In-tune Center Sweet-Spot Arc Segment (±3 cents)
+
+                // In-tune Center Sweet-Spot Arc Segment, sized to the actual tolerance setting
                 Path { path in
-                    let sweetDegrees = (3.0 / 50.0) * 55.0
+                    let sweetDegrees = (min(tolerance, 50.0) / 50.0) * 55.0
                     path.addArc(
                         center: center,
                         radius: radius,
@@ -262,7 +300,7 @@ private struct GaugeArcShape: View {
                     style: StrokeStyle(lineWidth: 7, lineCap: .round)
                 )
                 .shadow(color: Color(red: 0.15, green: 0.85, blue: 0.40), radius: 4)
-                
+
                 // Tick Marks
                 ForEach([-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50], id: \.self) { tickCents in
                     let tickAngle = ((Double(tickCents) / 50.0) * 55.0) - 90.0
@@ -270,7 +308,7 @@ private struct GaugeArcShape: View {
                     let isMajor = (tickCents == 0 || abs(tickCents) == 50 || abs(tickCents) == 20)
                     let innerR = radius - (isMajor ? 12 : 7)
                     let outerR = radius + 3
-                    
+
                     let p1 = CGPoint(
                         x: center.x + innerR * cos(rad),
                         y: center.y + innerR * sin(rad)
@@ -279,7 +317,7 @@ private struct GaugeArcShape: View {
                         x: center.x + outerR * cos(rad),
                         y: center.y + outerR * sin(rad)
                     )
-                    
+
                     Path { p in
                         p.move(to: p1)
                         p.addLine(to: p2)
@@ -289,7 +327,7 @@ private struct GaugeArcShape: View {
                         lineWidth: isMajor ? 2.0 : 1.0
                     )
                 }
-                
+
                 // Needle Indicator
                 NeedleView(angle: needleAngle, length: radius - 6, status: status)
                     .position(center)
@@ -304,7 +342,7 @@ private struct NeedleView: View {
     let angle: Angle
     let length: CGFloat
     let status: TuningStatus
-    
+
     var body: some View {
         ZStack {
             // Glowing Needle Line
@@ -314,7 +352,7 @@ private struct NeedleView: View {
                     .fill(status.color)
                     .frame(width: 8, height: 8)
                     .shadow(color: status.color, radius: 6)
-                
+
                 // Needle shaft
                 Rectangle()
                     .fill(
@@ -327,7 +365,7 @@ private struct NeedleView: View {
                     .frame(width: 3, height: length)
             }
             .offset(y: -length / 2)
-            
+
             // Center Pivot
             Circle()
                 .fill(Color(white: 0.2))

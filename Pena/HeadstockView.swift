@@ -5,14 +5,16 @@ public struct HeadstockView: View {
     public let activeString: GuitarString
     public let status: TuningStatus
     public let isPlayingTone: Bool
+    public let tunedStringIDs: Set<Int>
     public let onSelectString: (GuitarString) -> Void
     public let onPlayTone: (GuitarString) -> Void
-    
+
     public init(
         preset: TuningPreset,
         activeString: GuitarString,
         status: TuningStatus,
         isPlayingTone: Bool,
+        tunedStringIDs: Set<Int> = [],
         onSelectString: @escaping (GuitarString) -> Void,
         onPlayTone: @escaping (GuitarString) -> Void
     ) {
@@ -20,6 +22,7 @@ public struct HeadstockView: View {
         self.activeString = activeString
         self.status = status
         self.isPlayingTone = isPlayingTone
+        self.tunedStringIDs = tunedStringIDs
         self.onSelectString = onSelectString
         self.onPlayTone = onPlayTone
     }
@@ -53,6 +56,7 @@ public struct HeadstockView: View {
                         status: activeString.id == string.id ? status : .silent,
                         isLeftSide: true,
                         isPlayingTone: activeString.id == string.id && isPlayingTone,
+                        isTuned: tunedStringIDs.contains(string.id),
                         onTap: { onSelectString(string) },
                         onPlayTone: { onPlayTone(string) }
                     )
@@ -196,6 +200,7 @@ public struct HeadstockView: View {
                         status: activeString.id == string.id ? status : .silent,
                         isLeftSide: false,
                         isPlayingTone: activeString.id == string.id && isPlayingTone,
+                        isTuned: tunedStringIDs.contains(string.id),
                         onTap: { onSelectString(string) },
                         onPlayTone: { onPlayTone(string) }
                     )
@@ -215,60 +220,84 @@ private struct PegButton: View {
     let status: TuningStatus
     let isLeftSide: Bool
     let isPlayingTone: Bool
+    let isTuned: Bool
     let onTap: () -> Void
     let onPlayTone: () -> Void
-    
+
+    private var accessibilityHint: String {
+        if isTuned {
+            return String(localized: "headstock.a11y.hint_tuned", defaultValue: "Akortlandı. Seçmek için dokunun.")
+        }
+        return String(localized: "headstock.a11y.hint", defaultValue: "Bu teli seçmek için dokunun, referans sesini duymak için basılı tutun.")
+    }
+
     var body: some View {
         Button(action: onTap) {
             HStack(spacing: 6) {
                 if !isLeftSide {
                     pegHandle
                 }
-                
+
                 // String details container
-                VStack(spacing: 2) {
-                    HStack(spacing: 2) {
-                        Text(string.noteLetter)
-                            .font(.system(size: 16, weight: .bold, design: .rounded))
-                            .foregroundStyle(isActive ? (status == .silent ? .white : status.color) : .secondary)
-                        
-                        Text("\(string.octave)")
-                            .font(.system(size: 10, weight: .semibold, design: .rounded))
-                            .foregroundStyle(.secondary)
+                ZStack(alignment: isLeftSide ? .topLeading : .topTrailing) {
+                    VStack(spacing: 2) {
+                        HStack(spacing: 2) {
+                            Text(string.noteLetter)
+                                .font(.system(size: 16, weight: .bold, design: .rounded))
+                                .foregroundStyle(isActive ? (status == .silent ? .white : status.color) : .secondary)
+
+                            Text("\(string.octave)")
+                                .font(.system(size: 10, weight: .semibold, design: .rounded))
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Text(String(localized: "headstock.string_number", defaultValue: "\(string.id). Tel"))
+                            .font(.system(size: 10, weight: .medium))
+                            .foregroundStyle(isActive ? .white.opacity(0.8) : .secondary.opacity(0.6))
                     }
-                    
-                    Text("\(string.id). Tel")
-                        .font(.system(size: 10, weight: .medium))
-                        .foregroundStyle(isActive ? .white.opacity(0.8) : .secondary.opacity(0.6))
+                    .frame(width: 50, height: 44)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .fill(isActive ? Color(white: 0.18) : Color(white: 0.10))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                    .stroke(
+                                        isActive ? (status == .silent ? Color(red: 0.85, green: 0.72, blue: 0.35) : status.color) : Color(white: 0.18),
+                                        lineWidth: isActive ? 2 : 1
+                                    )
+                            )
+                            .shadow(
+                                color: isActive ? (status == .silent ? Color(red: 0.85, green: 0.72, blue: 0.35).opacity(0.3) : status.color.opacity(0.4)) : .clear,
+                                radius: 8
+                            )
+                    )
+
+                    if isTuned {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundStyle(Color(red: 0.15, green: 0.85, blue: 0.40))
+                            .background(Circle().fill(Color(white: 0.10)))
+                            .offset(x: isLeftSide ? -4 : 4, y: -4)
+                    }
                 }
-                .frame(width: 50, height: 44)
-                .background(
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(isActive ? Color(white: 0.18) : Color(white: 0.10))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .stroke(
-                                    isActive ? (status == .silent ? Color(red: 0.85, green: 0.72, blue: 0.35) : status.color) : Color(white: 0.18),
-                                    lineWidth: isActive ? 2 : 1
-                                )
-                        )
-                        .shadow(
-                            color: isActive ? (status == .silent ? Color(red: 0.85, green: 0.72, blue: 0.35).opacity(0.3) : status.color.opacity(0.4)) : .clear,
-                            radius: 8
-                        )
-                )
-                
+
                 if isLeftSide {
                     pegHandle
                 }
             }
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(Text(string.stringLabel))
+        .accessibilityHint(Text(accessibilityHint))
+        .accessibilityAddTraits(isActive ? [.isSelected] : [])
         .contextMenu {
             Button {
                 onPlayTone()
             } label: {
-                Label("\(string.displayTitle) Sesini Çal", systemImage: "speaker.wave.2.fill")
+                Label(
+                    String(localized: "headstock.play_string_tone", defaultValue: "\(string.displayTitle) Sesini Çal"),
+                    systemImage: "speaker.wave.2.fill"
+                )
             }
         }
     }
