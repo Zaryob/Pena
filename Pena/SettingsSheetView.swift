@@ -3,6 +3,7 @@ import SwiftUI
 public struct SettingsSheetView: View {
     @Bindable public var viewModel: TunerViewModel
     @Environment(\.dismiss) private var dismiss
+    @ScaledMetric(relativeTo: .caption) private var tipBadgeSize: CGFloat = 22
 
     public init(viewModel: TunerViewModel) {
         self.viewModel = viewModel
@@ -38,20 +39,24 @@ public struct SettingsSheetView: View {
                             Text(String(localized: "settings.a4.label", defaultValue: "Referans A4:"))
                                 .font(.body)
                             Spacer()
-                            Text(String(format: "%.1f Hz", viewModel.a4Frequency))
-                                .font(.system(size: 17, weight: .bold, design: .monospaced))
+                            Text("\(viewModel.a4Frequency, format: .number.precision(.fractionLength(1))) Hz")
+                                .font(.body.bold().monospaced())
                                 .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
                         }
 
                         Slider(value: $viewModel.a4Frequency, in: 415.0...466.0, step: 0.5)
                             .tint(Color(red: 0.85, green: 0.72, blue: 0.35))
-                            .accessibilityValue(Text(String(format: "%.1f Hz", viewModel.a4Frequency)))
+                            .accessibilityValue(
+                                Text("\(viewModel.a4Frequency, format: .number.precision(.fractionLength(1))) Hz")
+                            )
 
-                        HStack(spacing: 6) {
-                            quickA4Button(415.0, title: String(localized: "settings.a4.baroque", defaultValue: "415 Hz (Barok)"))
-                            quickA4Button(440.0, title: String(localized: "settings.a4.standard", defaultValue: "440 Hz (Standart)"))
-                            quickA4Button(442.0, title: String(localized: "settings.a4.classical", defaultValue: "442 Hz (Klasik)"))
-                            quickA4Button(446.0, title: String(localized: "settings.a4.orchestral", defaultValue: "446 Hz (Orkestra)"))
+                        ViewThatFits(in: .horizontal) {
+                            HStack(spacing: 6) {
+                                quickA4Buttons
+                            }
+                            VStack(spacing: 8) {
+                                quickA4Buttons
+                            }
                         }
                     }
                     .padding(.vertical, 4)
@@ -131,12 +136,20 @@ public struct SettingsSheetView: View {
         }
     }
 
+    @ViewBuilder
+    private var quickA4Buttons: some View {
+        quickA4Button(415.0, title: String(localized: "settings.a4.baroque", defaultValue: "415 Hz (Barok)"))
+        quickA4Button(440.0, title: String(localized: "settings.a4.standard", defaultValue: "440 Hz (Standart)"))
+        quickA4Button(442.0, title: String(localized: "settings.a4.classical", defaultValue: "442 Hz (Klasik)"))
+        quickA4Button(446.0, title: String(localized: "settings.a4.orchestral", defaultValue: "446 Hz (Orkestra)"))
+    }
+
     private func quickA4Button(_ freq: Double, title: String) -> some View {
         Button {
             viewModel.a4Frequency = freq
         } label: {
             Text(title)
-                .font(.system(size: 11, weight: .medium))
+                .font(.caption2.weight(.medium))
                 .padding(.horizontal, 6)
                 .padding(.vertical, 5)
                 .frame(maxWidth: .infinity)
@@ -152,17 +165,17 @@ public struct SettingsSheetView: View {
     private func tipRow(number: String, title: String, text: String) -> some View {
         HStack(alignment: .top, spacing: 10) {
             Text(number)
-                .font(.system(size: 13, weight: .bold))
+                .font(.caption.bold())
                 .foregroundStyle(.black)
-                .frame(width: 22, height: 22)
+                .frame(width: tipBadgeSize, height: tipBadgeSize)
                 .background(Circle().fill(Color(red: 0.85, green: 0.72, blue: 0.35)))
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.white)
                 Text(text)
-                    .font(.system(size: 12))
+                    .font(.footnote)
                     .foregroundStyle(.secondary)
             }
         }
