@@ -134,6 +134,8 @@ public enum AudioEngineError: LocalizedError, Equatable, Sendable {
 public final class AudioEngineManager: NSObject {
     // Observable State
     public private(set) var isRunning: Bool = false
+    public private(set) var isStarting: Bool = false
+    public var isListening: Bool { isRunning || isStarting }
     public private(set) var hasMicrophonePermission: Bool = false
     public private(set) var permissionRequested: Bool = false
     public private(set) var smoothedFrequency: Double? = nil
@@ -185,8 +187,9 @@ public final class AudioEngineManager: NSObject {
     @ObservationIgnored private var toneStopTask: Task<Void, Never>?
     @ObservationIgnored private var pluckClearTask: Task<Void, Never>?
     @ObservationIgnored private var wasRunningBeforeInterruption = false
-    @ObservationIgnored private var isStarting = false
     @ObservationIgnored private var isRestarting = false
+    @ObservationIgnored private var startGeneration = 0
+    nonisolated(unsafe) private var analysisGeneration = 0
 
     public override init() {
         super.init()
@@ -295,7 +298,7 @@ public final class AudioEngineManager: NSObject {
             guard let self, self.isRunning, !self.isStarting, !self.isRestarting else { return }
             self.isRestarting = true
             defer { self.isRestarting = false }
-            self.stop()
+            self.stop(deactivateSession: false)
             self.start()
         }
     }
@@ -311,7 +314,7 @@ public final class AudioEngineManager: NSObject {
             }
             self.isRestarting = true
             defer { self.isRestarting = false }
-            self.stop()
+            self.stop(deactivateSession: false)
             self.start()
         }
     }
@@ -331,11 +334,18 @@ public final class AudioEngineManager: NSObject {
     // MARK: - Start / Stop Audio Engine
     public func start() {
         guard !isRunning, !isStarting else { return }
+        startGeneration &+= 1
+        let generation = startGeneration
+        analysisGeneration = generation
         isStarting = true
 
         Task { @MainActor [weak self] in
             guard let self else { return }
-            defer { self.isStarting = false }
+            defer {
+                if self.startGeneration == generation {
+                    self.isStarting = false
+                }
+            }
 
             do {
                 try await self.configureAudioSession()
@@ -344,7 +354,7 @@ public final class AudioEngineManager: NSObject {
                 return
             }
 
-            guard self.isStarting else { return }
+            guard self.isStarting, self.startGeneration == generation else { return }
 
             let activeEngine = self.engine ?? AVAudioEngine()
             if self.toneSourceNode == nil {
@@ -365,7 +375,9 @@ public final class AudioEngineManager: NSObject {
                 self.isRunning = true
                 self.currentError = nil
                 self.micWindow.reset()
-                self.pitchStabilizer.reset()
+                self.analysisQueue.async { [pitchStabilizer = self.pitchStabilizer] in
+                    pitchStabilizer.reset()
+                }
             } catch {
                 self.currentError = .engineStartFailed(error.localizedDescription)
                 self.isRunning = false
@@ -378,7 +390,9 @@ public final class AudioEngineManager: NSObject {
         }
     }
 
-    public func stop() {
+    public func stop(deactivateSession: Bool = true) {
+        startGeneration &+= 1
+        analysisGeneration = startGeneration
         isStarting = false
         if let engine {
             engine.inputNode.removeTap(onBus: 0)
@@ -390,7 +404,9 @@ public final class AudioEngineManager: NSObject {
         toneStopTask?.cancel()
         pluckClearTask?.cancel()
         micWindow.reset()
-        pitchStabilizer.reset()
+        analysisQueue.async { [pitchStabilizer] in
+            pitchStabilizer.reset()
+        }
         isSuppressingToneAnalysis = false
 
         isRunning = false
@@ -401,8 +417,10 @@ public final class AudioEngineManager: NSObject {
 
         #if os(iOS)
         UIApplication.shared.isIdleTimerDisabled = false
-        Task.detached(priority: .utility) {
-            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        if deactivateSession {
+            Task.detached(priority: .utility) {
+                try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+            }
         }
         #endif
     }
@@ -441,6 +459,7 @@ public final class AudioEngineManager: NSObject {
         let snapshot = useSnapshotA ? snapshotA : snapshotB
         useSnapshotA.toggle()
 
+        let generation = analysisGeneration
         let range = frequencyRangeBox
         let gate = noiseGateThresholdBox
         let config = PitchDetectorConfig(minFrequency: range.lowerBound, maxFrequency: range.upperBound)
@@ -451,12 +470,13 @@ public final class AudioEngineManager: NSObject {
             let result = detector.detectPitch(samples: snapshot, sampleRate: sampleRate, rms: rms, config: config)
             let reading = stabilizer.ingest(result, rms: rms, noiseGateAmplitude: gate)
             Task { @MainActor in
-                self?.apply(reading: reading)
+                self?.apply(reading: reading, generation: generation)
             }
         }
     }
 
-    private func apply(reading: TunerReading) {
+    private func apply(reading: TunerReading, generation: Int) {
+        guard isRunning, generation == analysisGeneration else { return }
         currentAmplitude = reading.amplitude
         currentClarity = reading.clarity
         smoothedFrequency = reading.frequency

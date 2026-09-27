@@ -27,7 +27,7 @@ public struct TunerMainView: View {
                     micPermissionBanner
                         .padding(.horizontal, 16)
                         .padding(.top, 8)
-                } else if !viewModel.audioManager.isRunning {
+                } else if !viewModel.audioManager.isListening {
                     micInactiveBanner
                         .padding(.horizontal, 16)
                         .padding(.top, 8)
@@ -328,9 +328,9 @@ public struct TunerMainView: View {
             Button {
                 viewModel.toggleListening()
             } label: {
-                Image(systemName: viewModel.audioManager.isRunning ? "mic.fill" : "mic.slash.fill")
+                Image(systemName: viewModel.audioManager.isListening ? "mic.fill" : "mic.slash.fill")
                     .font(.system(size: 18, weight: .bold))
-                    .foregroundStyle(viewModel.audioManager.isRunning ? Color(red: 0.15, green: 0.85, blue: 0.40) : Color.secondary)
+                    .foregroundStyle(viewModel.audioManager.isListening ? Color(red: 0.15, green: 0.85, blue: 0.40) : Color.secondary)
                     .frame(width: 50, height: 50)
                     .background(
                         RoundedRectangle(cornerRadius: 16)
@@ -338,14 +338,14 @@ public struct TunerMainView: View {
                             .overlay(
                                 RoundedRectangle(cornerRadius: 16)
                                     .stroke(
-                                        viewModel.audioManager.isRunning ? Color(red: 0.15, green: 0.85, blue: 0.40).opacity(0.3) : Color(white: 0.2),
+                                        viewModel.audioManager.isListening ? Color(red: 0.15, green: 0.85, blue: 0.40).opacity(0.3) : Color(white: 0.2),
                                         lineWidth: 1
                                     )
                             )
                     )
             }
             .buttonStyle(.plain)
-            .accessibilityLabel(Text(viewModel.audioManager.isRunning
+            .accessibilityLabel(Text(viewModel.audioManager.isListening
                 ? String(localized: "main.a11y.pause_mic", defaultValue: "Mikrofonu durdur")
                 : String(localized: "main.a11y.resume_mic", defaultValue: "Mikrofonu başlat")))
 

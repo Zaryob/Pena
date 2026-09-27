@@ -345,8 +345,8 @@ public final class TunerViewModel {
     }
 
     public func toggleListening() {
-        if audioManager.isRunning {
-            audioManager.stop()
+        if audioManager.isListening {
+            audioManager.stop(deactivateSession: false)
         } else {
             if audioManager.hasMicrophonePermission {
                 audioManager.start()
