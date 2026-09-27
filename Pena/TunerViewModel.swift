@@ -32,19 +32,18 @@ public final class TunerViewModel {
     // Core Configuration
     public var currentPreset: TuningPreset = .standard {
         didSet {
-            // Update selected string to match in new preset
             if let match = currentPreset.strings.first(where: { $0.id == selectedString.id }) {
                 selectedString = match
             } else if let first = currentPreset.strings.first {
                 selectedString = first
             }
-            autoDetectedString = nil
+            lastConfirmedString = nil
         }
     }
     
     public var tuningMode: TuningMode = .auto
     public var selectedString: GuitarString
-    public var autoDetectedString: GuitarString? = nil
+    public var lastConfirmedString: GuitarString? = nil
     
     public var notationStyle: NotationStyle = .letter
     public var a4Frequency: Double = 440.0 {
@@ -53,7 +52,7 @@ public final class TunerViewModel {
         }
     }
     public var inTuneTolerance: Double = 3.0 // cents
-    public var noiseGateThreshold: Float = 0.010 {
+    public var noiseGateThreshold: Float = 0.006 {
         didSet {
             audioManager.noiseGateThreshold = noiseGateThreshold
         }
@@ -68,42 +67,64 @@ public final class TunerViewModel {
     public init(audioManager: AudioEngineManager? = nil) {
         let manager = audioManager ?? AudioEngineManager()
         self.audioManager = manager
-        // Default starting string: 6th string E2
+        // Start on 6th string (E2)
         self.selectedString = TuningPreset.standard.strings[5]
     }
     
-    // MARK: - Active & Target String
+    // MARK: - Active String Identification
     public var activeString: GuitarString {
         switch tuningMode {
         case .manual:
             return selectedString
+            
         case .auto:
-            if let freq = audioManager.smoothedFrequency {
-                // Find closest string in the current preset
-                let closest = currentPreset.strings.min { s1, s2 in
-                    let f1 = s1.targetFrequency(a4: a4Frequency)
-                    let f2 = s2.targetFrequency(a4: a4Frequency)
-                    return abs(log2(freq / f1)) < abs(log2(freq / f2))
-                }
-                if let matched = closest {
-                    // Update auto-detected string and keep it locked
-                    if autoDetectedString?.id != matched.id {
-                        Task { @MainActor in
-                            self.autoDetectedString = matched
-                            self.selectedString = matched
-                        }
-                    }
-                    return matched
+            guard let freq = audioManager.smoothedFrequency else {
+                return lastConfirmedString ?? selectedString
+            }
+            
+            // Find closest string in the current preset
+            var closestString: GuitarString? = nil
+            var minCentsDist: Double = Double.infinity
+            
+            for string in currentPreset.strings {
+                let targetF = string.targetFrequency(a4: a4Frequency)
+                let cents = abs(1200.0 * log2(freq / targetF))
+                if cents < minCentsDist {
+                    minCentsDist = cents
+                    closestString = string
                 }
             }
-            // If in silence, stay on the last auto-detected or selected string!
-            return autoDetectedString ?? selectedString
+            
+            // Only accept if within 220 cents of an actual guitar string
+            // (Any speech or random noise outside the tuning band of guitar strings is ignored!)
+            if minCentsDist <= 220.0, let matched = closestString {
+                if lastConfirmedString?.id != matched.id {
+                    Task { @MainActor in
+                        self.lastConfirmedString = matched
+                        self.selectedString = matched
+                    }
+                }
+                return matched
+            }
+            
+            return lastConfirmedString ?? selectedString
         }
     }
     
-    // MARK: - Current Pitch Metrics
+    // MARK: - Pitch Metrics & Validation
     public var detectedFrequency: Double? {
-        audioManager.smoothedFrequency
+        guard let freq = audioManager.smoothedFrequency else { return nil }
+        
+        // In manual mode, only show if within 250 cents of the selected string
+        if tuningMode == .manual {
+            let targetF = selectedString.targetFrequency(a4: a4Frequency)
+            let cents = abs(1200.0 * log2(freq / targetF))
+            if cents > 250.0 {
+                return nil
+            }
+        }
+        
+        return freq
     }
     
     public var targetFrequency: Double {
@@ -114,7 +135,6 @@ public final class TunerViewModel {
     public var centsDifference: Double {
         guard let freq = detectedFrequency else { return 0.0 }
         let cents = MusicPitchHelper.centsDifference(frequency: freq, target: targetFrequency)
-        // Clamp to [-50, 50] for gauge display
         return max(-50.0, min(50.0, cents))
     }
     
@@ -179,7 +199,7 @@ public final class TunerViewModel {
     // MARK: - String & Tuning Actions
     public func selectString(_ string: GuitarString) {
         selectedString = string
-        autoDetectedString = string
+        lastConfirmedString = string
         #if os(iOS)
         let impact = UIImpactFeedbackGenerator(style: .light)
         impact.impactOccurred()
@@ -215,7 +235,7 @@ public final class TunerViewModel {
         #endif
     }
     
-    // MARK: - Simulation Helper for Simulator
+    // MARK: - Simulation Helper
     public func simulatePluck(for string: GuitarString, offsetCents: Double = 0.0) {
         selectString(string)
         let baseFreq = string.targetFrequency(a4: a4Frequency)

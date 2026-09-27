@@ -13,7 +13,7 @@ public struct PitchDetectionResult: Equatable {
 
 // MARK: - Thread-Safe Audio Buffer Accumulator
 final class AudioBufferAccumulator: @unchecked Sendable {
-    private let capacity = 4096
+    private let capacity = 2048
     private var buffer: [Float]
     private var count = 0
     private var lock = os_unfair_lock()
@@ -69,8 +69,8 @@ public final class AudioEngineManager: NSObject {
     public private(set) var lastErrorMessage: String? = nil
     
     // User Settings
-    // Default threshold set to 0.010 to filter out ambient room noise/whispers
-    public var noiseGateThreshold: Float = 0.010
+    // Default threshold set to 0.006 to catch acoustic classical guitar without catching ambient noise
+    public var noiseGateThreshold: Float = 0.006
     public var a4Calibration: Double = 440.0
     
     // Audio engine components
@@ -82,8 +82,7 @@ public final class AudioEngineManager: NSObject {
     // Internal pitch detection variables
     @ObservationIgnored private var sampleRate: Double = 48000.0
     @ObservationIgnored private var silenceFramesCount = 0
-    @ObservationIgnored private var candidateFrequency: Double? = nil
-    @ObservationIgnored private var candidateCount = 0
+    @ObservationIgnored private var persistenceTimer: Task<Void, Never>?
     
     // Tone generation state
     @ObservationIgnored private var tonePhase: Double = 0.0
@@ -154,7 +153,7 @@ public final class AudioEngineManager: NSObject {
                 mode: .measurement,
                 options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers]
             )
-            try audioSession.setPreferredIOBufferDuration(0.01) // Low latency input
+            try audioSession.setPreferredIOBufferDuration(0.01)
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             print("AudioSession setup error: \(error.localizedDescription)")
@@ -167,7 +166,7 @@ public final class AudioEngineManager: NSObject {
         
         inputNode.removeTap(onBus: 0)
         let accumulatorRef = self.accumulator
-        inputNode.installTap(onBus: 0, bufferSize: 2048, format: nil) { [weak self] buffer, _ in
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { [weak self] buffer, _ in
             self?.processIncomingBuffer(buffer, accumulator: accumulatorRef)
         }
         
@@ -191,12 +190,11 @@ public final class AudioEngineManager: NSObject {
             self.audioEngine = nil
         }
         stopToneEngine()
+        persistenceTimer?.cancel()
         accumulator.reset()
         self.isRunning = false
         self.currentFrequency = nil
         self.smoothedFrequency = nil
-        self.candidateFrequency = nil
-        self.candidateCount = 0
         self.currentAmplitude = 0.0
         self.currentClarity = 0.0
     }
@@ -225,8 +223,8 @@ public final class AudioEngineManager: NSObject {
         var centeredSamples = [Float](repeating: 0.0, count: currentCount)
         vDSP_vsadd(analysisSamples, 1, &negativeMean, &centeredSamples, 1, vDSP_Length(currentCount))
         
-        // Detect pitch using McLeod NSDF
-        let pitchResult = detectPitchMcLeod(
+        // Run Accelerated YIN Pitch Detection
+        let pitchResult = detectPitchYIN(
             samples: centeredSamples,
             count: currentCount,
             sampleRate: actualSampleRate,
@@ -237,15 +235,13 @@ public final class AudioEngineManager: NSObject {
             guard let self = self else { return }
             self.currentAmplitude = rms
             
-            // Check noise threshold & clarity:
-            // Must exceed noise threshold AND have a valid pitch result with high clarity (>= 0.60)
-            guard rms >= self.noiseGateThreshold, let detected = pitchResult, detected.clarity >= 0.60 else {
+            // If below noise threshold or no musical pitch found:
+            guard rms >= self.noiseGateThreshold, let detected = pitchResult else {
                 self.silenceFramesCount += 1
-                if self.silenceFramesCount > 8 { // ~160ms of silence/noise before clearing
+                // Allow sound to sustain for ~800ms before clearing display
+                if self.silenceFramesCount > 35 {
                     self.currentFrequency = nil
                     self.smoothedFrequency = nil
-                    self.candidateFrequency = nil
-                    self.candidateCount = 0
                     self.currentClarity = 0.0
                 }
                 return
@@ -255,30 +251,16 @@ public final class AudioEngineManager: NSObject {
             self.currentClarity = detected.clarity
             let freq = detected.frequency
             
-            // 2-frame consistency check to filter out speech/room noise transients
-            if let cand = self.candidateFrequency {
-                let semitoneDiff = abs(12.0 * log2(freq / cand))
-                if semitoneDiff < 0.8 {
-                    // Confirmed candidate
-                    self.candidateCount += 1
-                } else {
-                    // New candidate
-                    self.candidateFrequency = freq
-                    self.candidateCount = 1
-                }
-            } else {
-                self.candidateFrequency = freq
-                self.candidateCount = 1
+            // Guitar frequency range check: 68 Hz to 380 Hz (6 classical guitar open strings)
+            guard freq >= 68.0 && freq <= 380.0 else {
+                return
             }
             
-            // Only update UI frequency after 2 consecutive agreeing frames (stable pitch)
-            guard self.candidateCount >= 2 else { return }
-            
-            // Pluck detection / smoothing
+            // Smooth tracking
             if let prev = self.smoothedFrequency {
                 let semitoneDiff = abs(12.0 * log2(freq / prev))
                 if semitoneDiff > 1.2 {
-                    // Quick jump to new note/string
+                    // Jump to new string
                     self.smoothedFrequency = freq
                     self.isPluckDetected = true
                     Task { @MainActor in
@@ -286,8 +268,7 @@ public final class AudioEngineManager: NSObject {
                         self.isPluckDetected = false
                     }
                 } else {
-                    // Smooth tracking
-                    let alpha = 0.40
+                    let alpha = 0.35
                     self.smoothedFrequency = prev * (1.0 - alpha) + freq * alpha
                 }
             } else {
@@ -303,92 +284,108 @@ public final class AudioEngineManager: NSObject {
         }
     }
     
-    // MARK: - Pure McLeod Pitch Method (NSDF)
-    nonisolated private func detectPitchMcLeod(
+    // MARK: - Accelerated YIN Pitch Detection (vDSP)
+    nonisolated private func detectPitchYIN(
         samples: [Float],
         count: Int,
         sampleRate: Double,
         rms: Float
     ) -> PitchDetectionResult? {
-        // Classical guitar range: 65 Hz (Drop D: 73.4Hz) to 700 Hz (E4: 329.6Hz + frets)
+        // Guitar pitch bounds: 65 Hz to 420 Hz
         let minFreq = 65.0
-        let maxFreq = 700.0
+        let maxFreq = 420.0
         
         let minPeriod = max(10, Int(sampleRate / maxFreq))
         let maxPeriod = min(count / 2, Int(sampleRate / minFreq))
-        
-        guard maxPeriod > minPeriod, count > maxPeriod * 2 else { return nil }
         let windowSize = count - maxPeriod
         
-        // Compute NSDF
-        var nsdf = [Double](repeating: 0.0, count: maxPeriod + 1)
+        guard maxPeriod > minPeriod, windowSize > 0 else { return nil }
         
-        for tau in minPeriod...maxPeriod {
-            var sumCross: Double = 0.0
-            var sumSquare1: Double = 0.0
-            var sumSquare2: Double = 0.0
-            
-            for j in stride(from: 0, to: windowSize, by: 2) {
-                let x1 = Double(samples[j])
-                let x2 = Double(samples[j + tau])
-                sumCross += x1 * x2
-                sumSquare1 += x1 * x1
-                sumSquare2 += x2 * x2
+        // 1. Initial energy of window
+        var energy0: Float = 0.0
+        vDSP_svesq(samples, 1, &energy0, vDSP_Length(windowSize))
+        
+        // 2. Cross-correlation using vDSP_conv
+        var xcorr = [Float](repeating: 0, count: maxPeriod)
+        samples.withUnsafeBufferPointer { ptr in
+            let s = ptr.baseAddress!
+            vDSP_conv(s, 1, s, 1, &xcorr, 1, vDSP_Length(maxPeriod), vDSP_Length(windowSize))
+        }
+        
+        // 3. Difference function d(tau) = energy0 + energy(tau) - 2 * xcorr(tau)
+        var d = [Float](repeating: 0, count: maxPeriod)
+        for tau in 1..<maxPeriod {
+            var energyTau: Float = 0.0
+            samples.withUnsafeBufferPointer { ptr in
+                vDSP_svesq(ptr.baseAddress!.advanced(by: tau), 1, &energyTau, vDSP_Length(windowSize))
             }
-            
-            let denom = sumSquare1 + sumSquare2
-            if denom > 1e-8 {
-                nsdf[tau] = (2.0 * sumCross) / denom
+            let diff = energy0 + energyTau - 2.0 * xcorr[tau]
+            d[tau] = max(0.0, diff)
+        }
+        
+        // 4. Cumulative Mean Normalized Difference Function (CMNDF)
+        var cmndf = [Float](repeating: 1.0, count: maxPeriod)
+        var runningSum: Float = 0.0
+        for tau in 1..<maxPeriod {
+            runningSum += d[tau]
+            if runningSum > 1e-6 {
+                cmndf[tau] = d[tau] / (runningSum / Float(tau))
             } else {
-                nsdf[tau] = 0.0
+                cmndf[tau] = 1.0
             }
         }
         
-        // Find global maximum
-        var maxVal = -1.0
-        for tau in minPeriod...maxPeriod {
-            if nsdf[tau] > maxVal {
-                maxVal = nsdf[tau]
+        // 5. Absolute thresholding (YIN threshold: 0.20 for guitar)
+        let threshold: Float = 0.20
+        var bestTau: Int? = nil
+        for tau in minPeriod..<maxPeriod {
+            if cmndf[tau] < threshold {
+                var localMin = tau
+                while localMin + 1 < maxPeriod && cmndf[localMin + 1] < cmndf[localMin] {
+                    localMin += 1
+                }
+                bestTau = localMin
+                break
             }
         }
         
-        // Musical note clarity threshold: Plucked guitar strings produce 0.70 - 0.98.
-        // Room noise and speech are below 0.55. Rejecting anything < 0.60 eliminates ambient noise!
-        guard maxVal >= 0.60 else { return nil }
-        
-        // MPM Key Maximum: find the FIRST local maximum that reaches at least 85% of global max
-        let threshold = maxVal * 0.85
-        var bestTau: Double? = nil
-        var bestClarity: Double = 0.0
-        
-        for tau in (minPeriod + 1)..<maxPeriod {
-            if nsdf[tau] > nsdf[tau - 1] && nsdf[tau] >= nsdf[tau + 1] && nsdf[tau] >= threshold {
-                let y1 = nsdf[tau - 1]
-                let y2 = nsdf[tau]
-                let y3 = nsdf[tau + 1]
-                
-                // Parabolic interpolation around peak
-                let denom = 2.0 * (2.0 * y2 - y1 - y3)
-                let delta = (denom != 0.0) ? (y3 - y1) / denom : 0.0
-                
-                let refined = Double(tau) + delta
-                if refined > 0 {
-                    bestTau = refined
-                    bestClarity = y2
-                    break
+        // Fallback: If no dip below 0.20, find the global minimum in range if it's below 0.35
+        if bestTau == nil {
+            var minVal: Float = 1.0
+            var minTau: Int? = nil
+            for tau in minPeriod..<maxPeriod {
+                if cmndf[tau] < minVal {
+                    minVal = cmndf[tau]
+                    minTau = tau
                 }
             }
+            if minVal < 0.35, let mt = minTau {
+                bestTau = mt
+            }
         }
         
-        guard let period = bestTau, period > 0 else { return nil }
+        guard let tau = bestTau else { return nil }
         
-        let frequency = sampleRate / period
-        guard frequency >= minFreq && frequency <= maxFreq else { return nil }
+        // 6. Parabolic interpolation for sub-Hz precision
+        var refinedTau = Double(tau)
+        if tau > 0 && tau + 1 < maxPeriod {
+            let y1 = Double(cmndf[tau - 1])
+            let y2 = Double(cmndf[tau])
+            let y3 = Double(cmndf[tau + 1])
+            let denom = 2.0 * (2.0 * y2 - y1 - y3)
+            if denom != 0.0 {
+                refinedTau += (y3 - y1) / denom
+            }
+        }
+        
+        guard refinedTau > 0 else { return nil }
+        let frequency = sampleRate / refinedTau
+        let clarity = Double(1.0 - cmndf[tau])
         
         return PitchDetectionResult(
             frequency: frequency,
             amplitude: rms,
-            clarity: bestClarity,
+            clarity: max(0.0, clarity),
             timestamp: Date()
         )
     }
