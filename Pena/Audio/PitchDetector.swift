@@ -143,12 +143,12 @@ public nonisolated final class PitchDetector: @unchecked Sendable {
         guard var tauFound = bestTau else { return nil }
         tauFound = correctOctaveError(tau0: tauFound, minPeriod: minPeriod, maxPeriod: maxPeriod)
 
-        // 7. Parabolic interpolation on cmndf around tauFound for sub-sample precision.
+        // 7. Parabolic interpolation on raw d(tau) around tauFound for sub-sample precision (less bias than cmndf).
         var refinedTau = Double(tauFound)
         if tauFound > 0 && tauFound + 1 < maxPeriod {
-            let y1 = Double(cmndf[tauFound - 1])
-            let y2 = Double(cmndf[tauFound])
-            let y3 = Double(cmndf[tauFound + 1])
+            let y1 = Double(diff[tauFound - 1])
+            let y2 = Double(diff[tauFound])
+            let y3 = Double(diff[tauFound + 1])
             let denom = 2.0 * (2.0 * y2 - y1 - y3)
             if abs(denom) > 1e-12 {
                 let shift = (y3 - y1) / denom
@@ -166,28 +166,45 @@ public nonisolated final class PitchDetector: @unchecked Sendable {
         return PitchDetectionResult(frequency: frequency, amplitude: rms, clarity: clarity)
     }
 
-    /// Guards against the common "octave too high" failure mode where a plucked string's
-    /// strong 2nd harmonic creates a spurious, near-perfect periodicity dip at half the
-    /// true period. A genuine fundamental at `tau0` is, by definition, already the
-    /// smallest period the signal repeats with, so a *materially deeper* dip near
-    /// `2 * tau0` (not just "also below threshold", which every multiple of a true
-    /// period trivially satisfies) is evidence that `tau0` was actually the harmonic
-    /// and the real fundamental sits an octave down.
+    /// Guards against octave errors by comparing candidates at τ0/2 and 2*τ0:
+    /// - Checks τ0 / 2 to protect against shifting into a sub-octave (alt harmoniğe kaymayı önler).
+    /// - Checks 2 * τ0 if τ0 was an overtone / 2nd harmonic dip and fundamental sits an octave down.
     private func correctOctaveError(tau0: Int, minPeriod: Int, maxPeriod: Int) -> Int {
-        let center = tau0 * 2
+        var currentTau = tau0
         let searchRadius = 2
-        guard center - searchRadius >= minPeriod, center + searchRadius < maxPeriod else { return tau0 }
 
-        var bestTau = center
-        var bestVal = cmndf[center]
-        for t in (center - searchRadius)...(center + searchRadius) where cmndf[t] < bestVal {
-            bestVal = cmndf[t]
-            bestTau = t
+        // 1. Sub-octave check (τ/2): If current tau0 picked up a sub-harmonic, check if τ0 / 2
+        // has a valid dip close to threshold.
+        let halfPeriod = tau0 / 2
+        if halfPeriod - searchRadius >= minPeriod {
+            var bestHalf = halfPeriod
+            var bestHalfVal = cmndf[halfPeriod]
+            for t in (halfPeriod - searchRadius)...min(maxPeriod - 1, halfPeriod + searchRadius) where cmndf[t] < bestHalfVal {
+                bestHalfVal = cmndf[t]
+                bestHalf = t
+            }
+            if bestHalfVal < 0.20 && (bestHalfVal < cmndf[currentTau] * 1.6 || bestHalfVal < 0.15) {
+                currentTau = bestHalf
+            }
         }
 
-        if bestVal < cmndf[tau0] * 0.8 {
-            return bestTau
+        // 2. Dominant harmonic check (2τ): If the fundamental is weak with a dominant 2nd harmonic,
+        // τ0 will have residual error (cmndf > 0.05). If 2 * τ0 is a substantially cleaner dip, promote to 2 * τ0.
+        if cmndf[currentTau] > 0.05 {
+            let doublePeriod = currentTau * 2
+            if doublePeriod - searchRadius >= minPeriod && doublePeriod + searchRadius < maxPeriod {
+                var bestDouble = doublePeriod
+                var bestDoubleVal = cmndf[doublePeriod]
+                for t in (doublePeriod - searchRadius)...(doublePeriod + searchRadius) where cmndf[t] < bestDoubleVal {
+                    bestDoubleVal = cmndf[t]
+                    bestDouble = t
+                }
+                if bestDoubleVal < cmndf[currentTau] * 0.5 {
+                    currentTau = bestDouble
+                }
+            }
         }
-        return tau0
+
+        return currentTau
     }
 }
