@@ -2,54 +2,108 @@ import Foundation
 import AVFoundation
 import Accelerate
 import Observation
+#if os(iOS)
+import UIKit
+#endif
 
-// MARK: - Pitch Detection Result
-public struct PitchDetectionResult: Equatable {
-    public let frequency: Double
-    public let amplitude: Float
-    public let clarity: Double
-    public let timestamp: Date
-}
-
-// MARK: - Thread-Safe Audio Buffer Accumulator
-final class AudioBufferAccumulator: @unchecked Sendable {
-    private let capacity = 2048
-    private var buffer: [Float]
-    private var count = 0
+// MARK: - Real-time-safe Rolling Window Buffer
+/// Fixed-capacity rolling window guarded by a spinlock. `append` runs on the real-time audio
+/// render thread and only ever copies bytes (memmove/memcpy) into buffers that are allocated
+/// once, up front — it never allocates, so it can never stall the render deadline the way the
+/// original per-callback `[Float](repeating:...)` allocations + O(n·m) DSP work used to.
+private nonisolated final class RollingWindowBuffer: @unchecked Sendable {
+    private let capacity: Int
+    private var ring: [Float]
+    private var filled = 0
     private var lock = os_unfair_lock()
-    
-    init() {
-        self.buffer = [Float](repeating: 0.0, count: capacity)
+
+    init(capacity: Int) {
+        self.capacity = capacity
+        self.ring = [Float](repeating: 0, count: capacity)
     }
-    
-    func append(samples: UnsafePointer<Float>, sampleCount: Int) -> ([Float], Int)? {
+
+    /// Copies `sampleCount` new samples in, then — if the window is fully populated —
+    /// copies the current window into the caller-owned `output` buffer (which must already
+    /// be sized to `capacity`) and returns `true`. `output` is never allocated here.
+    @discardableResult
+    func append(samples: UnsafePointer<Float>, sampleCount: Int, into output: inout [Float]) -> Bool {
         os_unfair_lock_lock(&lock)
         defer { os_unfair_lock_unlock(&lock) }
-        
-        if sampleCount >= capacity {
-            for i in 0..<capacity {
-                buffer[i] = samples[sampleCount - capacity + i]
+
+        ring.withUnsafeMutableBufferPointer { dst in
+            let base = dst.baseAddress!
+            if sampleCount >= capacity {
+                base.update(from: samples.advanced(by: sampleCount - capacity), count: capacity)
+                filled = capacity
+            } else {
+                let keep = capacity - sampleCount
+                memmove(base, base.advanced(by: sampleCount), keep * MemoryLayout<Float>.stride)
+                base.advanced(by: keep).update(from: samples, count: sampleCount)
+                filled = min(capacity, filled + sampleCount)
             }
-            count = capacity
-        } else {
-            let shift = sampleCount
-            let keep = capacity - shift
-            buffer.withUnsafeMutableBufferPointer { ptr in
-                let base = ptr.baseAddress!
-                memmove(base, base.advanced(by: shift), keep * MemoryLayout<Float>.stride)
-                memcpy(base.advanced(by: keep), samples, shift * MemoryLayout<Float>.stride)
-            }
-            count = min(capacity, count + sampleCount)
         }
-        
-        guard count >= 2048 else { return nil }
-        return (buffer, count)
+
+        guard filled >= capacity else { return false }
+        ring.withUnsafeBufferPointer { src in
+            output.withUnsafeMutableBufferPointer { dst in
+                dst.baseAddress!.update(from: src.baseAddress!, count: capacity)
+            }
+        }
+        return true
     }
-    
+
     func reset() {
         os_unfair_lock_lock(&lock)
-        count = 0
+        filled = 0
         os_unfair_lock_unlock(&lock)
+    }
+}
+
+// MARK: - Real-time-safe Reference Tone State
+/// Holds the reference-tone oscillator state behind a spinlock instead of letting the
+/// `AVAudioSourceNode` render callback read/write `@MainActor`-isolated stored properties
+/// directly from the audio thread (a genuine data race the previous implementation had).
+private nonisolated final class ToneStateBox: @unchecked Sendable {
+    private var isActive = false
+    private var frequency: Double = 0
+    private var amplitude: Double = 0
+    private var decayRate: Double = 1.5
+    private var phase: Double = 0
+    private var lock = os_unfair_lock()
+
+    func start(frequency: Double, decayRate: Double) {
+        os_unfair_lock_lock(&lock)
+        self.isActive = true
+        self.frequency = frequency
+        self.amplitude = 0.85
+        self.decayRate = decayRate
+        self.phase = 0
+        os_unfair_lock_unlock(&lock)
+    }
+
+    func stop() {
+        os_unfair_lock_lock(&lock)
+        isActive = false
+        amplitude = 0
+        os_unfair_lock_unlock(&lock)
+    }
+
+    /// Called from the render thread only; produces one sample and advances the envelope.
+    func nextSample(sampleRate: Double) -> Float {
+        os_unfair_lock_lock(&lock)
+        defer { os_unfair_lock_unlock(&lock) }
+        guard isActive, amplitude > 0.001 else { return 0 }
+
+        let twoPi = 2.0 * Double.pi
+        let fund = sin(twoPi * frequency * phase)
+        let harm2 = 0.35 * sin(twoPi * 2.0 * frequency * phase)
+        let harm3 = 0.15 * sin(twoPi * 3.0 * frequency * phase)
+        let harm4 = 0.06 * sin(twoPi * 4.0 * frequency * phase)
+        let sample = Float((fund + harm2 + harm3 + harm4) * amplitude * 0.4)
+
+        phase += 1.0 / sampleRate
+        amplitude *= exp(-decayRate / sampleRate)
+        return sample
     }
 }
 
@@ -61,448 +115,398 @@ public final class AudioEngineManager: NSObject {
     public private(set) var isRunning: Bool = false
     public private(set) var hasMicrophonePermission: Bool = false
     public private(set) var permissionRequested: Bool = false
-    public private(set) var currentFrequency: Double? = nil
     public private(set) var smoothedFrequency: Double? = nil
     public private(set) var currentAmplitude: Float = 0.0
     public private(set) var currentClarity: Double = 0.0
     public private(set) var isPluckDetected: Bool = false
     public private(set) var lastErrorMessage: String? = nil
-    
+
     // User Settings
-    // Default threshold set to 0.006 to catch acoustic classical guitar without catching ambient noise
-    public var noiseGateThreshold: Float = 0.006
-    public var a4Calibration: Double = 440.0
-    
-    // Audio engine components
-    @ObservationIgnored private var audioEngine: AVAudioEngine?
-    @ObservationIgnored private var toneEngine: AVAudioEngine?
+    // Default threshold set to catch acoustic classical guitar without catching ambient noise.
+    public var noiseGateThreshold: Float = 0.006 {
+        didSet { noiseGateThresholdBox = noiseGateThreshold }
+    }
+    /// Valid pitch range for the currently active tuning. Narrowing this to the active
+    /// preset's actual string range (with a little headroom) instead of a fixed constant
+    /// meaningfully cuts down false-positive detections from room noise and voice.
+    public var frequencyRange: ClosedRange<Double> = 60.0...440.0 {
+        didSet { frequencyRangeBox = frequencyRange }
+    }
+
+    // MARK: Real-time-safe shared state
+    // Everything below is read from the audio render thread and/or the background analysis
+    // queue, never only through MainActor. Plain scalar reads/writes are not linearizable by
+    // the Swift memory model, but a torn read here only ever yields a stale value for a
+    // single ~20ms audio frame of a tuning meter — never a crash — so a lock isn't worth
+    // paying on every render callback. Mutable buffers that DSP code writes into are only
+    // ever touched from the single serial audio thread (never concurrently), so they're safe
+    // without a lock too.
+    nonisolated(unsafe) private var noiseGateThresholdBox: Float = 0.006
+    nonisolated(unsafe) private var frequencyRangeBox: ClosedRange<Double> = 60.0...440.0
+    nonisolated(unsafe) private var isSuppressingToneAnalysis = false
+    nonisolated(unsafe) private var snapshotA = [Float](repeating: 0, count: PitchDetector.windowSize)
+    nonisolated(unsafe) private var snapshotB = [Float](repeating: 0, count: PitchDetector.windowSize)
+    nonisolated(unsafe) private var useSnapshotA = true
+    private let pitchDetector = PitchDetector()
+    private let pitchStabilizer = PitchStabilizer()
+    private let toneBox = ToneStateBox()
+    private let micWindow = RollingWindowBuffer(capacity: PitchDetector.windowSize)
+    private let analysisQueue = DispatchQueue(label: "pena.pitch-analysis", qos: .userInteractive)
+
+    // Audio engine components — a single engine drives both the microphone tap and the
+    // reference-tone output, instead of the two independent engines the app used to spin up.
+    @ObservationIgnored private var engine: AVAudioEngine?
     @ObservationIgnored private var toneSourceNode: AVAudioSourceNode?
-    @ObservationIgnored private let accumulator = AudioBufferAccumulator()
-    
-    // Internal pitch detection variables
-    @ObservationIgnored private var sampleRate: Double = 48000.0
-    @ObservationIgnored private var silenceFramesCount = 0
-    @ObservationIgnored private var persistenceTimer: Task<Void, Never>?
-    
-    // Tone generation state
-    @ObservationIgnored private var tonePhase: Double = 0.0
-    @ObservationIgnored private var toneFrequency: Double = 0.0
-    @ObservationIgnored private var toneAmplitude: Double = 0.0
-    @ObservationIgnored private var toneDecayRate: Double = 1.5
-    @ObservationIgnored private var isToneActive: Bool = false
-    @ObservationIgnored private var toneTimer: Timer?
-    
+    @ObservationIgnored private var toneStopTask: Task<Void, Never>?
+    @ObservationIgnored private var pluckClearTask: Task<Void, Never>?
+    @ObservationIgnored private var wasRunningBeforeInterruption = false
+
     public override init() {
         super.init()
         checkMicrophonePermission()
+        #if os(iOS)
+        registerForSessionNotifications()
+        #endif
     }
-    
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     // MARK: - Permission Handling
     public func checkMicrophonePermission() {
         #if os(iOS)
-        if #available(iOS 17.0, *) {
-            let status = AVAudioApplication.shared.recordPermission
-            self.hasMicrophonePermission = (status == .granted)
-            self.permissionRequested = (status != .undetermined)
-        } else {
-            let status = AVAudioSession.sharedInstance().recordPermission
-            self.hasMicrophonePermission = (status == .granted)
-            self.permissionRequested = (status != .undetermined)
-        }
-        #else
-        self.hasMicrophonePermission = true
-        self.permissionRequested = true
+        let status = AVAudioApplication.shared.recordPermission
+        self.hasMicrophonePermission = (status == .granted)
+        self.permissionRequested = (status != .undetermined)
         #endif
     }
-    
+
     public func requestMicrophonePermission(completion: @escaping (Bool) -> Void = { _ in }) {
         #if os(iOS)
-        if #available(iOS 17.0, *) {
-            AVAudioApplication.requestRecordPermission { [weak self] granted in
-                Task { @MainActor in
-                    self?.hasMicrophonePermission = granted
-                    self?.permissionRequested = true
-                    completion(granted)
-                }
-            }
-        } else {
-            AVAudioSession.sharedInstance().requestRecordPermission { [weak self] granted in
-                Task { @MainActor in
-                    self?.hasMicrophonePermission = granted
-                    self?.permissionRequested = true
-                    completion(granted)
-                }
+        AVAudioApplication.requestRecordPermission { [weak self] granted in
+            Task { @MainActor in
+                self?.hasMicrophonePermission = granted
+                self?.permissionRequested = true
+                completion(granted)
             }
         }
         #else
-        self.hasMicrophonePermission = true
-        self.permissionRequested = true
-        completion(true)
+        completion(false)
         #endif
     }
-    
-    // MARK: - Start / Stop Audio Engine
-    public func start() {
-        guard !isRunning else { return }
-        
+
+    // MARK: - Session Configuration
+    private func configureAudioSession() throws {
         #if os(iOS)
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(
-                .playAndRecord,
-                mode: .measurement,
-                options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers]
-            )
-            try audioSession.setPreferredIOBufferDuration(0.01)
-            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-        } catch {
-            print("AudioSession setup error: \(error.localizedDescription)")
-            self.lastErrorMessage = error.localizedDescription
-        }
-        #endif
-        
-        let engine = AVAudioEngine()
-        let inputNode = engine.inputNode
-        
-        inputNode.removeTap(onBus: 0)
-        let accumulatorRef = self.accumulator
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { [weak self] buffer, _ in
-            self?.processIncomingBuffer(buffer, accumulator: accumulatorRef)
-        }
-        
-        do {
-            try engine.start()
-            self.audioEngine = engine
-            self.isRunning = true
-            self.lastErrorMessage = nil
-            setupToneEngine()
-        } catch {
-            print("AudioEngine start error: \(error.localizedDescription)")
-            self.lastErrorMessage = error.localizedDescription
-            self.isRunning = false
-        }
-    }
-    
-    public func stop() {
-        if let engine = audioEngine {
-            engine.inputNode.removeTap(onBus: 0)
-            engine.stop()
-            self.audioEngine = nil
-        }
-        stopToneEngine()
-        persistenceTimer?.cancel()
-        accumulator.reset()
-        self.isRunning = false
-        self.currentFrequency = nil
-        self.smoothedFrequency = nil
-        self.currentAmplitude = 0.0
-        self.currentClarity = 0.0
-    }
-    
-    // MARK: - Incoming Audio Buffer Handling
-    nonisolated private func processIncomingBuffer(_ buffer: AVAudioPCMBuffer, accumulator: AudioBufferAccumulator) {
-        guard let channelData = buffer.floatChannelData?[0] else { return }
-        let frameCount = Int(buffer.frameLength)
-        guard frameCount > 0 else { return }
-        
-        let actualSampleRate = buffer.format.sampleRate > 0 ? buffer.format.sampleRate : 48000.0
-        
-        // Compute RMS of incoming chunk
-        var rms: Float = 0.0
-        vDSP_rmsqv(channelData, 1, &rms, vDSP_Length(frameCount))
-        
-        // Append to rolling analysis buffer
-        guard let (analysisSamples, currentCount) = accumulator.append(samples: channelData, sampleCount: frameCount) else {
-            return
-        }
-        
-        // Remove DC offset
-        var mean: Float = 0.0
-        vDSP_meanv(analysisSamples, 1, &mean, vDSP_Length(currentCount))
-        var negativeMean = -mean
-        var centeredSamples = [Float](repeating: 0.0, count: currentCount)
-        vDSP_vsadd(analysisSamples, 1, &negativeMean, &centeredSamples, 1, vDSP_Length(currentCount))
-        
-        // Run Accelerated YIN Pitch Detection
-        let pitchResult = detectPitchYIN(
-            samples: centeredSamples,
-            count: currentCount,
-            sampleRate: actualSampleRate,
-            rms: rms
+        let session = AVAudioSession.sharedInstance()
+        // `.measurement` disables system AGC/EQ so the mic signal reaches our detector
+        // unprocessed. `.allowBluetoothA2DP` (not `.allowBluetooth`/HFP) lets audio route to
+        // a Bluetooth speaker without downgrading the *input* to a 16kHz phone-call mic.
+        try session.setCategory(
+            .playAndRecord,
+            mode: .measurement,
+            options: [.defaultToSpeaker, .allowBluetoothA2DP]
         )
-        
-        Task { @MainActor [weak self] in
-            guard let self = self else { return }
-            self.currentAmplitude = rms
-            
-            // If below noise threshold or no musical pitch found:
-            guard rms >= self.noiseGateThreshold, let detected = pitchResult else {
-                self.silenceFramesCount += 1
-                // Allow sound to sustain for ~800ms before clearing display
-                if self.silenceFramesCount > 35 {
-                    self.currentFrequency = nil
-                    self.smoothedFrequency = nil
-                    self.currentClarity = 0.0
-                }
-                return
-            }
-            
-            self.silenceFramesCount = 0
-            self.currentClarity = detected.clarity
-            let freq = detected.frequency
-            
-            // Guitar frequency range check: 68 Hz to 380 Hz (6 classical guitar open strings)
-            guard freq >= 68.0 && freq <= 380.0 else {
-                return
-            }
-            
-            // Smooth tracking
-            if let prev = self.smoothedFrequency {
-                let semitoneDiff = abs(12.0 * log2(freq / prev))
-                if semitoneDiff > 1.2 {
-                    // Jump to new string
-                    self.smoothedFrequency = freq
-                    self.isPluckDetected = true
-                    Task { @MainActor in
-                        try? await Task.sleep(nanoseconds: 120_000_000)
-                        self.isPluckDetected = false
-                    }
-                } else {
-                    let alpha = 0.35
-                    self.smoothedFrequency = prev * (1.0 - alpha) + freq * alpha
-                }
-            } else {
-                self.smoothedFrequency = freq
-                self.isPluckDetected = true
-                Task { @MainActor in
-                    try? await Task.sleep(nanoseconds: 120_000_000)
-                    self.isPluckDetected = false
-                }
-            }
-            
-            self.currentFrequency = freq
-        }
+        try session.setPreferredIOBufferDuration(0.01)
+        try session.setActive(true, options: .notifyOthersOnDeactivation)
+        #endif
     }
-    
-    // MARK: - Accelerated YIN Pitch Detection (vDSP)
-    nonisolated private func detectPitchYIN(
-        samples: [Float],
-        count: Int,
-        sampleRate: Double,
-        rms: Float
-    ) -> PitchDetectionResult? {
-        // Guitar pitch bounds: 65 Hz to 420 Hz
-        let minFreq = 65.0
-        let maxFreq = 420.0
-        
-        let minPeriod = max(10, Int(sampleRate / maxFreq))
-        let maxPeriod = min(count / 2, Int(sampleRate / minFreq))
-        let windowSize = count - maxPeriod
-        
-        guard maxPeriod > minPeriod, windowSize > 0 else { return nil }
-        
-        // 1. Initial energy of window
-        var energy0: Float = 0.0
-        vDSP_svesq(samples, 1, &energy0, vDSP_Length(windowSize))
-        
-        // 2. Cross-correlation using vDSP_conv
-        var xcorr = [Float](repeating: 0, count: maxPeriod)
-        samples.withUnsafeBufferPointer { ptr in
-            let s = ptr.baseAddress!
-            vDSP_conv(s, 1, s, 1, &xcorr, 1, vDSP_Length(maxPeriod), vDSP_Length(windowSize))
-        }
-        
-        // 3. Difference function d(tau) = energy0 + energy(tau) - 2 * xcorr(tau)
-        var d = [Float](repeating: 0, count: maxPeriod)
-        for tau in 1..<maxPeriod {
-            var energyTau: Float = 0.0
-            samples.withUnsafeBufferPointer { ptr in
-                vDSP_svesq(ptr.baseAddress!.advanced(by: tau), 1, &energyTau, vDSP_Length(windowSize))
-            }
-            let diff = energy0 + energyTau - 2.0 * xcorr[tau]
-            d[tau] = max(0.0, diff)
-        }
-        
-        // 4. Cumulative Mean Normalized Difference Function (CMNDF)
-        var cmndf = [Float](repeating: 1.0, count: maxPeriod)
-        var runningSum: Float = 0.0
-        for tau in 1..<maxPeriod {
-            runningSum += d[tau]
-            if runningSum > 1e-6 {
-                cmndf[tau] = d[tau] / (runningSum / Float(tau))
-            } else {
-                cmndf[tau] = 1.0
-            }
-        }
-        
-        // 5. Absolute thresholding (YIN threshold: 0.20 for guitar)
-        let threshold: Float = 0.20
-        var bestTau: Int? = nil
-        for tau in minPeriod..<maxPeriod {
-            if cmndf[tau] < threshold {
-                var localMin = tau
-                while localMin + 1 < maxPeriod && cmndf[localMin + 1] < cmndf[localMin] {
-                    localMin += 1
+
+    #if os(iOS)
+    private func registerForSessionNotifications() {
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(handleInterruption(_:)), name: AVAudioSession.interruptionNotification, object: nil)
+        center.addObserver(self, selector: #selector(handleRouteChange(_:)), name: AVAudioSession.routeChangeNotification, object: nil)
+        center.addObserver(self, selector: #selector(handleMediaServicesReset(_:)), name: AVAudioSession.mediaServicesWereResetNotification, object: nil)
+    }
+
+    @objc private nonisolated func handleInterruption(_ notification: Notification) {
+        guard let info = notification.userInfo,
+              let typeValue = info[AVAudioSessionInterruptionTypeKey] as? UInt,
+              let type = AVAudioSession.InterruptionType(rawValue: typeValue) else { return }
+        let optionsValue = (info[AVAudioSessionInterruptionOptionKey] as? UInt) ?? 0
+        let shouldResume = AVAudioSession.InterruptionOptions(rawValue: optionsValue).contains(.shouldResume)
+
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            switch type {
+            case .began:
+                self.wasRunningBeforeInterruption = self.isRunning
+                if self.isRunning { self.stop() }
+            case .ended:
+                if shouldResume && self.wasRunningBeforeInterruption {
+                    self.start()
                 }
-                bestTau = localMin
+            @unknown default:
                 break
             }
         }
-        
-        // Fallback: If no dip below 0.20, find the global minimum in range if it's below 0.35
-        if bestTau == nil {
-            var minVal: Float = 1.0
-            var minTau: Int? = nil
-            for tau in minPeriod..<maxPeriod {
-                if cmndf[tau] < minVal {
-                    minVal = cmndf[tau]
-                    minTau = tau
-                }
-            }
-            if minVal < 0.35, let mt = minTau {
-                bestTau = mt
-            }
-        }
-        
-        guard let tau = bestTau else { return nil }
-        
-        // 6. Parabolic interpolation for sub-Hz precision
-        var refinedTau = Double(tau)
-        if tau > 0 && tau + 1 < maxPeriod {
-            let y1 = Double(cmndf[tau - 1])
-            let y2 = Double(cmndf[tau])
-            let y3 = Double(cmndf[tau + 1])
-            let denom = 2.0 * (2.0 * y2 - y1 - y3)
-            if denom != 0.0 {
-                refinedTau += (y3 - y1) / denom
-            }
-        }
-        
-        guard refinedTau > 0 else { return nil }
-        let frequency = sampleRate / refinedTau
-        let clarity = Double(1.0 - cmndf[tau])
-        
-        return PitchDetectionResult(
-            frequency: frequency,
-            amplitude: rms,
-            clarity: max(0.0, clarity),
-            timestamp: Date()
-        )
     }
-    
+
+    /// A route change (headphones plugged/unplugged, Bluetooth connect/disconnect) can leave
+    /// the engine's input/output formats stale. Fully restarting on the new route is far more
+    /// robust than trying to patch the running graph in place.
+    @objc private nonisolated func handleRouteChange(_ notification: Notification) {
+        Task { @MainActor [weak self] in
+            guard let self, self.isRunning else { return }
+            self.stop()
+            self.start()
+        }
+    }
+
+    @objc private nonisolated func handleMediaServicesReset(_ notification: Notification) {
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            let wasRunning = self.isRunning
+            self.engine = nil
+            self.toneSourceNode = nil
+            self.isRunning = false
+            if wasRunning { self.start() }
+        }
+    }
+    #endif
+
+    // MARK: - Start / Stop Audio Engine
+    public func start() {
+        guard !isRunning else { return }
+
+        do {
+            try configureAudioSession()
+        } catch {
+            lastErrorMessage = "Ses oturumu yapılandırılamadı: \(error.localizedDescription)"
+            return
+        }
+
+        let activeEngine = engine ?? AVAudioEngine()
+        if toneSourceNode == nil {
+            attachToneSourceNode(to: activeEngine)
+        }
+
+        let inputNode = activeEngine.inputNode
+        inputNode.removeTap(onBus: 0)
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { [weak self] buffer, _ in
+            self?.handleTapBuffer(buffer)
+        }
+
+        do {
+            if !activeEngine.isRunning {
+                try activeEngine.start()
+            }
+            engine = activeEngine
+            isRunning = true
+            lastErrorMessage = nil
+            micWindow.reset()
+            pitchStabilizer.reset()
+        } catch {
+            lastErrorMessage = "Ses motoru başlatılamadı: \(error.localizedDescription)"
+            isRunning = false
+            return
+        }
+
+        #if os(iOS)
+        UIApplication.shared.isIdleTimerDisabled = true
+        #endif
+    }
+
+    public func stop() {
+        if let engine {
+            engine.inputNode.removeTap(onBus: 0)
+            engine.stop()
+        }
+        engine = nil
+        toneSourceNode = nil
+        toneBox.stop()
+        toneStopTask?.cancel()
+        pluckClearTask?.cancel()
+        micWindow.reset()
+        pitchStabilizer.reset()
+        isSuppressingToneAnalysis = false
+
+        isRunning = false
+        smoothedFrequency = nil
+        currentAmplitude = 0.0
+        currentClarity = 0.0
+        isPluckDetected = false
+
+        #if os(iOS)
+        UIApplication.shared.isIdleTimerDisabled = false
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        #endif
+    }
+
+    // MARK: - Incoming Audio Buffer Handling
+    /// Runs on the real-time audio render thread: only copies samples and hands off to the
+    /// background `analysisQueue` for the actual YIN math, so heavy DSP never competes with
+    /// the render deadline.
+    nonisolated private func handleTapBuffer(_ buffer: AVAudioPCMBuffer) {
+        guard let channelData = buffer.floatChannelData?[0] else { return }
+        let frameCount = Int(buffer.frameLength)
+        guard frameCount > 0 else { return }
+
+        var rawRms: Float = 0
+        vDSP_rmsqv(channelData, 1, &rawRms, vDSP_Length(frameCount))
+        let rms = rawRms
+
+        guard !isSuppressingToneAnalysis else {
+            Task { @MainActor [weak self] in self?.currentAmplitude = 0 }
+            return
+        }
+
+        let sampleRate = buffer.format.sampleRate > 0 ? buffer.format.sampleRate : 48000.0
+        let didFill: Bool
+        if useSnapshotA {
+            didFill = micWindow.append(samples: channelData, sampleCount: frameCount, into: &snapshotA)
+        } else {
+            didFill = micWindow.append(samples: channelData, sampleCount: frameCount, into: &snapshotB)
+        }
+
+        guard didFill else {
+            Task { @MainActor [weak self] in self?.currentAmplitude = rms }
+            return
+        }
+
+        let snapshot = useSnapshotA ? snapshotA : snapshotB
+        useSnapshotA.toggle()
+
+        let range = frequencyRangeBox
+        let gate = noiseGateThresholdBox
+        let config = PitchDetectorConfig(minFrequency: range.lowerBound, maxFrequency: range.upperBound)
+        let detector = pitchDetector
+        let stabilizer = pitchStabilizer
+
+        analysisQueue.async { [weak self] in
+            let result = detector.detectPitch(samples: snapshot, sampleRate: sampleRate, rms: rms, config: config)
+            let reading = stabilizer.ingest(result, rms: rms, noiseGateAmplitude: gate)
+            Task { @MainActor in
+                self?.apply(reading: reading)
+            }
+        }
+    }
+
+    private func apply(reading: TunerReading) {
+        currentAmplitude = reading.amplitude
+        currentClarity = reading.clarity
+        smoothedFrequency = reading.frequency
+
+        guard reading.isOnset else { return }
+        isPluckDetected = true
+        pluckClearTask?.cancel()
+        pluckClearTask = Task { [weak self] in
+            try? await Task.sleep(nanoseconds: 150_000_000)
+            guard !Task.isCancelled else { return }
+            self?.isPluckDetected = false
+        }
+    }
+
     // MARK: - Tone Generation (Reference Pitch Sound)
-    private func setupToneEngine() {
-        guard toneEngine == nil else { return }
-        
-        let engine = AVAudioEngine()
+    private func attachToneSourceNode(to engine: AVAudioEngine) {
         let mainMixer = engine.mainMixerNode
         let outputFormat = mainMixer.outputFormat(forBus: 0)
-        let actualRate = outputFormat.sampleRate > 0 ? outputFormat.sampleRate : 48000.0
-        
-        let sourceNode = AVAudioSourceNode { [weak self] _, _, frameCount, audioBufferList -> OSStatus in
-            guard let self = self else { return noErr }
+        let sampleRate = outputFormat.sampleRate > 0 ? outputFormat.sampleRate : 48000.0
+        let toneBox = self.toneBox
+
+        // Captures only Sendable value/reference types below — no `self` — so this render
+        // callback never touches MainActor-isolated state.
+        let sourceNode = AVAudioSourceNode { _, _, frameCount, audioBufferList -> OSStatus in
             let ablPointer = UnsafeMutableAudioBufferListPointer(audioBufferList)
-            
             for frame in 0..<Int(frameCount) {
-                var sample: Float = 0.0
-                if self.isToneActive && self.toneAmplitude > 0.001 {
-                    let twoPi = 2.0 * Double.pi
-                    let f = self.toneFrequency
-                    let t = self.tonePhase
-                    
-                    let fund = sin(twoPi * f * t)
-                    let harm2 = 0.35 * sin(twoPi * 2.0 * f * t)
-                    let harm3 = 0.15 * sin(twoPi * 3.0 * f * t)
-                    let harm4 = 0.06 * sin(twoPi * 4.0 * f * t)
-                    
-                    sample = Float((fund + harm2 + harm3 + harm4) * self.toneAmplitude * 0.4)
-                    
-                    self.tonePhase += 1.0 / actualRate
-                    self.toneAmplitude *= exp(-self.toneDecayRate / actualRate)
-                }
-                
+                let sample = toneBox.nextSample(sampleRate: sampleRate)
                 for buffer in ablPointer {
-                    let buf: UnsafeMutableBufferPointer<Float> = UnsafeMutableBufferPointer(buffer)
+                    let buf = UnsafeMutableBufferPointer<Float>(buffer)
                     buf[frame] = sample
                 }
             }
             return noErr
         }
-        
+
         engine.attach(sourceNode)
         engine.connect(sourceNode, to: mainMixer, format: outputFormat)
-        
-        do {
-            try engine.start()
-            self.toneEngine = engine
-            self.toneSourceNode = sourceNode
-        } catch {
-            print("Could not start tone engine: \(error.localizedDescription)")
-        }
+        self.toneSourceNode = sourceNode
     }
-    
-    private func stopToneEngine() {
-        toneTimer?.invalidate()
-        toneTimer = nil
-        isToneActive = false
-        toneEngine?.stop()
-        toneEngine = nil
-        toneSourceNode = nil
-    }
-    
+
     public func playTone(frequency: Double, isPluck: Bool = true) {
-        if toneEngine == nil {
-            setupToneEngine()
+        let activeEngine = engine ?? AVAudioEngine()
+        if toneSourceNode == nil {
+            attachToneSourceNode(to: activeEngine)
         }
-        
-        toneTimer?.invalidate()
-        toneFrequency = frequency
-        tonePhase = 0.0
-        toneAmplitude = 0.85
-        toneDecayRate = isPluck ? 1.6 : 0.0001
-        isToneActive = true
-        
+        if !activeEngine.isRunning {
+            do {
+                if engine == nil { try configureAudioSession() }
+                try activeEngine.start()
+                engine = activeEngine
+            } catch {
+                lastErrorMessage = "Referans ton çalınamadı: \(error.localizedDescription)"
+                return
+            }
+        }
+
+        toneStopTask?.cancel()
+        isSuppressingToneAnalysis = true
+        toneBox.start(frequency: frequency, decayRate: isPluck ? 1.6 : 0.0001)
+
         if isPluck {
-            toneTimer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { [weak self] _ in
-                Task { @MainActor in
-                    self?.isToneActive = false
-                }
+            toneStopTask = Task { [weak self] in
+                try? await Task.sleep(nanoseconds: 2_500_000_000)
+                guard !Task.isCancelled else { return }
+                self?.toneBox.stop()
+                self?.isSuppressingToneAnalysis = false
             }
         }
     }
-    
+
     public func stopTone() {
-        toneTimer?.invalidate()
-        toneTimer = nil
-        isToneActive = false
-        toneAmplitude = 0.0
+        toneStopTask?.cancel()
+        toneBox.stop()
+        isSuppressingToneAnalysis = false
     }
-    
-    // MARK: - Simulator Mock Pluck
+
+    // MARK: - Simulator / DEBUG Mock Pluck
+    // Only compiled into DEBUG builds: this drives the on-device developer test panel and
+    // must never ship in the App Store build.
+    #if DEBUG
     public func simulatePluck(frequency: Double, centsOffset: Double = 0.0) {
         let simulatedFreq = frequency * pow(2.0, centsOffset / 1200.0)
-        self.currentAmplitude = 0.35
-        self.currentClarity = 0.95
-        self.currentFrequency = simulatedFreq
-        self.smoothedFrequency = simulatedFreq
-        self.isPluckDetected = true
-        self.silenceFramesCount = 0
-        
-        playTone(frequency: simulatedFreq, isPluck: true)
-        
-        Task { @MainActor in
+        let sampleRate = 48000.0
+        let synthetic = Self.syntheticPluckSamples(frequency: simulatedFreq, sampleRate: sampleRate, count: PitchDetector.windowSize)
+        let config = PitchDetectorConfig(minFrequency: max(30.0, simulatedFreq * 0.5), maxFrequency: simulatedFreq * 2.0)
+
+        // Exercises the exact same detector used for real microphone input, rather than
+        // faking the UI fields directly, so this panel actually validates production code.
+        guard let result = pitchDetector.detectPitch(samples: synthetic, sampleRate: sampleRate, rms: 0.35, config: config) else { return }
+
+        currentAmplitude = result.amplitude
+        currentClarity = result.clarity
+        smoothedFrequency = result.frequency
+        isPluckDetected = true
+        pluckClearTask?.cancel()
+        pluckClearTask = Task { [weak self] in
             try? await Task.sleep(nanoseconds: 180_000_000)
-            self.isPluckDetected = false
+            self?.isPluckDetected = false
         }
-        
-        Task { @MainActor in
+
+        playTone(frequency: simulatedFreq, isPluck: true)
+
+        Task { [weak self] in
             try? await Task.sleep(nanoseconds: 2_500_000_000)
-            if self.currentFrequency == simulatedFreq {
-                self.currentFrequency = nil
-                self.smoothedFrequency = nil
-                self.currentAmplitude = 0.0
-                self.currentClarity = 0.0
-            }
+            guard let self, self.smoothedFrequency == result.frequency else { return }
+            self.smoothedFrequency = nil
+            self.currentAmplitude = 0.0
+            self.currentClarity = 0.0
         }
     }
+
+    private static func syntheticPluckSamples(frequency: Double, sampleRate: Double, count: Int) -> [Float] {
+        var samples = [Float](repeating: 0, count: count)
+        let twoPi = 2.0 * Double.pi
+        for i in 0..<count {
+            let t = Double(i) / sampleRate
+            let fund = sin(twoPi * frequency * t)
+            let harm2 = 0.5 * sin(twoPi * 2.0 * frequency * t)
+            let harm3 = 0.25 * sin(twoPi * 3.0 * frequency * t)
+            samples[i] = Float((fund + harm2 + harm3) * 0.3)
+        }
+        return samples
+    }
+    #endif
 }
