@@ -68,10 +68,13 @@ public struct SettingsSheetView: View {
                 Section {
                     Picker(String(localized: "settings.notation.picker", defaultValue: "Nota Gösterimi"), selection: $viewModel.notationStyle) {
                         ForEach(NotationStyle.allCases) { style in
-                            Text(style.displayName).tag(style)
+                            Text(style.compactDisplayName)
+                                .accessibilityLabel(Text(style.displayName))
+                                .tag(style)
                         }
                     }
                     .pickerStyle(.segmented)
+                    .frame(minHeight: 44)
                 } header: {
                     Label(String(localized: "settings.notation.header", defaultValue: "Nota Gösterimi"), systemImage: "textformat")
                 }
@@ -84,6 +87,7 @@ public struct SettingsSheetView: View {
                         }
                     }
                     .pickerStyle(.segmented)
+                    .frame(minHeight: 44)
 
                     Picker(String(localized: "settings.tolerance.picker", defaultValue: "Hassasiyet (Tolerans)"), selection: $viewModel.inTuneTolerance) {
                         Text(String(localized: "settings.tolerance.tight", defaultValue: "±2 cent (Çok Hassas)")).tag(2.0)
@@ -153,6 +157,7 @@ public struct SettingsSheetView: View {
                 .padding(.horizontal, 6)
                 .padding(.vertical, 5)
                 .frame(maxWidth: .infinity)
+                .frame(minHeight: 44)
                 .background(
                     Capsule()
                         .fill(viewModel.a4Frequency == freq ? Color(red: 0.85, green: 0.72, blue: 0.35) : Color(white: 0.2))

@@ -35,6 +35,13 @@ public enum NotationStyle: String, CaseIterable, Identifiable, Codable {
         case .solfege: return String(localized: "notation_style.solfege", defaultValue: "Solfej (Mi La Re Sol Si Mi)")
         }
     }
+
+    public var compactDisplayName: String {
+        switch self {
+        case .letter: return String(localized: "notation_style.letter.compact", defaultValue: "Harf")
+        case .solfege: return String(localized: "notation_style.solfege.compact", defaultValue: "Solfej")
+        }
+    }
 }
 
 /// Three simple presets instead of a raw amplitude slider — most players can judge "how loud

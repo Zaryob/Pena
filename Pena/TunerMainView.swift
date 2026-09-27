@@ -192,6 +192,7 @@ public struct TunerMainView: View {
                     .background(Circle().fill(Color(white: 0.14)))
             }
             .buttonStyle(.plain)
+            .frame(minWidth: 44, minHeight: 44)
             .accessibilityLabel(Text(String(localized: "main.a11y.settings", defaultValue: "Ayarlar")))
         }
     }
