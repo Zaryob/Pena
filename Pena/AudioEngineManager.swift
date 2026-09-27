@@ -64,12 +64,13 @@ public final class AudioEngineManager: NSObject {
     public private(set) var currentFrequency: Double? = nil
     public private(set) var smoothedFrequency: Double? = nil
     public private(set) var currentAmplitude: Float = 0.0
+    public private(set) var currentClarity: Double = 0.0
     public private(set) var isPluckDetected: Bool = false
     public private(set) var lastErrorMessage: String? = nil
     
     // User Settings
-    // Default threshold lowered to 0.003 for sensitive acoustic guitar pickup
-    public var noiseGateThreshold: Float = 0.003
+    // Default threshold set to 0.010 to filter out ambient room noise/whispers
+    public var noiseGateThreshold: Float = 0.010
     public var a4Calibration: Double = 440.0
     
     // Audio engine components
@@ -80,8 +81,9 @@ public final class AudioEngineManager: NSObject {
     
     // Internal pitch detection variables
     @ObservationIgnored private var sampleRate: Double = 48000.0
-    @ObservationIgnored private var pluckCooldown: Double = 0.0
     @ObservationIgnored private var silenceFramesCount = 0
+    @ObservationIgnored private var candidateFrequency: Double? = nil
+    @ObservationIgnored private var candidateCount = 0
     
     // Tone generation state
     @ObservationIgnored private var tonePhase: Double = 0.0
@@ -163,7 +165,6 @@ public final class AudioEngineManager: NSObject {
         let engine = AVAudioEngine()
         let inputNode = engine.inputNode
         
-        // Pass nil to installTap to automatically match hardware format
         inputNode.removeTap(onBus: 0)
         let accumulatorRef = self.accumulator
         inputNode.installTap(onBus: 0, bufferSize: 2048, format: nil) { [weak self] buffer, _ in
@@ -194,7 +195,10 @@ public final class AudioEngineManager: NSObject {
         self.isRunning = false
         self.currentFrequency = nil
         self.smoothedFrequency = nil
+        self.candidateFrequency = nil
+        self.candidateCount = 0
         self.currentAmplitude = 0.0
+        self.currentClarity = 0.0
     }
     
     // MARK: - Incoming Audio Buffer Handling
@@ -233,25 +237,48 @@ public final class AudioEngineManager: NSObject {
             guard let self = self else { return }
             self.currentAmplitude = rms
             
-            // Check noise threshold
-            if rms < self.noiseGateThreshold || pitchResult == nil {
+            // Check noise threshold & clarity:
+            // Must exceed noise threshold AND have a valid pitch result with high clarity (>= 0.60)
+            guard rms >= self.noiseGateThreshold, let detected = pitchResult, detected.clarity >= 0.60 else {
                 self.silenceFramesCount += 1
-                if self.silenceFramesCount > 6 { // ~120ms of silence before resetting
+                if self.silenceFramesCount > 8 { // ~160ms of silence/noise before clearing
                     self.currentFrequency = nil
                     self.smoothedFrequency = nil
+                    self.candidateFrequency = nil
+                    self.candidateCount = 0
+                    self.currentClarity = 0.0
                 }
                 return
             }
             
             self.silenceFramesCount = 0
-            guard let detected = pitchResult else { return }
+            self.currentClarity = detected.clarity
             let freq = detected.frequency
+            
+            // 2-frame consistency check to filter out speech/room noise transients
+            if let cand = self.candidateFrequency {
+                let semitoneDiff = abs(12.0 * log2(freq / cand))
+                if semitoneDiff < 0.8 {
+                    // Confirmed candidate
+                    self.candidateCount += 1
+                } else {
+                    // New candidate
+                    self.candidateFrequency = freq
+                    self.candidateCount = 1
+                }
+            } else {
+                self.candidateFrequency = freq
+                self.candidateCount = 1
+            }
+            
+            // Only update UI frequency after 2 consecutive agreeing frames (stable pitch)
+            guard self.candidateCount >= 2 else { return }
             
             // Pluck detection / smoothing
             if let prev = self.smoothedFrequency {
                 let semitoneDiff = abs(12.0 * log2(freq / prev))
                 if semitoneDiff > 1.2 {
-                    // Quick jump to new note
+                    // Quick jump to new note/string
                     self.smoothedFrequency = freq
                     self.isPluckDetected = true
                     Task { @MainActor in
@@ -260,7 +287,7 @@ public final class AudioEngineManager: NSObject {
                     }
                 } else {
                     // Smooth tracking
-                    let alpha = 0.35
+                    let alpha = 0.40
                     self.smoothedFrequency = prev * (1.0 - alpha) + freq * alpha
                 }
             } else {
@@ -276,18 +303,18 @@ public final class AudioEngineManager: NSObject {
         }
     }
     
-    // MARK: - McLeod Pitch Method (NSDF) with Subharmonic Correction
+    // MARK: - Pure McLeod Pitch Method (NSDF)
     nonisolated private func detectPitchMcLeod(
         samples: [Float],
         count: Int,
         sampleRate: Double,
         rms: Float
     ) -> PitchDetectionResult? {
-        // Classical guitar range: 65 Hz (Drop D) to 800 Hz (high frets on 1st string)
+        // Classical guitar range: 65 Hz (Drop D: 73.4Hz) to 700 Hz (E4: 329.6Hz + frets)
         let minFreq = 65.0
-        let maxFreq = 800.0
+        let maxFreq = 700.0
         
-        let minPeriod = max(8, Int(sampleRate / maxFreq))
+        let minPeriod = max(10, Int(sampleRate / maxFreq))
         let maxPeriod = min(count / 2, Int(sampleRate / minFreq))
         
         guard maxPeriod > minPeriod, count > maxPeriod * 2 else { return nil }
@@ -317,7 +344,7 @@ public final class AudioEngineManager: NSObject {
             }
         }
         
-        // Find maximum value
+        // Find global maximum
         var maxVal = -1.0
         for tau in minPeriod...maxPeriod {
             if nsdf[tau] > maxVal {
@@ -325,20 +352,22 @@ public final class AudioEngineManager: NSObject {
             }
         }
         
-        // Confidence threshold (at least 0.35 correlation)
-        guard maxVal > 0.35 else { return nil }
+        // Musical note clarity threshold: Plucked guitar strings produce 0.70 - 0.98.
+        // Room noise and speech are below 0.55. Rejecting anything < 0.60 eliminates ambient noise!
+        guard maxVal >= 0.60 else { return nil }
         
-        let threshold = maxVal * 0.82
+        // MPM Key Maximum: find the FIRST local maximum that reaches at least 85% of global max
+        let threshold = maxVal * 0.85
         var bestTau: Double? = nil
         var bestClarity: Double = 0.0
         
-        // Find first prominent peak
         for tau in (minPeriod + 1)..<maxPeriod {
             if nsdf[tau] > nsdf[tau - 1] && nsdf[tau] >= nsdf[tau + 1] && nsdf[tau] >= threshold {
                 let y1 = nsdf[tau - 1]
                 let y2 = nsdf[tau]
                 let y3 = nsdf[tau + 1]
                 
+                // Parabolic interpolation around peak
                 let denom = 2.0 * (2.0 * y2 - y1 - y3)
                 let delta = (denom != 0.0) ? (y3 - y1) / denom : 0.0
                 
@@ -351,19 +380,7 @@ public final class AudioEngineManager: NSObject {
             }
         }
         
-        guard var period = bestTau, period > 0 else { return nil }
-        
-        // Check for octave / subharmonic error:
-        // On nylon guitar, sometimes the 2nd harmonic (half the true period) has high correlation.
-        // Check if there is also a strong peak near 2 * period:
-        let doubleTau = Int(round(period * 2.0))
-        if doubleTau + 1 <= maxPeriod && doubleTau - 1 >= minPeriod {
-            let correlationAt2X = max(nsdf[doubleTau - 1], max(nsdf[doubleTau], nsdf[doubleTau + 1]))
-            if correlationAt2X > 0.40 && correlationAt2X >= bestClarity * 0.65 {
-                // The true fundamental period is the longer one!
-                period = period * 2.0
-            }
-        }
+        guard let period = bestTau, period > 0 else { return nil }
         
         let frequency = sampleRate / period
         guard frequency >= minFreq && frequency <= maxFreq else { return nil }
@@ -468,6 +485,7 @@ public final class AudioEngineManager: NSObject {
     public func simulatePluck(frequency: Double, centsOffset: Double = 0.0) {
         let simulatedFreq = frequency * pow(2.0, centsOffset / 1200.0)
         self.currentAmplitude = 0.35
+        self.currentClarity = 0.95
         self.currentFrequency = simulatedFreq
         self.smoothedFrequency = simulatedFreq
         self.isPluckDetected = true
@@ -486,6 +504,7 @@ public final class AudioEngineManager: NSObject {
                 self.currentFrequency = nil
                 self.smoothedFrequency = nil
                 self.currentAmplitude = 0.0
+                self.currentClarity = 0.0
             }
         }
     }
