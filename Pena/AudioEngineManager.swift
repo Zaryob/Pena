@@ -107,6 +107,27 @@ private nonisolated final class ToneStateBox: @unchecked Sendable {
     }
 }
 
+// MARK: - Audio Engine Error
+public enum AudioEngineError: LocalizedError, Equatable, Sendable {
+    case sessionConfigurationFailed(String)
+    case engineStartFailed(String)
+    case tonePlaybackFailed(String)
+    case microphonePermissionDenied
+
+    public var errorDescription: String? {
+        switch self {
+        case .sessionConfigurationFailed(let message):
+            return String(localized: "audio_error.session_failed", defaultValue: "Ses oturumu yapılandırılamadı: \(message)")
+        case .engineStartFailed(let message):
+            return String(localized: "audio_error.engine_failed", defaultValue: "Ses motoru başlatılamadı: \(message)")
+        case .tonePlaybackFailed(let message):
+            return String(localized: "audio_error.tone_failed", defaultValue: "Referans ton çalınamadı: \(message)")
+        case .microphonePermissionDenied:
+            return String(localized: "audio_error.permission_denied", defaultValue: "Mikrofon izni verilmedi.")
+        }
+    }
+}
+
 // MARK: - Audio Engine Manager
 @MainActor
 @Observable
@@ -119,7 +140,11 @@ public final class AudioEngineManager: NSObject {
     public private(set) var currentAmplitude: Float = 0.0
     public private(set) var currentClarity: Double = 0.0
     public private(set) var isPluckDetected: Bool = false
-    public private(set) var lastErrorMessage: String? = nil
+    public private(set) var currentError: AudioEngineError? = nil
+
+    public var lastErrorMessage: String? {
+        currentError?.localizedDescription
+    }
 
     // User Settings
     // Default threshold set to catch acoustic classical guitar without catching ambient noise.
@@ -188,6 +213,9 @@ public final class AudioEngineManager: NSObject {
             Task { @MainActor in
                 self?.hasMicrophonePermission = granted
                 self?.permissionRequested = true
+                if !granted {
+                    self?.currentError = .microphonePermissionDenied
+                }
                 completion(granted)
             }
         }
@@ -218,6 +246,7 @@ public final class AudioEngineManager: NSObject {
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(handleInterruption(_:)), name: AVAudioSession.interruptionNotification, object: nil)
         center.addObserver(self, selector: #selector(handleRouteChange(_:)), name: AVAudioSession.routeChangeNotification, object: nil)
+        center.addObserver(self, selector: #selector(handleEngineConfigurationChange(_:)), name: .AVAudioEngineConfigurationChange, object: nil)
         center.addObserver(self, selector: #selector(handleMediaServicesReset(_:)), name: AVAudioSession.mediaServicesWereResetNotification, object: nil)
     }
 
@@ -255,6 +284,15 @@ public final class AudioEngineManager: NSObject {
         }
     }
 
+    /// Audio engine configuration changes when audio devices appear/disappear or change format.
+    @objc private nonisolated func handleEngineConfigurationChange(_ notification: Notification) {
+        Task { @MainActor [weak self] in
+            guard let self, self.isRunning else { return }
+            self.stop()
+            self.start()
+        }
+    }
+
     @objc private nonisolated func handleMediaServicesReset(_ notification: Notification) {
         Task { @MainActor [weak self] in
             guard let self else { return }
@@ -274,7 +312,7 @@ public final class AudioEngineManager: NSObject {
         do {
             try configureAudioSession()
         } catch {
-            lastErrorMessage = "Ses oturumu yapılandırılamadı: \(error.localizedDescription)"
+            currentError = .sessionConfigurationFailed(error.localizedDescription)
             return
         }
 
@@ -295,11 +333,11 @@ public final class AudioEngineManager: NSObject {
             }
             engine = activeEngine
             isRunning = true
-            lastErrorMessage = nil
+            currentError = nil
             micWindow.reset()
             pitchStabilizer.reset()
         } catch {
-            lastErrorMessage = "Ses motoru başlatılamadı: \(error.localizedDescription)"
+            currentError = .engineStartFailed(error.localizedDescription)
             isRunning = false
             return
         }
@@ -436,7 +474,7 @@ public final class AudioEngineManager: NSObject {
                 try activeEngine.start()
                 engine = activeEngine
             } catch {
-                lastErrorMessage = "Referans ton çalınamadı: \(error.localizedDescription)"
+                currentError = .tonePlaybackFailed(error.localizedDescription)
                 return
             }
         }

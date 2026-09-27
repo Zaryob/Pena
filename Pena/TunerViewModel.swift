@@ -180,10 +180,8 @@ public final class TunerViewModel {
 
     // MARK: - Active String Identification
     /// Pure read of the currently active string — no side effects. Auto-mode detection is
-    /// driven explicitly by `updateAutoDetection(frequency:)`, called from the view in
-    /// response to `audioManager.smoothedFrequency` changing, instead of mutating state from
-    /// inside this getter (which used to run — with side effects — every time SwiftUI
-    /// re-evaluated the body, including multiple times per frame).
+    /// driven explicitly by `ingest(_:)` / `updateAutoDetection(frequency:)`, called in
+    /// response to audio analysis, instead of mutating state from inside this getter.
     public var activeString: GuitarString {
         switch tuningMode {
         case .manual:
@@ -191,6 +189,13 @@ public final class TunerViewModel {
         case .auto:
             return lastConfirmedString ?? selectedString
         }
+    }
+
+    /// Ingests a new reading from the audio pipeline: drives auto string matching and
+    /// evaluates in-tune stability without side-effects in property getters.
+    public func ingest(_ reading: TunerReading) {
+        updateAutoDetection(frequency: reading.frequency)
+        handleTuningStatusChange()
     }
 
     /// Finds the closest string to `frequency` in the current preset and, in auto mode,
@@ -355,6 +360,14 @@ public final class TunerViewModel {
         }
     }
 
+    public func openAppSettings() {
+        #if os(iOS)
+        if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+        #endif
+    }
+
     // MARK: - String & Tuning Actions
     public func selectString(_ string: GuitarString) {
         selectedString = string
@@ -410,6 +423,11 @@ public final class TunerViewModel {
         lastInTuneHapticTime = now
         #if os(iOS)
         UINotificationFeedbackGenerator().notificationOccurred(.success)
+        let announcement = String(
+            localized: "a11y.announcement.in_tune",
+            defaultValue: "\(string.displayTitle) tam akort"
+        )
+        AccessibilityNotification.Announcement(announcement).post()
         #endif
     }
 
