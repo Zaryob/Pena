@@ -185,6 +185,7 @@ public final class AudioEngineManager: NSObject {
     @ObservationIgnored private var toneStopTask: Task<Void, Never>?
     @ObservationIgnored private var pluckClearTask: Task<Void, Never>?
     @ObservationIgnored private var wasRunningBeforeInterruption = false
+    @ObservationIgnored private var isStarting = false
 
     public override init() {
         super.init()
@@ -225,7 +226,7 @@ public final class AudioEngineManager: NSObject {
     }
 
     // MARK: - Session Configuration
-    private func configureAudioSession() throws {
+    private func configureAudioSession() async throws {
         #if os(iOS)
         let session = AVAudioSession.sharedInstance()
         // `.measurement` disables system AGC/EQ so the mic signal reaches our detector
@@ -237,7 +238,24 @@ public final class AudioEngineManager: NSObject {
             options: [.defaultToSpeaker, .allowBluetoothA2DP]
         )
         try session.setPreferredIOBufferDuration(0.01)
-        try session.setActive(true, options: .notifyOthersOnDeactivation)
+
+        // Activate asynchronously using the modern API or detached background task to
+        // prevent blocking the main thread and avoid `unsafeForcedSync` warnings.
+        if #available(iOS 27.0, *) {
+            try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, any Error>) in
+                session.activate(options: []) { _, error in
+                    if let error {
+                        continuation.resume(throwing: error)
+                    } else {
+                        continuation.resume()
+                    }
+                }
+            }
+        } else {
+            try await Task.detached(priority: .userInitiated) {
+                try AVAudioSession.sharedInstance().setActive(true)
+            }.value
+        }
         #endif
     }
 
@@ -307,47 +325,56 @@ public final class AudioEngineManager: NSObject {
 
     // MARK: - Start / Stop Audio Engine
     public func start() {
-        guard !isRunning else { return }
+        guard !isRunning, !isStarting else { return }
+        isStarting = true
 
-        do {
-            try configureAudioSession()
-        } catch {
-            currentError = .sessionConfigurationFailed(error.localizedDescription)
-            return
-        }
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            defer { self.isStarting = false }
 
-        let activeEngine = engine ?? AVAudioEngine()
-        if toneSourceNode == nil {
-            attachToneSourceNode(to: activeEngine)
-        }
-
-        let inputNode = activeEngine.inputNode
-        inputNode.removeTap(onBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { [weak self] buffer, _ in
-            self?.handleTapBuffer(buffer)
-        }
-
-        do {
-            if !activeEngine.isRunning {
-                try activeEngine.start()
+            do {
+                try await self.configureAudioSession()
+            } catch {
+                self.currentError = .sessionConfigurationFailed(error.localizedDescription)
+                return
             }
-            engine = activeEngine
-            isRunning = true
-            currentError = nil
-            micWindow.reset()
-            pitchStabilizer.reset()
-        } catch {
-            currentError = .engineStartFailed(error.localizedDescription)
-            isRunning = false
-            return
-        }
 
-        #if os(iOS)
-        UIApplication.shared.isIdleTimerDisabled = true
-        #endif
+            guard self.isStarting else { return }
+
+            let activeEngine = self.engine ?? AVAudioEngine()
+            if self.toneSourceNode == nil {
+                self.attachToneSourceNode(to: activeEngine)
+            }
+
+            let inputNode = activeEngine.inputNode
+            inputNode.removeTap(onBus: 0)
+            inputNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { [weak self] buffer, _ in
+                self?.handleTapBuffer(buffer)
+            }
+
+            do {
+                if !activeEngine.isRunning {
+                    try activeEngine.start()
+                }
+                self.engine = activeEngine
+                self.isRunning = true
+                self.currentError = nil
+                self.micWindow.reset()
+                self.pitchStabilizer.reset()
+            } catch {
+                self.currentError = .engineStartFailed(error.localizedDescription)
+                self.isRunning = false
+                return
+            }
+
+            #if os(iOS)
+            UIApplication.shared.isIdleTimerDisabled = true
+            #endif
+        }
     }
 
     public func stop() {
+        isStarting = false
         if let engine {
             engine.inputNode.removeTap(onBus: 0)
             engine.stop()
@@ -369,7 +396,13 @@ public final class AudioEngineManager: NSObject {
 
         #if os(iOS)
         UIApplication.shared.isIdleTimerDisabled = false
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        if #available(iOS 27.0, *) {
+            AVAudioSession.sharedInstance().deactivate(options: []) { _, _ in }
+        } else {
+            Task.detached(priority: .utility) {
+                try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+            }
+        }
         #endif
     }
 
@@ -470,7 +503,13 @@ public final class AudioEngineManager: NSObject {
         }
         if !activeEngine.isRunning {
             do {
-                if engine == nil { try configureAudioSession() }
+                #if os(iOS)
+                if #available(iOS 27.0, *) {
+                    AVAudioSession.sharedInstance().activate(options: []) { _, _ in }
+                } else {
+                    try? AVAudioSession.sharedInstance().setActive(true)
+                }
+                #endif
                 try activeEngine.start()
                 engine = activeEngine
             } catch {
