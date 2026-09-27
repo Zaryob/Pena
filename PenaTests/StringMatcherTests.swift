@@ -1,5 +1,6 @@
 import Testing
 import Foundation
+import SwiftUI
 @testable import Pena
 
 @Suite("StringMatcher & Hysteresis tests")
@@ -110,5 +111,36 @@ struct StringMatcherTests {
         vm.updateAutoDetection(frequency: -82.4)
 
         #expect(vm.activeString.id == 5)
+    }
+
+    @Test("Resets debounce when tuning mode changes")
+    @MainActor
+    func resetsDebounceAfterModeChange() {
+        let vm = TunerViewModel()
+        vm.currentPreset = .standard
+        vm.tuningMode = .auto
+
+        vm.updateAutoDetection(frequency: 82.4)
+        vm.updateAutoDetection(frequency: 246.94)
+        vm.tuningMode = .manual
+        vm.tuningMode = .auto
+        vm.updateAutoDetection(frequency: 246.94)
+
+        #expect(vm.activeString.id == 6)
+    }
+
+    @Test("Resets debounce when the app enters the background")
+    @MainActor
+    func resetsDebounceAfterBackgrounding() {
+        let vm = TunerViewModel()
+        vm.currentPreset = .standard
+        vm.tuningMode = .auto
+
+        vm.updateAutoDetection(frequency: 82.4)
+        vm.updateAutoDetection(frequency: 246.94)
+        vm.handleScenePhaseChange(.background)
+        vm.updateAutoDetection(frequency: 246.94)
+
+        #expect(vm.activeString.id == 6)
     }
 }

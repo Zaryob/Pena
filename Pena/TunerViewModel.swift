@@ -69,6 +69,10 @@ public enum ListeningSensitivity: String, CaseIterable, Identifiable, Codable {
 public final class TunerViewModel {
     // Dependencies
     public let audioManager: AudioEngineManager
+    private let defaults: UserDefaults
+
+    private static let supportedA4Range = 415.0...466.0
+    private static let supportedToleranceRange = 1.0...10.0
 
     // Core Configuration
     public var currentPreset: TuningPreset = .standard {
@@ -84,13 +88,14 @@ public final class TunerViewModel {
             pendingStringCandidateCount = 0
             tunedStringIDs.removeAll()
             updateAudioFrequencyRange()
-            UserDefaults.standard.set(currentPreset.id, forKey: DefaultsKey.presetID)
+            defaults.set(currentPreset.id, forKey: DefaultsKey.presetID)
         }
     }
 
     public var tuningMode: TuningMode = .auto {
         didSet {
-            UserDefaults.standard.set(tuningMode.rawValue, forKey: DefaultsKey.tuningMode)
+            resetPendingStringCandidate()
+            defaults.set(tuningMode.rawValue, forKey: DefaultsKey.tuningMode)
         }
     }
     public var selectedString: GuitarString
@@ -101,24 +106,32 @@ public final class TunerViewModel {
 
     public var notationStyle: NotationStyle = .letter {
         didSet {
-            UserDefaults.standard.set(notationStyle.rawValue, forKey: DefaultsKey.notationStyle)
+            defaults.set(notationStyle.rawValue, forKey: DefaultsKey.notationStyle)
         }
     }
     public var a4Frequency: Double = 440.0 {
         didSet {
+            guard a4Frequency.isFinite, Self.supportedA4Range.contains(a4Frequency) else {
+                a4Frequency = oldValue
+                return
+            }
             updateAudioFrequencyRange()
-            UserDefaults.standard.set(a4Frequency, forKey: DefaultsKey.a4Frequency)
+            defaults.set(a4Frequency, forKey: DefaultsKey.a4Frequency)
         }
     }
     public var inTuneTolerance: Double = 3.0 { // cents
         didSet {
-            UserDefaults.standard.set(inTuneTolerance, forKey: DefaultsKey.inTuneTolerance)
+            guard inTuneTolerance.isFinite, Self.supportedToleranceRange.contains(inTuneTolerance) else {
+                inTuneTolerance = oldValue
+                return
+            }
+            defaults.set(inTuneTolerance, forKey: DefaultsKey.inTuneTolerance)
         }
     }
     public var sensitivity: ListeningSensitivity = .normal {
         didSet {
             audioManager.noiseGateThreshold = sensitivity.noiseGateThreshold
-            UserDefaults.standard.set(sensitivity.rawValue, forKey: DefaultsKey.sensitivity)
+            defaults.set(sensitivity.rawValue, forKey: DefaultsKey.sensitivity)
         }
     }
     public var noiseGateThreshold: Float {
@@ -147,11 +160,14 @@ public final class TunerViewModel {
         static let sensitivity = "pena.sensitivity"
     }
 
-    public init(audioManager: AudioEngineManager? = nil) {
+    public init(
+        audioManager: AudioEngineManager? = nil,
+        defaults: UserDefaults = .standard
+    ) {
         let manager = audioManager ?? AudioEngineManager()
         self.audioManager = manager
+        self.defaults = defaults
 
-        let defaults = UserDefaults.standard
         let preset = defaults.string(forKey: DefaultsKey.presetID).flatMap { id in
             TuningPreset.allPresets.first { $0.id == id }
         } ?? .standard
@@ -166,10 +182,16 @@ public final class TunerViewModel {
             self.notationStyle = notation
         }
         if defaults.object(forKey: DefaultsKey.a4Frequency) != nil {
-            self.a4Frequency = defaults.double(forKey: DefaultsKey.a4Frequency)
+            let storedA4 = defaults.double(forKey: DefaultsKey.a4Frequency)
+            if storedA4.isFinite, Self.supportedA4Range.contains(storedA4) {
+                self.a4Frequency = storedA4
+            }
         }
         if defaults.object(forKey: DefaultsKey.inTuneTolerance) != nil {
-            self.inTuneTolerance = defaults.double(forKey: DefaultsKey.inTuneTolerance)
+            let storedTolerance = defaults.double(forKey: DefaultsKey.inTuneTolerance)
+            if storedTolerance.isFinite, Self.supportedToleranceRange.contains(storedTolerance) {
+                self.inTuneTolerance = storedTolerance
+            }
         }
         if let sensitivityRaw = defaults.string(forKey: DefaultsKey.sensitivity), let level = ListeningSensitivity(rawValue: sensitivityRaw) {
             self.sensitivity = level
@@ -355,6 +377,7 @@ public final class TunerViewModel {
                 audioManager.start()
             }
         case .background, .inactive:
+            resetPendingStringCandidate()
             audioManager.stop()
         @unknown default:
             break
