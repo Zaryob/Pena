@@ -210,4 +210,31 @@ struct PitchDetectorTests {
         let config = PitchDetectorConfig(minFrequency: 60.0, maxFrequency: 420.0)
         #expect(detector.detectPitch(samples: samples, sampleRate: 48000.0, rms: 0.1, config: config) == nil)
     }
+
+    @Test(
+        "Rejects invalid detector configuration",
+        arguments: [
+            PitchDetectorConfig(minFrequency: 0, maxFrequency: 420),
+            PitchDetectorConfig(minFrequency: 420, maxFrequency: 60),
+            PitchDetectorConfig(minFrequency: .infinity, maxFrequency: 420),
+            PitchDetectorConfig(minFrequency: 60, maxFrequency: .nan),
+            PitchDetectorConfig(minFrequency: 60, maxFrequency: 420, yinThreshold: 0),
+            PitchDetectorConfig(minFrequency: 60, maxFrequency: 420, yinThreshold: 1.1)
+        ]
+    )
+    func rejectsInvalidConfiguration(_ config: PitchDetectorConfig) {
+        let detector = PitchDetector()
+        let samples = [Float](repeating: 0, count: PitchDetector.windowSize)
+
+        #expect(detector.detectPitch(samples: samples, sampleRate: 48000.0, rms: 0.1, config: config) == nil)
+    }
+
+    @Test("Rejects invalid sample rates", arguments: [0.0, -48000.0, .infinity, .nan])
+    func rejectsInvalidSampleRate(_ sampleRate: Double) {
+        let detector = PitchDetector()
+        let samples = [Float](repeating: 0, count: PitchDetector.windowSize)
+        let config = PitchDetectorConfig(minFrequency: 60.0, maxFrequency: 420.0)
+
+        #expect(detector.detectPitch(samples: samples, sampleRate: sampleRate, rms: 0.1, config: config) == nil)
+    }
 }

@@ -60,7 +60,18 @@ public nonisolated final class PitchDetector: @unchecked Sendable {
         rms: Float,
         config: PitchDetectorConfig
     ) -> PitchDetectionResult? {
-        guard samples.count == n, sampleRate > 0 else { return nil }
+        guard samples.count == n,
+              sampleRate.isFinite,
+              sampleRate > 0,
+              config.minFrequency.isFinite,
+              config.maxFrequency.isFinite,
+              config.minFrequency > 0,
+              config.maxFrequency > config.minFrequency,
+              config.yinThreshold.isFinite,
+              config.yinThreshold > 0,
+              config.yinThreshold <= 1 else {
+            return nil
+        }
 
         // 1. Remove DC offset into the reusable `centered` buffer (no allocation).
         var mean: Float = 0
