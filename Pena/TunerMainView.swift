@@ -4,6 +4,7 @@ public struct TunerMainView: View {
     @State private var viewModel = TunerViewModel()
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     #if DEBUG
     @State private var showSimulatorBar: Bool = false
     #endif
@@ -148,15 +149,15 @@ public struct TunerMainView: View {
             } label: {
                 HStack(spacing: 6) {
                     Image(systemName: "music.note")
-                        .font(.system(size: 13, weight: .bold))
+                        .font(.caption.bold())
                         .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
 
                     Text(viewModel.currentPreset.name)
-                        .font(.system(size: 14, weight: .semibold, design: .rounded))
+                        .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.white)
 
                     Image(systemName: "chevron.down")
-                        .font(.system(size: 10, weight: .bold))
+                        .font(.caption2.bold())
                         .foregroundStyle(.secondary)
                 }
                 .padding(.horizontal, 12)
@@ -178,14 +179,14 @@ public struct TunerMainView: View {
                 }
             }
             .pickerStyle(.segmented)
-            .frame(width: 140)
+            .frame(width: dynamicTypeSize.isAccessibilitySize ? 180 : 140)
 
             // Settings Button
             Button {
                 viewModel.isSettingsPresented = true
             } label: {
                 Image(systemName: "slider.horizontal.3")
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.body.bold())
                     .foregroundStyle(.white)
                     .frame(width: 36, height: 36)
                     .background(Circle().fill(Color(white: 0.14)))
@@ -203,10 +204,10 @@ public struct TunerMainView: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(String(localized: "main.mic_permission.title", defaultValue: "Mikrofon İzni Gerekli"))
-                    .font(.system(size: 13, weight: .bold))
+                    .font(.caption.bold())
                     .foregroundStyle(.white)
                 Text(String(localized: "main.mic_permission.subtitle", defaultValue: "Gitar telinin sesini algılamak için mikrofona izin verin."))
-                    .font(.system(size: 11))
+                    .font(.caption2)
                     .foregroundStyle(.secondary)
             }
 
@@ -227,7 +228,7 @@ public struct TunerMainView: View {
                      ? String(localized: "main.mic_permission.open_settings", defaultValue: "Ayarları Aç")
                      : String(localized: "main.mic_permission.grant", defaultValue: "İzin Ver"))
             }
-            .font(.system(size: 12, weight: .bold))
+            .font(.caption2.bold())
             .padding(.horizontal, 12)
             .padding(.vertical, 6)
             .background(Capsule().fill(Color(red: 0.85, green: 0.72, blue: 0.35)))
@@ -253,7 +254,7 @@ public struct TunerMainView: View {
                 Image(systemName: "play.circle.fill")
                     .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
                 Text(String(localized: "main.mic_inactive", defaultValue: "Mikrofon duraklatıldı. Dinlemeyi başlatmak için dokunun."))
-                    .font(.system(size: 12, weight: .medium))
+                    .font(.caption2.weight(.medium))
                     .foregroundStyle(.white)
                 Spacer()
             }
@@ -272,7 +273,7 @@ public struct TunerMainView: View {
             Image(systemName: "exclamationmark.triangle.fill")
                 .foregroundStyle(Color(red: 0.95, green: 0.45, blue: 0.15))
             Text(message)
-                .font(.system(size: 12, weight: .medium))
+                .font(.caption2.weight(.medium))
                 .foregroundStyle(.white)
             Spacer()
         }
@@ -299,12 +300,12 @@ public struct TunerMainView: View {
             } label: {
                 HStack(spacing: 8) {
                     Image(systemName: viewModel.isPlayingReferenceTone ? "speaker.wave.3.fill" : "speaker.wave.2.fill")
-                        .font(.system(size: 16, weight: .bold))
+                        .font(.body.bold())
                     Text(String(localized: "main.play_reference", defaultValue: "Dinle (\(viewModel.activeString.noteLetter)\(viewModel.activeString.octave))"))
-                        .font(.system(size: 14, weight: .bold, design: .rounded))
+                        .font(.subheadline.bold())
                 }
                 .frame(maxWidth: .infinity)
-                .frame(height: 50)
+                .frame(minHeight: 50)
                 .background(
                     RoundedRectangle(cornerRadius: 16)
                         .fill(
@@ -323,13 +324,15 @@ public struct TunerMainView: View {
             }
             .buttonStyle(.plain)
             .accessibilityLabel(Text(String(localized: "main.a11y.play_reference", defaultValue: "Referans sesini çal")))
+            .accessibilityValue(Text(viewModel.activeString.displayTitle))
+            .accessibilityAddTraits(.startsMediaSession)
 
             // Microphone Active / Pause Button
             Button {
                 viewModel.toggleListening()
             } label: {
                 Image(systemName: viewModel.audioManager.isListening ? "mic.fill" : "mic.slash.fill")
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.title3.bold())
                     .foregroundStyle(viewModel.audioManager.isListening ? Color(red: 0.15, green: 0.85, blue: 0.40) : Color.secondary)
                     .frame(width: 50, height: 50)
                     .background(
@@ -357,7 +360,7 @@ public struct TunerMainView: View {
                 }
             } label: {
                 Image(systemName: showSimulatorBar ? "guitars.fill" : "guitars")
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.title3.bold())
                     .foregroundStyle(showSimulatorBar ? Color(red: 0.85, green: 0.72, blue: 0.35) : Color.secondary)
                     .frame(width: 50, height: 50)
                     .background(
@@ -373,6 +376,10 @@ public struct TunerMainView: View {
                     )
             }
             .buttonStyle(.plain)
+            .accessibilityLabel(Text(String(localized: "main.a11y.simulator_panel", defaultValue: "Simülatör test paneli")))
+            .accessibilityValue(Text(showSimulatorBar
+                ? String(localized: "common.on", defaultValue: "Açık")
+                : String(localized: "common.off", defaultValue: "Kapalı")))
             #endif
         }
         .padding(6)

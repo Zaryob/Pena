@@ -311,6 +311,17 @@
         }
       }
     },
+    "headstock.a11y.tuned" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Akortlandı"
+          }
+        }
+      }
+    },
     "headstock.play_string_tone" : {
       "comment" : "A menu item that plays the tone of a string.",
       "extractionState" : "extracted_with_value",

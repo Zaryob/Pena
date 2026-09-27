@@ -1,6 +1,7 @@
 import SwiftUI
 
 public struct HeadstockView: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     public let preset: TuningPreset
     public let activeString: GuitarString
     public let status: TuningStatus
@@ -46,6 +47,26 @@ public struct HeadstockView: View {
     }
     
     public var body: some View {
+        if dynamicTypeSize.isAccessibilitySize {
+            VStack(spacing: 12) {
+                ForEach(preset.strings) { string in
+                    AccessibleStringButton(
+                        string: string,
+                        isActive: activeString.id == string.id,
+                        status: activeString.id == string.id ? status : .silent,
+                        isTuned: tunedStringIDs.contains(string.id),
+                        onTap: { onSelectString(string) },
+                        onPlayTone: { onPlayTone(string) }
+                    )
+                }
+            }
+            .padding(.horizontal, 16)
+        } else {
+            graphicalHeadstock
+        }
+    }
+
+    private var graphicalHeadstock: some View {
         HStack(alignment: .center, spacing: 0) {
             // Left Pegs (Strings 4, 5, 6)
             VStack(spacing: 24) {
@@ -156,7 +177,7 @@ public struct HeadstockView: View {
                                 Capsule().stroke(Color(red: 0.8, green: 0.65, blue: 0.3).opacity(0.5), lineWidth: 1)
                             )
                         Text("P E N A")
-                            .font(.system(size: 9, weight: .bold, design: .serif))
+                            .font(.caption2.bold())
                             .foregroundStyle(Color(red: 0.9, green: 0.78, blue: 0.45))
                     }
                     .offset(y: 22)
@@ -213,6 +234,48 @@ public struct HeadstockView: View {
     }
 }
 
+private struct AccessibleStringButton: View {
+    let string: GuitarString
+    let isActive: Bool
+    let status: TuningStatus
+    let isTuned: Bool
+    let onTap: () -> Void
+    let onPlayTone: () -> Void
+
+    var body: some View {
+        Button(action: onTap) {
+            HStack(spacing: 12) {
+                Text(string.displayTitle)
+                    .font(.headline)
+
+                Spacer()
+
+                if isTuned {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(.green)
+                }
+
+                Image(systemName: isActive ? status.indicatorIcon : "circle")
+                    .foregroundStyle(isActive ? status.color : .secondary)
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .fill(isActive ? Color(white: 0.18) : Color(white: 0.10))
+            )
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text(string.stringLabel))
+        .accessibilityValue(Text(isTuned
+            ? String(localized: "headstock.a11y.tuned", defaultValue: "Akortlandı")
+            : status.label))
+        .accessibilityAddTraits(isActive ? [.isSelected] : [])
+        .accessibilityAction(named: Text(String(localized: "headstock.play_string_tone", defaultValue: "\(string.displayTitle) Sesini Çal"))) {
+            onPlayTone()
+        }
+    }
+}
+
 // MARK: - Peg Button
 private struct PegButton: View {
     let string: GuitarString
@@ -243,16 +306,16 @@ private struct PegButton: View {
                     VStack(spacing: 2) {
                         HStack(spacing: 2) {
                             Text(string.noteLetter)
-                                .font(.system(size: 16, weight: .bold, design: .rounded))
+                                .font(.body.bold())
                                 .foregroundStyle(isActive ? (status == .silent ? .white : status.color) : .secondary)
 
                             Text("\(string.octave)")
-                                .font(.system(size: 10, weight: .semibold, design: .rounded))
+                                .font(.caption2.weight(.semibold))
                                 .foregroundStyle(.secondary)
                         }
 
                         Text(String(localized: "headstock.string_number", defaultValue: "\(string.id). Tel"))
-                            .font(.system(size: 10, weight: .medium))
+                            .font(.caption2.weight(.medium))
                             .foregroundStyle(isActive ? .white.opacity(0.8) : .secondary.opacity(0.6))
                     }
                     .frame(width: 50, height: 44)
@@ -274,7 +337,7 @@ private struct PegButton: View {
 
                     if isTuned {
                         Image(systemName: "checkmark.circle.fill")
-                            .font(.system(size: 13, weight: .bold))
+                            .font(.caption.bold())
                             .foregroundStyle(Color(red: 0.15, green: 0.85, blue: 0.40))
                             .background(Circle().fill(Color(white: 0.10)))
                             .offset(x: isLeftSide ? -4 : 4, y: -4)
@@ -290,6 +353,9 @@ private struct PegButton: View {
         .accessibilityLabel(Text(string.stringLabel))
         .accessibilityHint(Text(accessibilityHint))
         .accessibilityAddTraits(isActive ? [.isSelected] : [])
+        .accessibilityAction(named: Text(String(localized: "headstock.play_string_tone", defaultValue: "\(string.displayTitle) Sesini Çal"))) {
+            onPlayTone()
+        }
         .contextMenu {
             Button {
                 onPlayTone()

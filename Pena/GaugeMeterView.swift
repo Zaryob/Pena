@@ -55,23 +55,20 @@ public struct GaugeMeterView: View {
         if status == .inTune {
             return String(localized: "gauge.a11y.in_tune", defaultValue: "Tam akort")
         }
-        let centsText = String(format: "%.0f", abs(cents))
+        let centsText = abs(cents).formatted(.number.precision(.fractionLength(0)))
         return String(localized: "gauge.a11y.off_tune", defaultValue: "\(centsText) cent, \(status.label)")
     }
 
     public var body: some View {
         VStack(spacing: 12) {
             // String title & Target Hz header
-            HStack {
-                Text(stringName)
-                    .font(.system(size: 15, weight: .semibold, design: .rounded))
-                    .foregroundStyle(.secondary)
-
-                Spacer()
-
-                Text(String(localized: "gauge.target_hz", defaultValue: "Hedef: \(targetHz.formatted(.number.precision(.fractionLength(1)))) Hz"))
-                    .font(.system(size: 13, weight: .medium, design: .monospaced))
-                    .foregroundStyle(.secondary.opacity(0.8))
+            ViewThatFits(in: .horizontal) {
+                HStack {
+                    gaugeHeader
+                }
+                VStack(alignment: .leading, spacing: 4) {
+                    gaugeHeader
+                }
             }
             .padding(.horizontal, 24)
             .accessibilityHidden(true)
@@ -95,7 +92,7 @@ public struct GaugeMeterView: View {
                 // chevron communicates "keep going" beyond what the needle position alone can.
                 if isOffScale {
                     Image(systemName: cents < 0 ? "chevron.left.2" : "chevron.right.2")
-                        .font(.system(size: 14, weight: .bold))
+                        .font(.subheadline.bold())
                         .foregroundStyle(status.color)
                         .offset(x: cents < 0 ? -90 : 90, y: 8)
                         .transition(.opacity)
@@ -105,12 +102,12 @@ public struct GaugeMeterView: View {
                 VStack(spacing: 2) {
                     HStack(alignment: .firstTextBaseline, spacing: 2) {
                         Text(noteLetter)
-                            .font(.system(size: 64, weight: .heavy, design: .rounded))
+                            .font(.system(.largeTitle, design: .rounded).weight(.heavy))
                             .foregroundStyle(status == .silent ? Color.white.opacity(0.8) : status.color)
                             .shadow(color: status.color.opacity(status == .inTune ? 0.6 : 0.2), radius: 10)
 
                         Text(octave)
-                            .font(.system(size: 26, weight: .bold, design: .rounded))
+                            .font(.title.bold())
                             .foregroundStyle(.secondary)
                             .offset(y: -10)
                     }
@@ -119,25 +116,25 @@ public struct GaugeMeterView: View {
 
                     // Detected Frequency readout
                     if let hz = detectedHz {
-                        Text(String(format: "%.1f Hz", hz))
-                            .font(.system(size: 16, weight: .semibold, design: .monospaced))
+                        Text("\(hz, format: .number.precision(.fractionLength(1))) Hz")
+                            .font(.body.weight(.semibold).monospaced())
                             .foregroundStyle(.white)
                     } else if amplitude > 0.002 {
                         HStack(spacing: 4) {
                             Circle().fill(Color(red: 0.85, green: 0.72, blue: 0.35)).frame(width: 6, height: 6)
                             Text(String(localized: "gauge.listening", defaultValue: "Dinleniyor..."))
-                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .font(.subheadline.weight(.medium))
                                 .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
                         }
                     } else {
                         Text("--.- Hz")
-                            .font(.system(size: 16, weight: .regular, design: .monospaced))
+                            .font(.body.monospaced())
                             .foregroundStyle(.secondary.opacity(0.6))
                     }
                 }
                 .offset(y: 12)
             }
-            .frame(height: 170)
+            .frame(minHeight: 170)
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(Text("\(noteLetter)\(octave)"))
             .accessibilityValue(Text(accessibilityValueText))
@@ -147,10 +144,10 @@ public struct GaugeMeterView: View {
             HStack(spacing: 12) {
                 // Cents pill
                 HStack(spacing: 4) {
-                    Text(detectedHz != nil ? String(format: "%+.0f", cents) : "—")
-                        .font(.system(size: 15, weight: .bold, design: .monospaced))
+                    Text(detectedHz != nil ? cents.formatted(.number.sign(strategy: .always()).precision(.fractionLength(0))) : "—")
+                        .font(.subheadline.bold().monospaced())
                     Text(String(localized: "gauge.cent_unit", defaultValue: "cent"))
-                        .font(.system(size: 12, weight: .medium))
+                        .font(.caption2.weight(.medium))
                         .foregroundStyle(.secondary)
                 }
                 .padding(.horizontal, 12)
@@ -167,9 +164,9 @@ public struct GaugeMeterView: View {
                 // Status guidance pill
                 HStack(spacing: 6) {
                     Image(systemName: status.indicatorIcon)
-                        .font(.system(size: 14, weight: .bold))
+                        .font(.subheadline.bold())
                     Text(status == .silent && amplitude > 0.002 ? String(localized: "gauge.receiving_sound", defaultValue: "SES ALINIYOR") : status.label)
-                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                        .font(.caption.bold())
                 }
                 .padding(.horizontal, 14)
                 .padding(.vertical, 6)
@@ -186,7 +183,7 @@ public struct GaugeMeterView: View {
             // Live Mic Level Indicator
             HStack(spacing: 8) {
                 Image(systemName: amplitude > 0.002 ? "waveform" : "waveform.slash")
-                    .font(.system(size: 11))
+                    .font(.caption2)
                     .foregroundStyle(amplitude > 0.002 ? Color(red: 0.15, green: 0.85, blue: 0.40) : .secondary)
 
                 GeometryReader { geo in
@@ -236,6 +233,19 @@ public struct GaugeMeterView: View {
                 .shadow(color: .black.opacity(0.4), radius: 12, y: 4)
         )
         .padding(.horizontal, 16)
+    }
+
+    @ViewBuilder
+    private var gaugeHeader: some View {
+        Text(stringName)
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(.secondary)
+
+        Spacer()
+
+        Text(String(localized: "gauge.target_hz", defaultValue: "Hedef: \(targetHz.formatted(.number.precision(.fractionLength(1)))) Hz"))
+            .font(.caption.weight(.medium).monospaced())
+            .foregroundStyle(.secondary.opacity(0.8))
     }
 }
 
