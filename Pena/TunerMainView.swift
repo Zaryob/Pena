@@ -2,7 +2,7 @@ import SwiftUI
 
 public struct TunerMainView: View {
     @State private var viewModel = TunerViewModel()
-    @State private var showSimulatorBar: Bool = true // Enabled by default for easy testing on Simulator!
+    @State private var showSimulatorBar: Bool = false // Default to false on real device, can be toggled
     
     public init() {}
     
@@ -19,13 +19,17 @@ public struct TunerMainView: View {
                     .padding(.top, 8)
                 
                 // Mic Permission Warning Banner (if needed)
-                if viewModel.audioManager.permissionRequested && !viewModel.audioManager.hasMicrophonePermission {
+                if !viewModel.audioManager.hasMicrophonePermission {
                     micPermissionBanner
+                        .padding(.horizontal, 16)
+                        .padding(.top, 8)
+                } else if !viewModel.audioManager.isRunning {
+                    micInactiveBanner
                         .padding(.horizontal, 16)
                         .padding(.top, 8)
                 }
                 
-                // Content Scrollable or fitted
+                // Content Scrollable
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 16) {
                         // Gauge Meter
@@ -37,6 +41,7 @@ public struct TunerMainView: View {
                             detectedHz: viewModel.detectedFrequency,
                             targetHz: viewModel.targetFrequency,
                             stringName: viewModel.activeString.turkishName,
+                            amplitude: viewModel.audioManager.currentAmplitude,
                             isPluckDetected: viewModel.audioManager.isPluckDetected
                         )
                         .padding(.top, 4)
@@ -160,10 +165,10 @@ public struct TunerMainView: View {
                 .foregroundStyle(Color(red: 0.95, green: 0.45, blue: 0.15))
             
             VStack(alignment: .leading, spacing: 2) {
-                Text("Mikrofon Erişimi Gerekli")
+                Text("Mikrofon İzni Gerekli")
                     .font(.system(size: 13, weight: .bold))
                     .foregroundStyle(.white)
-                Text("Gitar sesini algılamak için mikrofonu etkinleştirin veya aşağıdaki Simülatör Test panelini kullanın.")
+                Text("Gitar telinin sesini algılamak için mikrofona izin verin.")
                     .font(.system(size: 11))
                     .foregroundStyle(.secondary)
             }
@@ -178,7 +183,7 @@ public struct TunerMainView: View {
                 }
             }
             .font(.system(size: 12, weight: .bold))
-            .padding(.horizontal, 10)
+            .padding(.horizontal, 12)
             .padding(.vertical, 6)
             .background(Capsule().fill(Color(red: 0.85, green: 0.72, blue: 0.35)))
             .foregroundStyle(.black)
@@ -192,6 +197,28 @@ public struct TunerMainView: View {
                         .stroke(Color(red: 0.95, green: 0.45, blue: 0.15).opacity(0.4), lineWidth: 1)
                 )
         )
+    }
+    
+    // MARK: - Mic Inactive Banner
+    private var micInactiveBanner: some View {
+        Button {
+            viewModel.audioManager.start()
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: "play.circle.fill")
+                    .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
+                Text("Mikrofon duraklatıldı. Dinlemeyi başlatmak için dokunun.")
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundStyle(.white)
+                Spacer()
+            }
+            .padding(10)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color(white: 0.14))
+            )
+        }
+        .buttonStyle(.plain)
     }
     
     // MARK: - Bottom Floating Action Bar

@@ -8,6 +8,7 @@ public struct GaugeMeterView: View {
     public let detectedHz: Double?
     public let targetHz: Double
     public let stringName: String       // e.g. "6. Tel - Kalın Mi"
+    public let amplitude: Float         // Live RMS amplitude
     public let isPluckDetected: Bool
     
     public init(
@@ -18,6 +19,7 @@ public struct GaugeMeterView: View {
         detectedHz: Double?,
         targetHz: Double,
         stringName: String,
+        amplitude: Float = 0.0,
         isPluckDetected: Bool = false
     ) {
         self.cents = cents
@@ -27,7 +29,14 @@ public struct GaugeMeterView: View {
         self.detectedHz = detectedHz
         self.targetHz = targetHz
         self.stringName = stringName
+        self.amplitude = amplitude
         self.isPluckDetected = isPluckDetected
+    }
+    
+    // Normalized amplitude for level meter (0.0 to 1.0)
+    private var normalizedLevel: CGFloat {
+        let normalized = CGFloat(min(1.0, max(0.0, amplitude * 25.0)))
+        return normalized
     }
     
     public var body: some View {
@@ -82,6 +91,13 @@ public struct GaugeMeterView: View {
                         Text(String(format: "%.1f Hz", hz))
                             .font(.system(size: 16, weight: .semibold, design: .monospaced))
                             .foregroundStyle(.white)
+                    } else if amplitude > 0.002 {
+                        HStack(spacing: 4) {
+                            Circle().fill(Color(red: 0.85, green: 0.72, blue: 0.35)).frame(width: 6, height: 6)
+                            Text("Dinleniyor...")
+                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
+                        }
                     } else {
                         Text("--.- Hz")
                             .font(.system(size: 16, weight: .regular, design: .monospaced))
@@ -117,7 +133,7 @@ public struct GaugeMeterView: View {
                 HStack(spacing: 6) {
                     Image(systemName: status.indicatorIcon)
                         .font(.system(size: 14, weight: .bold))
-                    Text(status.label)
+                    Text(status == .silent && amplitude > 0.002 ? "SES ALINIYOR" : status.label)
                         .font(.system(size: 13, weight: .bold, design: .rounded))
                 }
                 .padding(.horizontal, 14)
@@ -130,8 +146,39 @@ public struct GaugeMeterView: View {
                 .animation(.easeInOut(duration: 0.2), value: status)
             }
             .padding(.top, 4)
+            
+            // Live Mic Level Indicator
+            HStack(spacing: 8) {
+                Image(systemName: amplitude > 0.002 ? "waveform" : "waveform.slash")
+                    .font(.system(size: 11))
+                    .foregroundStyle(amplitude > 0.002 ? Color(red: 0.15, green: 0.85, blue: 0.40) : .secondary)
+                
+                GeometryReader { geo in
+                    ZStack(alignment: .leading) {
+                        Capsule()
+                            .fill(Color(white: 0.14))
+                        
+                        Capsule()
+                            .fill(
+                                LinearGradient(
+                                    colors: [
+                                        Color(red: 0.15, green: 0.85, blue: 0.40),
+                                        Color(red: 0.85, green: 0.72, blue: 0.35)
+                                    ],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .frame(width: max(0, min(geo.size.width, geo.size.width * normalizedLevel)))
+                            .animation(.easeOut(duration: 0.08), value: normalizedLevel)
+                    }
+                }
+                .frame(height: 4)
+            }
+            .padding(.horizontal, 28)
+            .padding(.top, 2)
         }
-        .padding(.vertical, 16)
+        .padding(.vertical, 14)
         .background(
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(Color(red: 0.10, green: 0.10, blue: 0.13))

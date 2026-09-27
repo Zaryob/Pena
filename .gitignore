@@ -1,0 +1,53 @@
+# Xcode
+#
+# gitignore template for Xcode programs
+# website: https://www.toptal.com/developers/gitignore/api/xcode,swift,macos
+
+.DS_Store
+*/.DS_Store
+
+# Xcode User Data & Temporary Files
+build/
+DerivedData/
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# Xcode 8+ User Specific Data
+xcuserdata/
+*.xcuserdatad
+
+# Objective-C / Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+.build/
+Packages/
+Package.pins
+Package.resolved
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/configuration/user/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Optimization Profiles
+*.profdata
+OptimizationProfiles/

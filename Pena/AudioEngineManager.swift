@@ -7,8 +7,50 @@ import Observation
 public struct PitchDetectionResult: Equatable {
     public let frequency: Double
     public let amplitude: Float
-    public let clarity: Double // 0.0 to 1.0 (confidence)
+    public let clarity: Double
     public let timestamp: Date
+}
+
+// MARK: - Thread-Safe Audio Buffer Accumulator
+final class AudioBufferAccumulator: @unchecked Sendable {
+    private let capacity = 4096
+    private var buffer: [Float]
+    private var count = 0
+    private var lock = os_unfair_lock()
+    
+    init() {
+        self.buffer = [Float](repeating: 0.0, count: capacity)
+    }
+    
+    func append(samples: UnsafePointer<Float>, sampleCount: Int) -> ([Float], Int)? {
+        os_unfair_lock_lock(&lock)
+        defer { os_unfair_lock_unlock(&lock) }
+        
+        if sampleCount >= capacity {
+            for i in 0..<capacity {
+                buffer[i] = samples[sampleCount - capacity + i]
+            }
+            count = capacity
+        } else {
+            let shift = sampleCount
+            let keep = capacity - shift
+            buffer.withUnsafeMutableBufferPointer { ptr in
+                let base = ptr.baseAddress!
+                memmove(base, base.advanced(by: shift), keep * MemoryLayout<Float>.stride)
+                memcpy(base.advanced(by: keep), samples, shift * MemoryLayout<Float>.stride)
+            }
+            count = min(capacity, count + sampleCount)
+        }
+        
+        guard count >= 2048 else { return nil }
+        return (buffer, count)
+    }
+    
+    func reset() {
+        os_unfair_lock_lock(&lock)
+        count = 0
+        os_unfair_lock_unlock(&lock)
+    }
 }
 
 // MARK: - Audio Engine Manager
@@ -23,21 +65,23 @@ public final class AudioEngineManager: NSObject {
     public private(set) var smoothedFrequency: Double? = nil
     public private(set) var currentAmplitude: Float = 0.0
     public private(set) var isPluckDetected: Bool = false
+    public private(set) var lastErrorMessage: String? = nil
     
     // User Settings
-    public var noiseGateThreshold: Float = 0.012
+    // Default threshold lowered to 0.003 for sensitive acoustic guitar pickup
+    public var noiseGateThreshold: Float = 0.003
     public var a4Calibration: Double = 440.0
     
     // Audio engine components
     @ObservationIgnored private var audioEngine: AVAudioEngine?
     @ObservationIgnored private var toneEngine: AVAudioEngine?
     @ObservationIgnored private var toneSourceNode: AVAudioSourceNode?
+    @ObservationIgnored private let accumulator = AudioBufferAccumulator()
     
     // Internal pitch detection variables
-    @ObservationIgnored private var sampleRate: Double = 44100.0
-    @ObservationIgnored private let bufferSize: AVAudioFrameCount = 4096
-    @ObservationIgnored private var lastRawFrequency: Double? = nil
+    @ObservationIgnored private var sampleRate: Double = 48000.0
     @ObservationIgnored private var pluckCooldown: Double = 0.0
+    @ObservationIgnored private var silenceFramesCount = 0
     
     // Tone generation state
     @ObservationIgnored private var tonePhase: Double = 0.0
@@ -103,34 +147,38 @@ public final class AudioEngineManager: NSObject {
         #if os(iOS)
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetooth])
-            try audioSession.setPreferredSampleRate(44100.0)
-            try audioSession.setPreferredIOBufferDuration(0.02)
+            try audioSession.setCategory(
+                .playAndRecord,
+                mode: .measurement,
+                options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers]
+            )
+            try audioSession.setPreferredIOBufferDuration(0.01) // Low latency input
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
-            print("Audio session configuration error: \(error.localizedDescription)")
+            print("AudioSession setup error: \(error.localizedDescription)")
+            self.lastErrorMessage = error.localizedDescription
         }
         #endif
         
         let engine = AVAudioEngine()
         let inputNode = engine.inputNode
-        let format = inputNode.outputFormat(forBus: 0)
         
-        let actualSampleRate = (format.sampleRate > 0) ? format.sampleRate : 44100.0
-        self.sampleRate = actualSampleRate
-        
+        // Pass nil to installTap to automatically match hardware format
         inputNode.removeTap(onBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: bufferSize, format: format) { [weak self] buffer, _ in
-            self?.processAudioBuffer(buffer, sampleRate: actualSampleRate)
+        let accumulatorRef = self.accumulator
+        inputNode.installTap(onBus: 0, bufferSize: 2048, format: nil) { [weak self] buffer, _ in
+            self?.processIncomingBuffer(buffer, accumulator: accumulatorRef)
         }
         
         do {
             try engine.start()
             self.audioEngine = engine
             self.isRunning = true
+            self.lastErrorMessage = nil
             setupToneEngine()
         } catch {
-            print("Failed to start audio engine: \(error.localizedDescription)")
+            print("AudioEngine start error: \(error.localizedDescription)")
+            self.lastErrorMessage = error.localizedDescription
             self.isRunning = false
         }
     }
@@ -142,24 +190,44 @@ public final class AudioEngineManager: NSObject {
             self.audioEngine = nil
         }
         stopToneEngine()
+        accumulator.reset()
         self.isRunning = false
         self.currentFrequency = nil
         self.smoothedFrequency = nil
         self.currentAmplitude = 0.0
     }
     
-    // MARK: - Audio Processing & Pitch Extraction
-    nonisolated private func processAudioBuffer(_ buffer: AVAudioPCMBuffer, sampleRate: Double) {
+    // MARK: - Incoming Audio Buffer Handling
+    nonisolated private func processIncomingBuffer(_ buffer: AVAudioPCMBuffer, accumulator: AudioBufferAccumulator) {
         guard let channelData = buffer.floatChannelData?[0] else { return }
         let frameCount = Int(buffer.frameLength)
-        guard frameCount >= 1024 else { return }
+        guard frameCount > 0 else { return }
         
-        // Calculate RMS amplitude using Accelerate vDSP
+        let actualSampleRate = buffer.format.sampleRate > 0 ? buffer.format.sampleRate : 48000.0
+        
+        // Compute RMS of incoming chunk
         var rms: Float = 0.0
         vDSP_rmsqv(channelData, 1, &rms, vDSP_Length(frameCount))
         
-        // Detect pitch using McLeod Pitch Method (NSDF)
-        let pitchResult = detectPitchMcLeod(samples: channelData, count: frameCount, sampleRate: sampleRate, rms: rms)
+        // Append to rolling analysis buffer
+        guard let (analysisSamples, currentCount) = accumulator.append(samples: channelData, sampleCount: frameCount) else {
+            return
+        }
+        
+        // Remove DC offset
+        var mean: Float = 0.0
+        vDSP_meanv(analysisSamples, 1, &mean, vDSP_Length(currentCount))
+        var negativeMean = -mean
+        var centeredSamples = [Float](repeating: 0.0, count: currentCount)
+        vDSP_vsadd(analysisSamples, 1, &negativeMean, &centeredSamples, 1, vDSP_Length(currentCount))
+        
+        // Detect pitch using McLeod NSDF
+        let pitchResult = detectPitchMcLeod(
+            samples: centeredSamples,
+            count: currentCount,
+            sampleRate: actualSampleRate,
+            rms: rms
+        )
         
         Task { @MainActor [weak self] in
             guard let self = self else { return }
@@ -167,60 +235,65 @@ public final class AudioEngineManager: NSObject {
             
             // Check noise threshold
             if rms < self.noiseGateThreshold || pitchResult == nil {
-                if self.pluckCooldown > 0 {
-                    self.pluckCooldown -= 0.05
-                } else {
+                self.silenceFramesCount += 1
+                if self.silenceFramesCount > 6 { // ~120ms of silence before resetting
                     self.currentFrequency = nil
                     self.smoothedFrequency = nil
                 }
                 return
             }
             
+            self.silenceFramesCount = 0
             guard let detected = pitchResult else { return }
             let freq = detected.frequency
             
             // Pluck detection / smoothing
             if let prev = self.smoothedFrequency {
                 let semitoneDiff = abs(12.0 * log2(freq / prev))
-                if semitoneDiff > 1.5 {
-                    // Sudden jump: user hit a new string!
+                if semitoneDiff > 1.2 {
+                    // Quick jump to new note
                     self.smoothedFrequency = freq
                     self.isPluckDetected = true
                     Task { @MainActor in
-                        try? await Task.sleep(nanoseconds: 150_000_000)
+                        try? await Task.sleep(nanoseconds: 120_000_000)
                         self.isPluckDetected = false
                     }
                 } else {
-                    // Smooth tracking for steady needle
-                    let alpha = 0.30
+                    // Smooth tracking
+                    let alpha = 0.35
                     self.smoothedFrequency = prev * (1.0 - alpha) + freq * alpha
                 }
             } else {
                 self.smoothedFrequency = freq
                 self.isPluckDetected = true
                 Task { @MainActor in
-                    try? await Task.sleep(nanoseconds: 150_000_000)
+                    try? await Task.sleep(nanoseconds: 120_000_000)
                     self.isPluckDetected = false
                 }
             }
             
             self.currentFrequency = freq
-            self.pluckCooldown = 0.4
         }
     }
     
-    // MARK: - McLeod Pitch Method (NSDF Pitch Detection)
-    nonisolated private func detectPitchMcLeod(samples: UnsafePointer<Float>, count: Int, sampleRate: Double, rms: Float) -> PitchDetectionResult? {
+    // MARK: - McLeod Pitch Method (NSDF) with Subharmonic Correction
+    nonisolated private func detectPitchMcLeod(
+        samples: [Float],
+        count: Int,
+        sampleRate: Double,
+        rms: Float
+    ) -> PitchDetectionResult? {
+        // Classical guitar range: 65 Hz (Drop D) to 800 Hz (high frets on 1st string)
         let minFreq = 65.0
-        let maxFreq = 750.0
+        let maxFreq = 800.0
         
-        let minPeriod = Int(sampleRate / maxFreq) // e.g. ~58 samples
-        let maxPeriod = Int(sampleRate / minFreq) // e.g. ~678 samples
+        let minPeriod = max(8, Int(sampleRate / maxFreq))
+        let maxPeriod = min(count / 2, Int(sampleRate / minFreq))
         
-        guard count > maxPeriod * 2 else { return nil }
+        guard maxPeriod > minPeriod, count > maxPeriod * 2 else { return nil }
         let windowSize = count - maxPeriod
         
-        // Compute Normalized Square Difference Function (NSDF)
+        // Compute NSDF
         var nsdf = [Double](repeating: 0.0, count: maxPeriod + 1)
         
         for tau in minPeriod...maxPeriod {
@@ -237,14 +310,14 @@ public final class AudioEngineManager: NSObject {
             }
             
             let denom = sumSquare1 + sumSquare2
-            if denom > 1e-9 {
+            if denom > 1e-8 {
                 nsdf[tau] = (2.0 * sumCross) / denom
             } else {
                 nsdf[tau] = 0.0
             }
         }
         
-        // Find local maxima with threshold
+        // Find maximum value
         var maxVal = -1.0
         for tau in minPeriod...maxPeriod {
             if nsdf[tau] > maxVal {
@@ -252,12 +325,14 @@ public final class AudioEngineManager: NSObject {
             }
         }
         
-        guard maxVal > 0.45 else { return nil }
+        // Confidence threshold (at least 0.35 correlation)
+        guard maxVal > 0.35 else { return nil }
         
-        let threshold = maxVal * 0.85
+        let threshold = maxVal * 0.82
         var bestTau: Double? = nil
         var bestClarity: Double = 0.0
         
+        // Find first prominent peak
         for tau in (minPeriod + 1)..<maxPeriod {
             if nsdf[tau] > nsdf[tau - 1] && nsdf[tau] >= nsdf[tau + 1] && nsdf[tau] >= threshold {
                 let y1 = nsdf[tau - 1]
@@ -267,21 +342,38 @@ public final class AudioEngineManager: NSObject {
                 let denom = 2.0 * (2.0 * y2 - y1 - y3)
                 let delta = (denom != 0.0) ? (y3 - y1) / denom : 0.0
                 
-                let refinedPeriod = Double(tau) + delta
-                if refinedPeriod > 0 {
-                    bestTau = refinedPeriod
+                let refined = Double(tau) + delta
+                if refined > 0 {
+                    bestTau = refined
                     bestClarity = y2
                     break
                 }
             }
         }
         
-        guard let period = bestTau, period > 0 else { return nil }
-        let frequency = sampleRate / period
+        guard var period = bestTau, period > 0 else { return nil }
         
+        // Check for octave / subharmonic error:
+        // On nylon guitar, sometimes the 2nd harmonic (half the true period) has high correlation.
+        // Check if there is also a strong peak near 2 * period:
+        let doubleTau = Int(round(period * 2.0))
+        if doubleTau + 1 <= maxPeriod && doubleTau - 1 >= minPeriod {
+            let correlationAt2X = max(nsdf[doubleTau - 1], max(nsdf[doubleTau], nsdf[doubleTau + 1]))
+            if correlationAt2X > 0.40 && correlationAt2X >= bestClarity * 0.65 {
+                // The true fundamental period is the longer one!
+                period = period * 2.0
+            }
+        }
+        
+        let frequency = sampleRate / period
         guard frequency >= minFreq && frequency <= maxFreq else { return nil }
         
-        return PitchDetectionResult(frequency: frequency, amplitude: rms, clarity: bestClarity, timestamp: Date())
+        return PitchDetectionResult(
+            frequency: frequency,
+            amplitude: rms,
+            clarity: bestClarity,
+            timestamp: Date()
+        )
     }
     
     // MARK: - Tone Generation (Reference Pitch Sound)
@@ -291,7 +383,7 @@ public final class AudioEngineManager: NSObject {
         let engine = AVAudioEngine()
         let mainMixer = engine.mainMixerNode
         let outputFormat = mainMixer.outputFormat(forBus: 0)
-        let actualRate = outputFormat.sampleRate > 0 ? outputFormat.sampleRate : 44100.0
+        let actualRate = outputFormat.sampleRate > 0 ? outputFormat.sampleRate : 48000.0
         
         let sourceNode = AVAudioSourceNode { [weak self] _, _, frameCount, audioBufferList -> OSStatus in
             guard let self = self else { return noErr }
@@ -372,19 +464,19 @@ public final class AudioEngineManager: NSObject {
         toneAmplitude = 0.0
     }
     
-    // MARK: - Simulator / Demo Mock Pluck
+    // MARK: - Simulator Mock Pluck
     public func simulatePluck(frequency: Double, centsOffset: Double = 0.0) {
         let simulatedFreq = frequency * pow(2.0, centsOffset / 1200.0)
         self.currentAmplitude = 0.35
         self.currentFrequency = simulatedFreq
         self.smoothedFrequency = simulatedFreq
         self.isPluckDetected = true
-        self.pluckCooldown = 1.5
+        self.silenceFramesCount = 0
         
         playTone(frequency: simulatedFreq, isPluck: true)
         
         Task { @MainActor in
-            try? await Task.sleep(nanoseconds: 200_000_000)
+            try? await Task.sleep(nanoseconds: 180_000_000)
             self.isPluckDetected = false
         }
         

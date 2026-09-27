@@ -50,7 +50,7 @@ public final class TunerViewModel {
         }
     }
     public var inTuneTolerance: Double = 3.0 // cents
-    public var noiseGateThreshold: Float = 0.012 {
+    public var noiseGateThreshold: Float = 0.003 {
         didSet {
             audioManager.noiseGateThreshold = noiseGateThreshold
         }
@@ -133,6 +133,13 @@ public final class TunerViewModel {
         audioManager.checkMicrophonePermission()
         if audioManager.hasMicrophonePermission {
             audioManager.start()
+        } else {
+            // Proactively request permission immediately so iOS prompt appears
+            audioManager.requestMicrophonePermission { [weak self] granted in
+                if granted {
+                    self?.audioManager.start()
+                }
+            }
         }
     }
     
