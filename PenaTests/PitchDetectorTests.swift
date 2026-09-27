@@ -38,6 +38,38 @@ struct PitchDetectorTests {
         return samples
     }
 
+    /// Synthetic nylon guitar string: fundamental + exponentially decaying harmonics + damping envelope + SNR 20dB white noise.
+    static func syntheticNylonString(
+        frequency: Double,
+        sampleRate: Double,
+        count: Int
+    ) -> [Float] {
+        var samples = [Float](repeating: 0, count: count)
+        let twoPi = 2.0 * Double.pi
+        let harmonics = [1.0, 0.55, 0.30, 0.18, 0.10, 0.05]
+        var seed: UInt64 = 0x8543789421A4B
+        func nextNoise() -> Double {
+            seed ^= seed << 13
+            seed ^= seed >> 7
+            seed ^= seed << 17
+            return (Double(seed % 2000) / 1000.0) - 1.0
+        }
+
+        let noiseAmp = 0.02
+        for i in 0..<count {
+            let t = Double(i) / sampleRate
+            let damping = exp(-1.2 * t)
+            var val = 0.0
+            for (hIdx, amp) in harmonics.enumerated() {
+                let harmonic = Double(hIdx + 1)
+                val += amp * sin(twoPi * frequency * harmonic * t)
+            }
+            let noise = nextNoise() * noiseAmp
+            samples[i] = Float((val * damping + noise) * 0.25)
+        }
+        return samples
+    }
+
     @Test("Detects every standard-tuning string within 1 cent", arguments: TuningPreset.standard.strings)
     func detectsStandardStrings(_ string: GuitarString) throws {
         let sampleRate = 48000.0
@@ -50,6 +82,39 @@ struct PitchDetectorTests {
         let cents = 1200.0 * log2(result.frequency / targetFreq)
         #expect(abs(cents) < 1.0, "Expected \(targetFreq) Hz, got \(result.frequency) Hz (\(cents) cents off)")
         #expect(result.clarity > 0.85)
+    }
+
+    struct PresetStringCase: CustomTestStringConvertible {
+        let presetId: String
+        let string: GuitarString
+
+        var testDescription: String {
+            "\(presetId): \(string.noteName) (\(string.targetFrequency(a4: 440.0).formatted(.number.precision(.fractionLength(1)))) Hz)"
+        }
+    }
+
+    static var allPresetCases: [PresetStringCase] {
+        var list: [PresetStringCase] = []
+        for preset in TuningPreset.allPresets {
+            for string in preset.strings {
+                list.append(PresetStringCase(presetId: preset.id, string: string))
+            }
+        }
+        return list
+    }
+
+    @Test("Detects every preset string within 1 cent", arguments: allPresetCases)
+    func detectsAllPresetStrings(_ item: PresetStringCase) throws {
+        let sampleRate = 48000.0
+        let detector = PitchDetector()
+        let targetFreq = item.string.targetFrequency(a4: 440.0)
+        let samples = Self.syntheticNylonString(frequency: targetFreq, sampleRate: sampleRate, count: PitchDetector.windowSize)
+        let config = PitchDetectorConfig(minFrequency: 55.0, maxFrequency: 450.0)
+
+        let result = try #require(detector.detectPitch(samples: samples, sampleRate: sampleRate, rms: 0.1, config: config))
+        let cents = 1200.0 * log2(result.frequency / targetFreq)
+        #expect(abs(cents) < 1.0, "Expected \(targetFreq) Hz, got \(result.frequency) Hz (\(cents) cents off)")
+        #expect(result.clarity > 0.80)
     }
 
     @Test("Detects detuned strings at the correct offset", arguments: [-25.0, -10.0, 10.0, 25.0])
@@ -78,12 +143,22 @@ struct PitchDetectorTests {
         #expect(abs(cents) < 1.0)
     }
 
+    @Test("Detects strings across different A4 calibrations (415, 440, 442 Hz)", arguments: [415.0, 440.0, 442.0])
+    func detectsDifferentA4Calibrations(_ a4: Double) throws {
+        let sampleRate = 48000.0
+        let detector = PitchDetector()
+        let string = TuningPreset.standard.strings.first { $0.id == 5 }! // A2
+        let targetFreq = string.targetFrequency(a4: a4)
+        let samples = Self.syntheticNylonString(frequency: targetFreq, sampleRate: sampleRate, count: PitchDetector.windowSize)
+        let config = PitchDetectorConfig(minFrequency: 60.0, maxFrequency: 420.0)
+
+        let result = try #require(detector.detectPitch(samples: samples, sampleRate: sampleRate, rms: 0.1, config: config))
+        let cents = 1200.0 * log2(result.frequency / targetFreq)
+        #expect(abs(cents) < 1.0)
+    }
+
     @Test("A weak fundamental with a dominant 2nd harmonic still resolves to the true pitch")
     func weakFundamentalDoesNotCauseOctaveError() throws {
-        // A known failure mode for naive pitch trackers: when the 2nd harmonic carries more
-        // energy than the fundamental, scanning from the smallest lag first can lock onto
-        // double the true frequency. `PitchDetector.correctOctaveError` exists specifically
-        // to catch and correct this.
         let sampleRate = 48000.0
         let detector = PitchDetector()
         let targetFreq = 110.0 // A2
@@ -99,6 +174,25 @@ struct PitchDetectorTests {
         let result = try #require(detector.detectPitch(samples: samples, sampleRate: sampleRate, rms: 0.1, config: config))
         let cents = 1200.0 * log2(result.frequency / targetFreq)
         #expect(abs(cents) < 5.0, "Locked onto \(result.frequency) Hz instead of the \(targetFreq) Hz fundamental")
+    }
+
+    @Test("Simulates phone microphone frequency response (attenuated low fundamental)")
+    func detectsAttenuatedPhoneMicFundamental() throws {
+        let sampleRate = 48000.0
+        let detector = PitchDetector()
+        let targetFreq = 82.4069 // E2
+        let samples = Self.syntheticString(
+            frequency: targetFreq,
+            sampleRate: sampleRate,
+            count: PitchDetector.windowSize,
+            harmonicAmplitudes: [0.25, 1.0, 0.6, 0.35, 0.2],
+            noiseAmplitude: 0.02
+        )
+        let config = PitchDetectorConfig(minFrequency: 60.0, maxFrequency: 420.0)
+
+        let result = try #require(detector.detectPitch(samples: samples, sampleRate: sampleRate, rms: 0.1, config: config))
+        let cents = 1200.0 * log2(result.frequency / targetFreq)
+        #expect(abs(cents) < 1.0, "Expected \(targetFreq) Hz, got \(result.frequency) Hz (\(cents) cents off)")
     }
 
     @Test("Returns nil for silence")
