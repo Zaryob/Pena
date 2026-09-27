@@ -1,0 +1,35 @@
+{
+  "sourceLanguage" : "tr",
+  "strings" : {
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Pena"
+          }
+        }
+      }
+    },
+    "NSMicrophoneUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pena needs microphone access to listen to your guitar strings and tune them accurately."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gitarınızın tellerinden gelen sesi algılayıp akort etmek için mikrofon erişimine ihtiyaç vardır."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
