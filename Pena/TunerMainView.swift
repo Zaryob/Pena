@@ -188,7 +188,7 @@ public struct TunerMainView: View {
                 Image(systemName: "slider.horizontal.3")
                     .font(.body.bold())
                     .foregroundStyle(.white)
-                    .frame(width: 36, height: 36)
+                    .frame(width: 44, height: 44)
                     .background(Circle().fill(Color(white: 0.14)))
             }
             .buttonStyle(.plain)

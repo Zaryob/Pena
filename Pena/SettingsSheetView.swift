@@ -66,28 +66,24 @@ public struct SettingsSheetView: View {
 
                 // Notation Style
                 Section {
-                    Picker(String(localized: "settings.notation.picker", defaultValue: "Nota Gösterimi"), selection: $viewModel.notationStyle) {
-                        ForEach(NotationStyle.allCases) { style in
-                            Text(style.compactDisplayName)
-                                .accessibilityLabel(Text(style.displayName))
-                                .tag(style)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(minHeight: 44)
+                    SettingsSegmentedControl(
+                        options: NotationStyle.allCases,
+                        selection: $viewModel.notationStyle,
+                        title: \.compactDisplayName,
+                        accessibilityTitle: \.displayName
+                    )
                 } header: {
                     Label(String(localized: "settings.notation.header", defaultValue: "Nota Gösterimi"), systemImage: "textformat")
                 }
 
                 // Sensitivity & Tolerance
                 Section {
-                    Picker(String(localized: "settings.sensitivity.picker", defaultValue: "Ortam Gürültüsü"), selection: $viewModel.sensitivity) {
-                        ForEach(ListeningSensitivity.allCases) { level in
-                            Text(level.displayName).tag(level)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(minHeight: 44)
+                    SettingsSegmentedControl(
+                        options: ListeningSensitivity.allCases,
+                        selection: $viewModel.sensitivity,
+                        title: \.displayName,
+                        accessibilityTitle: \.displayName
+                    )
 
                     Picker(String(localized: "settings.tolerance.picker", defaultValue: "Hassasiyet (Tolerans)"), selection: $viewModel.inTuneTolerance) {
                         Text(String(localized: "settings.tolerance.tight", defaultValue: "±2 cent (Çok Hassas)")).tag(2.0)
@@ -185,5 +181,41 @@ public struct SettingsSheetView: View {
             }
         }
         .accessibilityElement(children: .combine)
+    }
+}
+
+private struct SettingsSegmentedControl<Option: Hashable & Identifiable>: View {
+    let options: [Option]
+    @Binding var selection: Option
+    let title: (Option) -> String
+    let accessibilityTitle: (Option) -> String
+
+    var body: some View {
+        HStack(spacing: 2) {
+            ForEach(options) { option in
+                let isSelected = option == selection
+                Button {
+                    selection = option
+                } label: {
+                    Text(title(option))
+                        .font(.subheadline.weight(.medium))
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .foregroundStyle(isSelected ? Color.white : Color.secondary)
+                .background(
+                    RoundedRectangle(cornerRadius: 7, style: .continuous)
+                        .fill(isSelected ? Color(white: 0.32) : Color.clear)
+                )
+                .accessibilityLabel(Text(accessibilityTitle(option)))
+                .accessibilityAddTraits(isSelected ? [.isSelected] : [])
+            }
+        }
+        .padding(2)
+        .background(
+            RoundedRectangle(cornerRadius: 9, style: .continuous)
+                .fill(Color(white: 0.14))
+        )
     }
 }
