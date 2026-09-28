@@ -5,6 +5,12 @@
       "comment" : "Bundle name",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pena"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "new",
@@ -31,5 +37,5 @@
       }
     }
   },
-  "version" : "1.0"
+  "version" : "1.3"
 }
