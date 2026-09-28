@@ -13,12 +13,10 @@ public struct TunerMainView: View {
 
     public var body: some View {
         ZStack {
-            // Background
             Color(red: 0.07, green: 0.07, blue: 0.09)
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Top Navigation & Header
                 topBar
                     .padding(.horizontal, 16)
                     .padding(.top, 8)
@@ -40,7 +38,6 @@ public struct TunerMainView: View {
                         .padding(.top, 8)
                 }
 
-                // Content Scrollable
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 16) {
                         // Gauge Meter + Headstock: side-by-side on iPad/regular width,
@@ -66,17 +63,15 @@ public struct TunerMainView: View {
                         #endif
                     }
                     .padding(.top, 4)
-                    .padding(.bottom, 90)
+                    .padding(.bottom, 16)
                 }
             }
-
-            // Bottom Action Bar
-            VStack {
-                Spacer()
-                bottomActionBar
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 16)
-            }
+        }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            bottomActionBar
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .background(Color(red: 0.07, green: 0.07, blue: 0.09).opacity(0.96))
         }
         .sheet(isPresented: $viewModel.isSettingsPresented) {
             SettingsSheetView(viewModel: viewModel)
@@ -130,110 +125,101 @@ public struct TunerMainView: View {
     }
 
     // MARK: - Top Header Bar
+    @ViewBuilder
     private var topBar: some View {
-        HStack(spacing: 12) {
-            // Preset Dropdown Menu
-            Menu {
-                ForEach(TuningPreset.allPresets) { preset in
-                    Button {
-                        viewModel.currentPreset = preset
-                    } label: {
-                        HStack {
-                            Text(preset.name)
-                            if viewModel.currentPreset.id == preset.id {
-                                Image(systemName: "checkmark")
-                            }
+        if dynamicTypeSize.isAccessibilitySize {
+            VStack(spacing: 10) {
+                HStack(spacing: 12) {
+                    presetMenu
+                    Spacer(minLength: 8)
+                    settingsButton
+                }
+                modePicker
+            }
+        } else {
+            HStack(spacing: 12) {
+                presetMenu
+                Spacer()
+                modePicker
+                    .frame(width: 140)
+                settingsButton
+            }
+        }
+    }
+
+    private var presetMenu: some View {
+        Menu {
+            ForEach(TuningPreset.allPresets) { preset in
+                Button {
+                    viewModel.currentPreset = preset
+                } label: {
+                    HStack {
+                        Text(preset.name)
+                        if viewModel.currentPreset.id == preset.id {
+                            Image(systemName: "checkmark")
                         }
                     }
                 }
-            } label: {
-                HStack(spacing: 6) {
-                    Image(systemName: "music.note")
-                        .font(.caption.bold())
-                        .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
-
-                    Text(viewModel.currentPreset.name)
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.white)
-
-                    Image(systemName: "chevron.down")
-                        .font(.caption2.bold())
-                        .foregroundStyle(.secondary)
-                }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 8)
-                .background(
-                    Capsule()
-                        .fill(Color(white: 0.14))
-                )
             }
-            .accessibilityLabel(Text(String(localized: "main.a11y.preset_menu", defaultValue: "Akort düzeni")))
-            .accessibilityValue(Text(viewModel.currentPreset.name))
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: "music.note")
+                    .font(.caption.bold())
+                    .foregroundStyle(Color(red: 0.85, green: 0.72, blue: 0.35))
 
-            Spacer()
-
-            // Auto / Manual Mode Switcher
-            Picker(String(localized: "main.mode_picker", defaultValue: "Mod"), selection: $viewModel.tuningMode) {
-                ForEach(TuningMode.allCases) { mode in
-                    Text(mode.displayName).tag(mode)
-                }
-            }
-            .pickerStyle(.segmented)
-            .frame(width: dynamicTypeSize.isAccessibilitySize ? 180 : 140)
-
-            // Settings Button
-            Button {
-                viewModel.isSettingsPresented = true
-            } label: {
-                Image(systemName: "slider.horizontal.3")
-                    .font(.body.bold())
+                Text(viewModel.currentPreset.name)
+                    .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.white)
-                    .frame(width: 44, height: 44)
-                    .background(Circle().fill(Color(white: 0.14)))
+                    .multilineTextAlignment(.leading)
+
+                Image(systemName: "chevron.down")
+                    .font(.caption2.bold())
+                    .foregroundStyle(.secondary)
             }
-            .buttonStyle(.plain)
-            .frame(minWidth: 44, minHeight: 44)
-            .accessibilityLabel(Text(String(localized: "main.a11y.settings", defaultValue: "Ayarlar")))
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(Capsule().fill(Color(white: 0.14)))
         }
+        .accessibilityLabel(Text(String(localized: "main.a11y.preset_menu", defaultValue: "Akort düzeni")))
+        .accessibilityValue(Text(viewModel.currentPreset.name))
+    }
+
+    private var modePicker: some View {
+        Picker(String(localized: "main.mode_picker", defaultValue: "Mod"), selection: $viewModel.tuningMode) {
+            ForEach(TuningMode.allCases) { mode in
+                Text(mode.displayName).tag(mode)
+            }
+        }
+        .pickerStyle(.segmented)
+    }
+
+    private var settingsButton: some View {
+        Button {
+            viewModel.isSettingsPresented = true
+        } label: {
+            Image(systemName: "slider.horizontal.3")
+                .font(.body.bold())
+                .foregroundStyle(.white)
+                .frame(width: 44, height: 44)
+                .background(Circle().fill(Color(white: 0.14)))
+        }
+        .buttonStyle(.plain)
+        .frame(minWidth: 44, minHeight: 44)
+        .accessibilityLabel(Text(String(localized: "main.a11y.settings", defaultValue: "Ayarlar")))
     }
 
     // MARK: - Mic Permission Banner
     private var micPermissionBanner: some View {
-        HStack(spacing: 10) {
-            Image(systemName: "mic.slash.fill")
-                .foregroundStyle(Color(red: 0.95, green: 0.45, blue: 0.15))
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(String(localized: "main.mic_permission.title", defaultValue: "Mikrofon İzni Gerekli"))
-                    .font(.caption.bold())
-                    .foregroundStyle(.white)
-                Text(String(localized: "main.mic_permission.subtitle", defaultValue: "Gitar telinin sesini algılamak için mikrofona izin verin."))
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 10) {
+                permissionMessage
+                Spacer(minLength: 8)
+                permissionButton
             }
-
-            Spacer()
-
-            Button {
-                if viewModel.audioManager.permissionRequested {
-                    openSystemSettings()
-                } else {
-                    viewModel.audioManager.requestMicrophonePermission { granted in
-                        if granted {
-                            viewModel.audioManager.start()
-                        }
-                    }
-                }
-            } label: {
-                Text(viewModel.audioManager.permissionRequested
-                     ? String(localized: "main.mic_permission.open_settings", defaultValue: "Ayarları Aç")
-                     : String(localized: "main.mic_permission.grant", defaultValue: "İzin Ver"))
+            VStack(alignment: .leading, spacing: 12) {
+                permissionMessage
+                permissionButton
             }
-            .font(.caption2.bold())
-            .padding(.horizontal, 12)
-            .padding(.vertical, 6)
-            .background(Capsule().fill(Color(red: 0.85, green: 0.72, blue: 0.35)))
-            .foregroundStyle(.black)
         }
         .padding(10)
         .background(
@@ -244,6 +230,48 @@ public struct TunerMainView: View {
                         .stroke(Color(red: 0.95, green: 0.45, blue: 0.15).opacity(0.4), lineWidth: 1)
                 )
         )
+    }
+
+    private var permissionMessage: some View {
+        HStack(alignment: .top, spacing: 10) {
+            Image(systemName: "mic.slash.fill")
+                .foregroundStyle(Color(red: 0.95, green: 0.45, blue: 0.15))
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(String(localized: "main.mic_permission.title", defaultValue: "Mikrofon İzni Gerekli"))
+                    .font(.caption.bold())
+                    .foregroundStyle(.white)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text(String(localized: "main.mic_permission.subtitle", defaultValue: "Gitar telinin sesini algılamak için mikrofona izin verin."))
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+
+    private var permissionButton: some View {
+        Button {
+            if viewModel.audioManager.permissionRequested {
+                openSystemSettings()
+            } else {
+                viewModel.audioManager.requestMicrophonePermission { granted in
+                    if granted {
+                        viewModel.audioManager.start()
+                    }
+                }
+            }
+        } label: {
+            Text(viewModel.audioManager.permissionRequested
+                 ? String(localized: "main.mic_permission.open_settings", defaultValue: "Ayarları Aç")
+                 : String(localized: "main.mic_permission.grant", defaultValue: "İzin Ver"))
+        }
+        .font(.caption2.bold())
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .frame(minHeight: 44)
+        .background(Capsule().fill(Color(red: 0.85, green: 0.72, blue: 0.35)))
+        .foregroundStyle(.black)
     }
 
     // MARK: - Mic Inactive Banner
@@ -293,95 +321,127 @@ public struct TunerMainView: View {
     }
 
     // MARK: - Bottom Floating Action Bar
+    @ViewBuilder
     private var bottomActionBar: some View {
-        HStack(spacing: 12) {
-            // Play Reference Tone Button ("Dinle")
-            Button {
-                viewModel.playReferenceTone()
-            } label: {
-                HStack(spacing: 8) {
-                    Image(systemName: viewModel.isPlayingReferenceTone ? "speaker.wave.3.fill" : "speaker.wave.2.fill")
-                        .font(.body.bold())
-                    Text(String(localized: "main.play_reference", defaultValue: "Dinle (\(viewModel.activeString.noteLetter)\(viewModel.activeString.octave))"))
-                        .font(.subheadline.bold())
+        if dynamicTypeSize.isAccessibilitySize {
+            VStack(spacing: 8) {
+                referenceToneButton
+                HStack(spacing: 12) {
+                    microphoneButton
+                    #if DEBUG
+                    simulatorButton
+                    #endif
                 }
-                .frame(maxWidth: .infinity)
-                .frame(minHeight: 50)
+            }
+            .modifier(ActionBarBackground())
+        } else {
+            HStack(spacing: 12) {
+                referenceToneButton
+                microphoneButton
+                #if DEBUG
+                simulatorButton
+                #endif
+            }
+            .modifier(ActionBarBackground())
+        }
+    }
+
+    private var referenceToneButton: some View {
+        Button {
+            viewModel.playReferenceTone()
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: viewModel.isPlayingReferenceTone ? "speaker.wave.3.fill" : "speaker.wave.2.fill")
+                    .font(.body.bold())
+                Text(String(localized: "main.play_reference", defaultValue: "Dinle (\(viewModel.activeString.noteLetter)\(viewModel.activeString.octave))"))
+                    .font(.subheadline.bold())
+            }
+            .frame(maxWidth: .infinity)
+            .frame(minHeight: 50)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color(red: 0.85, green: 0.72, blue: 0.35),
+                                Color(red: 0.70, green: 0.55, blue: 0.25)
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+            )
+            .foregroundStyle(.black)
+            .shadow(color: Color(red: 0.85, green: 0.72, blue: 0.35).opacity(0.3), radius: 8, y: 3)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text(String(localized: "main.a11y.play_reference", defaultValue: "Referans sesini çal")))
+        .accessibilityValue(Text(viewModel.activeString.displayTitle))
+        .accessibilityAddTraits(.startsMediaSession)
+    }
+
+    private var microphoneButton: some View {
+        Button {
+            viewModel.toggleListening()
+        } label: {
+            Image(systemName: viewModel.audioManager.isListening ? "mic.fill" : "mic.slash.fill")
+                .font(.title3.bold())
+                .foregroundStyle(viewModel.audioManager.isListening ? Color(red: 0.15, green: 0.85, blue: 0.40) : Color.secondary)
+                .frame(width: 50, height: 50)
                 .background(
                     RoundedRectangle(cornerRadius: 16)
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    Color(red: 0.85, green: 0.72, blue: 0.35),
-                                    Color(red: 0.70, green: 0.55, blue: 0.25)
-                                ],
-                                startPoint: .top,
-                                endPoint: .bottom
-                            )
+                        .fill(Color(white: 0.14))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(
+                                    viewModel.audioManager.isListening ? Color(red: 0.15, green: 0.85, blue: 0.40).opacity(0.3) : Color(white: 0.2),
+                                    lineWidth: 1
+                                )
                         )
                 )
-                .foregroundStyle(.black)
-                .shadow(color: Color(red: 0.85, green: 0.72, blue: 0.35).opacity(0.3), radius: 8, y: 3)
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text(String(localized: "main.a11y.play_reference", defaultValue: "Referans sesini çal")))
-            .accessibilityValue(Text(viewModel.activeString.displayTitle))
-            .accessibilityAddTraits(.startsMediaSession)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text(viewModel.audioManager.isListening
+            ? String(localized: "main.a11y.pause_mic", defaultValue: "Mikrofonu durdur")
+            : String(localized: "main.a11y.resume_mic", defaultValue: "Mikrofonu başlat")))
+    }
 
-            // Microphone Active / Pause Button
-            Button {
-                viewModel.toggleListening()
-            } label: {
-                Image(systemName: viewModel.audioManager.isListening ? "mic.fill" : "mic.slash.fill")
-                    .font(.title3.bold())
-                    .foregroundStyle(viewModel.audioManager.isListening ? Color(red: 0.15, green: 0.85, blue: 0.40) : Color.secondary)
-                    .frame(width: 50, height: 50)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(Color(white: 0.14))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(
-                                        viewModel.audioManager.isListening ? Color(red: 0.15, green: 0.85, blue: 0.40).opacity(0.3) : Color(white: 0.2),
-                                        lineWidth: 1
-                                    )
-                            )
-                    )
+    #if DEBUG
+    private var simulatorButton: some View {
+        Button {
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                showSimulatorBar.toggle()
             }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text(viewModel.audioManager.isListening
-                ? String(localized: "main.a11y.pause_mic", defaultValue: "Mikrofonu durdur")
-                : String(localized: "main.a11y.resume_mic", defaultValue: "Mikrofonu başlat")))
+        } label: {
+            Image(systemName: showSimulatorBar ? "guitars.fill" : "guitars")
+                .font(.title3.bold())
+                .foregroundStyle(showSimulatorBar ? Color(red: 0.85, green: 0.72, blue: 0.35) : Color.secondary)
+                .frame(width: 50, height: 50)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color(white: 0.14))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(
+                                    showSimulatorBar ? Color(red: 0.85, green: 0.72, blue: 0.35).opacity(0.4) : Color(white: 0.2),
+                                    lineWidth: 1
+                                )
+                        )
+                )
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(Text(String(localized: "main.a11y.simulator_panel", defaultValue: "Simülatör test paneli")))
+        .accessibilityValue(Text(showSimulatorBar
+            ? String(localized: "common.on", defaultValue: "Açık")
+            : String(localized: "common.off", defaultValue: "Kapalı")))
+    }
+    #endif
+}
 
-            #if DEBUG
-            // Simulator Test Bar Toggle
-            Button {
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                    showSimulatorBar.toggle()
-                }
-            } label: {
-                Image(systemName: showSimulatorBar ? "guitars.fill" : "guitars")
-                    .font(.title3.bold())
-                    .foregroundStyle(showSimulatorBar ? Color(red: 0.85, green: 0.72, blue: 0.35) : Color.secondary)
-                    .frame(width: 50, height: 50)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(Color(white: 0.14))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .stroke(
-                                        showSimulatorBar ? Color(red: 0.85, green: 0.72, blue: 0.35).opacity(0.4) : Color(white: 0.2),
-                                        lineWidth: 1
-                                    )
-                            )
-                    )
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text(String(localized: "main.a11y.simulator_panel", defaultValue: "Simülatör test paneli")))
-            .accessibilityValue(Text(showSimulatorBar
-                ? String(localized: "common.on", defaultValue: "Açık")
-                : String(localized: "common.off", defaultValue: "Kapalı")))
-            #endif
+private struct ActionBarBackground: ViewModifier {
+    func body(content: Content) -> some View {
+        HStack(spacing: 12) {
+            content
         }
         .padding(6)
         .background(
