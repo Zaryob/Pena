@@ -1,6 +1,7 @@
 import SwiftUI
 
 public struct GaugeMeterView: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     public let cents: Double            // -50.0 to +50.0, clamped
     public let status: TuningStatus
     public let tolerance: Double        // in-tune band half-width, in cents
@@ -112,7 +113,7 @@ public struct GaugeMeterView: View {
                             .offset(y: -10)
                     }
                     .scaleEffect(isPluckDetected ? 1.08 : 1.0)
-                    .animation(.spring(response: 0.2, dampingFraction: 0.5), value: isPluckDetected)
+                    .animation(reduceMotion ? nil : .spring(response: 0.2, dampingFraction: 0.5), value: isPluckDetected)
 
                     // Detected Frequency readout
                     if let hz = detectedHz {
@@ -175,7 +176,7 @@ public struct GaugeMeterView: View {
                     Capsule()
                         .fill(status == .silent ? Color(white: 0.22) : status.color)
                 )
-                .animation(.easeInOut(duration: 0.2), value: status)
+                .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: status)
             }
             .padding(.top, 4)
             .accessibilityHidden(true)
@@ -203,7 +204,7 @@ public struct GaugeMeterView: View {
                                 )
                             )
                             .frame(width: max(0, min(geo.size.width, geo.size.width * normalizedLevel)))
-                            .animation(.easeOut(duration: 0.08), value: normalizedLevel)
+                            .animation(reduceMotion ? nil : .easeOut(duration: 0.08), value: normalizedLevel)
                     }
                 }
                 .frame(height: 4)
@@ -251,6 +252,7 @@ public struct GaugeMeterView: View {
 
 // MARK: - Gauge Arc with Needle and Ticks
 private struct GaugeArcShape: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     let cents: Double
     let status: TuningStatus
     let tolerance: Double
@@ -341,7 +343,7 @@ private struct GaugeArcShape: View {
                 // Needle Indicator
                 NeedleView(angle: needleAngle, length: radius - 6, status: status)
                     .position(center)
-                    .animation(.spring(response: 0.22, dampingFraction: 0.72), value: cents)
+                    .animation(reduceMotion ? nil : .spring(response: 0.22, dampingFraction: 0.72), value: cents)
             }
         }
     }

@@ -76,6 +76,9 @@ public struct TunerMainView: View {
         .sheet(isPresented: $viewModel.isSettingsPresented) {
             SettingsSheetView(viewModel: viewModel)
         }
+        .sensoryFeedback(.success, trigger: viewModel.tuningStatus) { oldStatus, newStatus in
+            oldStatus != .inTune && newStatus == .inTune
+        }
         .onChange(of: viewModel.audioManager.smoothedFrequency) { _, newFrequency in
             viewModel.updateAutoDetection(frequency: newFrequency)
         }
@@ -129,12 +132,11 @@ public struct TunerMainView: View {
     private var topBar: some View {
         if dynamicTypeSize.isAccessibilitySize {
             VStack(spacing: 10) {
+                presetMenu
                 HStack(spacing: 12) {
-                    presetMenu
-                    Spacer(minLength: 8)
+                    modePicker
                     settingsButton
                 }
-                modePicker
             }
         } else {
             HStack(spacing: 12) {
@@ -171,6 +173,8 @@ public struct TunerMainView: View {
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.white)
                     .multilineTextAlignment(.leading)
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                    .fixedSize(horizontal: false, vertical: true)
 
                 Image(systemName: "chevron.down")
                     .font(.caption2.bold())
@@ -178,8 +182,12 @@ public struct TunerMainView: View {
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
-            .background(Capsule().fill(Color(white: 0.14)))
+            .background(
+                RoundedRectangle(cornerRadius: dynamicTypeSize.isAccessibilitySize ? 20 : 100)
+                    .fill(Color(white: 0.14))
+            )
         }
+        .layoutPriority(1)
         .accessibilityLabel(Text(String(localized: "main.a11y.preset_menu", defaultValue: "Akort düzeni")))
         .accessibilityValue(Text(viewModel.currentPreset.name))
     }
