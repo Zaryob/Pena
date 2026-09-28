@@ -209,27 +209,22 @@ public struct TunerMainView: View {
     }
 
     // MARK: - Mic Permission Banner
+    @ViewBuilder
     private var micPermissionBanner: some View {
-        ViewThatFits(in: .horizontal) {
+        if dynamicTypeSize.isAccessibilitySize {
+            VStack(alignment: .leading, spacing: 12) {
+                permissionMessage
+                permissionButton
+            }
+            .modifier(PermissionBannerBackground())
+        } else {
             HStack(spacing: 10) {
                 permissionMessage
                 Spacer(minLength: 8)
                 permissionButton
             }
-            VStack(alignment: .leading, spacing: 12) {
-                permissionMessage
-                permissionButton
-            }
+            .modifier(PermissionBannerBackground())
         }
-        .padding(10)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(red: 0.2, green: 0.12, blue: 0.08))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color(red: 0.95, green: 0.45, blue: 0.15).opacity(0.4), lineWidth: 1)
-                )
-        )
     }
 
     private var permissionMessage: some View {
@@ -360,19 +355,13 @@ public struct TunerMainView: View {
             .frame(minHeight: 50)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(
-                        LinearGradient(
-                            colors: [
-                                Color(red: 0.85, green: 0.72, blue: 0.35),
-                                Color(red: 0.70, green: 0.55, blue: 0.25)
-                            ],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
+                    .fill(Color(white: 0.14))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color(red: 0.85, green: 0.72, blue: 0.35).opacity(0.65), lineWidth: 1)
                     )
             )
-            .foregroundStyle(.black)
-            .shadow(color: Color(red: 0.85, green: 0.72, blue: 0.35).opacity(0.3), radius: 8, y: 3)
+            .foregroundStyle(Color(red: 0.90, green: 0.78, blue: 0.45))
         }
         .buttonStyle(.plain)
         .accessibilityLabel(Text(String(localized: "main.a11y.play_reference", defaultValue: "Referans sesini çal")))
@@ -453,5 +442,20 @@ private struct ActionBarBackground: ViewModifier {
                 )
                 .shadow(color: .black.opacity(0.5), radius: 15, y: 5)
         )
+    }
+}
+
+private struct PermissionBannerBackground: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(10)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color(red: 0.2, green: 0.12, blue: 0.08))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color(red: 0.95, green: 0.45, blue: 0.15).opacity(0.4), lineWidth: 1)
+                    )
+            )
     }
 }

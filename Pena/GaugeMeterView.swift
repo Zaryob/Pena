@@ -103,12 +103,12 @@ public struct GaugeMeterView: View {
                     HStack(alignment: .firstTextBaseline, spacing: 2) {
                         Text(noteLetter)
                             .font(.system(.largeTitle, design: .rounded).weight(.heavy))
-                            .foregroundStyle(status == .silent ? Color.white.opacity(0.8) : status.color)
+                            .foregroundStyle(status == .silent ? Color.white.opacity(0.9) : status.color)
                             .shadow(color: status.color.opacity(status == .inTune ? 0.6 : 0.2), radius: 10)
 
                         Text(octave)
                             .font(.title.bold())
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color(white: 0.72))
                             .offset(y: -10)
                     }
                     .scaleEffect(isPluckDetected ? 1.08 : 1.0)
@@ -129,7 +129,7 @@ public struct GaugeMeterView: View {
                     } else {
                         Text("--.- Hz")
                             .font(.body.monospaced())
-                            .foregroundStyle(.secondary.opacity(0.6))
+                            .foregroundStyle(Color(white: 0.62))
                     }
                 }
                 .offset(y: 12)
@@ -148,7 +148,7 @@ public struct GaugeMeterView: View {
                         .font(.subheadline.bold().monospaced())
                     Text(String(localized: "gauge.cent_unit", defaultValue: "cent"))
                         .font(.caption2.weight(.medium))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Color(white: 0.72))
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
@@ -170,10 +170,10 @@ public struct GaugeMeterView: View {
                 }
                 .padding(.horizontal, 14)
                 .padding(.vertical, 6)
-                .foregroundStyle(status == .silent ? Color.secondary : Color.black)
+                .foregroundStyle(status == .silent ? Color(white: 0.82) : Color.black)
                 .background(
                     Capsule()
-                        .fill(status == .silent ? Color(white: 0.18) : status.color)
+                        .fill(status == .silent ? Color(white: 0.22) : status.color)
                 )
                 .animation(.easeInOut(duration: 0.2), value: status)
             }
@@ -239,13 +239,13 @@ public struct GaugeMeterView: View {
     private var gaugeHeader: some View {
         Text(stringName)
             .font(.subheadline.weight(.semibold))
-            .foregroundStyle(.secondary)
+            .foregroundStyle(Color(white: 0.72))
 
         Spacer()
 
         Text(String(localized: "gauge.target_hz", defaultValue: "Hedef: \(targetHz.formatted(.number.precision(.fractionLength(1)))) Hz"))
             .font(.caption.weight(.medium).monospaced())
-            .foregroundStyle(.secondary.opacity(0.8))
+            .foregroundStyle(Color(white: 0.68))
     }
 }
 
@@ -283,9 +283,9 @@ private struct GaugeArcShape: View {
                 .stroke(
                     LinearGradient(
                         colors: [
-                            Color(red: 0.95, green: 0.5, blue: 0.15),
+                            Color(red: 0.85, green: 0.72, blue: 0.35),
                             Color(red: 0.15, green: 0.85, blue: 0.4),
-                            Color(red: 0.35, green: 0.65, blue: 0.95)
+                            Color(red: 0.85, green: 0.72, blue: 0.35)
                         ],
                         startPoint: .leading,
                         endPoint: .trailing
