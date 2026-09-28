@@ -3,6 +3,7 @@ import SwiftUI
 public struct SettingsSheetView: View {
     @Bindable public var viewModel: TunerViewModel
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @ScaledMetric(relativeTo: .caption) private var tipBadgeSize: CGFloat = 22
 
     public init(viewModel: TunerViewModel) {
@@ -18,7 +19,7 @@ public struct SettingsSheetView: View {
                         ForEach(TuningPreset.allPresets) { preset in
                             VStack(alignment: .leading) {
                                 Text(preset.name)
-                                    .font(.system(size: 16, weight: .medium))
+                                    .font(.body.weight(.medium))
                             }
                             .tag(preset)
                         }
@@ -50,14 +51,7 @@ public struct SettingsSheetView: View {
                                 Text("\(viewModel.a4Frequency, format: .number.precision(.fractionLength(1))) Hz")
                             )
 
-                        ViewThatFits(in: .horizontal) {
-                            HStack(spacing: 6) {
-                                quickA4Buttons
-                            }
-                            VStack(spacing: 8) {
-                                quickA4Buttons
-                            }
-                        }
+                        quickA4Picker
                     }
                     .padding(.vertical, 4)
                 } header: {
@@ -137,6 +131,19 @@ public struct SettingsSheetView: View {
     }
 
     @ViewBuilder
+    private var quickA4Picker: some View {
+        if dynamicTypeSize.isAccessibilitySize {
+            VStack(spacing: 8) {
+                quickA4Buttons
+            }
+        } else {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
+                quickA4Buttons
+            }
+        }
+    }
+
+    @ViewBuilder
     private var quickA4Buttons: some View {
         quickA4Button(415.0, title: String(localized: "settings.a4.baroque", defaultValue: "415 Hz (Barok)"))
         quickA4Button(440.0, title: String(localized: "settings.a4.standard", defaultValue: "440 Hz (Standart)"))
@@ -161,6 +168,8 @@ public struct SettingsSheetView: View {
                 .foregroundStyle(viewModel.a4Frequency == freq ? .black : .white)
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(Text(title))
+        .accessibilityAddTraits(viewModel.a4Frequency == freq ? [.isSelected] : [])
     }
 
     private func tipRow(number: String, title: String, text: String) -> some View {
@@ -185,13 +194,18 @@ public struct SettingsSheetView: View {
 }
 
 private struct SettingsSegmentedControl<Option: Hashable & Identifiable>: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let options: [Option]
     @Binding var selection: Option
     let title: (Option) -> String
     let accessibilityTitle: (Option) -> String
 
     var body: some View {
-        HStack(spacing: 2) {
+        let layout = dynamicTypeSize.isAccessibilitySize
+            ? AnyLayout(VStackLayout(spacing: 2))
+            : AnyLayout(HStackLayout(spacing: 2))
+
+        layout {
             ForEach(options) { option in
                 let isSelected = option == selection
                 Button {
