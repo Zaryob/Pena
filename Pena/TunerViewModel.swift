@@ -95,7 +95,7 @@ public final class TunerViewModel {
             pendingStringCandidateCount = 0
             tunedStringIDs.removeAll()
             updateAudioFrequencyRange()
-            defaults.set(currentPreset.id, forKey: DefaultsKey.presetID)
+            defaults.set(currentPreset.id.rawValue, forKey: DefaultsKey.presetID)
         }
     }
 
@@ -175,12 +175,14 @@ public final class TunerViewModel {
         self.audioManager = manager
         self.defaults = defaults
 
-        let preset = defaults.string(forKey: DefaultsKey.presetID).flatMap { id in
-            TuningPreset.allPresets.first { $0.id == id }
-        } ?? .standard
+        let presetID = defaults.string(forKey: DefaultsKey.presetID).flatMap(TuningPresetID.init(rawValue:))
+        let preset = TuningPreset.allPresets.first { $0.id == presetID } ?? .standard
         // `selectedString` must be assigned before `currentPreset`, since currentPreset's
         // didSet re-matches it against the new preset's strings.
-        self.selectedString = TuningPreset.standard.strings.first { $0.id == 6 }!
+        guard let initialString = TuningPreset.standard.strings.last else {
+            preconditionFailure("Standard tuning must contain at least one string")
+        }
+        self.selectedString = initialString
         self.currentPreset = preset
         if let modeRaw = defaults.string(forKey: DefaultsKey.tuningMode), let mode = TuningMode(rawValue: modeRaw) {
             self.tuningMode = mode

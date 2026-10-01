@@ -29,7 +29,7 @@ struct TunerSettingsTests {
         viewModel.inTuneTolerance = 5
         viewModel.sensitivity = .noisy
 
-        #expect(defaults.string(forKey: "pena.presetID") == TuningPreset.dropD.id)
+        #expect(defaults.string(forKey: "pena.presetID") == TuningPreset.dropD.id.rawValue)
         #expect(defaults.string(forKey: "pena.tuningMode") == TuningMode.manual.rawValue)
         #expect(defaults.string(forKey: "pena.notationStyle") == NotationStyle.solfege.rawValue)
         #expect(defaults.double(forKey: "pena.a4Frequency") == 442)
@@ -41,7 +41,7 @@ struct TunerSettingsTests {
     @MainActor
     func restoresSettings() {
         let defaults = makeDefaults()
-        defaults.set(TuningPreset.dadgad.id, forKey: "pena.presetID")
+        defaults.set(TuningPreset.dadgad.id.rawValue, forKey: "pena.presetID")
         defaults.set(TuningMode.manual.rawValue, forKey: "pena.tuningMode")
         defaults.set(NotationStyle.solfege.rawValue, forKey: "pena.notationStyle")
         defaults.set(415.0, forKey: "pena.a4Frequency")

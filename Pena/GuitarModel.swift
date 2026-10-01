@@ -26,38 +26,45 @@ public struct GuitarString: Identifiable, Hashable, Equatable {
 }
 
 // MARK: - Tuning Presets
+public enum TuningPresetID: String, CaseIterable, Codable, Sendable {
+    case standard
+    case dropD = "drop_d"
+    case halfStepDown = "half_step_down"
+    case dadgad
+    case openD = "open_d"
+    case openG = "open_g"
+}
+
 public struct TuningPreset: Identifiable, Hashable, Equatable {
-    public let id: String
+    public let id: TuningPresetID
     public let strings: [GuitarString]
 
     public var name: String {
         switch id {
-        case "standard": String(localized: "preset.standard.name", defaultValue: "Standart Akort")
-        case "drop_d": String(localized: "preset.drop_d.name", defaultValue: "Drop D")
-        case "half_step_down": String(localized: "preset.half_step_down.name", defaultValue: "Yarım Ses Pes (D# / E♭)")
-        case "dadgad": String(localized: "preset.dadgad.name", defaultValue: "DADGAD")
-        case "open_d": String(localized: "preset.open_d.name", defaultValue: "Açık D (Open D)")
-        case "open_g": String(localized: "preset.open_g.name", defaultValue: "Açık G (Open G)")
-        default: id
+        case .standard: String(localized: "preset.standard.name", defaultValue: "Standart Akort")
+        case .dropD: String(localized: "preset.drop_d.name", defaultValue: "Drop D")
+        case .halfStepDown: String(localized: "preset.half_step_down.name", defaultValue: "Yarım Ses Pes (D# / E♭)")
+        case .dadgad: String(localized: "preset.dadgad.name", defaultValue: "DADGAD")
+        case .openD: String(localized: "preset.open_d.name", defaultValue: "Açık D (Open D)")
+        case .openG: String(localized: "preset.open_g.name", defaultValue: "Açık G (Open G)")
         }
     }
 
     public var presetDescription: String {
         switch id {
-        case "standard": String(localized: "preset.standard.description", defaultValue: "Klasik gitar için evrensel standart (E A D G B E)")
-        case "drop_d": String(localized: "preset.drop_d.description", defaultValue: "6. tel D2 sesine düşürülür (D A D G B E)")
-        case "half_step_down": String(localized: "preset.half_step_down.description", defaultValue: "Tüm teller yarım ses pestir (E♭ A♭ D♭ G♭ B♭ E♭)")
-        case "dadgad": String(localized: "preset.dadgad.description", defaultValue: "Geleneksel ve parmak stili akort (D A D G A D)")
-        case "open_d": String(localized: "preset.open_d.description", defaultValue: "Boş teller Re majör akoru verir (D A D F# A D)")
-        case "open_g": String(localized: "preset.open_g.description", defaultValue: "Boş teller Sol majör akoru verir (D G D G B D)")
-        default: ""
+        case .standard: String(localized: "preset.standard.description", defaultValue: "Klasik gitar için evrensel standart (E A D G B E)")
+        case .dropD: String(localized: "preset.drop_d.description", defaultValue: "6. tel D2 sesine düşürülür (D A D G B E)")
+        case .halfStepDown: String(localized: "preset.half_step_down.description", defaultValue: "Tüm teller yarım ses pestir (E♭ A♭ D♭ G♭ B♭ E♭)")
+        case .dadgad: String(localized: "preset.dadgad.description", defaultValue: "Geleneksel ve parmak stili akort (D A D G A D)")
+        case .openD: String(localized: "preset.open_d.description", defaultValue: "Boş teller Re majör akoru verir (D A D F# A D)")
+        case .openG: String(localized: "preset.open_g.description", defaultValue: "Boş teller Sol majör akoru verir (D G D G B D)")
         }
     }
 
     // Standard Tuning: E4 (1), B3 (2), G3 (3), D3 (4), A2 (5), E2 (6)
     // A4 = 440Hz
     public static let standard = TuningPreset(
-        id: "standard",
+        id: .standard,
         strings: [
             GuitarString(id: 1, noteName: "E4", noteLetter: "E", octave: 4, solfege: "Mi", semitonesFromA4: -5),
             GuitarString(id: 2, noteName: "B3", noteLetter: "B", octave: 3, solfege: "Si", semitonesFromA4: -10),
@@ -70,7 +77,7 @@ public struct TuningPreset: Identifiable, Hashable, Equatable {
 
     // Drop D: 6th string tuned down to D2 (-31 semitones)
     public static let dropD = TuningPreset(
-        id: "drop_d",
+        id: .dropD,
         strings: [
             GuitarString(id: 1, noteName: "E4", noteLetter: "E", octave: 4, solfege: "Mi", semitonesFromA4: -5),
             GuitarString(id: 2, noteName: "B3", noteLetter: "B", octave: 3, solfege: "Si", semitonesFromA4: -10),
@@ -83,7 +90,7 @@ public struct TuningPreset: Identifiable, Hashable, Equatable {
 
     // Half Step Down / Eb Tuning
     public static let halfStepDown = TuningPreset(
-        id: "half_step_down",
+        id: .halfStepDown,
         strings: [
             GuitarString(id: 1, noteName: "D#4", noteLetter: "D#", octave: 4, solfege: "Re#", semitonesFromA4: -6),
             GuitarString(id: 2, noteName: "A#3", noteLetter: "A#", octave: 3, solfege: "La#", semitonesFromA4: -11),
@@ -96,7 +103,7 @@ public struct TuningPreset: Identifiable, Hashable, Equatable {
 
     // DADGAD: Celtic / fingerstyle favorite
     public static let dadgad = TuningPreset(
-        id: "dadgad",
+        id: .dadgad,
         strings: [
             GuitarString(id: 1, noteName: "D4", noteLetter: "D", octave: 4, solfege: "Re", semitonesFromA4: -7),
             GuitarString(id: 2, noteName: "A3", noteLetter: "A", octave: 3, solfege: "La", semitonesFromA4: -12),
@@ -109,7 +116,7 @@ public struct TuningPreset: Identifiable, Hashable, Equatable {
 
     // Open D: D A D F# A D
     public static let openD = TuningPreset(
-        id: "open_d",
+        id: .openD,
         strings: [
             GuitarString(id: 1, noteName: "D4", noteLetter: "D", octave: 4, solfege: "Re", semitonesFromA4: -7),
             GuitarString(id: 2, noteName: "A3", noteLetter: "A", octave: 3, solfege: "La", semitonesFromA4: -12),
@@ -122,7 +129,7 @@ public struct TuningPreset: Identifiable, Hashable, Equatable {
 
     // Open G: D G D G B D
     public static let openG = TuningPreset(
-        id: "open_g",
+        id: .openG,
         strings: [
             GuitarString(id: 1, noteName: "D4", noteLetter: "D", octave: 4, solfege: "Re", semitonesFromA4: -7),
             GuitarString(id: 2, noteName: "B3", noteLetter: "B", octave: 3, solfege: "Si", semitonesFromA4: -10),

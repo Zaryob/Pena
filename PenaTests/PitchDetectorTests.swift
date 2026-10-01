@@ -85,7 +85,7 @@ struct PitchDetectorTests {
     }
 
     struct PresetStringCase: CustomTestStringConvertible {
-        let presetId: String
+        let presetId: TuningPresetID
         let string: GuitarString
 
         var testDescription: String {
