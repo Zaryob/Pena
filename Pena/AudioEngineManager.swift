@@ -132,6 +132,8 @@ public enum AudioEngineError: LocalizedError, Equatable, Sendable {
 @MainActor
 @Observable
 public final class AudioEngineManager: NSObject {
+    public static let shared = AudioEngineManager()
+
     // Observable State
     public private(set) var isRunning: Bool = false
     public private(set) var isStarting: Bool = false
@@ -559,6 +561,24 @@ public final class AudioEngineManager: NSObject {
         toneStopTask?.cancel()
         toneBox.stop()
         isSuppressingToneAnalysis = false
+    }
+
+    // MARK: - Educational & Tool Helpers
+    public func playChord(frets: [Int], delayMs: UInt64 = 35) {
+        let openFreqs = [82.41, 110.00, 146.83, 196.00, 246.94, 329.63]
+        Task { [weak self] in
+            for (strIdx, fret) in frets.enumerated() {
+                guard fret >= 0, strIdx < openFreqs.count else { continue }
+                let freq = openFreqs[strIdx] * pow(2.0, Double(fret) / 12.0)
+                self?.playTone(frequency: freq, isPluck: true)
+                try? await Task.sleep(nanoseconds: delayMs * 1_000_000)
+            }
+        }
+    }
+
+    public func playMetronomeTick(isAccent: Bool) {
+        let freq = isAccent ? 1350.0 : 750.0
+        playTone(frequency: freq, isPluck: true)
     }
 
     // MARK: - Simulator / DEBUG Mock Pluck
