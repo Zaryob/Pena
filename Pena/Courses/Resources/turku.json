@@ -1,0 +1,1037 @@
+{
+  "id": "turku",
+  "title": "30 Günlük Türkü Eşliği Gitar Planı",
+  "subtitle": "Anadolu'nun zengin ezgi dünyasına adım at; 2/4 ve 6/8 ritimlerle türkülere sağlam bas-akor eşliği kur",
+  "instrument": "Standart akortlu akustik veya klasik gitar",
+  "level": "Tam başlangıç",
+  "dailyMinutes": "Çoğu gün 20 dakika; 7, 14 ve 21. günler 15 dakika",
+  "monthGoal": "Gitarda türkü eşliğinin omurgası olan temel 2/4 (kırık hava/deyiş) ve 6/8 (sallantılı/yöresel) ritim kalıplarını güvenle çalabilmek. Ay sonunda 'Uzun İnce Bir Yoldayım' ve 'Gesi Bağları' gibi sevilen türkülerin ölçülerine doğru bas yürüyüşü ve dengeli vuruşlarla eşlik ederek kendi kaydını dinlemenin gururunu yaşamak.",
+  "prerequisites": "Önceden müzik teorisi bilmene gerek yok; standart akortlu bir gitar ve sabırlı bir heves yeterli. Türkülerimiz zengin bir makamsal geleneğe sahiptir; bu planda gitarda türkü eşliğinin temeli olan açık akorlar (Em, Am, Dm, D, G, C) ve sağ el ritim kalıpları üzerinde sağlam bir temel kuracaksın. İlk günlerde parmak uçlarında sızı hissetmen çok normaldir; kısa molalar vererek ilerle.",
+  "materials": [
+    "Akustik veya klasik gitar (naylon ya da çelik tel)",
+    "Akort uygulaması veya klipsli dijital akort aleti",
+    "Dahili sayfa metronomu (veya 60–80 BPM ayarlanabilen harici metronom)",
+    "Kendi çalımını dinleyip değerlendirmek için telefon kayıt aracı",
+    "Pratik notlarını ve hislerini yazabileceğin çalışma defteri",
+    "Başlangıç için seçilmiş iki sade türkü düzenlemesi (örn: Uzun İnce Bir Yoldayım, Yemen Türküsü)"
+  ],
+  "weeks": [
+    {
+      "title": "1–7. gün: Temiz ses ve 2/4",
+      "focus": "Akort, Em ve Am, eşit vuruş, kısa kayıt",
+      "exitCriteria": "Em ve Am akorlarını temiz kurar; 2/4 içinde sekiz ölçü 1-2 sayar."
+    },
+    {
+      "title": "8–14. gün: Türküye 2/4 eşlik",
+      "focus": "Doğru parça seçimi, bas-vuruş, D akoru, söz üstü değişim ve arpej",
+      "exitCriteria": "Seçilen 2/4 düzenlemenin iki satırında doğru basla akor değiştirir."
+    },
+    {
+      "title": "15–21. gün: 6/8 akışı",
+      "focus": "İki üçlü grup, 1 ve 4 vurgusu, uygun kısa düzenleme",
+      "exitCriteria": "Seçilen 6/8 düzenlemenin dört ölçüsünde 1 ve 4 vurgularını korur."
+    },
+    {
+      "title": "22–30. gün: İki örneği tamamlama",
+      "focus": "G akoru, kıta eşliği, ses dengesi, hata onarımı ve tek kayıt değerlendirmesi",
+      "exitCriteria": "2/4 ve 6/8 örneklerinden en az dörder ölçülük iki ayrı kayıt ve öz değerlendirme hazırdır."
+    }
+  ],
+  "days": [
+    {
+      "title": "Gitarı tanı ve akort et",
+      "goal": "Altı teli kalından inceye Mi-La-Re-Sol-Si-Mi olarak bulmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort uygulamasında her teli tek tek Mi-La-Re-Sol-Si-Mi sesine getir."
+        },
+        {
+          "min": 8,
+          "text": "Boş telleri 6’dan 1’e ve 1’den 6’ya yavaşça çal; tel numarasını yüksek sesle söyle."
+        },
+        {
+          "min": 7,
+          "text": "Bir ses kaydet, yanlış tele dokunduğunda durup yeniden başla."
+        }
+      ],
+      "why": "Doğru akort, akorun ve ezginin gerçekten nasıl duyulduğunu anlamayı sağlar.",
+      "steps": [
+        "6. tel en kalın, 1. tel en incedir; gitarı oturarak gövdeni sıkmadan tut.",
+        "Akort burgusunu küçük hareketlerle çevir; uygulamada doğru nota göründüğünde dur."
+      ],
+      "watch": [
+        "Teli fazla sert çekme; ses titriyorsa daha hafif çal."
+      ],
+      "check": [
+        "Altı telin numarasını tereddütsüz rahatça bulabiliyorsun.",
+        "Uygulama altı tel için doğru notayı gösterir."
+      ]
+    },
+    {
+      "title": "Düzenli vuruş",
+      "goal": "2/4 sayımında iki eşit ana vuruşu sürdürmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et; ayağınla 1-2 say."
+        },
+        {
+          "min": 8,
+          "text": "Metronomu 60’a ayarla; her tıkta dizine bir vuruş yap."
+        },
+        {
+          "min": 7,
+          "text": "Boş tellerde başparmakla her tıkta tek aşağı vuruş yap; 8 ölçü kaydet."
+        }
+      ],
+      "why": "Türküye eşlik ederken önce hız değil düzen gerekir.",
+      "steps": [
+        "Bir ölçüyü 1-2 diye say; sonraki ölçü yine 1’den başlar.",
+        "Metronom zor gelirse sesi kapatıp sayımı sesli yap, sonra yeniden aç."
+      ],
+      "watch": [
+        "İki tık arasında acele etme; elin ve ayağın aynı anda hareket etsin."
+      ],
+      "check": [
+        "8 ölçü boyunca 1-2 sayısını rahatça koruyabiliyorsun.",
+        "Kaydı dinlediğinde vuruşlar yaklaşık eşit aralıktadır."
+      ]
+    },
+    {
+      "title": "İlk akor: Em",
+      "goal": "Mi minör akorunu telleri boğmadan kurmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et ve 5. tel 2. perde, 4. tel 2. perde yerleşimini kur."
+        },
+        {
+          "min": 8,
+          "text": "6’dan 1’e telleri ayrı ayrı çek; boğuk olanı düzelt."
+        },
+        {
+          "min": 7,
+          "text": "Em üzerinde 1-2 sayarak 8 ölçü aşağı vuruş çal."
+        }
+      ],
+      "why": "Tek akorla temiz basmayı öğrenmek hızlı akor değişimine temel olur.",
+      "steps": [
+        "Sol el parmaklarını perde metalinin hemen gerisine koy; metalin üstüne değil.",
+        "Başparmağın sapın arkasında rahat dursun; bileği gereksiz bükme."
+      ],
+      "watch": [
+        "Boğuk ses gelirse daha sert sıkmadan parmağın açısını düzelt."
+      ],
+      "check": [
+        "Em’de en az 5 tel temiz temiz ve berrak duyuluyor.",
+        "8 ölçüde sayımı korursun."
+      ]
+    },
+    {
+      "title": "İkinci akor: Am",
+      "goal": "La minör akorunu ve doğru başlangıç telini öğrenmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et; Am için 4. tel 2, 3. tel 2, 2. tel 1. perdeyi kur."
+        },
+        {
+          "min": 8,
+          "text": "5’ten 1’e her teli ayrı kontrol et; 6. tele vurmamaya çalış."
+        },
+        {
+          "min": 7,
+          "text": "Am ile 8 ölçü 1-2 aşağı vuruş çal."
+        }
+      ],
+      "why": "Eşlikte hangi tellerin çalınacağını bilmek akoru temizleştirir.",
+      "steps": [
+        "Sol işaret parmağını 2. tel 1. perdeye koy, kalan iki parmağı 4. ve 3. tel 2. perdeye yerleştir.",
+        "Am’de önce 5. teli bul, vuruşu oradan başlat."
+      ],
+      "watch": [
+        "6. teli de çalıyorsan sağ el hareketini küçült."
+      ],
+      "check": [
+        "Am’nin 5-1 telleri tek tek temizdir.",
+        "8 ölçüde 6. teli istemeden çalmazsın."
+      ]
+    },
+    {
+      "title": "Em–Am geçişi",
+      "goal": "İki akor arasında ritmi durdurmadan geçmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Her akoru 4 kez yavaş ve temiz kur."
+        },
+        {
+          "min": 8,
+          "text": "Em için iki ölçü, Am için iki ölçü çal; 60 tıkta tekrarla."
+        },
+        {
+          "min": 7,
+          "text": "Geçişi 30 saniye kaydet ve kaç duraksama olduğunu işaretle."
+        }
+      ],
+      "why": "Parmaklar akor değişimini ritmin içine yerleştirerek öğrenir.",
+      "steps": [
+        "Son Em vuruşundan hemen sonra sol eli gevşet.",
+        "Am’nin işaret parmağını önce yerine koy, diğerlerini ardından yerleştir."
+      ],
+      "watch": [
+        "Geçişte bütün telleri susturup uzun ara verme; gerekirse 50 tıka in."
+      ],
+      "check": [
+        "Dört akor geçişinden en az ikisi tıkla aynı anda olur.",
+        "Kaydında Em ve Am farkı belirgindir."
+      ]
+    },
+    {
+      "title": "2/4 eşlik kalıbı",
+      "goal": "1 ve 2 ve sayarken basit aşağı-yukarı hareketi kurmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dizinde 1-ve-2-ve say; ana vuruşlara ağırlık ver."
+        },
+        {
+          "min": 8,
+          "text": "Em üzerinde 1’de aşağı, 2’de aşağı, 2’nin ve’sinde yukarı çal."
+        },
+        {
+          "min": 7,
+          "text": "Aynı kalıbı Am’de ve Em–Am döngüsünde uygula."
+        }
+      ],
+      "why": "Sözlere yer açan hafif bir ritim dokusu sağlar.",
+      "steps": [
+        "Boşta geçen ilk ve sırasında el hareket etsin ama telleri vurmasın.",
+        "Yukarı vuruşta ince 2-3 teli hafifçe süpür."
+      ],
+      "watch": [
+        "Yukarı vuruşu sert vurma; ana 1 ve 2 duyulmaya devam etsin."
+      ],
+      "check": [
+        "Dört ölçü kalıbı sayarak çalarsın.",
+        "Yukarı vuruş 2’den sonra gelir."
+      ]
+    },
+    {
+      "title": "Hafif tekrar ve dinleme",
+      "goal": "İlk haftayı yorulmadan sağlamlaştırmak.",
+      "blocks": [
+        {
+          "min": 4,
+          "text": "Akort edip 2 dakika boş tel sesi dinle."
+        },
+        {
+          "min": 5,
+          "text": "Em ve Am’yi dört kez ayrı ayrı temiz kur."
+        },
+        {
+          "min": 6,
+          "text": "Önceki kaydı dinle; tek bir gelişme ve tek bir hata yaz."
+        }
+      ],
+      "why": "Kısa tekrar, yeni bilginin oturmasını sağlar.",
+      "steps": [
+        "Yanlış gelen tek teli belirleyip bir kez düzelt.",
+        "Bugün hız artırma ve yeni akor ekleme."
+      ],
+      "watch": [
+        "El yoruluyorsa hemen mola ver; ağrıya rağmen sürdürme."
+      ],
+      "check": [
+        "İki akoru ezberden kurarsın.",
+        "Bir somut düzeltme notu yazarsın."
+      ]
+    },
+    {
+      "title": "Türkü seçimini öğren",
+      "goal": "Çalışılabilir bir 2/4 örnek seçmek ve ölçüsünü doğrulamak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Em–Am geçişiyle ısın."
+        },
+        {
+          "min": 8,
+          "text": "Öğretmenin verdiği veya açıkça 2/4 yazan başlangıç düzeyi bir türkü düzenlemesini dinle; 1-2 diye eşlik et."
+        },
+        {
+          "min": 7,
+          "text": "Düzenlemede geçen akorları ve değişim yerlerini kağıda işaretle."
+        }
+      ],
+      "why": "Her türkü aynı ritimde değildir; parçanın kendi ölçüsünü kontrol etmek gerekir.",
+      "steps": [
+        "Bu plandaki Em–Am döngüsünü önce bağımsız egzersiz olarak kullan.",
+        "Seçtiğin türkü farklı akor istiyorsa akorları zorla uydurma; seviyene uygun başka düzenleme seç."
+      ],
+      "watch": [
+        "Kaydı yalnız duyuma bakarak 2/4 ilan etme; nota veya öğretmen kontrolü ara."
+      ],
+      "check": [
+        "Seçtiğin düzenlemenin ölçüsünü söyleyebilirsin.",
+        "En az bir akor değişim noktasını işaretlersin."
+      ]
+    },
+    {
+      "title": "Bas notasını ayır",
+      "goal": "Akorun kalın ilk sesini tek başına çalmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Em’de 6. teli, Am’de 5. teli tek başına çek."
+        },
+        {
+          "min": 8,
+          "text": "1’de bas, 2’de ilgili akorun ince tellerine hafif aşağı vuruş yap."
+        },
+        {
+          "min": 7,
+          "text": "Em–Am döngüsünü 8 ölçü çal ve kaydet."
+        }
+      ],
+      "why": "Kalın ses, eşliğin adımlarını dinleyene belli eder.",
+      "steps": [
+        "Bas için sağ el başparmağını kullan; akor için işaret parmağınla küçük bir vuruş yap.",
+        "Bas notasını çaldıktan sonra eli germe; 2’ye hazırlan."
+      ],
+      "watch": [
+        "Yanlış bas teli gelirse tüm akoru yeniden ezberlemek yerine tel numarasını söyle."
+      ],
+      "check": [
+        "Em’de 6., Am’de 5. tel bası temiz ve berrak duyuluyor.",
+        "8 ölçüde 1 ve 2 yeri bellidir."
+      ]
+    },
+    {
+      "title": "Üçüncü akor: D",
+      "goal": "Re majör akorunu üç ince tel üzerinde temiz kurmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "D için 3. tel 2, 1. tel 2, 2. tel 3. perdeyi yerleştir."
+        },
+        {
+          "min": 8,
+          "text": "4’ten 1’e telleri tek tek kontrol et."
+        },
+        {
+          "min": 7,
+          "text": "D’de 1 bas (4. tel), 2 hafif akor vuruşu yap."
+        }
+      ],
+      "why": "Yeni akor, daha çok türkü düzenlemesini çalabilmeni sağlar.",
+      "steps": [
+        "4. teli akorun başlangıcı say; 5. ve 6. telleri bilerek dışarıda bırak.",
+        "Boğuk tel varsa parmak ucunu dikleştir."
+      ],
+      "watch": [
+        "D’yi çalarken kalın iki teli süpürme."
+      ],
+      "check": [
+        "D’nin dört teli temiz temiz ve berrak duyuluyor.",
+        "1’de 4. teli bulursun."
+      ]
+    },
+    {
+      "title": "D–Em geçişi",
+      "goal": "D ve Em arasında bası doğru değiştirerek ilerlemek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "D ve Em’yi dörder kez ayrı kur."
+        },
+        {
+          "min": 8,
+          "text": "Birer ölçü D, Em çal; her ölçü 1’de ilgili bası vur."
+        },
+        {
+          "min": 7,
+          "text": "8 ölçü ses kaydında sadece bas telini kontrol et."
+        }
+      ],
+      "why": "Akor kadar bas telinin değişmesi de eşliği tanımlar.",
+      "steps": [
+        "D’de 4. tel, Em’de 6. tel basını sesli söyle.",
+        "Sol el geçişinde elini sapın yakınında tut."
+      ],
+      "watch": [
+        "İki akor arası yetişmiyorsa vuruş sayısını değiştirme; metronomu yavaşlat."
+      ],
+      "check": [
+        "Dört ardışık geçişte doğru bası seçersin.",
+        "Sayım durmadan devam eder."
+      ]
+    },
+    {
+      "title": "Söz üstünde eşlik",
+      "goal": "Akor değişimini sözün doğru hecesine hazırlamak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Seçtiğin 2/4 düzenlemenin ilk iki satırını yavaş dinle."
+        },
+        {
+          "min": 8,
+          "text": "Akor işaretinin geldiği heceden hemen önce eli yeni akora hazırla."
+        },
+        {
+          "min": 7,
+          "text": "Sözleri konuşur gibi söyleyerek 1’de bas 2’de vuruş eşliği yap."
+        }
+      ],
+      "why": "Gitar, şarkıya eşlik eder; söz akarken durmamalıdır.",
+      "steps": [
+        "Çalıştığın iki satırı metne ayır; akor adını ilgili hecenin üstüne yaz.",
+        "Söylemek zor gelirse önce sözleri ritmik konuş."
+      ],
+      "watch": [
+        "Sözü yakalamak için gitarı hızlandırma; yavaş kayıt kullan."
+      ],
+      "check": [
+        "İki satırın girişini ritim kaybetmeden yaparsın.",
+        "En az iki akor değişimini işaretlediğin hecede yaparsın."
+      ]
+    },
+    {
+      "title": "Kısa arpej",
+      "goal": "Akor tellerini sırayla çalarak sakin eşlik kurmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Em’de 6-3-2-3, Am’de 5-3-2-3 tellerini tek tek çek."
+        },
+        {
+          "min": 8,
+          "text": "Her numara eşit aralıkta olsun; 1-ve-2-ve diye say."
+        },
+        {
+          "min": 7,
+          "text": "Seçili iki satırda ritim vuruşu yerine bu dört sesli örüntüyü dene."
+        }
+      ],
+      "why": "Arpej, yavaş bir düzenlemede sözü örtmeden eşlik etmeyi sağlar.",
+      "steps": [
+        "6 veya 5. tel basını başparmakla, 3. teli işaretle, 2. teli orta parmakla çek.",
+        "Her sesin ayrı duyulduğundan emin ol."
+      ],
+      "watch": [
+        "Parmakları telden uzağa savurma; küçük hareket kullan."
+      ],
+      "check": [
+        "Em ve Am arpejini dörder kez karıştırmadan yaparsın.",
+        "Dört ses ölçüye dengeli yayılır."
+      ]
+    },
+    {
+      "title": "Hafif tekrar ve kayıt karşılaştır",
+      "goal": "İki haftalık ilerlemeyi tek ölçütle görmek.",
+      "blocks": [
+        {
+          "min": 4,
+          "text": "Akort ve iki akor için yavaş temiz ses kontrolü yap."
+        },
+        {
+          "min": 5,
+          "text": "Em–Am veya D–Em 4 ölçü bas-vuruş çal."
+        },
+        {
+          "min": 6,
+          "text": "5. gün ve bugünün kayıtlarını dinleyip ritim farkını yaz."
+        }
+      ],
+      "why": "Kendi kaydını dinlemek, düzelteceğin tek noktayı seçmene yardım eder.",
+      "steps": [
+        "Bugün yalnız en çok aksayan geçişi üç kez çalış.",
+        "Dinlemede vuruş aralığına odaklan; beğenip beğenmemeye değil."
+      ],
+      "watch": [
+        "Hata duyunca tüm ayı baştan alma; yalnız o ölçüyü yavaşlat."
+      ],
+      "check": [
+        "Bir ölçü için doğru bası seçersin.",
+        "Eski ve yeni kayıt arasında bir somut fark söylersin."
+      ]
+    },
+    {
+      "title": "6/8 sayımı",
+      "goal": "Altı küçük vuruşu iki üçlü grup olarak hissetmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Ayağınla 1-2-3, 4-5-6 say; 1 ve 4’ü güçlü söyle."
+        },
+        {
+          "min": 8,
+          "text": "Em’de 1 ve 4’te aşağı vuruş yap, diğerlerinde elini hazır tut."
+        },
+        {
+          "min": 7,
+          "text": "8 ölçü sayımını ve gitarı birlikte kaydet."
+        }
+      ],
+      "why": "6/8, 2/4’ten farklı bir akış verir; grup duygusu önemlidir.",
+      "steps": [
+        "1-2-3 bir grup, 4-5-6 ikinci gruptur.",
+        "Önce gitar olmadan say; sonra aynı sesli sayımla çal."
+      ],
+      "watch": [
+        "Altı vuruşu altı eşit güçlü vuruşa çevirme; 1 ve 4’ü belirginleştir."
+      ],
+      "check": [
+        "Sekiz ölçü boyunca 1 ve 4’ü rahatça bulabiliyorsun.",
+        "Kayıtta iki üçlü grup temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "6/8 bas ve akor",
+      "goal": "Üçlü grupların başına farklı işlev vermek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Em’de 1’de 6. tel bas, 4’te ince tellere vuruş yap."
+        },
+        {
+          "min": 8,
+          "text": "Am’de 1’de 5. tel bas, 4’te vuruş yap."
+        },
+        {
+          "min": 7,
+          "text": "Bir ölçü Em, bir ölçü Am ile 8 ölçü sürdür."
+        }
+      ],
+      "why": "Bas ve akor ayrımı 6/8’in yürüyüşünü anlaşılır kılar.",
+      "steps": [
+        "Sayımı çalarken yüksek sesle söyle: bas-2-3-akor-5-6.",
+        "Hız yerine doğru grup başlarına odaklan."
+      ],
+      "watch": [
+        "4’te bası tekrar vurup akor sesini kaybetme."
+      ],
+      "check": [
+        "Em ve Am’de 1 ile 4 işlevi ayrıdır.",
+        "8 ölçüde sayım bozulmaz."
+      ]
+    },
+    {
+      "title": "6/8’e hafif hareket ekle",
+      "goal": "6. küçük vuruşta yumuşak yukarı dokunuş yapmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Boş tellerde 1 bas, 4 akor, 6 ince tellere hafif yukarı çalış."
+        },
+        {
+          "min": 8,
+          "text": "Em ve Am’de örüntüyü dörder ölçü tekrarla."
+        },
+        {
+          "min": 7,
+          "text": "Yavaş 6/8 örneğini dinleyip kendi kaydınla grup hissini karşılaştır."
+        }
+      ],
+      "why": "Küçük yukarı dokunuş sonraki ölçüye hazırlık hissi verir.",
+      "steps": [
+        "1’de bası başparmakla, 4’te aşağı, 6’da yukarı vuruşu işaret parmağıyla yap.",
+        "6’yı çok hafif çal; sonraki 1 asıl başlangıçtır."
+      ],
+      "watch": [
+        "6’dan sonra yeni ölçünün 1’ini erken çalma."
+      ],
+      "check": [
+        "Dört ölçüde 1-4-6 sırası doğru gelir.",
+        "Yeni ölçünün 1’i belirgindir."
+      ]
+    },
+    {
+      "title": "6/8 örnek düzenleme seç",
+      "goal": "Gerçek parçanın ölçüsünü ve akorlarını doğrulamak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Bir 6/8 türkü düzenlemesini öğretmen veya nota kaynağıyla seç."
+        },
+        {
+          "min": 8,
+          "text": "İlk dört ölçüde 1 ve 4’ü işaretle; yazılı akorları listele."
+        },
+        {
+          "min": 7,
+          "text": "Yalnız Em, Am, D içeren veya bunlara uygun başlangıç uyarlaması olan kısa bölümü yavaş çal."
+        }
+      ],
+      "why": "Bu planın 6/8 egzersizi bir türküye ancak ölçüsü ve armonisi uygunsa aktarılır.",
+      "steps": [
+        "Düzenleme başka akorlar gerektirirse o bölümü bu ayın hedefi yapma.",
+        "Sözlerdeki akor yerini, kaydı dinleyip notayla karşılaştır."
+      ],
+      "watch": [
+        "Her 6/8 türküyü aynı vuruş kalıbına zorlamamaya dikkat et."
+      ],
+      "check": [
+        "Seçtiğin bölümün dört ölçüsünü işaretlersin.",
+        "Akor listesini yazarsın."
+      ]
+    },
+    {
+      "title": "Ezgi girişini dinle",
+      "goal": "Eşliğe doğru anda başlayabilmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Seçtiğin 6/8 örneğinin girişini iki kez dinle ve 1’i işaret et."
+        },
+        {
+          "min": 8,
+          "text": "Gitarı çalmadan dört ölçü boyunca 1-2-3, 4-5-6 say."
+        },
+        {
+          "min": 7,
+          "text": "Kayıtla yalnız ilk iki ölçüye bas-vuruş eşliği ekle."
+        }
+      ],
+      "why": "Girişin yerini bilmek ilk vuruştan sonra ritim aramayı önler.",
+      "steps": [
+        "Düzenleme bulamazsan özgün 6/8 iki ölçü kullan: Em ölçüsünde 1’de 6. tel bas, 4’te akor; Am ölçüsünde 1’de 5. tel bas, 4’te akor.",
+        "Kayıtla ilk deneme kaçarsa durdurup aynı yeri yeniden çalış."
+      ],
+      "watch": [
+        "Çalmaya duyduğun herhangi bir seste başlama; gerçek ilk ölçüyü bul."
+      ],
+      "check": [
+        "Seçtiğin bölümün veya özgün örneğin dört ölçüsünü işaretlersin.",
+        "Söz başlamadan sayımı korursun."
+      ]
+    },
+    {
+      "title": "İki ölçüyü bağla",
+      "goal": "6/8 örneğinin ilk iki ölçüsünü duraksamadan çalmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İlk ölçüyü dört kez, ikinciyi dört kez tek başına çalış."
+        },
+        {
+          "min": 8,
+          "text": "İki ölçüyü birleştir; geçişten önce yeni bas telini söyle."
+        },
+        {
+          "min": 7,
+          "text": "Dört kez iki ölçülük döngü kaydet ve duraksamaları say."
+        }
+      ],
+      "why": "Parçayı küçük parçalarla kurmak hatayı bulmayı kolaylaştırır.",
+      "steps": [
+        "Her denemede aynı başlangıç sayısını kullan.",
+        "Yanlış yerde durduysan bir ölçü öncesinden yeniden başla."
+      ],
+      "watch": [
+        "Hata olduğunda tüm parçayı hızla tekrar etme; zor geçişi ayır."
+      ],
+      "check": [
+        "İki ölçüyü en az iki kez arka arkaya tamamlarsın.",
+        "Geçişte doğru bas teline gidersin."
+      ]
+    },
+    {
+      "title": "Hafif tekrar ve kulak çalışması",
+      "goal": "2/4 ve 6/8 hislerini ayırmak.",
+      "blocks": [
+        {
+          "min": 4,
+          "text": "2/4 için 1-2; 6/8 için 1-2-3,4-5-6 diye alkışla."
+        },
+        {
+          "min": 5,
+          "text": "Her ölçü türünde Em ile ikişer ölçü çal."
+        },
+        {
+          "min": 6,
+          "text": "Kayıtları dinleyip hangisinin ikili, hangisinin üçlü gruplandığını söyle."
+        }
+      ],
+      "why": "İki farklı ölçüyü kulağınla ayırmak yanlış kalıp kullanmanı önler.",
+      "steps": [
+        "Sayarken ayağını yalnız ana vuruşta yere bas.",
+        "Bugün yeni akor veya süsleme ekleme."
+      ],
+      "watch": [
+        "6/8’i sadece hızlı 2/4 gibi sayma."
+      ],
+      "check": [
+        "İki sayımı karıştırmadan rahatça bulabiliyorsun.",
+        "İki örnek kaydını doğru etiketlersin."
+      ]
+    },
+    {
+      "title": "Dördüncü akor: G",
+      "goal": "Sol majör akorunu gerektiğinde düzenlemeye eklemek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "G için 6. tel 3, 5. tel 2, 1. tel 3. perdeyi kur."
+        },
+        {
+          "min": 8,
+          "text": "Altı teli tek tek kontrol et; sonra 2/4’te bas-vuruş yap."
+        },
+        {
+          "min": 7,
+          "text": "G–D ve G–Em geçişlerini dörder kez yavaş çalış."
+        }
+      ],
+      "why": "Yeni akor, seçilebilecek sade düzenlemeleri genişletir.",
+      "steps": [
+        "G’nin bası 6. teldir.",
+        "D’ye geçişte sol elini tamamen savurmak yerine sapın yakınında tut."
+      ],
+      "watch": [
+        "Bir tel boğuksa önce komşu parmağın o tele değip değmediğine bak."
+      ],
+      "check": [
+        "G’nin altı telinden çoğu açık temiz ve berrak duyuluyor.",
+        "G–D geçişinde 1 sayısı kaybolmaz."
+      ]
+    },
+    {
+      "title": "2/4 türkünün kıtası",
+      "goal": "Seçtiğin 2/4 düzenlemenin bir kıtasını eşlemek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İlk iki satırı düşük hızda iki kez çal."
+        },
+        {
+          "min": 8,
+          "text": "Kalan iki satırın akor yerlerini işaretleyip ayrı çalış."
+        },
+        {
+          "min": 7,
+          "text": "Dört satırı konuşarak ve bas-vuruşla bağla; kısa kayıt al."
+        }
+      ],
+      "why": "Ay sonu hedefi tek tek akor değil, bir müzik cümlesidir.",
+      "steps": [
+        "Yazılı akorlar Em-Am-D-G dışındaysa uygun başlangıç uyarlaması seç.",
+        "Her satır öncesinde bir ölçü içinden say."
+      ],
+      "watch": [
+        "Yeni satırda hızlanma; metronomun aynı hızını koru."
+      ],
+      "check": [
+        "Dört satırın sırasını kâğıttan takip edersin.",
+        "En az iki satırı kesmeden çalarsın."
+      ]
+    },
+    {
+      "title": "6/8 türkünün kıtası",
+      "goal": "Seçtiğin 6/8 düzenlemenin kısa kıtasını eşlemek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Önce iki ölçülük döngüyü üç kez çal."
+        },
+        {
+          "min": 8,
+          "text": "Kıtanın devamını ikişer ölçülük parçalara ayır."
+        },
+        {
+          "min": 7,
+          "text": "Parçaları birleştirip 1 bas, 4 akor düzeniyle kayıt al."
+        }
+      ],
+      "why": "Küçük bir kıtanın tamamı ritim becerisini sınar.",
+      "steps": [
+        "Kıta uzunsa yalnız dört ölçülük bölümü ay sonu hedefi yap.",
+        "Düzenlemede 6/8 sayımı duyulmuyorsa öğretmenle ölçüyü yeniden kontrol et."
+      ],
+      "watch": [
+        "Yetişemediğin geçişte 6’daki süsü çıkar; 1 ve 4’ü koru."
+      ],
+      "check": [
+        "Dört ölçüyü sayarak çalarsın.",
+        "En az üç ölçünün 1’inde doğru bas vardır."
+      ]
+    },
+    {
+      "title": "Dinamik: hafif ve güçlü",
+      "goal": "Sözleri örtmeden eşliğin sesini ayarlamak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Em’de dört ölçü hafif, dört ölçü orta şiddette çal."
+        },
+        {
+          "min": 8,
+          "text": "2/4 kıtasında söz girince vuruşu hafiflet."
+        },
+        {
+          "min": 7,
+          "text": "6/8 kıtasında 1’i 4’ten az farkla güçlü yapıp kaydet."
+        }
+      ],
+      "why": "Eşlik müziğin önüne geçmek yerine şarkıyı taşır.",
+      "steps": [
+        "Gücü kolu sertleştirerek değil vuruş mesafesini biraz değiştirerek ayarla.",
+        "Dinlerken söz anlaşılmıyorsa gitarı hafiflet."
+      ],
+      "watch": [
+        "Aksanı vurmak için tele sert çarpma."
+      ],
+      "check": [
+        "Kayıtta hafif ve orta şiddet farkı vardır.",
+        "Ritim iki şiddette de aynı kalır."
+      ]
+    },
+    {
+      "title": "Ritim hatası onarımı",
+      "goal": "Takıldığın yerde müziğe dönebilmeyi öğrenmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Boş tellerde 2/4 dört ölçü, 6/8 dört ölçü sayarak çal."
+        },
+        {
+          "min": 8,
+          "text": "Bir ölçü bilerek sus ve sonraki 1’de yeniden gir."
+        },
+        {
+          "min": 7,
+          "text": "Seçtiğin kıtada hata olursa saymaya devam ederek sonraki 1’de akora dön."
+        }
+      ],
+      "why": "Gerçek eşlikte hata sonrası ritmi sürdürmek gerekir.",
+      "steps": [
+        "Susarken ayağın veya iç sayımın devam etsin.",
+        "Yeniden giriş için önce bas telini bul."
+      ],
+      "watch": [
+        "Hata sonrası bütün parçayı baştan alma; sonraki ölçüyü yakala."
+      ],
+      "check": [
+        "Bilerek sustuğun ölçüden sonra doğru 1’e girersin.",
+        "Kayıtta sayım kopmaz."
+      ]
+    },
+    {
+      "title": "Performans provası 1",
+      "goal": "İki farklı ölçüden kısa örnekleri art arda sunmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "2/4 kıtasını bir kez prova et."
+        },
+        {
+          "min": 8,
+          "text": "6/8 kıtasını bir kez prova et."
+        },
+        {
+          "min": 7,
+          "text": "İkisini ayrı dosya olarak kaydet; doğru giriş, bas, akor için not al."
+        }
+      ],
+      "why": "Ayrı kayıtlar iki beceriyi karşılaştırmayı kolaylaştırır.",
+      "steps": [
+        "Her kayıtta önce akort ve bir ölçü hazırlık sayımı yap.",
+        "Kaydı dinlerken üç ölçütü ayrı işaretle."
+      ],
+      "watch": [
+        "Sadece hızına bakma; temiz ses ve ölçü daha değerlidir."
+      ],
+      "check": [
+        "İki ayrı kısa kayıt oluşur.",
+        "Her kayıt için bir sonraki düzeltmeyi yazarsın."
+      ]
+    },
+    {
+      "title": "Performans provası 2",
+      "goal": "Bir tek hatayı hedefli biçimde azaltmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dünkü iki kayıttan daha aksayanı seç."
+        },
+        {
+          "min": 8,
+          "text": "Aksayan iki ölçüyü 5 kez yavaş çalış; sonra çevresindeki iki ölçüyü ekle."
+        },
+        {
+          "min": 7,
+          "text": "Aynı kısa bölümü yeniden kaydet ve karşılaştır."
+        }
+      ],
+      "why": "Belirli bir hatayı çalışmak rastgele tekrar etmekten verimlidir.",
+      "steps": [
+        "Yanlış bas mı, geç akor mu, kayıp sayım mı: yalnız birini seç.",
+        "İki doğru tekrar üst üste gelince bölümü genişlet."
+      ],
+      "watch": [
+        "Doğru gelmiyorsa tempoyu düşür; parmakları zorlayıp hız arama."
+      ],
+      "check": [
+        "Seçilen hata yeni kayıtta daha az görülür veya yeri bellidir.",
+        "Dört ölçülük bölümden sonra sayım sürer."
+      ]
+    },
+    {
+      "title": "Kendi eşlik çizelgen",
+      "goal": "Kullanacağın parçalar için taşınabilir bir çalışma sayfası oluşturmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "2/4 örneğinin akor ve ölçü çizelgesini temiz yaz."
+        },
+        {
+          "min": 8,
+          "text": "6/8 örneğinin giriş, 1 ve 4 vurgularını işaretle."
+        },
+        {
+          "min": 7,
+          "text": "İki çizelgeden bakarak örnekleri birer kez çal."
+        }
+      ],
+      "why": "Basit çizelge, çalarken neyin ne zaman geldiğini hatırlatır.",
+      "steps": [
+        "Her satıra ölçü çizgisi ve akor adı ekle.",
+        "Bilinmeyen süsleri yazma; yalnız gerçekten çaldıklarını göster."
+      ],
+      "watch": [
+        "Akorları sözlerden kopuk yerlere koyma."
+      ],
+      "check": [
+        "İki çizelge başarıyla tamamlanıyor.",
+        "Çizelgeye bakarak baştan girebilirsin."
+      ]
+    },
+    {
+      "title": "30. gün: iki kısa eşlik değerlendirmesi",
+      "goal": "2/4 ve 6/8 örneklerini kendi seviyende göstermek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et; her örnek için bir ölçü hazırlık say."
+        },
+        {
+          "min": 8,
+          "text": "2/4 kıtasını veya en az dört ölçüsünü tek kayıtta çal."
+        },
+        {
+          "min": 7,
+          "text": "6/8 kıtasını veya en az dört ölçüsünü tek kayıtta çal; kayıtları üç ölçütle değerlendir."
+        }
+      ],
+      "why": "Değerlendirme ilerlemeyi gösterir ve gelecek ayın çalışma noktasını seçtirir.",
+      "steps": [
+        "Her örnek için giriş, doğru bas ve düzenli sayımı 0=henüz yok, 1=bazen, 2=çoğunlukla diye puanla.",
+        "Puan düşükse bunu başarısızlık değil sonraki ayın ilk alıştırması say."
+      ],
+      "watch": [
+        "Kaydı iyi görünmesi için kesip birleştirme; tek deneme gerçek durumu gösterir."
+      ],
+      "check": [
+        "İki ayrı tek denemelik kayıt ve puan tablosu vardır.",
+        "Gelecek ay çalışılacak bir ölçü veya geçiş seçersin."
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Akor",
+      "meaning": "Birden fazla notanın birlikte duyulması; Em ve Am bu plandaki ilk iki akordur.",
+      "exercise": "Em’de telleri birlikte, sonra tek tek çal."
+    },
+    {
+      "term": "Perde",
+      "meaning": "Sap üzerindeki metal çubukların ayırdığı basma konumu.",
+      "exercise": "5. telin 2. perdesini metalin hemen gerisinden bas."
+    },
+    {
+      "term": "Ölçü",
+      "meaning": "Vuruşların küçük gruplara ayrılmış bölümü.",
+      "exercise": "Dört kez 1-2 say ve her 1’de el çırp."
+    },
+    {
+      "term": "2/4",
+      "meaning": "Bir ölçüde iki ana vuruş bulunan sayım; bu planın ilk ritim alıştırması.",
+      "exercise": "1-2 sayarak 8 ölçü dizine vur."
+    },
+    {
+      "term": "6/8",
+      "meaning": "Altı küçük vuruşun çoğu zaman 1-2-3 ve 4-5-6 diye iki grupta hissedilmesi.",
+      "exercise": "1 ve 4’te alkışla, diğer sayıları sesli söyle."
+    },
+    {
+      "term": "Bas notası",
+      "meaning": "Akorun eşlikte öne çıkarılan kalın teli; burada Em için 6., Am için 5., D için 4. tel.",
+      "exercise": "Em’den Am’ye geçerken yalnız bas tellerini çal."
+    },
+    {
+      "term": "Arpej",
+      "meaning": "Akorun tellerini aynı anda değil sırayla çalma.",
+      "exercise": "Em’de 6-3-2-3 tellerini eşit aralıkla çek."
+    },
+    {
+      "term": "Metronom",
+      "meaning": "Düzenli tık vererek zamanı ölçen araç.",
+      "exercise": "60 tıkta her tıkla bir aşağı vuruş yap."
+    },
+    {
+      "term": "Düzenleme",
+      "meaning": "Bir ezginin belirli çalgı, akor ve ritim için hazırlanmış çalınabilir biçimi.",
+      "exercise": "Seçtiğin türkü düzenlemesinde ölçüyü ve ilk akoru bul."
+    },
+    {
+      "term": "Vurgu",
+      "meaning": "Bazı vuruşların ötekilerden biraz belirgin duyulması.",
+      "exercise": "6/8’de yalnız 1 ve 4’ü biraz belirgin çal."
+    }
+  ],
+  "nextMonth": [
+    "1. hafta: Değerlendirmede en düşük puanı alan ölçütü seç; her gün 10 dakika iki ölçülük yavaş çalışma yap.",
+    "2. hafta: Seçtiğin 2/4 türkünün bir kıtasını, akor çizelgesine bakarak kesmeden çal.",
+    "3. hafta: 6/8 türkünün bir kıtasını önce 1 ve 4 vuruşuyla, sonra uygunsa 6’da hafif yukarı dokunuşla çalış.",
+    "4. hafta: Öğretmenle veya güvenilir notayla yeni bir türkü seç; ölçü, makam ve akor uyumunu kontrol ederek kısa bir eşlik kaydet."
+  ],
+  "sources": [
+    {
+      "title": "Marmara Üniversitesi — Gitar Eğitimi ve Eşlikleme II",
+      "url": "https://meobs.marmara.edu.tr/Ders/gitar-egitimi-ve-eslikleme-ii/mzae307-72379-3842",
+      "usedFor": "Türk halk müziği eşliğinin gitar eğitimindeki yeri, ritim ve akor çalışmalarının sıralanışı."
+    },
+    {
+      "title": "Marmara Üniversitesi — Gitar Eşlik I",
+      "url": "https://meobs.marmara.edu.tr/Ders/gitar-eslik-i/mz3079-85430-5650",
+      "usedFor": "Başlangıçta gitarla şarkı eşliğini öğretim hedefi olarak çerçevelemek."
+    },
+    {
+      "title": "Fender — Standard Tuning",
+      "url": "https://www.fender.com/articles/setup/tuning-tip-standard-tuning",
+      "usedFor": "Standart akordun Mi-La-Re-Sol-Si-Mi sırası."
+    },
+    {
+      "title": "Fender Play — Open Position Chords",
+      "url": "https://www.fender.com/play/guitar/collections/open-position-chords",
+      "usedFor": "Başlangıç açık akorlarının Em, Am, G, D çevresinde kademeli seçimi."
+    },
+    {
+      "title": "Erkan Oğur — Perdesiz ve Klasik Gitarda Anadolu Makamları ve Ezgi Düzenlemeleri",
+      "url": "https://www.muziksoylesileri.net/erkan-ogur-anadolu-tavri-ve-gitar",
+      "usedFor": "Türkü eşliğinde bas yürüyüşü, modal tınılar ve sağ el tarama estetiği."
+    },
+    {
+      "title": "Bekir Küçükay — Klasik Gitar İçin Türk Halk Türküleri Düzenlemeleri",
+      "url": "https://www.panayayin.com/bekir-kucukay-turku-duzenlemeleri",
+      "usedFor": "Türkülerin gitara uyarlanmasında akor bas dengesi ve 2/4 - 6/8 ritmik bölüntüleri."
+    }
+  ],
+  "practiceExample": {
+    "title": "Özgün Dört Ölçülük 2/4 Türkü Eşlik Alıştırması (Em - Am)",
+    "notation": "Ölçü 1 (Em - 2/4 Ritim)         Ölçü 2 (Am - 2/4 Ritim)\nSayım:  1       2  ve           1       2  ve\ne|--------------0---0--------|--------------0---0--------|\nB|--------------0---0--------|--------------1---1--------|\nG|--------------0---0--------|--------------2---2--------|\nD|--------------2---2--------|----------2---2---2--------|\nA|---------------------------|--0------------------------|\nE|------0--------------------|---------------------------|\n        p       ↓   ↑                   p   ↓   ↑\n      (Bas)   (Akor Taraması)         (Bas) (Akor Taraması)\n\nÖlçü 3 (Em - 2/4 Ritim)         Ölçü 4 (Am - Karar Ses)\nSayım:  1       2  ve           1       2\ne|--------------0---0--------|--------------0------------|\nB|--------------0---0--------|--------------1------------|\nG|--------------0---0--------|--------------2------------|\nD|--------------2---2--------|----------2---2------------|\nA|---------------------------|--0------------------------|\nE|------0--------------------|---------------------------|\n        p       ↓   ↑                   p   (Karar Akoru)",
+    "howTo": "1. Adım: Önce sağ el başparmağınla (p) yalnızca 1. vuruşlardaki bas tellerini çal (Em için 6. tel, Am için 5. tel).\n2. Adım: Bas sesi netleşince, 2. vuruşta işaret parmağınla (veya penayla) alt tellere doğru hafif ve akıcı bir aşağı-yukarı (↓ ↑) tarama ekle.\n3. Adım: Parmaklarını perde demirinin hemen gerisine dik bas. Teller cızıldarsa daha sert sıkmak yerine parmak ucunu perde teline yaklaştır.\nHocanın Püf Noktası: Neşet Ertaş ve Erkan Oğur'un icralarında duyduğun o derin hissiyatın sırrı, telaşsız ve kararlı bas sesleridir. Önce 60 BPM'de yavaş ve tertemiz çal!"
+  }
+}

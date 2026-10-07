@@ -1,0 +1,1078 @@
+{
+  "id": "rock",
+  "title": "30 Günde Rock Gitar",
+  "subtitle": "Power chord'ların saf enerjisi, avuç içi susturma (palm muting) sürüşü ve unutulmaz rock riff'leri",
+  "instrument": "Elektro gitar önerilir; akustik gitar da olur.",
+  "level": "Tam başlangıç",
+  "dailyMinutes": "Çoğu gün 25 dakika; 7, 14 ve 21. gün 15 dakika; 30. gün 30 dakika.",
+  "monthGoal": "Rock müziğin saf enerjisini hissetmek: Güçlü power chord'lar (E5, A5, G5, D5, C5), avuç içi susturma (palm muting) tekniğiyle o tok ve tokurtulu rock sürüşünü yakalamak, akılda kalıcı riff'ler inşa ederek kendi ilk rock şarkı düzenlemeni seçtiğin tempoda gururla kaydetmek.",
+  "prerequisites": "Elektro gitar önerilir; ancak akustik gitarla da harika çalışılır. Ön bilgi gerekmez. Power chord'lar yalnızca iki-üç telden oluştuğu için öğrenmesi en hızlı ve çalması en keyifli akor türüdür. Parmakların kısa sürede güçlenecektir.",
+  "materials": [
+    "Elektro veya akustik gitar",
+    "Gitar penası (orta veya kalın sertlikte, 0.88mm - 1.14mm önerilir)",
+    "Metronom (80–110 BPM arası sürüş için)",
+    "Ses kaydı yapabilen telefon",
+    "Dinleme önerisi: AC/DC - Back in Black, Led Zeppelin - Whole Lotta Love, Nirvana"
+  ],
+  "weeks": [
+    {
+      "title": "1. hafta · Temel ses",
+      "focus": "Akort, dört vuruş, tek nota ve pena yönü.",
+      "exitCriteria": [
+        "Tel adlarını sırayla söyler.",
+        "İki kısa riffi yavaş tempoda çalar."
+      ]
+    },
+    {
+      "title": "2. hafta · Rock akoru",
+      "focus": "E5, G5, A5, sessizlik ve kısık ses.",
+      "exitCriteria": [
+        "Üç akoru doğru tellerle çalar.",
+        "Açık ve kısık sesi ayırır."
+      ]
+    },
+    {
+      "title": "3. hafta · Bölüm kurma",
+      "focus": "D5, vurgu, iki ölçülük riff ve akor bölümü.",
+      "exitCriteria": [
+        "On iki ölçülük riff-akor sırasını bitirir.",
+        "Tek gelişim hedefi seçer."
+      ]
+    },
+    {
+      "title": "4. hafta · Performans",
+      "focus": "A-B-A formu, ritim seçimi, kayıt ve değerlendirme.",
+      "exitCriteria": [
+        "A-B-A ve bitişi tek kayıtta çalar.",
+        "Bir güçlü yan ve bir sonraki hedefi söyler."
+      ]
+    }
+  ],
+  "days": [
+    {
+      "title": "Gitarı tanı",
+      "goal": "Altı teli sırayla tanıyıp akort etmek.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Kalın telden inceye E A D G B e adlarını söyle ve akort et."
+        },
+        {
+          "min": 10,
+          "text": "Boş telleri penayla birer kez vur; her sesin bitmesini dinle."
+        },
+        {
+          "min": 8,
+          "text": "Tel adlarını bakmadan söyleyip kısa kayıt al."
+        }
+      ],
+      "why": "Akort, kulağın ve bütün sonraki çalışmaların başlangıcıdır.",
+      "steps": [
+        "Penayı başparmak ve işaret arasında gevşek tut.",
+        "Her gün çalmadan önce akordu denetle."
+      ],
+      "watch": [
+        "Teli sertçe çekme; küçük pena hareketi yeter."
+      ],
+      "check": [
+        "Altı telin adını sırayla söylersin.",
+        "Açık teller tek tek temiz temiz ve berrak duyuluyor."
+      ],
+      "day": 1
+    },
+    {
+      "title": "Dört sayılık nabız",
+      "goal": "60 tempoda düzenli 1-2-3-4 saymak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Gitar olmadan metronomla dört sayı say."
+        },
+        {
+          "min": 10,
+          "text": "Boş kalın E telini her tıkta bir aşağı pena ile çal."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçü çal, bir ölçü sus; üç kez tekrar et."
+        }
+      ],
+      "why": "Rock ritminde önce sabit zaman gerekir.",
+      "steps": [
+        "Her dört sayıdan sonra yeniden 1'e dön.",
+        "Sustuğun ölçüde de ayağınla vuruşu koru."
+      ],
+      "watch": [
+        "Tık kaçarsa telaşla hızlanma; sonraki tıkta birleş."
+      ],
+      "check": [
+        "Dört ölçü boyunca sayarsın.",
+        "Sekiz vuruş tıklarla tam bir uyumla örtüşüyor."
+      ],
+      "day": 2
+    },
+    {
+      "title": "İlk tek tel riffi",
+      "goal": "Kalın E telinde 0-3-5-3 sırasını çalmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Akort et ve açık E'yi dört kez vur."
+        },
+        {
+          "min": 10,
+          "text": "İşaret 3, yüzük 5. perdede olacak biçimde 0-3-5-3 çal."
+        },
+        {
+          "min": 8,
+          "text": "Deseni dört kez yavaşça kaydet."
+        }
+      ],
+      "why": "Kısa tekrarlanan nota fikrine riff denir.",
+      "steps": [
+        "0 açık tel demektir; parmağı metal perdenin hemen arkasına bas.",
+        "Her notaya bir vuruş ver."
+      ],
+      "watch": [
+        "Cızırtıda daha sert sıkma; parmağı perdeye yaklaştır."
+      ],
+      "check": [
+        "Dört ses doğru sıradadır.",
+        "Dört tekrarın en az ikisi temizdir."
+      ],
+      "day": 3
+    },
+    {
+      "title": "Pena yönü",
+      "goal": "Aşağı-yukarı vuruşu sırayla uygulamak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Boş E telinde dört aşağı vuruş yap."
+        },
+        {
+          "min": 10,
+          "text": "Sekiz eşit aşağı-yukarı vuruş çal."
+        },
+        {
+          "min": 8,
+          "text": "0-3-5-3 riffini iki farklı pena biçimiyle dene."
+        }
+      ],
+      "why": "Dönüşümlü hareket ileride uzun riffleri rahatlatır.",
+      "steps": [
+        "Bileği gevşek tut; bütün kolla büyük hareket yapma.",
+        "Yukarı vuruşta yalnız hedef teli sıyır."
+      ],
+      "watch": [
+        "Yukarı ses kayboluyorsa pena tele fazla gömülmüştür."
+      ],
+      "check": [
+        "Sekiz vuruşta yön sırası bozulmaz.",
+        "Riff notaları eşit aralıklıdır."
+      ],
+      "day": 4
+    },
+    {
+      "title": "İki telli riff",
+      "goal": "E ve A telleri arasında temiz geçmek.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "E telinde 0-3-5-3 tekrar et."
+        },
+        {
+          "min": 10,
+          "text": "E telinde 0-3, A telinde 0-2, E telinde 3-0 sırasını kur."
+        },
+        {
+          "min": 8,
+          "text": "Altı notalı deseni üç kez kaydet."
+        }
+      ],
+      "why": "Rifflerde tel geçişi istenmeyen sesleri kontrol etmeyi öğretir.",
+      "steps": [
+        "Her notaya bir metronom tıkı ver.",
+        "Pena yalnız hedef tele dokunsun."
+      ],
+      "watch": [
+        "Komşu teller de duyulursa hareketi küçült."
+      ],
+      "check": [
+        "Altı nota doğru sırayla çıkar.",
+        "Üç turda tempo korunur."
+      ],
+      "day": 5
+    },
+    {
+      "title": "İlk kayıt",
+      "goal": "İki riffi rahat duruşla ardışık çalmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Omuzları gevşet ve akort et."
+        },
+        {
+          "min": 10,
+          "text": "İki riffi dörder kez dönüşümlü çal."
+        },
+        {
+          "min": 8,
+          "text": "30 saniyelik kayıt dinleyip en temiz tekrarı işaretle."
+        }
+      ],
+      "why": "Kayıt, çalarken kaçan gürültüyü duyurur.",
+      "steps": [
+        "Başparmak sap arkasında rahat dursun.",
+        "Her riff arasında bir ölçü say."
+      ],
+      "watch": [
+        "Elde ağrı varsa zorlayarak sürdürme; kısa ara ver."
+      ],
+      "check": [
+        "Kayıtta iki temiz tekrar vardır.",
+        "Omuzlar çalarken yükselmez."
+      ],
+      "day": 6
+    },
+    {
+      "title": "Hafif tekrar 1",
+      "goal": "İlk altı günü yormadan gözden geçirmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort ve tel adlarını bir kez tekrar et."
+        },
+        {
+          "min": 5,
+          "text": "İki riffi yavaş tempoda ikişer tur çal."
+        },
+        {
+          "min": 5,
+          "text": "İlk kaydı dinleyip tek düzeltme hedefi yaz."
+        }
+      ],
+      "why": "Hafif gün hareketi pekiştirir ve eli dinlendirir.",
+      "steps": [
+        "Zor notayı tek tek temiz çıkar.",
+        "Tempo yükseltme; ses berraklığına odaklan."
+      ],
+      "watch": [
+        "Bugünü hız sınavına çevirme."
+      ],
+      "check": [
+        "İki riffi yazıdan takip edersin.",
+        "Tek somut gelişim hedefin vardır."
+      ],
+      "day": 7
+    },
+    {
+      "title": "E5 ve A5",
+      "goal": "İki notalı rock akorunun sesini duymak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "E açık tel + A telinin 2. perdesini ayrı dinle."
+        },
+        {
+          "min": 10,
+          "text": "Bu iki teli birlikte E5 olarak vur; A açık + D telinin 2. perdesiyle A5 kur."
+        },
+        {
+          "min": 8,
+          "text": "E5 ve A5'i dörder vuruşla değiştir."
+        }
+      ],
+      "why": "Kök ve beşli iki farklı notadan oluşan bu şekle power chord denir.",
+      "steps": [
+        "E5'te yalnız E ve A; A5'te yalnız A ve D tellerini vur.",
+        "İkinci perdeye metal çizginin arkasından bas."
+      ],
+      "watch": [
+        "Üst teller çalıyorsa pena alanını daralt."
+      ],
+      "check": [
+        "İki akorda hedef teller temiz ve berrak duyuluyor.",
+        "Dört E5 ve dört A5 durmadan çalınır."
+      ],
+      "day": 8
+    },
+    {
+      "title": "G5'e taşı",
+      "goal": "Power chord şeklini 3. perdeye taşımak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "E5 ve A5'i birer ölçü tekrar et."
+        },
+        {
+          "min": 10,
+          "text": "G5 için E telinin 3. ve A telinin 5. perdesine bas."
+        },
+        {
+          "min": 8,
+          "text": "E5-G5-A5'i birer ölçü döndür."
+        }
+      ],
+      "why": "Aynı iki parmak aralığı yer değiştirince yeni akor verir.",
+      "steps": [
+        "G5 için işaret 3, yüzük 5. perdede olsun.",
+        "Geçiş öncesi iki parmağı birlikte kaldırıp taşı."
+      ],
+      "watch": [
+        "Şeklin parmak aralığını kaybetme."
+      ],
+      "check": [
+        "G5 temiz çıkar.",
+        "Üç akorlu dizi iki tur başarıyla tamamlanıyor."
+      ],
+      "day": 9
+    },
+    {
+      "title": "Sus ve say",
+      "goal": "Vuruşlar arasındaki sessizliği korumak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "E5'i yalnız 1 ve 3'te çal; 2 ve 4'ü say."
+        },
+        {
+          "min": 10,
+          "text": "2 ve 4'te sol el baskısını azaltarak sesi kes."
+        },
+        {
+          "min": 8,
+          "text": "E5-G5 döngüsünü dört ölçü kaydet."
+        }
+      ],
+      "why": "Sessizlik ritmin duyulan parçasıdır.",
+      "steps": [
+        "Baskıyı kaldırırken telden tamamen ayrılma.",
+        "Sessiz yerde saymayı sürdür."
+      ],
+      "watch": [
+        "Sustururken yeni nota çıkıyorsa ele daha yumuşak dokun."
+      ],
+      "check": [
+        "2 ve 4'te belirgin boşluk vardır.",
+        "Dört ölçü sayma bozulmaz."
+      ],
+      "day": 10
+    },
+    {
+      "title": "Riff ardından akor",
+      "goal": "Tek nota girişini eşliğe bağlamak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "İki telli riffi iki tur çal."
+        },
+        {
+          "min": 10,
+          "text": "Ardından dörder E5 ve G5 vur."
+        },
+        {
+          "min": 8,
+          "text": "Riff-akor geçişini 20 saniye kaydet."
+        }
+      ],
+      "why": "Rockta kısa girişten akorlu bölüme geçmek yaygındır.",
+      "steps": [
+        "Son riff notasından sonra önce E5, dört vuruş sonra G5 şeklini düşün.",
+        "Zor geçişte yalnız son nota ve ilk akoru beş kez çalış."
+      ],
+      "watch": [
+        "Takılınca bütün parçayı hızlandırma."
+      ],
+      "check": [
+        "Geçişte fazladan ölçü oluşmaz.",
+        "İki tur aynı vuruşta biter."
+      ],
+      "day": 11
+    },
+    {
+      "title": "Avuçla kısalt",
+      "goal": "Avuç içiyle E5 sesini kısa ve tok yapmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Açık E'yi serbest, sonra avuç kenarıyla kısık çal."
+        },
+        {
+          "min": 10,
+          "text": "Köprü yakınında el kenarıyla dört kısık, dört açık E5 vur."
+        },
+        {
+          "min": 8,
+          "text": "E5-G5-A5'i bir ölçü kısık, bir ölçü açık dene."
+        }
+      ],
+      "why": "Ses uzunluğunu kontrol etmek rock ritmini netleştirir.",
+      "steps": [
+        "Pena elinin avuç kenarı tellerin köprüden çıktığı yere değsin.",
+        "Ses tümüyle ölürse eli köprüye biraz yaklaştır."
+      ],
+      "watch": [
+        "Avucu çok ileri bastırıp perde sesini yok etme."
+      ],
+      "check": [
+        "Açık ve kısık ses ayırt edilir.",
+        "Akor dizisinde vuruş sırası korunur."
+      ],
+      "day": 12
+    },
+    {
+      "title": "Sekizlikler",
+      "goal": "Bir ana vuruşa iki eşit pena sesi yerleştirmek.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "1-ve-2-ve-3-ve-4-ve diye say."
+        },
+        {
+          "min": 10,
+          "text": "E5'te sayıda aşağı, ve'de yukarı vur."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçü E5 ve dört ölçü A5 kaydet."
+        }
+      ],
+      "why": "Sekizlikler hareket katar; ana dört vuruş değişmez.",
+      "steps": [
+        "Önce boş telde dene, sonra akora geç.",
+        "Metronomu 60'ta tut."
+      ],
+      "watch": [
+        "Ve seslerini öne çekme."
+      ],
+      "check": [
+        "Bir ölçüde sekiz eşit ses vardır.",
+        "Dört ölçü tıktan kopmaz."
+      ],
+      "day": 13
+    },
+    {
+      "title": "Hafif tekrar 2",
+      "goal": "Üç akoru ve kısık sesi sakin tempoda gözden geçirmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "E5 G5 A5'i tek tek çal."
+        },
+        {
+          "min": 5,
+          "text": "Dört düz vuruş ve sekizlikleri birer ölçü dene."
+        },
+        {
+          "min": 5,
+          "text": "Açık ve kısık ses kaydı al."
+        }
+      ],
+      "why": "Yavaş tekrar ikinci haftayı pekiştirir.",
+      "steps": [
+        "Önce hedef telleri dinle, sonra ritim ekle.",
+        "Gürültülü iki akor geçişini ayrı tekrarla."
+      ],
+      "watch": [
+        "Bugün hız artırma."
+      ],
+      "check": [
+        "Üç akorun hedef telleri doğrudur.",
+        "Kayıtta iki ses türü fark edilir."
+      ],
+      "day": 14
+    },
+    {
+      "title": "D5'i ekle",
+      "goal": "A telinden başlayan taşınabilir D5'i kurmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "A5'i açık A ve D2 ile yinele."
+        },
+        {
+          "min": 10,
+          "text": "D5 için A5. ve D7. perdelere bas; dört vuruş çal."
+        },
+        {
+          "min": 8,
+          "text": "E5-G5-A5-D5'i birer ölçü çal."
+        }
+      ],
+      "why": "Dördüncü akor kısa parçaya bir yön daha verir.",
+      "steps": [
+        "D5'te kalın E telini çalma.",
+        "Yeni akora her ölçünün 1'inde ulaş."
+      ],
+      "watch": [
+        "G teli de çalıyorsa pena alanını daralt."
+      ],
+      "check": [
+        "D5'in iki notası temizdir.",
+        "Dört akorlu döngü iki tur sürer."
+      ],
+      "day": 15
+    },
+    {
+      "title": "Vurguyu duy",
+      "goal": "Bir vuruşu diğerlerinden biraz güçlü çalmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Boş telde dört hafif, dört güçlü ses çıkar."
+        },
+        {
+          "min": 10,
+          "text": "E5'te 1 güçlü; ardından 2 ve 4 güçlü örüntülerini dene."
+        },
+        {
+          "min": 8,
+          "text": "Dört akorlu döngüde bir vurguyu koru."
+        }
+      ],
+      "why": "Vurgu, aynı notaların hissini değiştirir.",
+      "steps": [
+        "Güçlü vuruşta bileği sıkma.",
+        "İki vurgu biçimini kayıtta karşılaştır."
+      ],
+      "watch": [
+        "Güçlü ses için telleri dövme."
+      ],
+      "check": [
+        "İki vurgu kayıtta ayırt edilir.",
+        "Tempo vurguyla değişmez."
+      ],
+      "day": 16
+    },
+    {
+      "title": "İki ölçülük riff",
+      "goal": "İlk motifini iki ölçüye tamamlamak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "E telinde 0-3-5-3 çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci ölçüde A telinde 0 ve 2, E telinde 3 ve 0 çal; her ses bir vuruş."
+        },
+        {
+          "min": 8,
+          "text": "İki ölçüyü dört kez kaydet."
+        }
+      ],
+      "why": "Tekrarlanan kısa fikir bölüm kurmanın temelidir.",
+      "steps": [
+        "İkinci ölçünün dört notasını 1-2-3-4 diye sesli say.",
+        "Riffi akorlardan ayrı çalış."
+      ],
+      "watch": [
+        "İkinci ölçüyü hızlandırıp dört ses arasını sıkıştırma."
+      ],
+      "check": [
+        "Dört tekrarda giriş aynıdır.",
+        "İkinci ölçüde dört eşit nota vardır."
+      ],
+      "day": 17
+    },
+    {
+      "title": "Riff ve eşlik",
+      "goal": "Riff ile dört akorlu bölümü birleştirmek.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "İki ölçülük riffi iki kez çal."
+        },
+        {
+          "min": 10,
+          "text": "E5-G5-A5-D5'i birer ölçü, sonra bir kez daha çal."
+        },
+        {
+          "min": 8,
+          "text": "On iki ölçülük bütünü 55-65 tempoda kaydet."
+        }
+      ],
+      "why": "Bölümleri sıralamak gerçek parçaya yaklaşır.",
+      "steps": [
+        "Riff bitince sonraki 1'de E5'e gir.",
+        "Akorlar boyunca aynı ritmi kullan."
+      ],
+      "watch": [
+        "Bölüm sınırında saymayı kesme."
+      ],
+      "check": [
+        "Riff ve akor bölümleri fark edilir.",
+        "On iki ölçü başarıyla tamamlanıyor."
+      ],
+      "day": 18
+    },
+    {
+      "title": "Temiz ve efektli ses",
+      "goal": "Efekt altında da doğru telleri korumak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Riffi temiz gitar sesiyle kaydet."
+        },
+        {
+          "min": 10,
+          "text": "Varsa hafif distortion ile aynı riffi tekrar et."
+        },
+        {
+          "min": 8,
+          "text": "En zor akor geçişini iki ses türünde karşılaştır."
+        }
+      ],
+      "why": "Efekt istenmeyen tel uğultusunu da büyütebilir.",
+      "steps": [
+        "Amfiyi rahat ve düşük düzeyde tut.",
+        "Sol elin boş parmaklarıyla gereksiz tellere hafif dokun."
+      ],
+      "watch": [
+        "Yüksek efekt ayarıyla hatayı gizleme."
+      ],
+      "check": [
+        "İki seste de riff notaları seçilir.",
+        "Geçiş uğultusu azalır."
+      ],
+      "day": 19
+    },
+    {
+      "title": "Kısık ve açık bölüm",
+      "goal": "İki ölçü kısık, iki ölçü açık çalmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "E5'i dört hafif, dört güçlü vur."
+        },
+        {
+          "min": 10,
+          "text": "İki ölçü kısık E5, sonra açık G5-A5 çal."
+        },
+        {
+          "min": 8,
+          "text": "Deseni riffin yanına ekleyip kaydet."
+        }
+      ],
+      "why": "Dinamik fark düzenlemeyi ilginç kılar.",
+      "steps": [
+        "Açık bölüme geçmeden eli susturma konumundan çıkar.",
+        "Güçlü bölümde ses artar, tempo değil."
+      ],
+      "watch": [
+        "Açık bölüme geçerken hızlanma."
+      ],
+      "check": [
+        "Ses farkı belirgindir.",
+        "Dört ölçü eşit rahatça sayabiliyorsun."
+      ],
+      "day": 20
+    },
+    {
+      "title": "Hafif tekrar 3",
+      "goal": "Sekiz ölçüyü sakin çalıp tek gelişim hedefi seçmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dört akoru yavaş gözden geçir."
+        },
+        {
+          "min": 5,
+          "text": "On iki ölçülük riff-akor sırasını yalnız iki kez çal."
+        },
+        {
+          "min": 5,
+          "text": "Kayıtları karşılaştırıp zaman veya tel temizliğinden birini seç."
+        }
+      ],
+      "why": "Bir hedef seçmek son haftanın çalışmasını odaklar.",
+      "steps": [
+        "Hedefi kısa ve gözlenebilir yaz.",
+        "Elde sertlik varsa daha az tekrar yap."
+      ],
+      "watch": [
+        "Uzun, yorucu prova yapma."
+      ],
+      "check": [
+        "On iki ölçünün sırası kağıttan izlenir.",
+        "Bir hedef yazılmıştır."
+      ],
+      "day": 21
+    },
+    {
+      "title": "Parça haritası",
+      "goal": "Finalin A-B-A sırasını yazmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "İki ölçülük riffi iki tur çal."
+        },
+        {
+          "min": 10,
+          "text": "A=riff iki tur, B=dört akor iki tur olarak kağıda yaz."
+        },
+        {
+          "min": 8,
+          "text": "A-B-A sırasını yavaşça bir kez dene."
+        }
+      ],
+      "why": "Yazılı bölüm haritası belleği rahatlatır.",
+      "steps": [
+        "A dört ölçü, B sekiz ölçü, son A dört ölçüdür.",
+        "Bölüm başlangıçlarını kağıtta işaretle."
+      ],
+      "watch": [
+        "Ölçü sayısını karıştırınca her bölümün 1'ini sesli say."
+      ],
+      "check": [
+        "A-B-A kağıtta vardır.",
+        "Bölümlere doğru sırayla girilir."
+      ],
+      "day": 22
+    },
+    {
+      "title": "En zor geçiş",
+      "goal": "Takılan iki akor arasındaki hareketi düzeltmek.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Dünkü kayıttan en zor geçişi seç."
+        },
+        {
+          "min": 10,
+          "text": "Son akorun dördüncü ve sonraki akorun ilk vuruşunu on kez çal."
+        },
+        {
+          "min": 8,
+          "text": "Tam B bölümünü iki kez kaydet."
+        }
+      ],
+      "why": "Küçük geçişi düzeltmek tüm turu toparlar.",
+      "steps": [
+        "Parmakları tellerden fazla uzaklaştırma.",
+        "Temizleşmezse tempoyu on azalt."
+      ],
+      "watch": [
+        "Hata sonrası bütün parçayı başa sarma."
+      ],
+      "check": [
+        "Seçilen geçiş beş kez temizdir.",
+        "Yeni akor ölçünün 1'ine gelir."
+      ],
+      "day": 23
+    },
+    {
+      "title": "Riff başlangıcı",
+      "goal": "İki hazırlık ölçüsünden sonra doğru zamanda başlamak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Metronomla iki ölçü yalnız say."
+        },
+        {
+          "min": 10,
+          "text": "Üçüncü ölçünün 1'inde riffi başlat; A bölümünü dört kez çal."
+        },
+        {
+          "min": 8,
+          "text": "Dört girişi kaydet ve erken olanları işaretle."
+        }
+      ],
+      "why": "Güvenli başlangıç bütün parçayı toparlar.",
+      "steps": [
+        "Hazırlıkta 1-2-3-4 say.",
+        "İlk açık E'yi metronom tıkıyla birlikte vur."
+      ],
+      "watch": [
+        "Hazırlık bitmeden girme."
+      ],
+      "check": [
+        "Dört girişin en az üçü tıktadır.",
+        "A bölümünün sonunu şaşırmazsın."
+      ],
+      "day": 24
+    },
+    {
+      "title": "Tam tur",
+      "goal": "A-B-A düzenini düşük tempoda kesmeden çalmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "A ve B bölümlerini ayrı ısıt."
+        },
+        {
+          "min": 10,
+          "text": "A-B-A'yı 55-60 tempoda tek sefer çal."
+        },
+        {
+          "min": 8,
+          "text": "Kaydı dinleyip kaybolan ölçüyü not et."
+        }
+      ],
+      "why": "Kesintisiz tur zaman duygusunu sınar.",
+      "steps": [
+        "Hata olsa bile sonraki 1'e katıl.",
+        "Kağıtta bölüm başlarını takip et."
+      ],
+      "watch": [
+        "Yanlış notayı düzeltmek için ritmi geriye sarma."
+      ],
+      "check": [
+        "Bölüm sırası korunur.",
+        "Son ölçüye ulaşılır."
+      ],
+      "day": 25
+    },
+    {
+      "title": "B ritmini seç",
+      "goal": "Akor bölümünde tek ritim kalıbı kullanmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Dört düz vuruş ve sekizlikleri ayrı dene."
+        },
+        {
+          "min": 10,
+          "text": "B'de 1 ve 3 kısık, 2 ve 4 açık çal; zor gelirse dört düze dön."
+        },
+        {
+          "min": 8,
+          "text": "İki sürümü kaydet ve temiz olanı seç."
+        }
+      ],
+      "why": "Tutarlı kolay ritim karmaşık ama yarım kalmış ritimden işe yarardır.",
+      "steps": [
+        "Önce E5 üzerinde kalıbı yerleştir.",
+        "Aynı kalıbı bütün B akorlarında sürdür."
+      ],
+      "watch": [
+        "Ritim yüzünden ölçü kayarsa daha kolay kalıbı seç."
+      ],
+      "check": [
+        "Seçilen ritim yazılmıştır.",
+        "B'nin iki turu aynı kalıptadır."
+      ],
+      "day": 26
+    },
+    {
+      "title": "Bitiriş akoru",
+      "goal": "Sonda E5'i dört sayı tutmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Son A bölümünü tek başına çal."
+        },
+        {
+          "min": 10,
+          "text": "Son A'dan sonra E5'i 1'de vur, dört sayı beklet."
+        },
+        {
+          "min": 8,
+          "text": "A-B-A ve bitişi iki kez kaydet."
+        }
+      ],
+      "why": "Belirgin kapanış, parçanın bittiğini duyurur.",
+      "steps": [
+        "Son E5'e kadar saymayı sürdür.",
+        "Dört sayı bitince telleri nazikçe sustur."
+      ],
+      "watch": [
+        "Final akorunu erken susturma."
+      ],
+      "check": [
+        "Son E5 tam 1'de gelir.",
+        "Dört sayılık bekleme temiz ve berrak duyuluyor."
+      ],
+      "day": 27
+    },
+    {
+      "title": "İfade farkı",
+      "goal": "A ve B bölümlerini ses düzeyiyle ayırmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "A riffini orta, B akorlarını biraz güçlü çal."
+        },
+        {
+          "min": 10,
+          "text": "Tam turda bu farkı koru."
+        },
+        {
+          "min": 8,
+          "text": "Kaydı dinleyip bölüm sınırlarını bulmaya çalış."
+        }
+      ],
+      "why": "Ses düzeyi farkı düzenin karakterini kurar.",
+      "steps": [
+        "Güçlü çalarken yalnız ses artmalı.",
+        "Riff notaları tek tek seçilsin."
+      ],
+      "watch": [
+        "Güçlü B'ye girince hızlanma."
+      ],
+      "check": [
+        "A ve B kayıtta ayırt edilir.",
+        "Tempo bütün turda stabildir."
+      ],
+      "day": 28
+    },
+    {
+      "title": "Kayıt provası",
+      "goal": "Finalden önce tek seferlik prova yapmak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Akort ve kısa ısınma yap."
+        },
+        {
+          "min": 10,
+          "text": "Tam düzeni kaydı durdurmadan bir kez çal."
+        },
+        {
+          "min": 8,
+          "text": "Dinleyip yalnız en belirgin hatayı beş kez yavaş düzelt."
+        }
+      ],
+      "why": "Tek tur, kayıt heyecanını azaltır.",
+      "steps": [
+        "Başlamadan iki ölçü hazırlık say.",
+        "Hata olursa yerini koruyup devam et."
+      ],
+      "watch": [
+        "Kusursuz kayıt ararken eli yorma."
+      ],
+      "check": [
+        "Prova A-B-A ve bitişi içerir.",
+        "Bir düzeltme notu vardır."
+      ],
+      "day": 29
+    },
+    {
+      "title": "30. gün performansı",
+      "goal": "Rock düzenini kaydedip gelişimini değerlendirmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et ve iki dakika yavaş ısın."
+        },
+        {
+          "min": 15,
+          "text": "A-B-A ve son E5'i seçtiğin tempoda iki kez kaydet; iyisini sakla."
+        },
+        {
+          "min": 10,
+          "text": "İlk hafta ile karşılaştır; iki güçlü yan ve bir sonraki hedefi yaz."
+        }
+      ],
+      "why": "Kayıt ve öz değerlendirme yeni ayı yönlendirir.",
+      "steps": [
+        "Kontrol et: riff sırası, hedef teller, bölümler ve bitiş.",
+        "Ritmin dağıldığı saniyeyi not al."
+      ],
+      "watch": [
+        "Tek hataya bakıp bütün ilerlemeyi yok sayma."
+      ],
+      "check": [
+        "Baştan sona bir kayıt vardır.",
+        "Bir güçlü yan ve bir gelişim hedefi yazılmıştır."
+      ],
+      "day": 30
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Standart akort",
+      "meaning": "Tellerin kalından inceye E-A-D-G-B-e seslerine ayarlanması.",
+      "exercise": "Her çalışmadan önce altı teli kontrol et."
+    },
+    {
+      "term": "Perde",
+      "meaning": "Sapta metal çizgilerin arasındaki basma yeri; 0 açık tel demektir.",
+      "exercise": "E telinde 0, 3, 5 çal."
+    },
+    {
+      "term": "Riff",
+      "meaning": "Tekrarlanan kısa nota fikri.",
+      "exercise": "0-3-5-3 dizisini iki kez çal."
+    },
+    {
+      "term": "Ölçü",
+      "meaning": "Burada dört vuruşluk zaman kutusu.",
+      "exercise": "1-2-3-4 say, yeniden 1'e dön."
+    },
+    {
+      "term": "Metronom",
+      "meaning": "Düzenli tıkla zamanı gösteren araç.",
+      "exercise": "60 tempoda her tıkta E teline vur."
+    },
+    {
+      "term": "Power chord",
+      "meaning": "Kök ve beşli iki farklı notadan kurulan rock akoru.",
+      "exercise": "Açık E ve A2 ile E5 çal."
+    },
+    {
+      "term": "Dönüşümlü pena",
+      "meaning": "Aşağı ve yukarı vuruşu sırayla kullanmak.",
+      "exercise": "Açık E üzerinde sekiz vuruş çal."
+    },
+    {
+      "term": "Avuç içi susturma",
+      "meaning": "Pena elinin avuç kenarıyla köprü yakınında sesi kısaltmak.",
+      "exercise": "Dört açık ve dört kısık E5 karşılaştır."
+    },
+    {
+      "term": "Sekizlik",
+      "meaning": "Bir ana vuruşun iki eşit parçaya bölünmesi.",
+      "exercise": "1-ve-2-ve-3-ve-4-ve say."
+    },
+    {
+      "term": "Distortion",
+      "meaning": "Gitar sesini yoğunlaştıran efekt; istenmeyen gürültüyü de büyütür.",
+      "exercise": "Aynı riffi temiz ve efektli duy."
+    }
+  ],
+  "nextMonth": [
+    "1. hafta: Dört power chord geçişini her gün beş dakika, temiz çalabildiğin tempoda pekiştir.",
+    "2. hafta: İki yeni power chord konumu ekleyip dörder vuruşla döndür.",
+    "3. hafta: Sevdiğin kısa bir rock riffinin ilk dört ölçüsünü yavaş öğren.",
+    "4. hafta: Yeni riffle kendi B bölümünü birleştirip iki tek seferlik kayıt al."
+  ],
+  "sources": [
+    {
+      "title": "Fender: What Is a Power Chord?",
+      "url": "https://www.fender.com/articles/chords/what-is-a-power-chord",
+      "usedFor": "Power chord tanımı."
+    },
+    {
+      "title": "Fender: 3 Keys to Ace Your Palm Muting",
+      "url": "https://www.fender.com/articles/techniques/3-keys-to-ace-your-palm-muting",
+      "usedFor": "Avuçla susturmanın köprü yakınında uygulanması."
+    },
+    {
+      "title": "Fender: How to Solo on Guitar",
+      "url": "https://www.fender.com/articles/techniques/how-to-guitar-solo",
+      "usedFor": "Dönüşümlü pena ve riff için temel yaklaşım."
+    },
+    {
+      "title": "Fender: Power Chords and Barre Chords",
+      "url": "https://www.fender.com/play/guitar/collections/power-barre-chords",
+      "usedFor": "Taşınabilir iki parmaklı power chord ilerlemesi."
+    },
+    {
+      "title": "Hal Leonard Guitar Method — Rock Guitar Techniques & Power Chords",
+      "url": "https://www.halleonard.com/product/697319/rock-guitar-method",
+      "usedFor": "Power chord basışları, palm muting susturma açısı ve riff kurgulama."
+    },
+    {
+      "title": "Guitar World — Master the Art of Palm Muting: Punch and Dynamics",
+      "url": "https://www.guitarworld.com/lessons/master-the-art-of-palm-muting",
+      "usedFor": "Sağ el köprü konumu, dinamik kontrol ve sıkı aşağı vuruş teknikleri."
+    }
+  ],
+  "practiceExample": {
+    "title": "Özgün Rock Power Chord ve Palm Muting Sürüş Riffi",
+    "notation": "Ölçü 1 (E5 -> G5 -> A5 Sürüşü)      Ölçü 2 (A5 -> G5 -> E5 Çözülüş)\nVuruş: 1   &   2   &   3   &   4   &    1   &   2   &   3   &   4   &\ne|-----------------------------------|-----------------------------------|\nB|-----------------------------------|-----------------------------------|\nG|-----------------------------------|-----------------------------------|\nD|-----------------------------------|-----------------------------------|\nA|--2---2-----------5---7---7---7----|--7---7---5---2---2---2---2---2---|\nE|--0---0---0---3---3---5---5---5----|--5---5---3---0---0---0---0---0---|\n   PM...   PM  ...                  PM...   PM...   PM......\n   (Tok vuruş)                      (Açık vuruş)    (Tok vuruş)",
+    "howTo": "1. Adım: Sağ elinin etli kenarını (avuç içi) köprüdeki tellerin başladığı yere hafifçe yasla. Vurduğunda tok bir 'çug-çug' sesi gelmelidir.\n2. Adım: Çok sert bastırırsan ses tamamen ölür, hiç değdirmezsen çınlar; tam o sihirli ortayı bul!\n3. Adım: Sol elde power chord basarken işaret parmağın kök notayı, yüzük veya serçe parmağın 5'liyi basar. Kullanılmayan alt tellere işaret parmağının altıyla hafifçe değerek sustur.\nHocanın Püf Noktası: Rock'ta ritmin sıkılığı amfinin distorsiyonundan çok daha önemlidir. Metronomla bir makine gibi sağlam çal!"
+  }
+}

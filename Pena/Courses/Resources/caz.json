@@ -1,0 +1,1043 @@
+{
+  "id": "caz",
+  "title": "30 Günde Caz Gitara Giriş",
+  "subtitle": "ii-V-I akor omurgası, zarif kabuk akorlar (shell voicings) ve swing salınımıyla ilk caz doğaçlaman",
+  "instrument": "Akustik veya elektrik gitar",
+  "level": "Gitar temeli olan başlangıç-orta arası; sıfırdan gitar öğrenen için ilk ay önerilmez",
+  "dailyMinutes": 25,
+  "monthGoal": "Caz armonisine ve swing hissiyatına sağlam bir temel atmak: Caz repertuvarının omurgası olan ii-V-I (Dm7 - G7 - Cmaj7) akor zincirini sade kabuk akorlarla (shell voicings / guide tones) çalmak, esnek swing ritmini hissetmek ve birkaç sihirli notayla ilk kısa caz doğaçlamanı kaydetmek.",
+  "prerequisites": "Temel açık akorları basabilmek ve ritmi kaybetmeden akor değiştirebilmek yararlıdır. Sıfırdan gitara başlayanlar için ilk ay biraz zorlayıcı olabilir ancak meraklı bir öğrenci için inanılmaz bir ufuk açar. Cazda karmaşık 6 telli akorlar yerine 3 notalı zarif 'kabuk' akorlar kullanacağız.",
+  "materials": [
+    "Akustik veya elektro gitar (temiz amfi tonu)",
+    "Akort aleti veya uygulaması",
+    "Dahili sayfa metronomu (özellikle 2 ve 4. vuruşlarda saymayı deneyeceğiz)",
+    "Ses kaydı yapabilen telefon",
+    "Dinleme önerisi: Wes Montgomery - The Incredible Jazz Guitar, Miles Davis - Kind of Blue"
+  ],
+  "weeks": [
+    {
+      "title": "1. hafta: Yedili akor ve ii-V-I",
+      "focus": "Üç kolay akorla armoni yönünü duyma.",
+      "exitCriteria": [
+        "ii-V-I zincirini iki tur çalar.",
+        "Üç akoru adlandırır."
+      ]
+    },
+    {
+      "title": "2. hafta: Kök, üçüncü ve yedinci",
+      "focus": "Küçük kabuk şekiller ve kısa eşlik.",
+      "exitCriteria": [
+        "Üç kök sesi gösterir.",
+        "Dm7 ve G7 kabuklarını temiz çalar."
+      ]
+    },
+    {
+      "title": "3. hafta: Swing ve küçük cümle",
+      "focus": "Esnek zaman ve az notalı melodi.",
+      "exitCriteria": [
+        "Fa-Fa-Mi cümlesini akorlarla hizalar.",
+        "Dört ölçüde susuşu korur."
+      ]
+    },
+    {
+      "title": "4. hafta: Eşlik ve kayıt",
+      "focus": "Dört ölçülük döngü, tek nota değişimi ve değerlendirme.",
+      "exitCriteria": [
+        "Üç tur eşliği tek kayıtta tamamlar.",
+        "Üç somut değerlendirme notu yazar."
+      ]
+    }
+  ],
+  "days": [
+    {
+      "title": "Cazı dinle",
+      "goal": "Bas, akor ve melodiyi ayır.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Caz gitar üçlüsü kaydı aç."
+        },
+        {
+          "min": 10,
+          "text": "Dört vuruş sayarken bası ayağınla takip et."
+        },
+        {
+          "min": 10,
+          "text": "Akor ve melodiyi iki ayrı satıra tarif et."
+        }
+      ],
+      "why": "Eşlik dinleyerek kurulur.",
+      "steps": [
+        "Kaydı dinlerken ayağınla dört eşit yere vur.",
+        "Önce kalın bas sesini, sonra daha kısa akorları işaretle; melodiyi son dinlemede ayır."
+      ],
+      "watch": [
+        "İlk anda her sesi birden çözmeye çalışma; önce sadece en kalın bas sesine odaklan."
+      ],
+      "check": [
+        "Dört vuruş iki tur rahatça sayabiliyorsun.",
+        "İki görev kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "Yedili akor",
+      "goal": "C ve Cmaj7 farkını duy.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C akorunun Do-Mi-Sol seslerini söyle."
+        },
+        {
+          "min": 10,
+          "text": "Cmaj7 içinde Si sesini ekleyip akoru çal."
+        },
+        {
+          "min": 10,
+          "text": "C ve Cmaj7 seslerini kaydedip karşılaştır."
+        }
+      ],
+      "why": "Yedili akor caz armonisinin temel rengidir.",
+      "steps": [
+        "Do-Mi-Sol seslerini tek tek çal ve C akorunu kur.",
+        "Si eklenince oluşan Cmaj7 rengini kulağınla karşılaştır; maj7 yazısını not et."
+      ],
+      "watch": [
+        "maj7 ile düz 7 sembolünü karıştırma."
+      ],
+      "check": [
+        "Dört ses adı söylenir.",
+        "Fark farkı kulağınla hemen ayırt edebiliyorsun."
+      ]
+    },
+    {
+      "title": "Dm7 açık şekil",
+      "goal": "ii akorunu temiz kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "4. tel boş, 3. tel 2., ince iki tel 1. perdeye bas."
+        },
+        {
+          "min": 10,
+          "text": "Dört teli tek tek çalıp cızırtıyı düzelt."
+        },
+        {
+          "min": 10,
+          "text": "İki vuruş çal, iki vuruş sus; dört ölçü sürdür."
+        }
+      ],
+      "why": "Tek şekil eşliği başlatır.",
+      "steps": [
+        "Dördüncü açık telin Re olduğunu kontrol et; ince iki teli birinci perdede bastır.",
+        "Dört hedef teli ayrı çal, boğuk sesi bulunca elini gevşetip yeniden yerleştir."
+      ],
+      "watch": [
+        "İnce iki teli fazla sıkma."
+      ],
+      "check": [
+        "Dört tel temizdir.",
+        "Dört ölçü rahatça sayabiliyorsun."
+      ]
+    },
+    {
+      "title": "G7 açık şekil",
+      "goal": "V akorunu tanı.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "6. tel 3., 5. tel 2., 1. tel 1. perdeyi kur."
+        },
+        {
+          "min": 10,
+          "text": "Altı teli tek tek çal ve sesi kontrol et."
+        },
+        {
+          "min": 10,
+          "text": "Dm7-G7 arasında dört yavaş değişim yap."
+        }
+      ],
+      "why": "V akoru çözülme beklentisi verir.",
+      "steps": [
+        "Kalın Mi telinde üçüncü perde Sol basını bul.",
+        "G7 akorunun tellerini sırayla yokla; Dm7 geçişinde bir ölçü sayımı koru."
+      ],
+      "watch": [
+        "Parmak komşu teli kapatmasın."
+      ],
+      "check": [
+        "G7 anlaşılır.",
+        "Dört değişim yapılır."
+      ]
+    },
+    {
+      "title": "Cmaj7 açık şekil",
+      "goal": "I akorunu duy.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "5. tel 3., 4. tel 2. perdeyi kur."
+        },
+        {
+          "min": 10,
+          "text": "5.-1. telleri tek tek çal; 6. teli sustur."
+        },
+        {
+          "min": 10,
+          "text": "G7-Cmaj7 çiftini dört kez çalıp son sesi uzat."
+        }
+      ],
+      "why": "I akoru bu dizide dinlenme noktasıdır.",
+      "steps": [
+        "Beşinci tel üçüncü perdedeki Do basını bul; altıncı tele değmemeye çalış.",
+        "G7 akorunu dört vuruş çal, sonraki yeni 1 noktasında Cmaj7 kur."
+      ],
+      "watch": [
+        "Kalın Mi telini istemeden vurma."
+      ],
+      "check": [
+        "Beş tel temizdir.",
+        "Dört dönüş yapılır."
+      ]
+    },
+    {
+      "title": "ii-V-I",
+      "goal": "Üç akoru sırayla çal.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akorları Dm7-G7-Cmaj7 diye söyle."
+        },
+        {
+          "min": 10,
+          "text": "Her akora dört vuruş vererek diziyi çal."
+        },
+        {
+          "min": 10,
+          "text": "Dört tur yapıp son Cmaj7 sesini dinle."
+        }
+      ],
+      "why": "Bu sıra armonik yön duygusu kurar.",
+      "steps": [
+        "Akor adlarını önce yüksek sesle Dm7-G7-Cmaj7 olarak söyle.",
+        "Her akor için 1-2-3-4 say; üçüncü akordan sonra bitişi aceleyle kesme."
+      ],
+      "watch": [
+        "Değişimi erkene çekme."
+      ],
+      "check": [
+        "Dört tur rahatça oturuyor.",
+        "Bitiş temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 1",
+      "goal": "Üç akoru rahat gözden geçir.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Akor adlarını sesli söyle."
+        },
+        {
+          "min": 7,
+          "text": "Her akoru tek tek kontrol et."
+        },
+        {
+          "min": 5,
+          "text": "ii-V-I dizisini iki tur çalıp zor geçişi yaz."
+        }
+      ],
+      "why": "Zor nokta sonraki çalışmayı belirler.",
+      "steps": [
+        "Üç akoru gitara bakmadan adlandır, sonra şekilleri tek tek kur.",
+        "En çok bekleten parmak hareketini yaz; yalnız iki yavaş tur yap."
+      ],
+      "watch": [
+        "Hız için elini sıkma."
+      ],
+      "check": [
+        "Üç ad doğrudur.",
+        "Zor geçiş kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "Kök sesler",
+      "goal": "Re-Sol-Do baslarını bul.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dm7 için açık 4. tel Re bul."
+        },
+        {
+          "min": 10,
+          "text": "G7 için 6. tel 3. perde Sol; Cmaj7 için 5. tel 3. perde Do bul."
+        },
+        {
+          "min": 10,
+          "text": "Üç bası her birine dört vuruş vererek dört tur çal."
+        }
+      ],
+      "why": "Kök armoni değişimini duyurur.",
+      "steps": [
+        "Açık dördüncü tel Re sesini ayrı çal.",
+        "Sol için altıncı tel üçüncü perdeye, Do için beşinci tel üçüncü perdeye geç; her bası dört vuruş sürdür."
+      ],
+      "watch": [
+        "Bası rastgele telden seçme."
+      ],
+      "check": [
+        "Üç bas bulunur.",
+        "Dört tur sıralıdır."
+      ]
+    },
+    {
+      "title": "Üçüncü ve yedinci",
+      "goal": "Akor rengini belirleyen sesleri adlandır.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dm7 içinde Fa-Do seslerini yaz."
+        },
+        {
+          "min": 10,
+          "text": "G7 içinde Si-Fa, Cmaj7 içinde Mi-Si yaz."
+        },
+        {
+          "min": 10,
+          "text": "Ortak Fa ve Si seslerini işaretle."
+        }
+      ],
+      "why": "Bu sesler az notayla akor türünü gösterir.",
+      "steps": [
+        "Dm7 için Fa-Do, G7 için Si-Fa, Cmaj7 için Mi-Si çiftlerini kağıda yaz.",
+        "Aynı kalan Fa ve Si seslerini daireye al; akorlarda duymaya çalış."
+      ],
+      "watch": [
+        "Yedinciyi yedi perde sanma."
+      ],
+      "check": [
+        "Altı ses kendi hislerinle not defterine yazıyorsun.",
+        "Ortak iki ses bulunur."
+      ]
+    },
+    {
+      "title": "İki ve dört",
+      "goal": "Kısa akorları seçilen vuruşlarda çal.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dört vuruşu sesli say."
+        },
+        {
+          "min": 10,
+          "text": "Dm7 akorunu yalnız 2 ve 4 üzerinde çal."
+        },
+        {
+          "min": 10,
+          "text": "G7-Cmaj7 ile iki tur tekrar et."
+        }
+      ],
+      "why": "Bu bir başlangıç eşliği seçeneğidir.",
+      "steps": [
+        "Metronomla 1-2-3-4 sayarken önce yalnız dizine 2 ve 4 vur.",
+        "Sonra kısa Dm7 akorları koy; G7 ve Cmaj7 geçişlerinde sayı hızını değiştirme."
+      ],
+      "watch": [
+        "Bunu tüm caz ritmi sanma."
+      ],
+      "check": [
+        "2 ve 4 doğrudur.",
+        "İki tur rahatça oturuyor."
+      ]
+    },
+    {
+      "title": "Kısa ses",
+      "goal": "Akoru kontrollü kes.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dm7 çalıp sol el baskısını hafif azalt."
+        },
+        {
+          "min": 10,
+          "text": "Parmaklar telde kalırken sesin kısa kesildiğini dinle."
+        },
+        {
+          "min": 10,
+          "text": "G7 ve Cmaj7 ile dörder kısa vuruş yap."
+        }
+      ],
+      "why": "Kısa ses melodiste alan bırakır.",
+      "steps": [
+        "Dm7 akorunu bir kez çal ve sesin ne kadar sürdüğünü dinle.",
+        "Sol el baskısını hafifletirken parmakları telden kaldırma; kısa sessizlik oluştur."
+      ],
+      "watch": [
+        "Elini kaldırıp açık tel çınlatma."
+      ],
+      "check": [
+        "Kısa ses temiz ve berrak duyuluyor.",
+        "Açık tel gürültüsü yoktur."
+      ]
+    },
+    {
+      "title": "Dm7 kabuk",
+      "goal": "Üç hedef sesli şekil kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "5. tel 5. perde Re, 4. tel 3. perde Fa, 3. tel 5. perde Do bul."
+        },
+        {
+          "min": 10,
+          "text": "x535xx yazarak yalnız hedef telleri çal."
+        },
+        {
+          "min": 10,
+          "text": "Açık ve küçük Dm7 seslerini karşılaştır."
+        }
+      ],
+      "why": "Kök-üçüncü-yedinci temel işlevi taşır.",
+      "steps": [
+        "Beşinci tel beşinci perde Re ile başla; dördüncü tel üçüncü perde Fa ekle.",
+        "Üçüncü tel beşinci perde Do ekle; diğer telleri sağ elle hedeflememeye çalış."
+      ],
+      "watch": [
+        "Tüm telleri vurma."
+      ],
+      "check": [
+        "Üç ses temizdir.",
+        "İki şekil karşılaştırılır."
+      ]
+    },
+    {
+      "title": "G7 kabuk",
+      "goal": "İkinci küçük şekli kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "6. tel 3. perde Sol, 4. tel 3. perde Fa, 3. tel 4. perde Si bul."
+        },
+        {
+          "min": 10,
+          "text": "3x34xx şeklinde hedef telleri çal."
+        },
+        {
+          "min": 10,
+          "text": "Dm7-G7 kabuklarını dört kez değiştir."
+        }
+      ],
+      "why": "Az sesli eşlik yoğun grupta işe yarar.",
+      "steps": [
+        "Altıncı tel üçüncü perde Sol sesini kur; dördüncü tel üçüncü perdede Fa bul.",
+        "Üçüncü tel dördüncü perdede Si ekle; x işaretli beşinci tele çarpma."
+      ],
+      "watch": [
+        "x işaretli teli sustur."
+      ],
+      "check": [
+        "Üç ses vardır.",
+        "Dört geçiş yapılır."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 2",
+      "goal": "Kabukları sakince seç.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Açık ii-V-I dizisini bir tur çal."
+        },
+        {
+          "min": 7,
+          "text": "Dm7 ve G7 kabuklarını ikişer kez çal."
+        },
+        {
+          "min": 5,
+          "text": "Hangisi daha temizse gerekçesiyle yaz."
+        }
+      ],
+      "why": "Temiz seçim şekil sayısından değerlidir.",
+      "steps": [
+        "Açık şekillerde hedef telleri sırayla dinle.",
+        "İki kabuk şeklin hangisinde daha az cızırtı çıktığını yaz; zor geçişi yavaşlat."
+      ],
+      "watch": [
+        "Zor şekli ağrıyla sürdürme."
+      ],
+      "check": [
+        "İki kabuk tanınır.",
+        "Seçim kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "Cmaj7 kabuk",
+      "goal": "Üçüncü küçük şekli kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "5. tel 3. perde Do, 4. tel 2. perde Mi, 3. tel 4. perde Si bul."
+        },
+        {
+          "min": 10,
+          "text": "x324xx üzerinde üç teli çal."
+        },
+        {
+          "min": 10,
+          "text": "Üç kabukla ii-V-I dizisini iki tur çal."
+        }
+      ],
+      "why": "I akorunun rengini küçük şekille duyurur.",
+      "steps": [
+        "Beşinci tel üçüncü perdede Do, dördüncü tel ikinci perdede Mi bul.",
+        "Üçüncü tel dördüncü perdede Si ekle; Cmaj7 kabuğunu yalnız üç telden duyur."
+      ],
+      "watch": [
+        "Açık ince teli istemeden çınlatma."
+      ],
+      "check": [
+        "Üç ses temizdir.",
+        "İki tur yapılır."
+      ]
+    },
+    {
+      "title": "Yakın ses hareketi",
+      "goal": "Akorlar arasında ortak sesi duy.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dm7 ve G7 içinde Fa sesini bul."
+        },
+        {
+          "min": 10,
+          "text": "G7 ve Cmaj7 içinde Si sesini bul."
+        },
+        {
+          "min": 10,
+          "text": "Geçişleri kaydedip hangi sesin kaldığını söyle."
+        }
+      ],
+      "why": "Küçük hareket akışı yumuşatır.",
+      "steps": [
+        "Dm7 ve G7 şekillerinde dördüncü tel üçüncü perdedeki Fa sesine bak.",
+        "G7 ve Cmaj7 şekillerinde üçüncü tel dördüncü perdedeki Si sesinin kaldığını dinle."
+      ],
+      "watch": [
+        "Bağı duymak için fazla sert çalma."
+      ],
+      "check": [
+        "Ortak Fa işaretlenir.",
+        "Ortak Si işaretlenir."
+      ]
+    },
+    {
+      "title": "Swing dinleme",
+      "goal": "Düz ve esnek sekizlikleri ayır.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Swing kayıt dinle ve ayağınla ana vuruşu tut."
+        },
+        {
+          "min": 10,
+          "text": "İki notayı önce eşit, sonra kayıttaki uzun-kısa duyuma yakın çal."
+        },
+        {
+          "min": 10,
+          "text": "İki sürümü kaydedip ana vuruşun sabitliğini dinle."
+        }
+      ],
+      "why": "Swing oranı icraya ve tempoya göre değişir.",
+      "steps": [
+        "Kayıtla ayağını düzenli dört vuruşta tut.",
+        "İki kısa nota çalarken önce eşit aralık, sonra duyduğun esnek aralık dene; aynı tempoda kal."
+      ],
+      "watch": [
+        "Katı üçleme oranı dayatma."
+      ],
+      "check": [
+        "Ana vuruş sabittir.",
+        "İki sürüm ayırt edilir."
+      ]
+    },
+    {
+      "title": "Kısa ve uzun akor",
+      "goal": "Eşlikte ses süresi seç.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dm7 ile dört vuruş say."
+        },
+        {
+          "min": 10,
+          "text": "2 üzerinde kısa, 4 üzerinde biraz uzun akor çal."
+        },
+        {
+          "min": 10,
+          "text": "G7-Cmaj7 üzerinde aynı fikri uygula."
+        }
+      ],
+      "why": "Ses süresi cümleyi yönlendirir.",
+      "steps": [
+        "İkinci vuruştaki akoru çabuk kes; dördüncü vuruştakini biraz daha bırak.",
+        "Akorlar değişirken bir sonraki 1 için sol elini zamanında hazırla."
+      ],
+      "watch": [
+        "Uzun akor değişimi geciktirmesin."
+      ],
+      "check": [
+        "2 ve 4 yerindedir.",
+        "Süre farkı temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "Fa-Fa-Mi",
+      "goal": "Üç notalı cümle kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dm7 üzerinde 1. tel 1. perde Fa çal."
+        },
+        {
+          "min": 10,
+          "text": "G7 üzerinde aynı Fa sesini tut, Cmaj7 üzerinde 1. açık tel Mi çal."
+        },
+        {
+          "min": 10,
+          "text": "Her akora bir ölçü verip dört tur yap."
+        }
+      ],
+      "why": "Az nota armoni değişimini gösterebilir.",
+      "steps": [
+        "Dm7 ve G7 ölçülerinde birinci tel birinci perdedeki Fa sesini bul.",
+        "Cmaj7 geldiğinde aynı teli boş Mi olarak çal; notayı akorla aynı anda başlat."
+      ],
+      "watch": [
+        "Mi sesini akor değişiminden erken çalma."
+      ],
+      "check": [
+        "Sıra doğrudur.",
+        "Mi Cmaj7 ile gelir."
+      ]
+    },
+    {
+      "title": "Soru ve susuş",
+      "goal": "Cümleye nefes ekle.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Fa-Fa-Mi cümlesini üç ölçüde çal."
+        },
+        {
+          "min": 10,
+          "text": "Dördüncü ölçüde hiç çalma ama dört say."
+        },
+        {
+          "min": 10,
+          "text": "Dört ölçüyü iki kez tekrarla."
+        }
+      ],
+      "why": "Sessizlik cümleyi tamamlar.",
+      "steps": [
+        "Fa-Fa-Mi cümlesinin ardından tellerden elini çekmeden sus.",
+        "Sessiz dördüncü ölçüde 1-2-3-4 sayıp sonraki turu tam 1 üzerinde aç."
+      ],
+      "watch": [
+        "Sessiz ölçüyü atlama."
+      ],
+      "check": [
+        "Dört ölçü korunur.",
+        "İkinci giriş doğru yerdedir."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 3",
+      "goal": "Melodi ve akorları kontrol et.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Kabuk akorları birer kez çal."
+        },
+        {
+          "min": 7,
+          "text": "Fa-Fa-Mi cümlesini iki tur yap."
+        },
+        {
+          "min": 5,
+          "text": "Kayıtta en zor tek geçişi yaz."
+        }
+      ],
+      "why": "Sınırlı tekrar yorgunluğu önler.",
+      "steps": [
+        "Üç kabuk şeklin tellerini birer kez kontrol et.",
+        "Melodi cümlesini iki kısa tur çal; zor akor geçişinin adını yaz."
+      ],
+      "watch": [
+        "Yanlışı hızla tekrarlama."
+      ],
+      "check": [
+        "İki cümle biter.",
+        "Zor geçiş kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "Dört ölçülük form",
+      "goal": "Özgün eşlik döngüsü kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Ölçüleri Dm7-G7-Cmaj7-Cmaj7 diye say."
+        },
+        {
+          "min": 10,
+          "text": "Her ölçüde 2 ve 4 üzerine kısa akor koy."
+        },
+        {
+          "min": 10,
+          "text": "Dört ölçüyü üç tur çal."
+        }
+      ],
+      "why": "Kısa form melodi için zemin verir.",
+      "steps": [
+        "Birinci ölçü Dm7, ikinci G7, üçüncü ve dördüncü Cmaj7 olsun.",
+        "Her ölçünün 2 ve 4 yerinde kısa akor koy; dördüncü ölçüyü atlamadan başa dön."
+      ],
+      "watch": [
+        "Dördüncü ölçüyü atlama."
+      ],
+      "check": [
+        "Üç tur rahatça oturuyor.",
+        "Akor adları doğrudur."
+      ]
+    },
+    {
+      "title": "Bas ve akor",
+      "goal": "İki ses görevini ayır.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Her ölçünün 1 üzerinde ilgili kökü bul."
+        },
+        {
+          "min": 10,
+          "text": "2 veya 4 üzerinde kabuk akor çal."
+        },
+        {
+          "min": 10,
+          "text": "Dört ölçü döngüsünü iki kez sürdür."
+        }
+      ],
+      "why": "Bas armoniyi, üst akor dokuyu taşır.",
+      "steps": [
+        "Her akorun ilk vuruşunda yalnız Re, Sol veya Do kökünü çal.",
+        "Aynı ölçüde ikinci veya dördüncü vuruşa küçük akoru koy; sesi karıştırma."
+      ],
+      "watch": [
+        "Kökü yanlış telden alma."
+      ],
+      "check": [
+        "Üç kök doğrudur.",
+        "İki döngü biter."
+      ]
+    },
+    {
+      "title": "Eşlik kaydına çal",
+      "goal": "Melodiyi eşlikle hizala.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dört ölçü eşliğini kaydet."
+        },
+        {
+          "min": 10,
+          "text": "Kayıt üstünde Fa-Fa-Mi ve bir ölçü sus cümlesini çal."
+        },
+        {
+          "min": 10,
+          "text": "Üçüncü ölçüdeki Mi sesini dinle."
+        }
+      ],
+      "why": "Katmanlama görevleri ayırır.",
+      "steps": [
+        "Önce dört ölçülük akor eşliğini sessiz ortamda kaydet.",
+        "Kaydı yeniden açıp Fa-Fa-Mi cümlesini üçüncü ölçüde Mi gelecek biçimde üstüne çal."
+      ],
+      "watch": [
+        "Melodi kaydın önüne geçmesin."
+      ],
+      "check": [
+        "Dört ölçü melodi vardır.",
+        "Mi üçüncü ölçüdedir."
+      ]
+    },
+    {
+      "title": "Bir nota değiştir",
+      "goal": "Kontrollü doğaçlama yap.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Fa-Fa-Mi cümlesini çal."
+        },
+        {
+          "min": 10,
+          "text": "İlk Fa yerine Re seç; Dm7 kökü olan açık 4. telden çal."
+        },
+        {
+          "min": 10,
+          "text": "İki sürümü kaydedip farkı tarif et."
+        }
+      ],
+      "why": "Doğaçlama küçük kararla başlar.",
+      "steps": [
+        "Dm7 ölçüsündeki Fa yerine açık dördüncü tel Re kullan.",
+        "Diğer iki notayı aynı bırakıp iki sürümün duyulan farkını söyle."
+      ],
+      "watch": [
+        "Tüm notaları birden değiştirme."
+      ],
+      "check": [
+        "Tek nota değişir.",
+        "Fark söylenir."
+      ]
+    },
+    {
+      "title": "Melodi ve eşlik düzeyi",
+      "goal": "Melodiyi seçilir kıl.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Eşliği hafif kaydet."
+        },
+        {
+          "min": 10,
+          "text": "Üstüne Fa-Fa-Mi cümlesini biraz daha belirgin çal."
+        },
+        {
+          "min": 10,
+          "text": "Melodinin izlenip izlenmediğini yaz."
+        }
+      ],
+      "why": "Eşlik melodiste yer bırakır.",
+      "steps": [
+        "Kayıttaki akorları hafif, tek notalı melodiyi biraz daha açık çal.",
+        "İki sesi birlikte dinleyince melodi kayboluyorsa akoru daha hafiflet."
+      ],
+      "watch": [
+        "Eşliği sertleştirme."
+      ],
+      "check": [
+        "Melodi izlenir.",
+        "Eşlik ritmi sürer."
+      ]
+    },
+    {
+      "title": "Dönüşümlü roller",
+      "goal": "Eşlik ile melodiyi sırayla çal.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Bir dört ölçülük eşlik döngüsü çal."
+        },
+        {
+          "min": 10,
+          "text": "Sonraki dört ölçüde Fa-Fa-Mi ve sus cümlesini çal."
+        },
+        {
+          "min": 10,
+          "text": "Bu iki bölümü iki kez peş peşe dene."
+        }
+      ],
+      "why": "Roller arasında form kaybolmamalıdır.",
+      "steps": [
+        "Dört ölçü sadece akor çal ve son 4 vuruşunu say.",
+        "Sonraki dört ölçüde yalnız melodi çal; rol değişiminde ayağını durdurma."
+      ],
+      "watch": [
+        "Rol değişirken saymayı bırakma."
+      ],
+      "check": [
+        "İki eşlik bölümü vardır.",
+        "İki melodi bölümü vardır."
+      ]
+    },
+    {
+      "title": "Prova",
+      "goal": "Tam döngüyü tek seferde çal.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et ve üç kök sesi bir kez çal."
+        },
+        {
+          "min": 10,
+          "text": "Dört ölçü eşliği üç tur kaydet."
+        },
+        {
+          "min": 10,
+          "text": "Üstüne veya ardından cümleyi çal; kayma yerini yaz."
+        }
+      ],
+      "why": "Prova devam etme becerisi verir.",
+      "steps": [
+        "Akorttan sonra Re-Sol-Do köklerini birer kez kontrol et.",
+        "Üç turu tek kayıtta sürdür; hata olunca bir sonraki 1 noktasında toparla."
+      ],
+      "watch": [
+        "Yanlışta başa dönme."
+      ],
+      "check": [
+        "Üç tur kayıttadır.",
+        "Kayma kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "Tek onarım",
+      "goal": "En zor geçişi düzelt.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dünkü sorunlu ölçüyü bul."
+        },
+        {
+          "min": 10,
+          "text": "Öncesi ve sonrasıyla beş yavaş tur çal."
+        },
+        {
+          "min": 10,
+          "text": "Tam döngüyü bir kez çalıp rahatlığı not et."
+        }
+      ],
+      "why": "Yerel onarım etkilidir.",
+      "steps": [
+        "Sorunlu akor değişiminin önceki ve sonraki ölçülerini seç.",
+        "Üç ölçülük bölümü beş yavaş tekrar yap; temiz ses için tempoyu artırma."
+      ],
+      "watch": [
+        "Hızla hatayı gizleme."
+      ],
+      "check": [
+        "Beş tur yapılır.",
+        "Tam döngü biter."
+      ]
+    },
+    {
+      "title": "30. gün kayıt",
+      "goal": "ii-V-I eşliğini ve cümleyi değerlendir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kökleri ve kabukları bir kez çal."
+        },
+        {
+          "min": 10,
+          "text": "Dört ölçü döngüsünü üç tur kaydet."
+        },
+        {
+          "min": 10,
+          "text": "İki veya üç notalı cümle ekle; ritim, temizlik ve uyum için kanıt yaz."
+        }
+      ],
+      "why": "Somut gözlem gelecek ayı yönlendirir.",
+      "steps": [
+        "Kök sesleri ve kabukları ısınma olarak birer kez çal.",
+        "Üç dört ölçülük tur ve kısa cümle kaydet; ritim, akor ve uyuma ayrı kanıt yaz."
+      ],
+      "watch": [
+        "Bir ayda caz ustalığı bekleme."
+      ],
+      "check": [
+        "Üç tur ve cümle kayıttadır.",
+        "Üç kanıt kendi hislerinle not defterine yazıyorsun."
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Yedili akor",
+      "meaning": "Üçlü akora kök sesin yedincisi eklenen akor.",
+      "exercise": "Cmaj7 içindeki Si sesini söyle."
+    },
+    {
+      "term": "ii-V-I",
+      "meaning": "İkinci, beşinci ve birinci derece akorlarının sırası.",
+      "exercise": "Do majörde Dm7-G7-Cmaj7 çal."
+    },
+    {
+      "term": "Kök ses",
+      "meaning": "Akora adını veren ses.",
+      "exercise": "Dm7, G7, Cmaj7 için Re-Sol-Do çal."
+    },
+    {
+      "term": "Üçüncü",
+      "meaning": "Kökten üçüncü ses; majör veya minör rengini belirler.",
+      "exercise": "Dm7 içindeki Fa sesini söyle."
+    },
+    {
+      "term": "Yedinci",
+      "meaning": "Kökten yedinci ses; yedili akor rengini belirler.",
+      "exercise": "G7 içindeki Fa sesini söyle."
+    },
+    {
+      "term": "Kabuk akor",
+      "meaning": "Kök, üçüncü ve yedinciyi taşıyan küçük şekil.",
+      "exercise": "x535xx Dm7 şeklini çal."
+    },
+    {
+      "term": "Comping",
+      "meaning": "Melodi çalana akor eşliği yapma.",
+      "exercise": "Dm7 üzerinde 2 ve 4 vuruşlarını çal."
+    },
+    {
+      "term": "Swing",
+      "meaning": "Ara notaların esnek, eşit olmayan akışı.",
+      "exercise": "Düz ve swing denemelerini kaydet."
+    },
+    {
+      "term": "Doğaçlama",
+      "meaning": "Müzik sürerken seçilen notalarla cümle kurma.",
+      "exercise": "Fa-Fa-Mi ilk notasını değiştir."
+    },
+    {
+      "term": "Voicing",
+      "meaning": "Akor notalarının seçimi ve gitardaki yerleşimi.",
+      "exercise": "Açık ve küçük Dm7 şekillerini karşılaştır."
+    }
+  ],
+  "practiceExample": {
+    "title": "Özgün Dört Ölçülük ii-V-I Kabuk Akor Alıştırması (Dm7 - G7 - Cmaj7)",
+    "notation": "Dm7 (Ölçü 1 - ii)    G7 (Ölçü 2 - V)      Cmaj7 (Ölçü 3-4 - I)\nVuruş: 1   2   3   4    1   2   3   4    1   2   3   4    1   2   3   4\ne|-------------------|-------------------|-------------------|-------------------|\nB|-------------------|-------------------|-------------------|-------------------|\nG|-------5-------5---|-------4-------4---|-------4-------4---|-------4-------4---|\nD|-------3-------3---|-------3-------3---|-------2-------2---|-------2-------2---|\nA|---5-------5-------|-------------------|---3-------3-------|---3-------3-------|\nE|-------------------|---3-------3-------|-------------------|-------------------|\n   (Kök 7li/3lü)       (Kök 7li/3lü)       (Kök 7li/3lü)       (Karar tınlar...)",
+    "howTo": "1. Adım: Dm7'deki 7'li ses (C - D telinde 3. perde), G7'ye geçerken yarım ses aşağı kayarak G7'nin 3'lü sesine (B - G telinde 4. perde) dönüşür!\n2. Adım: Bu yarım seslik akıcı ses geçişlerine 'Kılavuz Sesler' (Guide Tones) denir. Cazın o tatlı akışkanlığının tüm sırrı buradadır.\n3. Adım: Akorları metronomun 2 ve 4. vuruşlarına hafifçe oturtmayı dene; ayağınla 2 ve 4'e bas.\nHocanın Püf Noktası: Cazda fazla nota çalmak marifet değildir; doğru notayı doğru zamanda çalmak ve susmasını bilmek ustalıktır!"
+  },
+  "nextMonth": [
+    "1. hafta: Aynı ii-V-I döngüsünü öğretmenle başka tona taşı.",
+    "2. hafta: Her akorun üçüncü ve yedincisini yakın konumda bul.",
+    "3. hafta: Öğretmenin seçtiği lisanslı kısa caz melodisinin ilk dört ölçüsünü öğren.",
+    "4. hafta: Melodi ve eşliği dönüşümlü çalıp iki kısa özgün cümle kaydet."
+  ],
+  "sources": [
+    {
+      "title": "Berklee Online — Jazz Guitar 101",
+      "url": "https://online.berklee.edu/courses/jazz-guitar-101",
+      "usedFor": "Akor sesleri, ii-V-I, comping ve doğaçlama sıralaması; kaynak düzeyi daha ileri olduğundan sadeleştirildi."
+    },
+    {
+      "title": "Berklee Online — Jane Miller ile caz gitar söyleşisi",
+      "url": "https://online.berklee.edu/takenote/start-playing-jazz-guitar-an-interview-with-jane-miller/",
+      "usedFor": "Başlangıç doğaçlamasında az nota, dinleme ve zaman hissine öncelik."
+    },
+    {
+      "title": "Berklee Online — Voice Leading for Guitar",
+      "url": "https://online.berklee.edu/takenote/voice-leading-for-guitar/",
+      "usedFor": "Yakın ses hareketi ve küçük akor geçişleri."
+    },
+    {
+      "title": "Berklee Press — A Modern Method for Guitar by William Leavitt",
+      "url": "https://berkleepress.com/guitar/a-modern-method-for-guitar-volume-1",
+      "usedFor": "ii-V-I armoni zinciri, kılavuz sesler ve kabuk akor düzenlemeleri."
+    },
+    {
+      "title": "Jamey Aebersold Jazz — Maiden Voyage Guitar Voicings",
+      "url": "https://www.jazzbooks.com/jazz/product/MVG",
+      "usedFor": "Caz standartlarında 3 sesli shell akor eşlikleri ve swing artikülasyonu."
+    }
+  ]
+}

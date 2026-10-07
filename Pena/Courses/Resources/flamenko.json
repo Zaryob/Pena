@@ -1,0 +1,1053 @@
+{
+  "id": "flamenko",
+  "title": "30 Günde Flamenko Gitara Giriş: Tangos",
+  "subtitle": "Compás'ın kalp atışı, palmas ile ritim disiplini ve Tangos Por Arriba ile kontrollü rasgueado",
+  "instrument": "Naylon telli klasik veya flamenko gitarı",
+  "level": "Başlangıç; E akorunu kurabilen öğrenci için uygun",
+  "dailyMinutes": 25,
+  "monthGoal": "Endülüs'ün tutkulu ritmi Tangos'a adım atmak: Dört vuruşlu compásı palmas (el çırpma) ile içselleştirmek, E Phrygian modunun (Por Arriba) büyülü F-E akor gerilimini hissetmek ve parmak açılımlı kontrollü rasgueado tekniğiyle ilk flamenko vuruşlarını kaydetmek.",
+  "prerequisites": "Klasik veya flamenko gitar önerilir (naylon tel). Flamenko tekniğinde tırnakların hafifçe bakımlı olması sesi parlatır ancak zorunlu değildir. E akorunu basabiliyor olman yeterlidir. Ağrı hissettiğin anda elini dinlendir; flamenkonun sırrı güçte değil, gevşek bilek elastikiyetindedir.",
+  "materials": [
+    "Naylon telli klasik veya flamenko gitarı",
+    "Akort uygulaması",
+    "Metronom (özellikle 80–100 BPM Tangos compás temposu için)",
+    "Ses kaydı yapabileceğin telefon",
+    "Flamenko dinleme listesi (Paco de Lucía, Camarón de la Isla, Sabicas)"
+  ],
+  "weeks": [
+    {
+      "title": "1. hafta: Tangos kulağı ve palmas",
+      "focus": "Dört vuruşlu compásı dinleme, sayma ve gitarda bulma.",
+      "exitCriteria": [
+        "Sekiz döngüyü palmasla korur.",
+        "E akorunu yeni 1 üzerinde çalar."
+      ]
+    },
+    {
+      "title": "2. hafta: Bas ve F-E dönüşü",
+      "focus": "Başparmak bası, sessizlik ve sade akor değişimi.",
+      "exitCriteria": [
+        "Palmasdan gitara sayıyı kaybetmeden geçer.",
+        "İki F-E çifti yeni 1 üzerinde kalır."
+      ]
+    },
+    {
+      "title": "3. hafta: Rasgueado ve kısa cümle",
+      "focus": "Rasgueadoyu ritimde tutup soru-cevap oluşturma.",
+      "exitCriteria": [
+        "a-m-i açılımını aynı ritim yerinde dört kez yapar.",
+        "F-E cümlesini iki tur tamamlar."
+      ]
+    },
+    {
+      "title": "4. hafta: Eşlik ve değerlendirme",
+      "focus": "Dört döngülük eşliği dış ritimle karşılaştırma ve kaydetme.",
+      "exitCriteria": [
+        "Üç tur ve bitişi tek kayıtta çalar.",
+        "Ritim, temizlik ve rahatlık için somut not yazar."
+      ]
+    }
+  ],
+  "days": [
+    {
+      "title": "Tangos dinleme",
+      "goal": "Dört vuruşlu tangos döngüsünü duymak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kısa bir tangos kaydı aç; gitarı henüz alma."
+        },
+        {
+          "min": 10,
+          "text": "Ayağınla 1-2-3-4 say ve döngü başını dinle."
+        },
+        {
+          "min": 10,
+          "text": "Aynı yeri iki kez açıp 1 dediğin noktayı karşılaştır."
+        }
+      ],
+      "why": "Flamenkoda teknik compás içinde anlam kazanır.",
+      "steps": [
+        "Kaydı başlatıp ayağınla düzenli dört vuruş tut.",
+        "Duyduğun döngü başında yüksek sesle 1 de; iki tekrarda aynı yerde mi kontrol et."
+      ],
+      "watch": [
+        "Acele etmeden, metronomun tık sesine teslim olarak alkışla."
+      ],
+      "check": [
+        "İki tur dört rahatça sayabiliyorsun.",
+        "Döngü başı iki dinlemede aynıdır."
+      ]
+    },
+    {
+      "title": "Palmas başlangıcı",
+      "goal": "Dört vuruşu el çırparak korumak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Yavaş metronomda 1-2-3-4 diye sesli say."
+        },
+        {
+          "min": 10,
+          "text": "Her tıkta hafifçe alkışla; sekiz döngü sürdür."
+        },
+        {
+          "min": 10,
+          "text": "Sonraki 1 vuruşuna geri döndüğünü kaydet."
+        }
+      ],
+      "why": "Palmas ritmi gitarsız öğrenmeyi sağlar.",
+      "steps": [
+        "Metronomun her tıkında önce dize, sonra avuca hafif vur.",
+        "Sekizinci dört sayımından sonra gelen yeni 1 yerini kayıtta dinle."
+      ],
+      "watch": [
+        "Hızlandığını fark edersen alkışı biraz yumuşatıp metronomu dinle."
+      ],
+      "check": [
+        "Sekiz döngü başarıyla tamamlanıyor.",
+        "Son 1 tıkla tam bir uyumla örtüşüyor."
+      ]
+    },
+    {
+      "title": "Vurgu dinleme",
+      "goal": "Güçlü ve hafif vuruşu ayırt etmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kaydı dinle; güçlü gelen vuruşu not et."
+        },
+        {
+          "min": 10,
+          "text": "Dört eşit alkıştan birini duyduğun gibi biraz belirgin yap."
+        },
+        {
+          "min": 10,
+          "text": "Farklı bir kayıtta vurgunun değişebileceğini kontrol et."
+        }
+      ],
+      "why": "Compás yalnız sayı değil duyulan harekettir.",
+      "steps": [
+        "Kaydın güçlü bulduğun tek vuruşunu deftere işaretle.",
+        "Alkışta o vuruşu biraz yükselt; dört vuruşun aralığını değiştirme."
+      ],
+      "watch": [
+        "Tek vurgu dizisini evrensel kural sayma."
+      ],
+      "check": [
+        "Süreler eşit kalır.",
+        "Bir vurgu kayıttan tanımlanır."
+      ]
+    },
+    {
+      "title": "Sessiz gitar ritmi",
+      "goal": "Palması gitar hareketine taşımak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Sol elle telleri hafifçe sustur."
+        },
+        {
+          "min": 10,
+          "text": "İşaret parmağıyla dört hafif aşağı vuruş yap."
+        },
+        {
+          "min": 10,
+          "text": "Bir döngü gitar, bir döngü palmas yap; dört kez değiştir."
+        }
+      ],
+      "why": "İki eylemde aynı zaman korunmalıdır.",
+      "steps": [
+        "Sol avuçla telleri ses çıkarmayacak kadar kapat.",
+        "İşaret parmağınla dört küçük tarama yap; sonraki dört vuruşta palmasa dön."
+      ],
+      "watch": [
+        "El geriliyorsa hareketi küçült."
+      ],
+      "check": [
+        "Dört değişim yapılır.",
+        "Sayım kesilmez."
+      ]
+    },
+    {
+      "title": "E akorunu yerleştirme",
+      "goal": "Akoru yalnız döngü başında çalmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "E akorunu kur; 5 ve 4. tel 2. perde, 3. tel 1. perde."
+        },
+        {
+          "min": 10,
+          "text": "Her döngünün yalnız 1 vuruşunda E akorunu hafif tara."
+        },
+        {
+          "min": 10,
+          "text": "Sekiz döngüde 2-3-4 vuruşlarını sesli say."
+        }
+      ],
+      "why": "Boşlukları korumak ritim disiplinidir.",
+      "steps": [
+        "E akorunda her teli bir kez yokla; boğuk tel varsa parmağını dikleştir.",
+        "Birinci vuruşta akoru çal ve kalan üç vuruşu sesli say."
+      ],
+      "watch": [
+        "Akor sonrası saymayı bırakma."
+      ],
+      "check": [
+        "E temiz temiz ve berrak duyuluyor.",
+        "Sekiz yeni 1 yakalanır."
+      ]
+    },
+    {
+      "title": "Tek parmak tarama",
+      "goal": "İşaret parmağıyla rahat taramak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Telleri susturup elini gevşek yarım yumruk yap."
+        },
+        {
+          "min": 10,
+          "text": "İşaret parmağını tırnak tarafıyla teller boyunca küçük hareketle aç."
+        },
+        {
+          "min": 10,
+          "text": "E akorunda bir vuruş çal ve üç vuruş say."
+        }
+      ],
+      "why": "Bu hareket rasgueado için ilk adımdır.",
+      "steps": [
+        "Sağ işaret parmağını gevşekçe bük; tırnak tarafını tellere getir.",
+        "Kısa aşağı hareket yapıp hemen gevşe; akorun ardından üç vuruşu say."
+      ],
+      "watch": [
+        "Bileği kilitleme; sızıda dur."
+      ],
+      "check": [
+        "Sekiz hafif ses benzer çıkar.",
+        "El her vuruş sonrası gevşer."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 1",
+      "goal": "Ritmi düşük yükle gözden geçirmek.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Kaydı iki dakika dinle ve dört say."
+        },
+        {
+          "min": 7,
+          "text": "Dört döngü palmas, dört döngü susturulmuş gitar yap."
+        },
+        {
+          "min": 5,
+          "text": "E akoruyla dört kez yalnız yeni 1 vuruşunu çal."
+        }
+      ],
+      "why": "Hafif gün yanlışları yorgunluk olmadan gösterir.",
+      "steps": [
+        "Kaydı dinlerken 1-2-3-4 say; gitarı henüz alma.",
+        "Dört palmas ve dört susturulmuş gitar döngüsünü aynı hızda bitir."
+      ],
+      "watch": [
+        "Hızlanırsan kaydı yavaşlat."
+      ],
+      "check": [
+        "Palmas ve gitar hızı aynıdır.",
+        "E dört kez zamanında gelir."
+      ]
+    },
+    {
+      "title": "Bas ve akor",
+      "goal": "Başparmak basını akordan ayırmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "E akorunda 6. açık tel Mi basını bul."
+        },
+        {
+          "min": 10,
+          "text": "1 üzerinde başparmakla bas, 3 üzerinde üst tellerden akor çal."
+        },
+        {
+          "min": 10,
+          "text": "Sekiz döngüyü kaydet ve 1 ile 3 yerlerini dinle."
+        }
+      ],
+      "why": "Bas ve akor görevleri ayrı öğrenilir.",
+      "steps": [
+        "Başparmağı açık kalın Mi telinin önüne koy.",
+        "İlk vuruşta yalnız Mi basını, üçüncüde üst akoru çal; arada say."
+      ],
+      "watch": [
+        "Başparmak üst tellere çarpmasın."
+      ],
+      "check": [
+        "Sekiz bas 1 vuruşundadır.",
+        "Akorlar 3 vuruşundadır."
+      ]
+    },
+    {
+      "title": "Palmas-gitar geçişi",
+      "goal": "Eylem değişirken sayıyı korumak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İki döngü palmas yap."
+        },
+        {
+          "min": 10,
+          "text": "İki döngü E üzerinde 1 bas, 3 akor çal."
+        },
+        {
+          "min": 10,
+          "text": "Dört döngülük grubu üç kez yinele."
+        }
+      ],
+      "why": "Ortak compás eşlik için gereklidir.",
+      "steps": [
+        "İki döngü alkışladıktan sonra gitarı alırken ayağın saymayı sürdürsün.",
+        "İki döngü E bas-akor çal ve yeniden palmasa dön."
+      ],
+      "watch": [
+        "Gitarı alırken sayım durursa yavaşla."
+      ],
+      "check": [
+        "Üç grup başarıyla tamamlanıyor.",
+        "Yeni 1 yerinden kaymaz."
+      ]
+    },
+    {
+      "title": "Sessizlik döngüsü",
+      "goal": "Susuş sırasında compás tutmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Bir döngü E bası ve akoru çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci döngü yalnız ayağınla 1-2-3-4 say."
+        },
+        {
+          "min": 10,
+          "text": "Bu iki döngüyü altı kez kaydet."
+        }
+      ],
+      "why": "Sessizlik de ölçünün parçasıdır.",
+      "steps": [
+        "Bir çalan, bir susan döngüyü yüksek sesle say.",
+        "Sessiz döngünün son 4 vuruşundan sonra yeni 1 basını koy."
+      ],
+      "watch": [
+        "Sessiz döngüyü atlama."
+      ],
+      "check": [
+        "Altı çift başarıyla tamamlanıyor.",
+        "Her dönüş yeni 1 üzerindedir."
+      ]
+    },
+    {
+      "title": "İki hafif tarama",
+      "goal": "Tek döngüde iki akor sesi çalmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "E akorunu ve işaret parmağını kontrol et."
+        },
+        {
+          "min": 10,
+          "text": "1 bas, 2 hafif tarama, 3 sus, 4 hafif tarama yap."
+        },
+        {
+          "min": 10,
+          "text": "Dört döngü çalıp kayıttaki vurguyla karşılaştır."
+        }
+      ],
+      "why": "Bu sadece giriş alıştırmasıdır, tek tangos kalıbı değildir.",
+      "steps": [
+        "Bas için başparmağı 1 üzerinde kullan.",
+        "İşaretle 2 ve 4 üzerinde hafif tarama yap; 3 vuruşunu bilerek boş bırak."
+      ],
+      "watch": [
+        "2 ve 4 vurgusunu tüm icralara dayatma."
+      ],
+      "check": [
+        "Dört döngüde bas ve taramalar yerindedir.",
+        "Taramalar benzer güçtedir."
+      ]
+    },
+    {
+      "title": "F küçük şekli",
+      "goal": "Fa akorunu el yormadan hazırlamak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "4. tel 3. perde Fa, 3. tel 2. perde La, 2. tel 1. perde Do kur."
+        },
+        {
+          "min": 10,
+          "text": "1. tel 1. perde Fa ekle; gerekirse öğretmenle kolay şekil seç."
+        },
+        {
+          "min": 10,
+          "text": "Dört üst teli tek tek çal ve elini gevşet."
+        }
+      ],
+      "why": "F-E dönüşü bu girişte gerilim ve çözülme verir.",
+      "steps": [
+        "Dördüncü tel üçüncü perde Fa, üçüncü tel ikinci perde La, ikinci tel birinci perde Do kur.",
+        "En ince tel birinci perde Fa eklenince yalnız dört üst teli dene."
+      ],
+      "watch": [
+        "Tam büyük bareyi zorlayıp ağrı yaratma."
+      ],
+      "check": [
+        "Dört sesten en az üçü temizdir.",
+        "Sol el rahat açılır."
+      ]
+    },
+    {
+      "title": "F-E değişimi",
+      "goal": "Akoru döngü sınırında değiştirmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "F ve E şekillerini sessizce art arda kur."
+        },
+        {
+          "min": 10,
+          "text": "Bir döngü F, bir döngü E; yalnız 1 üzerinde akor çal."
+        },
+        {
+          "min": 10,
+          "text": "Altı F-E çifti yap; bitişte E sesini dinle."
+        }
+      ],
+      "why": "Ritim akor değişimine rehber olur.",
+      "steps": [
+        "F şekline geçmeden önce parmakların gideceği telleri gözle göster.",
+        "Her yeni 1 vuruşunda akoru değiştir; yavaş kalmak için ayağı kullan."
+      ],
+      "watch": [
+        "F gecikirse yalnız üst üç teli çal."
+      ],
+      "check": [
+        "Altı çift rahatça sayabiliyorsun.",
+        "E dönüşü yeni 1 üzerindedir."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 2",
+      "goal": "Palmas ve iki akoru pekiştirmek.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Kısa tangos kaydı dinleyip dört say."
+        },
+        {
+          "min": 7,
+          "text": "Dört döngü palmas, iki F-E çifti yap."
+        },
+        {
+          "min": 5,
+          "text": "El yorulursa yalnız E üzerinde 1 bas, 3 akorla bitir."
+        }
+      ],
+      "why": "Teknik yükü yönetmek uzun vadede yararlıdır.",
+      "steps": [
+        "Palmas sırasında dört sayıyı kaybetme.",
+        "F zor geliyorsa üst üç telde Fa-La-Do sesini çalıp eli dinlendir."
+      ],
+      "watch": [
+        "F için parmakları ezme."
+      ],
+      "check": [
+        "Dört palmas döngüsü sürer.",
+        "İki F-E çifti ritimdedir."
+      ]
+    },
+    {
+      "title": "Rasgueado başlangıcı",
+      "goal": "Parmakları sıra ile açarak taramak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Telleri sustur ve sağ eli gevşek yarım yumruk yap."
+        },
+        {
+          "min": 10,
+          "text": "Yüzük-orta-işaret parmaklarını önce havada sonra tellerde yavaş aç."
+        },
+        {
+          "min": 10,
+          "text": "Üç kısa sesi bir vuruşun içine koy; kalan üç vuruşu say."
+        }
+      ],
+      "why": "Rasgueado tek sert vuruş değil sıralı seslerdir.",
+      "steps": [
+        "Sağ yüzük, orta, işaret parmaklarını havada teker teker aç.",
+        "Telleri sol elle kapatıp aynı sırayı yavaş çal; bilek ağrısı arama."
+      ],
+      "watch": [
+        "Parmakları fırlatma; ağrıda dur."
+      ],
+      "check": [
+        "Üç ses ayrı temiz ve berrak duyuluyor.",
+        "Dört vuruş rahatça sayabiliyorsun."
+      ]
+    },
+    {
+      "title": "Rasgueado E üstünde",
+      "goal": "Üç sesli hareketi aynı ritim noktasına koymak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Bir döngü palmas yap."
+        },
+        {
+          "min": 10,
+          "text": "E akorunda seçtiğin bir vuruşta a-m-i açılımı yap."
+        },
+        {
+          "min": 10,
+          "text": "Dört döngü aynı yeri seçip kaydet."
+        }
+      ],
+      "why": "Teknik compás içinde yer bulur.",
+      "steps": [
+        "Önce bir döngü palmasla hedef vuruşu seç.",
+        "E akorunda a-m-i üç sesini tek hedef vuruşa sığdır; kalan vuruşları say."
+      ],
+      "watch": [
+        "Üç sesi üç farklı ölçüye dağıtma."
+      ],
+      "check": [
+        "Dört açılım aynı ritim yerindedir.",
+        "E sesi temizdir."
+      ]
+    },
+    {
+      "title": "F-E ve rasgueado",
+      "goal": "Dönüşü rasgueadoyla duyurmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "F ve E akorlarını iki döngüde say."
+        },
+        {
+          "min": 10,
+          "text": "F üzerinde tek tarama, E yeni 1 üzerinde a-m-i yap."
+        },
+        {
+          "min": 10,
+          "text": "Dört F-E çiftini kaydet ve sayıyı seslendir."
+        }
+      ],
+      "why": "Rasgueado dönüşü belirginleştirir.",
+      "steps": [
+        "F döngüsünü tek hafif taramayla çal.",
+        "Sonraki yeni 1 üzerinde E akorunu kurup a-m-i aç; geç kalırsan açılımı kaldır."
+      ],
+      "watch": [
+        "E gecikirse rasgueadoyu geçici kaldır."
+      ],
+      "check": [
+        "Dört E dönüşü zamanındadır.",
+        "Compás kesilmez."
+      ]
+    },
+    {
+      "title": "Pulgar çalışması",
+      "goal": "Başparmak bas çizgisi oluşturmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "E için 6. açık tel Mi, F için 4. tel 3. perde Fa bul."
+        },
+        {
+          "min": 10,
+          "text": "Bir döngü Mi, bir döngü Fa basını yalnız 1 vuruşunda çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci turda 3 vuruşuna hafif akor ekle."
+        }
+      ],
+      "why": "Bas notası armoninin yönünü gösterir.",
+      "steps": [
+        "E için açık altıncı teli, F için dördüncü tel üçüncü perdeyi başparmakla bul.",
+        "Her bası yalnız yeni 1 üzerinde çal; sonra 3 üzerine hafif akor ekle."
+      ],
+      "watch": [
+        "Bası sert koparma."
+      ],
+      "check": [
+        "Mi ve Fa ayırt edilir.",
+        "Akor eklenince sayım sürer."
+      ]
+    },
+    {
+      "title": "Sesi kapatma",
+      "goal": "Cümleyi kontrollü bitirmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "E akorunu çal ve dört vuruş çınlat."
+        },
+        {
+          "min": 10,
+          "text": "Yeni döngüde akoru çal; 4 sonunda sol el baskısını hafif kaldır."
+        },
+        {
+          "min": 10,
+          "text": "İki bitişi kaydedip karşılaştır."
+        }
+      ],
+      "why": "Bitiş müzik cümlesinin sınırını belirtir.",
+      "steps": [
+        "E akorunu bir döngü boyunca çınlat.",
+        "İkinci denemede son 4 sonunda sol el baskısını azalt; parmakları telden koparma."
+      ],
+      "watch": [
+        "Parmakları telden kaldırıp açık telleri çınlatma."
+      ],
+      "check": [
+        "İki bitiş farklıdır.",
+        "İstenmeyen son ses yoktur."
+      ]
+    },
+    {
+      "title": "İki döngülük cümle",
+      "goal": "F sorusu ve E cevabı kurmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "F ile 1 bas, 3 hafif akor çal."
+        },
+        {
+          "min": 10,
+          "text": "E ile 1 rasgueado, 3 kısa akor çal; 4 sonunda sustur."
+        },
+        {
+          "min": 10,
+          "text": "İki döngüyü dört kez tekrarla."
+        }
+      ],
+      "why": "Kısa kalıplar eşliğin yapısını görünür kılar.",
+      "steps": [
+        "F üzerinde ilk vuruşta bas, üçüncüde hafif akor yap.",
+        "E üzerinde ilk vuruşta rasgueado, üçüncüde kısa akor yap; döngüyü kapat."
+      ],
+      "watch": [
+        "Rasgueado cevabı boğmasın."
+      ],
+      "check": [
+        "Dört çift döngü rahatça oturuyor.",
+        "E bitişi temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 3",
+      "goal": "Cümleyi dinleyerek korumak.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Tangos kaydı açıp sekiz vuruş say."
+        },
+        {
+          "min": 7,
+          "text": "F-E cümlesini iki tur çal."
+        },
+        {
+          "min": 5,
+          "text": "Aynı süreyi palmasla tutup yeni 1 yerini yaz."
+        }
+      ],
+      "why": "Dinleme ritim hissini düzeltir.",
+      "steps": [
+        "Kayıtta dört vuruşlu iki turu ayağınla sürdür.",
+        "F-E cümlesini iki kez çal ve yeni 1 duyumunu tek cümleyle yaz."
+      ],
+      "watch": [
+        "Alıştırmayı tüm tangosun kuralı sayma."
+      ],
+      "check": [
+        "İki cümle bitirilir.",
+        "Yeni 1 için işaret not edilir."
+      ]
+    },
+    {
+      "title": "Dört döngülük yapı",
+      "goal": "Kısa başlangıç eşliği kurmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Döngü 1 E bas-akor; döngü 2 F bas-akor çal."
+        },
+        {
+          "min": 10,
+          "text": "Döngü 3 F hafif tarama; döngü 4 E rasgueado ve duruş yap."
+        },
+        {
+          "min": 10,
+          "text": "Dört döngüyü üç kez art arda çal."
+        }
+      ],
+      "why": "Küçük yapı ay sonu hedefini somutlaştırır.",
+      "steps": [
+        "E, F, F, E akorlarını dört ayrı döngünün ilk vuruşuna yerleştir.",
+        "Dördüncü döngüde rasgueado sonrası 4 vuruşunun bitmesini bekle."
+      ],
+      "watch": [
+        "Dördüncü döngünün 4 vuruşunu yutma."
+      ],
+      "check": [
+        "Dört döngü sıralıdır.",
+        "E duruşu döngü sonunda gelir."
+      ]
+    },
+    {
+      "title": "Dış ritimle çalma",
+      "goal": "Yapıyı compás kaydıyla karşılaştırmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Tangos palmas kaydına sekiz vuruş eşlik et."
+        },
+        {
+          "min": 10,
+          "text": "Dört döngülük yapıyı kayıt üstünde iki kez çal."
+        },
+        {
+          "min": 10,
+          "text": "Kaydın başlangıçlarıyla kendi 1 yerlerini işaretle."
+        }
+      ],
+      "why": "Dış ritim zamanlama geri bildirimi verir.",
+      "steps": [
+        "Compás kaydını aç ve iki döngü yalnız palmas yap.",
+        "Kendi dört döngülük yapına geç; her yeni 1 kayıtta aynı yere geliyor mu işaretle."
+      ],
+      "watch": [
+        "Kayıtla yarışma; yavaş sürüm seç."
+      ],
+      "check": [
+        "İki yapı başarıyla tamamlanıyor.",
+        "Başlangıçlar kayıtla tam bir uyumla örtüşüyor."
+      ]
+    },
+    {
+      "title": "Dinleyip uyarlama",
+      "goal": "Seçilen kayıttan tek ritim fikri almak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kayıtta erken veya geç gelen bir akor vuruşu bul."
+        },
+        {
+          "min": 10,
+          "text": "Kendi yapında yalnız bir üst akorun yerini değiştir; bas 1 kalsın."
+        },
+        {
+          "min": 10,
+          "text": "Eski ve yeni sürümü kaydet ve karşılaştır."
+        }
+      ],
+      "why": "Gerçek icra çeşitliliğini kulakla tanırsın.",
+      "steps": [
+        "Kısa tangos kaydında üst akorun geldiği bir farklı an seç.",
+        "Kendi alıştırmanda yalnız bir üst akoru kaydır; basın ilk vuruşlarını koru."
+      ],
+      "watch": [
+        "Kopyalayamadığın vurguyu kural diye sunma."
+      ],
+      "check": [
+        "Yalnız bir değişiklik yapılır.",
+        "Baslar yerinde kalır."
+      ]
+    },
+    {
+      "title": "Hafif-güçlü ses",
+      "goal": "Dönüşü ses farkıyla belirtmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Yapıyı bir tur çok hafif çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci turda yalnız E dönüş rasgueadosunu öne çıkar."
+        },
+        {
+          "min": 10,
+          "text": "İki sürümü kaydedip tempo farkı var mı dinle."
+        }
+      ],
+      "why": "Kontrast cümlenin yönünü duyurur.",
+      "steps": [
+        "Birinci turu çok hafif çal ve kaydet.",
+        "İkinci turda yalnız E dönüşünü biraz öne çıkar; hızın değişmediğini dinle."
+      ],
+      "watch": [
+        "Ses için bileği sertleştirme."
+      ],
+      "check": [
+        "İki turun temposu aynıdır.",
+        "E dönüşü seçilir."
+      ]
+    },
+    {
+      "title": "Kapanış",
+      "goal": "Yeni 1 üzerinde net bitiş yapmak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Son E döngüsünde 1-2-3-4 say."
+        },
+        {
+          "min": 10,
+          "text": "Sonraki 1 üzerinde tek E akoru vur ve sesi kontrollü kes."
+        },
+        {
+          "min": 10,
+          "text": "İki yapı ve kapanışı tek seferde çal."
+        }
+      ],
+      "why": "Ortak kapanış eşlik edenleri birleştirir.",
+      "steps": [
+        "Son E döngüsünde dört vuruşun hepsini say.",
+        "Takip eden yeni 1 vuruşunda tek E akoru koyup baskıyı azaltarak bitir."
+      ],
+      "watch": [
+        "Son akordan önce ek vuruş koyma."
+      ],
+      "check": [
+        "Bitiş yeni 1 üzerindedir.",
+        "Sonrasında tel gürültüsü yoktur."
+      ]
+    },
+    {
+      "title": "Geri bildirim",
+      "goal": "Ritim ve rahatlığı gözlemlemek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Yapı ve kapanışı kaydet."
+        },
+        {
+          "min": 10,
+          "text": "Kayda üç soru sor: 1 kayıyor mu, F temiz mi, el rahat mı."
+        },
+        {
+          "min": 10,
+          "text": "En sorunlu hareketi beş kez yavaş çalış."
+        }
+      ],
+      "why": "Kayıt algının kaçırdığı hatayı gösterir.",
+      "steps": [
+        "Kayıtta yeni 1, F ses temizliği ve el rahatlığını ayrı dinle.",
+        "En zayıf bir hareketi seç; beş denemeyi yavaş ve kısa tut."
+      ],
+      "watch": [
+        "Üç sorunu aynı anda düzeltme."
+      ],
+      "check": [
+        "Üç gözlem kendi hislerinle not defterine yazıyorsun.",
+        "Tek hareket beş deneme görür."
+      ]
+    },
+    {
+      "title": "Prova",
+      "goal": "Tam geçişte durmadan sürmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et ve iki döngü palmas yap."
+        },
+        {
+          "min": 10,
+          "text": "Yapıyı üç tur ve kapanışla tek seferde çal."
+        },
+        {
+          "min": 10,
+          "text": "En çok kaydığın döngünün numarasını yaz."
+        }
+      ],
+      "why": "Prova hata sonrası devam etmeyi öğretir.",
+      "steps": [
+        "Akordu kontrol edip iki döngü palmasla giriş yap.",
+        "Yapıyı üç kez sürdür; hatada başa dönmek yerine sonraki yeni 1 yerine otur."
+      ],
+      "watch": [
+        "Yanlışta başa dönme, yeni 1 yakala."
+      ],
+      "check": [
+        "Üç tur tek kayıttadır.",
+        "Sorunlu döngü tanımlanır."
+      ]
+    },
+    {
+      "title": "Son düzeltme",
+      "goal": "Tek ritim sorununu çözmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kaydı iki dakika dinle ve palmas yap."
+        },
+        {
+          "min": 10,
+          "text": "Dünkü sorunlu döngüyü altı kez yavaş çal."
+        },
+        {
+          "min": 10,
+          "text": "Tam yapıyı bir kez bitir ve el rahatlığını yaz."
+        }
+      ],
+      "why": "Dar odak tempoyu korumaya yardım eder.",
+      "steps": [
+        "Dünkü kayıtta kaydığın döngünün numarasını yaz.",
+        "O döngüyü altı yavaş tekrar yap; sonra tüm yapıyı bir kez bitir."
+      ],
+      "watch": [
+        "Hızı artırıp sorunu gizleme."
+      ],
+      "check": [
+        "Altı deneme yapılır.",
+        "Tam yapı bir kez biter."
+      ]
+    },
+    {
+      "title": "30. gün değerlendirme",
+      "goal": "Tangos girişini compás içinde kaydetmek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Seçilen kaydı dinle ve iki dakika palmas yap."
+        },
+        {
+          "min": 10,
+          "text": "E-F yapısını üç tur ve bitişle tek kaydet."
+        },
+        {
+          "min": 10,
+          "text": "1 dönüşü, akor temizliği ve el rahatlığına not ver; sonraki hedefi yaz."
+        }
+      ],
+      "why": "Değerlendirme öğrenmeyi sonraki aya taşır.",
+      "steps": [
+        "Önce kayda eşlik ederek iki dakika palmas yap.",
+        "Üç tur F-E yapısı ve bitişi kaydet; ritim, akor ve rahatlık için ayrı örnek yaz."
+      ],
+      "watch": [
+        "Bu alıştırmayı tüm flamenko yetkinliği sanma."
+      ],
+      "check": [
+        "Üç tur ve bitiş kayıttadır.",
+        "Üç not ve yeni hedef kendi hislerinle not defterine yazıyorsun."
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Compás",
+      "meaning": "Flamenko formunun tekrar eden ritim döngüsü ve vurguları.",
+      "exercise": "Tangos kaydında dört vuruş say."
+    },
+    {
+      "term": "Palmas",
+      "meaning": "Flamenkoda ritmi taşıyan el çırpma.",
+      "exercise": "Sekiz dört vuruşluk döngü alkışla."
+    },
+    {
+      "term": "Palo",
+      "meaning": "Kendine özgü ritim ve anlatımı olan flamenko formu.",
+      "exercise": "Bu ayın palosu tangos adını söyle."
+    },
+    {
+      "term": "Tangos",
+      "meaning": "Bu planda seçilen dört vuruşlu flamenko formu.",
+      "exercise": "Bir kayıtta dört vuruşluk döngüleri say."
+    },
+    {
+      "term": "Rasgueado",
+      "meaning": "Sağ el parmaklarını sırayla açarak tarama.",
+      "exercise": "Susturulmuş telde a-m-i sırasını dene."
+    },
+    {
+      "term": "Pulgar",
+      "meaning": "Sağ el başparmağıyla yapılan bas çalışması.",
+      "exercise": "E akorunda açık kalın Mi telini çal."
+    },
+    {
+      "term": "Falseta",
+      "meaning": "Eşlik arasına giren kısa melodik gitar cümlesi.",
+      "exercise": "Kayıtta akor eşliğinden ayrılan melodiyi dinle."
+    },
+    {
+      "term": "Remate",
+      "meaning": "Müzik cümlesini kapatan ritmik bitiş.",
+      "exercise": "Yeni 1 üzerinde E akoruyla bitir."
+    },
+    {
+      "term": "Vurgu",
+      "meaning": "Bir vuruşu diğerlerinden belirgin çalma.",
+      "exercise": "Dört alkışın yalnız birini güçlü yap."
+    },
+    {
+      "term": "Döngü",
+      "meaning": "Compásın başa dönen bir tam turu.",
+      "exercise": "1-2-3-4 say ve yeni 1 ile tekrar başla."
+    },
+    {
+      "term": "a-m-i",
+      "meaning": "Sağ el yüzük, orta ve işaret parmaklarının kısaltmaları.",
+      "exercise": "Önce havada, sonra susturulmuş tellerde sırayla aç."
+    }
+  ],
+  "practiceExample": {
+    "title": "Özgün İki Döngülük Tangos Por Arriba Giriş Alıştırması (F - E)",
+    "notation": "Compás 1 (Fmaj7#11/C - Gerilim)     Compás 2 (E Mayor - Çözülüş)\nSayım:  1    2    3    4             1    2    3    4\ne|------0----0----0----0-----------|------0----0----0----0-----------|\nB|------0----0----0----0-----------|------0----0----0----0-----------|\nG|------2----2----2----2-----------|------1----1----1----1-----------|\nD|------3----3----3----3-----------|------2----2----2----2-----------|\nA|------3----3----3----3-----------|------2----2----2----2-----------|\nE|--1------------------------------|--0------------------------------|\n    p   ↓    ↓    ↓    ↓              p   ↓    ↓    ↓    ↓\n   (Bas) (Rasgueado / İndice)        (Bas) (Rasgueado / Remate)",
+    "howTo": "1. Adım: Gitarsız olarak metronomla 1-2-3-4 diye el çırp (palmas). 1. vuruş ağır ve belirgin, 2-3-4 hafif olsun.\n2. Adım: Gitarda Fmaj7#11 akorunu bas (E: 1, A: 3, D: 3, G: 2, açık B ve e telleri!). Açık tellerin çınlaması o otantik Endülüs hüznünü verir.\n3. Adım: İşaret parmağının (i) tırnak sırtıyla telleri aşağı doğru hafifçe kırbaçlar gibi süzdür; bileğin yay gibi esnesin.\nHocanın Püf Noktası: Flamenkoda compás her şeydir. Hızlı çalmaya çalışma; ritmin içinde sağlam durmak en büyük ustalıktır!"
+  },
+  "nextMonth": [
+    "1. hafta: Aynı tangos kaydındaki iki farklı vurguyu palmasla taklit et.",
+    "2. hafta: Öğretmenle kısa bir tangos falsetası seçip iki ölçüye böl.",
+    "3. hafta: Falsetayı F-E eşliğine yerleştirirken compásı koru.",
+    "4. hafta: Eşlik, falseta ve remateyi çalıcı veya kayıtla kaydet."
+  ],
+  "sources": [
+    {
+      "title": "Fundación SGAE — Óscar Herrero ile flamenko gitara giriş",
+      "url": "https://fundacionsgae.org/actividad/curso-de-iniciacion-a-la-guitarra-flamenca-con-oscar-herrero/",
+      "usedFor": "Compás ve palmasın teknikle birlikte öğretilmesi."
+    },
+    {
+      "title": "Flamenco Explained — Complete Beginner’s Guide",
+      "url": "https://flamencoexplained.com/education/complete-beginners-guide-flamenco-guitar/",
+      "usedFor": "Dinleme, compás, akor ve rasgueado sıralaması."
+    },
+    {
+      "title": "Flamenco Explained — Compás Metronome",
+      "url": "https://flamencoexplained.com/compas-flamenco-metronome/",
+      "usedFor": "Tangosun dört vuruşlu döngüsünü yavaş tempoda çalışma."
+    },
+    {
+      "title": "Fundación SGAE — El compás en el flamenco",
+      "url": "https://fundacionsgae.org/actividad/taller-el-compas-en-el-flamenco-con-oscar-herrero/",
+      "usedFor": "Flamenko compásının palmas ve gitarla öğrenilmesi."
+    },
+    {
+      "title": "Paco Peña — Toques Flamencos & Tangos Compás Pedagogy",
+      "url": "https://www.musicroom.com/paco-pena-toques-flamencos",
+      "usedFor": "Tangos 4 vuruşlu compás ritmi, palmas ayrımı ve rasgueado mekaniği."
+    },
+    {
+      "title": "Juan Martín — El Arte Flamenco de la Guitarra",
+      "url": "https://www.flamencovision.com/juan-martin-method",
+      "usedFor": "Por Arriba modunda açık tel kullanımı ve Endülüs kadansı akor geçişleri."
+    }
+  ]
+}

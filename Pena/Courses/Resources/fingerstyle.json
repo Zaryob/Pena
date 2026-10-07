@@ -1,0 +1,1036 @@
+{
+  "id": "fingerstyle",
+  "title": "30 Günlük Akustik Fingerstyle Gitar Planı",
+  "subtitle": "Gitarı tek kişilik bir orkestraya dönüştür; yürüyen baslar ve bağımsız üst melodiyle Travis picking",
+  "instrument": "Standart akortlu akustik veya klasik gitar; pena kullanılmaz",
+  "level": "Tam başlangıç",
+  "dailyMinutes": "Çoğu gün 20 dakika; 7, 14 ve 21. günler 15 dakika",
+  "monthGoal": "Gitarı tek başına koca bir orkestraya dönüştürmek: Başparmağınla (p) yürüyen bas ritmini korurken, diğer parmaklarınla (i, m, a) üst tellerde melodiyi bağımsızca örmeyi (Travis picking) öğrenmek. Ay sonunda C ve Am akorları üzerinde akıp giden nefis bir akustik fingerstyle parçasını tek kayıtta çalabilmek.",
+  "prerequisites": "Pena kullanılmaz; doğrudan kendi parmak uçlarınla çalacaksın. Önceden fingerstyle deneyimi gerekmez. Başparmağın ve işaret parmağının başlangıçta birbirine yapışık gibi hareket etmesi çok olağandır; adım adım onları bağımsızlaştıracağız.",
+  "materials": [
+    "Akustik veya klasik gitar",
+    "Akort cihazı veya uygulaması",
+    "Metronom (70–80 BPM arası)",
+    "Ses kaydedici telefon",
+    "Dinleme önerisi: Tommy Emmanuel - Angelina, Chet Atkins, Sungha Jung"
+  ],
+  "weeks": [
+    {
+      "title": "1–7. gün: Parmak görevleri",
+      "focus": "Akort, C ve Am, başparmak bası, işaret ve orta parmak",
+      "exitCriteria": "C ve Am üstünde 5-3-4-2 tel sırasını yavaşça dört kez tamamlar."
+    },
+    {
+      "title": "8–14. gün: Üst sesler",
+      "focus": "Yüzük parmağı, eşzamanlı sesler, Mi-Do motifi ve boşluk",
+      "exitCriteria": "Mi-Do üst seslerini bir bas altında dört ölçü gösterir."
+    },
+    {
+      "title": "15–21. gün: İki katman",
+      "focus": "Dönüşümlü 5-4 bas, araya gelen melodi ve ses dengesi",
+      "exitCriteria": "C–Am arasında dört ölçü bası kaybetmeden üst ses ekler."
+    },
+    {
+      "title": "22–30. gün: Mini düzenleme",
+      "focus": "Sekiz ölçü, giriş-bitiş, kayıt ve öz değerlendirme",
+      "exitCriteria": "Sekiz ölçülük tek deneme kaydı ve dört ölçütlü değerlendirme hazırdır."
+    }
+  ],
+  "days": [
+    {
+      "title": "Parmaklarla ilk ses",
+      "goal": "Sağ el parmaklarını tellere eşlemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort uygulamasıyla altı teli Mi-La-Re-Sol-Si-Mi yap."
+        },
+        {
+          "min": 8,
+          "text": "Başparmakla 5., işaretle 3., ortayla 2., yüzükle 1. boş teli sırayla çek."
+        },
+        {
+          "min": 7,
+          "text": "Dört sesi on kez yavaş tekrarla ve bir kez kaydet."
+        }
+      ],
+      "why": "Parmakların görevini bilmek iki ses katmanını ayırmaya başlatır.",
+      "steps": [
+        "6. tel en kalın, 1. tel en incedir; numaraları sesli söyle.",
+        "Sol eli bugün kullanma; yalnız sağ el sırasını öğren."
+      ],
+      "watch": [
+        "Teli sertçe çekmek yerine parmak ucunla hafifçe okşar gibi bırak."
+      ],
+      "check": [
+        "5-3-2-1 sırasını on kez karıştırmadan akıcı çalabiliyorsun.",
+        "Her tel ayrı temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "Başparmak zamanı",
+      "goal": "Başparmakla kalın tellerde eşit aralık kurmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "60 tıkta dizine dört eşit vuruş yap."
+        },
+        {
+          "min": 8,
+          "text": "Boş 5. ve 4. telleri başparmakla sırayla her tıkta çek."
+        },
+        {
+          "min": 7,
+          "text": "20 saniyelik kaydı dinleyip aralıkları karşılaştır."
+        }
+      ],
+      "why": "Basın düzeni üstteki melodiyi taşıyacaktır.",
+      "steps": [
+        "Başparmağı 5. telden 4. tele kısa yoldan götür.",
+        "Her tıkta yalnız bir tel çek."
+      ],
+      "watch": [
+        "Komşu tele çarpıyorsan hareketi küçült."
+      ],
+      "check": [
+        "5-4 sırasını sekiz kez korursun.",
+        "Kayıtta vuruşlar yaklaşık eşittir."
+      ]
+    },
+    {
+      "title": "C akoru",
+      "goal": "Do majör akorunu ve 5. tel basını bulmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C için 5. tel 3, 4. tel 2, 2. tel 1. perdeyi kur."
+        },
+        {
+          "min": 8,
+          "text": "5’ten 1’e telleri ayrı çek, boğuk sesi düzelt."
+        },
+        {
+          "min": 7,
+          "text": "C ile 5-4-5-4 basını 60 tıkta çal."
+        }
+      ],
+      "why": "Temiz akor, parmak örüntüsünün doğru duyulmasını sağlar.",
+      "steps": [
+        "Parmakları metal perdenin hemen gerisine yerleştir.",
+        "C’de 6. teli şimdilik çalma."
+      ],
+      "watch": [
+        "Boğuk sesi daha sert sıkarak düzeltmeye çalışma."
+      ],
+      "check": [
+        "C’nin 5-1 telleri temizdir.",
+        "5-4 basını korursun."
+      ]
+    },
+    {
+      "title": "Am akoru",
+      "goal": "La minör üstünde aynı bas görevini yapmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Am için 4. tel 2, 3. tel 2, 2. tel 1. perdeyi kur."
+        },
+        {
+          "min": 8,
+          "text": "5’ten 1’e sesleri denetle, ardından 5-4-5-4 çal."
+        },
+        {
+          "min": 7,
+          "text": "Bir ölçü C, bir ölçü Am yalnız bas olarak değiştir."
+        }
+      ],
+      "why": "Aynı sağ el görevi akor değişiminde de sürmelidir.",
+      "steps": [
+        "Am’de 5. tel boştur ve bas görevindedir.",
+        "C’den Am’ye geçerken sol eli sapın yakınında tut."
+      ],
+      "watch": [
+        "Değişimi yetiştirmek için tıkları sıkıştırma."
+      ],
+      "check": [
+        "İki akorda dört baslı ölçüyü bitirirsin.",
+        "Am’de 6. teli çekmezsin."
+      ]
+    },
+    {
+      "title": "İlk üst ses",
+      "goal": "Bası sürdürürken 3. telden ses eklemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C’de 5-4 basını tek başına tekrar et."
+        },
+        {
+          "min": 8,
+          "text": "1-ve-2-ve sayarak 1 ve 2’de bas, aradaki ve’lerde 3. teli işaretle çek."
+        },
+        {
+          "min": 7,
+          "text": "Am’de aynı işi dört ölçü kaydet."
+        }
+      ],
+      "why": "İnce sesin yerini öğrenirken basın devam etmesi gerekir.",
+      "steps": [
+        "Başparmak bası, işaret 3. teli çalsın.",
+        "Önce çok yavaş say, sonra metronom ekle."
+      ],
+      "watch": [
+        "Üst ses eklenince bas erkene kaymasın."
+      ],
+      "check": [
+        "Bas 1 ve 2’de kalır.",
+        "3. tel iki bas arasındadır."
+      ]
+    },
+    {
+      "title": "İki üst parmak",
+      "goal": "İşaret ve orta parmağa ayrı teller vermek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C’de 5-3-4-2 tel sırasını sesli söyle."
+        },
+        {
+          "min": 8,
+          "text": "Başparmak 5 ve 4, işaret 3, orta 2. teli çalsın; sekiz kez dön."
+        },
+        {
+          "min": 7,
+          "text": "Am’de aynı örüntüyü dört kez dene."
+        }
+      ],
+      "why": "Sabit parmak görevleri sağ elin tel aramasını azaltır.",
+      "steps": [
+        "Her ses 1-ve-2-ve içinde tek yere gelsin.",
+        "Sol el akorunu sabit tutup sağ eli gözle."
+      ],
+      "watch": [
+        "İki ince teli aynı parmakla çekip eli zıplatma."
+      ],
+      "check": [
+        "Sekiz C tekrarında sıra doğrudur.",
+        "İşaret 3., orta 2. teli bulur."
+      ]
+    },
+    {
+      "title": "Hafif tekrar",
+      "goal": "İlk haftanın parmak düzenini pekiştirmek",
+      "blocks": [
+        {
+          "min": 4,
+          "text": "Akort et ve iki dakika 5-4 bas çal."
+        },
+        {
+          "min": 5,
+          "text": "C ve Am’de 5-3-4-2 örüntüsünü dörder kez yap."
+        },
+        {
+          "min": 6,
+          "text": "İlk gün kaydını dinleyip temizleşen bir sesi yaz."
+        }
+      ],
+      "why": "Kısa tekrar elin dinlenmesini ve öğrenmenin oturmasını sağlar.",
+      "steps": [
+        "Bugün yalnız zor gelen tel geçişini ayır.",
+        "El yorulursa mola ver; keskin ağrıda dur."
+      ],
+      "watch": [
+        "Daha çok tekrar için eli kasma."
+      ],
+      "check": [
+        "İki akorda örüntü başarıyla tamamlanıyor.",
+        "Bir somut gelişme söylersin."
+      ]
+    },
+    {
+      "title": "Akor değişirken bas",
+      "goal": "Başparmağın akor değişiminde zamanını tutmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C ve Am baslarını birer ölçü sırayla çal."
+        },
+        {
+          "min": 8,
+          "text": "60 tıkta dört ölçü 5-3-4-2 örüntüsü kur."
+        },
+        {
+          "min": 7,
+          "text": "Aynı döngüyü ayağınla zamanı tutarak kaydet."
+        }
+      ],
+      "why": "Bas düzeni akor geçişinde de sürmelidir.",
+      "steps": [
+        "Geçiş zorlaşırsa 50 tıka in.",
+        "Sol el değişimine önceki ölçünün son üst sesinden sonra başla."
+      ],
+      "watch": [
+        "Yeni akor için iki bası peş peşe sıkıştırma."
+      ],
+      "check": [
+        "Dört ölçüde baslar tıkla gelir.",
+        "Akorlar ayırt edilir."
+      ]
+    },
+    {
+      "title": "Yüzük parmağı",
+      "goal": "1. tel için yüzük parmağını tanımak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C’de 5-3-4-2 örüntüsünü iki kez çal."
+        },
+        {
+          "min": 8,
+          "text": "5-3-4-1 sırasını dene; 1. teli yüzük parmağı çeksin."
+        },
+        {
+          "min": 7,
+          "text": "İki örüntüyü art arda kaydet."
+        }
+      ],
+      "why": "En ince tel daha sonra melodiyi taşıyabilir.",
+      "steps": [
+        "Yüzük parmağını 1. telin yakınında hazır tut.",
+        "Bileği çevirmeden parmağı küçük hareket ettir."
+      ],
+      "watch": [
+        "1. teli çekmek için bütün eli kaldırma."
+      ],
+      "check": [
+        "5-3-4-1 dört kez temizdir.",
+        "1. tel ayrı temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "Birlikte iki ses",
+      "goal": "Bas ve üst sesi aynı anda başlatmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C’de 5. tel ile 2. teli aynı anda çek."
+        },
+        {
+          "min": 8,
+          "text": "Birlikte ses, 3. tel, 4. tel, 1. tel sırasını çalış."
+        },
+        {
+          "min": 7,
+          "text": "Ölçüyü C ve Am’de dörder kez dene."
+        }
+      ],
+      "why": "Eşzamanlı ses bir düzenlemeye belirgin başlangıç verir.",
+      "steps": [
+        "Başparmak ve orta parmağı aynı anda küçük hareketle çek.",
+        "İki ses ayrı geliyorsa önce boş tellerde dene."
+      ],
+      "watch": [
+        "İki teli sert çekip elini kasma."
+      ],
+      "check": [
+        "İki ses aynı anda başlar.",
+        "Sonraki sesler sırayla temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "İki notalık melodi",
+      "goal": "Mi-Do motifini üst tellerde bulmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C’de 1. boş teli Mi olarak çal."
+        },
+        {
+          "min": 8,
+          "text": "2. tel 1. perdeyi Do olarak çal; Mi-Do-Mi-Do sırala."
+        },
+        {
+          "min": 7,
+          "text": "Motifi mırıldanıp yeniden gitarda bul."
+        }
+      ],
+      "why": "Hatırlanabilen kısa ses dizisi düzenlemenin melodisidir.",
+      "steps": [
+        "1. tel boşken Mi, 2. tel 1. perdeyken Do duyulur.",
+        "C akorunun sol el şeklini koruyabilirsin."
+      ],
+      "watch": [
+        "Notayı bulmak için akoru tümden bırakma."
+      ],
+      "check": [
+        "Motifi bakmadan iki kez çalarsın.",
+        "Motifi mırıldanabilirsin."
+      ]
+    },
+    {
+      "title": "Melodi artı bas",
+      "goal": "Mi-Do motifini sabit basla birleştirmek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C akorunda 5. tel ve 1. boş teli birlikte çek."
+        },
+        {
+          "min": 8,
+          "text": "Sonraki ana vuruşta 5. tel ile 2. tel 1. perdeyi birlikte çek."
+        },
+        {
+          "min": 7,
+          "text": "Dört ölçü Mi-Do dönüşümlü eşlik kaydet."
+        }
+      ],
+      "why": "Bas aynıyken üst sesin değişmesi küçük bir müzik cümlesi kurar.",
+      "steps": [
+        "Bas 1 ve 2’de, üst ses basla aynı anda olsun.",
+        "Önce aralara başka nota koyma."
+      ],
+      "watch": [
+        "Üst notaya odaklanırken bası atlama."
+      ],
+      "check": [
+        "Dört ölçüde bas sürer.",
+        "Mi ve Do dönüşümlü temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "Bilinçli boşluk",
+      "goal": "Melodinin arasında susmayı öğrenmek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C’de bas+Mi, sessizlik, bas+Do, sessizlik çalış."
+        },
+        {
+          "min": 8,
+          "text": "Aynı düzeni C ve Am’de iki ölçü dene."
+        },
+        {
+          "min": 7,
+          "text": "Kaydı dinleyip üst sesin açıklığını yaz."
+        }
+      ],
+      "why": "Her küçük vuruşu doldurmak melodiyi bulanıklaştırabilir.",
+      "steps": [
+        "1-ve-2-ve say; sesler 1 ve 2’de olsun.",
+        "Ve’lerde susarken ayağın zamanı tutsun."
+      ],
+      "watch": [
+        "Susunca sayımı bırakma."
+      ],
+      "check": [
+        "Ölçüde iki bilinçli boşluk vardır.",
+        "Melodi kayıtta seçilir."
+      ]
+    },
+    {
+      "title": "Hafif motif kaydı",
+      "goal": "Bası kaçırmadan küçük motifi sürdürmek",
+      "blocks": [
+        {
+          "min": 4,
+          "text": "Akort ve 5-4 basla iki dakika ısın."
+        },
+        {
+          "min": 5,
+          "text": "Mi-Do motifini C ve Am’de ikişer ölçü çal."
+        },
+        {
+          "min": 6,
+          "text": "Kaydı dinleyip basın koptuğu ölçüyü yaz."
+        }
+      ],
+      "why": "Kayıt üst sese odaklanırken bası unutup unutmadığını gösterir.",
+      "steps": [
+        "Bugün hız artırma.",
+        "Bas kaçıyorsa yalnız başparmakla iki ölçü dön."
+      ],
+      "watch": [
+        "Bir hatayı düzeltmek için sert çalma."
+      ],
+      "check": [
+        "Mi-Do sırası doğrudur.",
+        "Bası kaçırdığın yeri işaretlersin."
+      ]
+    },
+    {
+      "title": "C’de dönüşümlü bas",
+      "goal": "C’de 5. ve 4. telleri sırayla melodiyle eşlemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C ile 5-4-5-4 basını 60 tıkta çal."
+        },
+        {
+          "min": 8,
+          "text": "1’de 5. tel+Mi, 2’de 4. tel+Do yap."
+        },
+        {
+          "min": 7,
+          "text": "Bu iki vuruşlu ölçüyü sekiz kez tekrarla."
+        }
+      ],
+      "why": "Dönüşümlü bas sesin hareketli temelini kurar.",
+      "steps": [
+        "Başparmak her ana vuruşta sıradaki tele gider.",
+        "Mi 1. boş, Do 2. tel 1. perdedir."
+      ],
+      "watch": [
+        "Melodiyi duyurmak için 4. tel basını atlama."
+      ],
+      "check": [
+        "Sekiz ölçüde bas 5-4 sürer.",
+        "İki üst ses temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "Am’de dönüşümlü bas",
+      "goal": "Aynı 5-4 basını Am akorunda korumak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Am’de yalnız 5-4-5-4 bası çalış."
+        },
+        {
+          "min": 8,
+          "text": "1’de 5. tel+Mi, 2’de 4. tel+Do çal."
+        },
+        {
+          "min": 7,
+          "text": "İki ölçü C, iki ölçü Am ile dört kez dön."
+        }
+      ],
+      "why": "Aynı sağ el kuralını başka akora taşımak bağımsızlık sağlar.",
+      "steps": [
+        "Am’de 5. tel boş La, 4. tel 2. perde Mi’dir.",
+        "Akoru son üst notadan sonra değiştir."
+      ],
+      "watch": [
+        "Am’de yanlışlıkla 6. tele kayma."
+      ],
+      "check": [
+        "Bas doğru tellerde kalır.",
+        "Dört ölçü durmadan başarıyla tamamlanıyor."
+      ]
+    },
+    {
+      "title": "Üst sesi araya koy",
+      "goal": "Melodiyi bas vuruşları arasına yerleştirmek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C’de 1 ve 2’de yalnız 5-4 bası çal."
+        },
+        {
+          "min": 8,
+          "text": "1’den sonraki ve’de Mi, 2’den sonraki ve’de Do ekle."
+        },
+        {
+          "min": 7,
+          "text": "C–Am dört ölçü bu düzeni kaydet."
+        }
+      ],
+      "why": "Basın sabit kalıp melodinin başka yerde gelmesi bağımsızlığı artırır.",
+      "steps": [
+        "1-ve-2-ve say; bas sayılarda, melodi ve’lerdedir.",
+        "Zor gelirse metronomsuz ama eşit aralıkla dene."
+      ],
+      "watch": [
+        "Melodi yüzünden sonraki bası erken vurma."
+      ],
+      "check": [
+        "Bas 1 ve 2’de kalır.",
+        "Üst notalar aradadır."
+      ]
+    },
+    {
+      "title": "Üst ses seçimi",
+      "goal": "Bir ölçüde hangi notayı duyuracağını bilinçli seçmek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "C’de bir ölçü sadece Mi, sonraki ölçü sadece Do çal."
+        },
+        {
+          "min": 8,
+          "text": "Basları 5-4 sürdürerek dört ölçüye Mi-Mi-Do-Mi sırası yaz."
+        },
+        {
+          "min": 7,
+          "text": "Yazdığın üst ses sırasını iki kez aynı biçimde çal."
+        }
+      ],
+      "why": "Seçilen ve tekrar edilebilen ses sırası düzenlemeye biçim verir.",
+      "steps": [
+        "Üst sesleri ölçülerin üstüne yaz.",
+        "Önce sadece üst telleri, sonra basla çal."
+      ],
+      "watch": [
+        "Her tekrarda notaları rastgele değiştirme."
+      ],
+      "check": [
+        "Yazdığın sırayı tekrar edersin.",
+        "Bas sırası sabittir."
+      ]
+    },
+    {
+      "title": "Ses dengesi",
+      "goal": "Üst melodiyi basın üzerinde duyurmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Aynı örüntüyü önce iki ses eşit güçte çal."
+        },
+        {
+          "min": 8,
+          "text": "Sonra üst sesi biraz belirgin, bası biraz hafif çal."
+        },
+        {
+          "min": 7,
+          "text": "İki kaydı karşılaştırıp üst melodinin açıklığını yaz."
+        }
+      ],
+      "why": "Melodi duyulduğunda düzenleme daha anlaşılır olur.",
+      "steps": [
+        "Sesi artırmak için parmağı biraz daha kararlı çek.",
+        "Bası tümden kısma; zamanı o taşıyor."
+      ],
+      "watch": [
+        "Melodiyi vurgulamak için teli tokatlama."
+      ],
+      "check": [
+        "İki kaydın ses dengesi ayrıdır.",
+        "Bas zamanı gösterir."
+      ]
+    },
+    {
+      "title": "Dört ölçülük cümle",
+      "goal": "C–Am üzerinde kısa özgün bir cümle yazmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İki ölçü C, iki ölçü Am baslarını tek başına çal."
+        },
+        {
+          "min": 8,
+          "text": "Her ölçüye Mi veya Do üst notasından birini yerleştir."
+        },
+        {
+          "min": 7,
+          "text": "Dört ölçüyü yaz, kaydet ve aynı sırada tekrar çal."
+        }
+      ],
+      "why": "Kendi cümleni aynı biçimde yeniden çalabilmek düzenleme yapmaktır.",
+      "steps": [
+        "Örneğin C-Mi, C-Do, Am-Mi, Am-Do diye ölçüleri etiketle.",
+        "Bası yalnız çalışıp sonra üst ses ekle."
+      ],
+      "watch": [
+        "Her tekrarda farklı sıra çalma."
+      ],
+      "check": [
+        "Dört ölçü yazılıdır.",
+        "Aynı sırayı ikinci kez çalarsın."
+      ]
+    },
+    {
+      "title": "Hafif bas denetimi",
+      "goal": "Dört ölçülük cümlede başparmağı kontrol etmek",
+      "blocks": [
+        {
+          "min": 4,
+          "text": "C ve Am akorlarını yavaşça kur."
+        },
+        {
+          "min": 5,
+          "text": "5-4 basını her akorda dörder kez çal."
+        },
+        {
+          "min": 6,
+          "text": "Kendi dört ölçünü bir kez kaydet, başparmak için tek düzeltme yaz."
+        }
+      ],
+      "why": "Kısa gün el dinlenirken bas düzenini pekiştirir.",
+      "steps": [
+        "Bugün yeni nota ekleme.",
+        "Dinlemede yalnız başparmağın sürekliliğine bak."
+      ],
+      "watch": [
+        "Yorgun elle hız denemesi yapma."
+      ],
+      "check": [
+        "Bas sırası karışmaz.",
+        "Tek düzeltme yazılıdır."
+      ]
+    },
+    {
+      "title": "Sekiz ölçüye genişlet",
+      "goal": "Kısa cümleyi iki bölümlü düzenlemeye çevirmek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İlk dört ölçünü bir kez çal."
+        },
+        {
+          "min": 8,
+          "text": "İkinci dört ölçüde yalnız son Mi-Do sırasını değiştir."
+        },
+        {
+          "min": 7,
+          "text": "Sekiz ölçüyü kağıda yaz ve tek kez kaydet."
+        }
+      ],
+      "why": "Küçük bir fark tekrarın sonunda bitiş hissi oluşturur.",
+      "steps": [
+        "İlk dört ölçü aynı kalsın.",
+        "Her ölçünün akorunu ve üst sesini yaz."
+      ],
+      "watch": [
+        "Değişiklik için bas sırasını bozma."
+      ],
+      "check": [
+        "Sekiz ölçü yazılıdır.",
+        "İki bölümün sonu ayrılır."
+      ]
+    },
+    {
+      "title": "G akorunu tanı",
+      "goal": "Üçüncü bas konumunu isteğe bağlı denemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "G için 6. tel 3, 5. tel 2, 1. tel 3. perdeyi kur."
+        },
+        {
+          "min": 8,
+          "text": "G’de 6-4 basını dört ölçü çalış."
+        },
+        {
+          "min": 7,
+          "text": "Temiz değilse C–Am ana cümlene dön."
+        }
+      ],
+      "why": "Yeni akor sonraki ayı hazırlayabilir; bu ayki parça iki akorla tamamlanır.",
+      "steps": [
+        "G’de bas 6. telden başlar, ikinci bas 4. teldir.",
+        "Akoru tel tel kontrol et."
+      ],
+      "watch": [
+        "Yakın diye 5. teli ikinci bas yapma."
+      ],
+      "check": [
+        "6-4 basını dört kez çalarsın.",
+        "G’yi kullanma kararını temiz sese göre verirsin."
+      ]
+    },
+    {
+      "title": "Hata sonrası bas",
+      "goal": "Eksik üst notadan sonra ritmi korumak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Sekiz ölçünü yavaşça bir kez çal."
+        },
+        {
+          "min": 8,
+          "text": "Bir üst notayı bilerek atla ama sonraki bası zamanında vur."
+        },
+        {
+          "min": 7,
+          "text": "Gerçek denemede hata olursa durmadan sonraki ana vuruşa dön."
+        }
+      ],
+      "why": "Bir melodi hatası bütün parçayı kesmek zorunda değildir.",
+      "steps": [
+        "Ayağın ana vuruşu sürdürsün.",
+        "Atlanan melodiyi geri yetiştirmeye çalışma."
+      ],
+      "watch": [
+        "Eksik notayı hızla telafi etmeye kalkma."
+      ],
+      "check": [
+        "Sonraki bas zamanında gelir.",
+        "Sekiz ölçü başarıyla tamamlanıyor."
+      ]
+    },
+    {
+      "title": "Rahat hız provası",
+      "goal": "Sekiz ölçüyü kendi rahat hızında tutarlı çalmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Metronomu 50–60 arası rahat hızına kur."
+        },
+        {
+          "min": 8,
+          "text": "İlk dört ve son dört ölçüyü ayrı ayrı ikişer kez çalış."
+        },
+        {
+          "min": 7,
+          "text": "Tam sekiz ölçüyü bir kez kaydet."
+        }
+      ],
+      "why": "Temiz çalma için seçilen hız belirli bir sayıya yetişmekten değerlidir.",
+      "steps": [
+        "Geçişten önce yeni bas telini içinden söyle.",
+        "Kayıtta yalnız duraksamaları say."
+      ],
+      "watch": [
+        "60 zor gelirse daha düşük hız seç."
+      ],
+      "check": [
+        "Kesintisiz bir deneme vardır.",
+        "Rahat hızını yazarsın."
+      ]
+    },
+    {
+      "title": "Giriş ve bitiş",
+      "goal": "Kısa düzenlemeye açık başlangıç ve son vermek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Bir ölçü içinden 1-2 sayıp ilk basa gir."
+        },
+        {
+          "min": 8,
+          "text": "Son ölçüden sonra C’de 5. tel ve 1. teli birlikte çek."
+        },
+        {
+          "min": 7,
+          "text": "Giriş ile bitişi üç kez prova edip kaydet."
+        }
+      ],
+      "why": "Dinleyen kişi parçanın sınırlarını duyar.",
+      "steps": [
+        "Bitişi yeni bir son vuruş olarak düşün.",
+        "Son sesin kendiliğinden sönmesini bekle."
+      ],
+      "watch": [
+        "Son ses gelir gelmez elinle boğma."
+      ],
+      "check": [
+        "İlk bas net temiz ve berrak duyuluyor.",
+        "Son ses acele edilmez."
+      ]
+    },
+    {
+      "title": "Tek denemelik kayıt",
+      "goal": "Sekiz ölçüyü kesmeden denemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort ve zor geçişi üç kez prova et."
+        },
+        {
+          "min": 8,
+          "text": "Sekiz ölçüyü kağıda bakarak tek kayıtta çal."
+        },
+        {
+          "min": 7,
+          "text": "Bas, melodi ve temiz ses için 0-1-2 puanı ver."
+        }
+      ],
+      "why": "Tek deneme gerçek çalma durumunu gösterir.",
+      "steps": [
+        "0=henüz yok, 1=bazen, 2=çoğunlukla kullan.",
+        "En düşük ölçütü seç."
+      ],
+      "watch": [
+        "Kaydı güzel göstermek için kesip birleştirme."
+      ],
+      "check": [
+        "Bir tek deneme kaydı vardır.",
+        "Üç puan yazılıdır."
+      ]
+    },
+    {
+      "title": "Seçili hatayı onar",
+      "goal": "En düşük puanlı iki ölçüyü yavaş çalışmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dünkü kayıtta sorunlu iki ölçüyü bul."
+        },
+        {
+          "min": 8,
+          "text": "Bas hatasıysa yalnız başparmak, melodi hatasıysa yalnız üst telleri beş kez çalış."
+        },
+        {
+          "min": 7,
+          "text": "Dört ölçülük çevreyi kaydet ve karşılaştır."
+        }
+      ],
+      "why": "Kısa bölümü düzeltmek tüm parçayı güçlendirir.",
+      "steps": [
+        "İki doğru tekrar sonra iki katmanı birleştir.",
+        "Hangi hata türünü çalıştığını yaz."
+      ],
+      "watch": [
+        "Sorunu gizlemek için hızlandırma."
+      ],
+      "check": [
+        "İki temiz yerel tekrar vardır.",
+        "Yeni kayıttaki farkı anlatırsın."
+      ]
+    },
+    {
+      "title": "Birine anlat",
+      "goal": "Akor, bas ve üst ses görevlerini açıklamak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Sekiz ölçünün akor sırasını sesli söyle."
+        },
+        {
+          "min": 8,
+          "text": "Bir arkadaşına veya ses kaydına başparmağın ve üst parmakların işini anlat."
+        },
+        {
+          "min": 7,
+          "text": "Açıklamadan sonra düzenlemeyi bir kez çal."
+        }
+      ],
+      "why": "Yaptığını anlatmak kör ezberi azaltır.",
+      "steps": [
+        "C ve Am’de başparmağın 5-4 gittiğini göster.",
+        "Mi ve Do’nun tellerini göster."
+      ],
+      "watch": [
+        "Terimleri ezberlemeye takılma; telleri göster."
+      ],
+      "check": [
+        "Akor sırasını söylersin.",
+        "Bas ve melodi görevlerini rahatça bulabiliyorsun."
+      ]
+    },
+    {
+      "title": "30. gün: değerlendirme",
+      "goal": "Sekiz ölçülük düzenlemeyi tek kayıtta göstermek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort ve iki ölçü ısınma yap."
+        },
+        {
+          "min": 8,
+          "text": "Sekiz ölçünü giriş ve bitişle tek denemede kaydet."
+        },
+        {
+          "min": 7,
+          "text": "Bas, melodi, temiz ses ve bitiş için puanla; gelecek ay hedefini yaz."
+        }
+      ],
+      "why": "Değerlendirme ilerlemeyi gösterir, kusursuzluk şartı koymaz.",
+      "steps": [
+        "Her ölçüte 0=henüz yok, 1=bazen, 2=çoğunlukla ver.",
+        "En düşük ölçütü yeni ayın ilk çalışması yap."
+      ],
+      "watch": [
+        "Hata olsa da kaydı sonuna götür."
+      ],
+      "check": [
+        "Tek deneme kaydı vardır.",
+        "Dört puan ve yeni hedef yazılıdır."
+      ]
+    }
+  ],
+  "practiceExample": {
+    "title": "Özgün İki Ölçülük Travis Picking ve Melodi Alıştırması (C - Am)",
+    "notation": "Ölçü 1 (C Akoru - Dönüşümlü Bas)   Ölçü 2 (Am Akoru - Dönüşümlü Bas)\nVuruş:  1   &   2   &   3   &   4   &    1   &   2   &   3   &   4   &\ne|-----------------------------------|-----------------------------------|\nB|----------1---------------1--------|----------1---------------1--------|\nG|------------------0----------------|------------------2----------------|\nD|------2---------------2------------|------2---------------2------------|\nA|--3--------------------------------|--0--------------------------------|\nE|--------------3--------------------|--------------0--------------------|\n    p   i   p   m   p   i   p   m        p   i   p   m   p   i   p   m\n   (Bas)       (Bas)                (Bas)       (Bas)",
+    "howTo": "1. Adım: Önce üst tellere hiç dokunma. Yalnızca başparmağınla (p) 5. tel ve 6. tel (veya 4. tel) arasında gidip gelen bası 1 dakika metronomla çal.\n2. Adım: Bas adeta bir kalp atışı gibi otomatikleştiğinde, aralara işaret (i) ve orta (m) parmağınla üst telleri ekle.\n3. Adım: Sağ el bileğini gitar gövdesine fazla yapıştırma; parmakların rahatça bükülebilsin.\nHocanın Püf Noktası: Başparmak senin bateristindir, diğer parmaklar solistindir. Baterist ritmi hiç bırakmazsa şarkı asla durmaz!"
+  },
+  "glossary": [
+    {
+      "term": "Fingerstyle",
+      "meaning": "Pena yerine sağ el parmaklarıyla telleri ayrı çalma yaklaşımı.",
+      "exercise": "5. teli başparmakla, 2. teli orta parmakla çek."
+    },
+    {
+      "term": "Bas",
+      "meaning": "Bu planda başparmağın çaldığı kalın tel sesleri.",
+      "exercise": "C’de 5-4 tellerini sırayla çal."
+    },
+    {
+      "term": "Dönüşümlü bas",
+      "meaning": "Başparmağın iki kalın tel arasında düzenli gidip gelmesi.",
+      "exercise": "C’de 5-4-5-4 sırasını sürdür."
+    },
+    {
+      "term": "Melodi",
+      "meaning": "Üstte duyulan ve hatırlanan ses sırası.",
+      "exercise": "Mi-Do-Mi-Do çal."
+    },
+    {
+      "term": "Ölçü",
+      "meaning": "Vuruşların kısa grubu; burada 1-2 sayılan bölüm.",
+      "exercise": "Sekiz kez 1-2 say."
+    },
+    {
+      "term": "Akor",
+      "meaning": "Birlikte duyulan notalar grubu.",
+      "exercise": "C’nin tellerini tek tek, sonra birlikte çal."
+    },
+    {
+      "term": "Perde",
+      "meaning": "Sapta iki metal çubuk arasındaki basma yeri.",
+      "exercise": "C için 5. tel 3. perdeye bas."
+    },
+    {
+      "term": "Metronom",
+      "meaning": "Düzenli tıklarla zamanı gösteren araç.",
+      "exercise": "Her tıkta 5 ve 4. bası sırayla çek."
+    },
+    {
+      "term": "Motif",
+      "meaning": "Tekrar edilebilen kısa melodi fikri.",
+      "exercise": "Mi-Do-Mi-Do çal ve mırıldan."
+    },
+    {
+      "term": "PIMA",
+      "meaning": "Parmak adları: p başparmak, i işaret, m orta, a yüzük.",
+      "exercise": "p ile 5., i ile 3., m ile 2., a ile 1. teli çek."
+    }
+  ],
+  "nextMonth": [
+    "1. hafta: 30. gün en düşük puanlı ölçütü her gün 10 dakika iki ölçülük parçada çalış.",
+    "2. hafta: G akorunda 6-4 basını temizle; dört ölçülük G bölümü kur.",
+    "3. hafta: Mi-Do motifine yalnız bir yeni üst nota ekle, bas zamanını koru.",
+    "4. hafta: On altı ölçülük iki bölümlü bir düzenleme yazıp tek kayıtta değerlendir."
+  ],
+  "sources": [
+    {
+      "title": "Fender — Learn Travis Picking on Guitar",
+      "url": "https://www.fender.com/articles/techniques/travis-picking-on-guitar",
+      "usedFor": "Başparmakla dönüşümlü bası ve üst parmakları kademeli ekleme."
+    },
+    {
+      "title": "Berklee Online — Guitar Fundamentals",
+      "url": "https://online.berklee.edu/courses/guitar-fundamentals",
+      "usedFor": "Fingerstyle örüntü, melodi ve dönüşümlü basın öğretim sırası."
+    },
+    {
+      "title": "Fender — Standard Tuning",
+      "url": "https://www.fender.com/articles/setup/tuning-tip-standard-tuning",
+      "usedFor": "Standart akort ve tel sırası."
+    },
+    {
+      "title": "Fender Play — Open Position Chords",
+      "url": "https://www.fender.com/play/guitar/collections/open-position-chords",
+      "usedFor": "C, Am ve G açık akorlarının başlangıç düzeyine uygun seçimi."
+    },
+    {
+      "title": "Tommy Emmanuel — Fingerstyle Milestones & Thumb Independence",
+      "url": "https://tommyemmanuel.com/lessons-fingerstyle-roots",
+      "usedFor": "Dönüşümlü bas tekniği, sağ el başparmak bağımsızlığı ve melodi ayrımı."
+    },
+    {
+      "title": "Acoustic Guitar — The Art of Travis Picking: Patterns & Exercises",
+      "url": "https://acousticguitar.com/art-of-travis-picking",
+      "usedFor": "Merle Travis senkoplu bas-melodi kalıpları ve açık pozisyon parmak düzeni."
+    }
+  ]
+}

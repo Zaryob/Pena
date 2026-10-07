@@ -1,0 +1,1049 @@
+{
+  "id": "klasik",
+  "title": "30 Günde Klasik Gitara Sağlam Başlangıç",
+  "subtitle": "Dengeli oturuş, P-I-M-A sağ el disiplini, berrak arpejler ve Carulli geleneğinde ilk klasik etüdün",
+  "instrument": "Naylon telli klasik gitar",
+  "level": "Tam başlangıç; daha önce gitar çalmamış öğrenci",
+  "dailyMinutes": 25,
+  "monthGoal": "Klasik gitarın asil ve duru tınısını keşfetmek: Doğru oturuş ve el pozisyonuyla gitardan en berrak sesi çıkarmak, Carulli ve Sor gibi ustaların geleneğinde P-I-M-A serbest vuruş (tirando) arpejlerini öğrenmek ve 8 ölçülük zarif bir klasik etüdü gururla kaydetmek.",
+  "prerequisites": "Naylon telli klasik gitar gereklidir (çelik tel klasik gitar tekniği için uygun değildir). Önceden nota veya gitar bilmene gerek yok. Klasik gitarda hızdan önce sakinlik, sırtın dikliği ve her notanın berrak tınlaması gelir.",
+  "materials": [
+    "Naylon telli klasik gitar",
+    "Gitar ayak sehpası veya ergonomik gitar desteği",
+    "Akort cihazı veya uygulaması",
+    "Metronom (60–76 BPM arası sakin çalışma)",
+    "Ses kaydedici telefon",
+    "Dinleme önerisi: Francisco Tárrega - Recuerdos de la Alhambra, Matteo Carcassi Etütleri"
+  ],
+  "weeks": [
+    {
+      "title": "1. hafta: Rahat duruş ve ilk sesler",
+      "focus": "Akort, tel adları, sağ ve sol elin temel hareketi.",
+      "exitCriteria": [
+        "Gitarı akort edip 0-1-3-1 motifini iki rahat tur çalar.",
+        "Tel adlarını kalından inceye gösterir."
+      ]
+    },
+    {
+      "title": "2. hafta: Okuma ve arpej",
+      "focus": "Açık tel notaları, dört vuruş, Am arpeji ve hafif tekrar.",
+      "exitCriteria": [
+        "Üç açık ince telin notalarını tanır.",
+        "Am arpejini üç temiz tur çalar."
+      ]
+    },
+    {
+      "title": "3. hafta: Melodi ve ifade",
+      "focus": "Em, ses düzeyi, Do dizisi ve kısa etüt.",
+      "exitCriteria": [
+        "Do dizisini çıkıp iner.",
+        "Dört ölçülük etüdü ritim sayarak çalar."
+      ]
+    },
+    {
+      "title": "4. hafta: Eser hazırlığı",
+      "focus": "Kısa eseri bölerek öğrenme, dengeli ses, prova ve değerlendirme.",
+      "exitCriteria": [
+        "8 ölçülük başlangıç eserini tek kayıtta tamamlar.",
+        "Ritim, temiz ses ve rahatlık için somut gözlem yazar."
+      ]
+    }
+  ],
+  "days": [
+    {
+      "title": "Duruş ve ilk ses",
+      "goal": "Gitarı rahat tutup tek telden temiz ses çıkar.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Sandalyede iki ayağı yere koy; gitarı kaymadan sabitle ve omuzlarını serbest bırak."
+        },
+        {
+          "min": 10,
+          "text": "Sağ el başparmağınla 6. teli 8 kez yavaşça çek; her sesten sonra gevşe."
+        },
+        {
+          "min": 10,
+          "text": "Bir cümle konuşur gibi 4 eşit ses çal, sonra 4 vuruş dinlen."
+        }
+      ],
+      "why": "Rahat ve dengeli duruş sonraki teknikleri kolaylaştırır.",
+      "steps": [
+        "Sandalyede ayak tabanlarını yere bastır; gitar kayıyorsa bacak desteğini düzelt.",
+        "Kalın Mi telini başparmakla tek tek çek; her ses arasında omuzunu serbest bırak."
+      ],
+      "watch": [
+        "Omuz yükseliyorsa dur, kolunu bırak ve daha yavaş başla."
+      ],
+      "check": [
+        "8 sesin her biri ayrı temiz ve berrak duyuluyor.",
+        "Çalarken omuzlar serbest kalır."
+      ]
+    },
+    {
+      "title": "Tel adları ve akort",
+      "goal": "Altı telin adını ve akort sırasını tanı.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kalından inceye Mi-La-Re-Sol-Si-Mi diye söyle; her teli sırayla göster."
+        },
+        {
+          "min": 10,
+          "text": "Akort uygulamasıyla bir teli ayarla; hedefi aşarsan yeniden alttan yaklaş."
+        },
+        {
+          "min": 10,
+          "text": "Tüm telleri birer kez çal ve uygulamadaki adla eşleştir."
+        }
+      ],
+      "why": "Yanlış tel seçimi çalışmayı baştan karıştırır.",
+      "steps": [
+        "En kalın tele dokunup Mi de; sonraki telleri La-Re-Sol-Si-Mi diye sırayla göster.",
+        "Uygulamada her tel için hedef harfi gör; burguyu çok küçük aralıklarla çevir."
+      ],
+      "watch": [
+        "Akort burgusunu hızlı çevirmek yerine küçük hareketler yap."
+      ],
+      "check": [
+        "Altı telin adını kalından inceye söyler.",
+        "Uygulamada en az dört tel doğru nota gösterir."
+      ]
+    },
+    {
+      "title": "Sağ el parmakları",
+      "goal": "p-i-m-a adlarını sesle eşleştir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "p başparmak, i işaret, m orta, a yüzük parmağıdır; eline bakarak söyle."
+        },
+        {
+          "min": 10,
+          "text": "p ile 5. teli, i ile 3., m ile 2., a ile 1. teli sırayla çek."
+        },
+        {
+          "min": 10,
+          "text": "Dört sesi üç kez kesintisiz çal; her tur sonunda elini gevşet."
+        }
+      ],
+      "why": "Parmak görevleri açık olunca arpej öğrenmek kolaylaşır.",
+      "steps": [
+        "Başparmağı p, işareti i, ortayı m, yüzüğü a diye adlandır.",
+        "p ile kalın, i-m-a ile giderek incelen telleri çek; yanlış tele gidince elini sıfırla."
+      ],
+      "watch": [
+        "Parmağı telin içine gömme; küçük hareketle bırak."
+      ],
+      "check": [
+        "p-i-m-a sırası karışmadan üç tur çalınır.",
+        "Her notadan sonra el eski rahat konumuna döner."
+      ]
+    },
+    {
+      "title": "Serbest vuruş",
+      "goal": "Parmağın komşu tele değmeden ses üretmesini öğren.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "i parmağınla 2. teli hafif çekip avuca doğru getir."
+        },
+        {
+          "min": 10,
+          "text": "m ile aynı hareketi yap; i-m diye 12 tek ses çal."
+        },
+        {
+          "min": 10,
+          "text": "Dört seslik iki küçük grup kaydet ve seslerin eşitliğini dinle."
+        }
+      ],
+      "why": "Serbest vuruş eşlik ve çok sesli çalmada kullanılır.",
+      "steps": [
+        "İşaret parmağını ikinci telin önüne getir; küçük hareketle teli kendine doğru çek.",
+        "Orta parmakla aynı sesi üret; iki parmağın ses gücünü eşitle."
+      ],
+      "watch": [
+        "Komşu teli vuruyorsan hareketi küçült."
+      ],
+      "check": [
+        "12 notanın en az 10'u temiz çıkar.",
+        "İki parmak sırayı korur."
+      ]
+    },
+    {
+      "title": "Sol el ilk perde",
+      "goal": "Birinci perdede baskıyı en az güçle kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Sol el işaret parmağını 1. telin 1. perdesinin hemen gerisine koy."
+        },
+        {
+          "min": 10,
+          "text": "Boş 1. tel ve 1. perdeyi sırayla 8 kez çal."
+        },
+        {
+          "min": 10,
+          "text": "Basıncı azaltıp cızırtı başlayınca az artır; gereken gücü hisset."
+        }
+      ],
+      "why": "Gereğinden çok sıkmak yorgunluk yaratır.",
+      "steps": [
+        "İşaret parmağının ucunu birinci perdenin metaline değil hemen gerisine yerleştir.",
+        "Boş tel ve basılı tel arasında dön; cızırtı varsa parmağı perdeye yaklaştır."
+      ],
+      "watch": [
+        "Parmağı metal perdenin üstüne koyma; hemen arkasına taşı."
+      ],
+      "check": [
+        "Boş ve basılı ses ayırt edilir.",
+        "Başparmak sapı ezmeden destekler."
+      ]
+    },
+    {
+      "title": "İki notalı motif",
+      "goal": "İlk kısa melodiyi eşit zamanda çal.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "1. tel boş, 1. perde ve 3. perdeyi sırayla bul; 3. perdeye yüzük parmağı koy."
+        },
+        {
+          "min": 10,
+          "text": "0-1-3-1 dizisini i-m dönüşümlü dört kez çal."
+        },
+        {
+          "min": 10,
+          "text": "Aynı diziyi yavaş metronomda her vuruşa bir nota olarak dene."
+        }
+      ],
+      "why": "Küçük motif el koordinasyonunu müziğe bağlar.",
+      "steps": [
+        "Birinci telde boş Mi, birinci perdede Fa, üçüncü perdede Sol bul.",
+        "Dört notayı söylerken i ve m parmaklarını sırayla kullan."
+      ],
+      "watch": [
+        "Sol el her notadan önce sertleşiyorsa tempoyu düşür."
+      ],
+      "check": [
+        "Dizi dört kez sırayla çalınır.",
+        "Metronomun dört vuruşu boyunca durmadan devam eder."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 1",
+      "goal": "İlk altı günün rahatlığını kontrol et.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Gitarı akort edip tel adlarını söyle."
+        },
+        {
+          "min": 7,
+          "text": "p-i-m-a dizisini iki tur, 0-1-3-1 motifini iki tur çal."
+        },
+        {
+          "min": 5,
+          "text": "Bir dakika dinlen; en kolay ve zor gelen hareketi not et."
+        }
+      ],
+      "why": "Hafif gün, yorgunluk birikmeden hatayı fark ettirir.",
+      "steps": [
+        "Gitarı akort ettikten sonra üç ince teli tek tek kontrol et.",
+        "Motifi yalnız iki tur çal; bilek ve omuz rahatlığını deftere yaz."
+      ],
+      "watch": [
+        "Ağrı varsa çalışmayı bırak ve öğretmene danış."
+      ],
+      "check": [
+        "Tel adlarını yardımsız gösterir.",
+        "Motifi iki rahat tur çalar."
+      ]
+    },
+    {
+      "title": "Ritim ve nota süresi",
+      "goal": "Dört eşit vuruşu sesle ve sessizlikle say.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Metronomu rahat bir hıza al; 1-2-3-4 diye sesli say."
+        },
+        {
+          "min": 10,
+          "text": "1. boş teli her vuruşta i-m dönüşümlü çal."
+        },
+        {
+          "min": 10,
+          "text": "Bir ölçü çal, bir ölçü sus; saymayı bırakma."
+        }
+      ],
+      "why": "Sessizlik de müziğin süresidir.",
+      "steps": [
+        "Metronom tıklarında yüksek sesle 1-2-3-4 say; sessiz ölçüde de saymaya devam et.",
+        "Yeni ölçünün 1 tıkında tekrar çalmaya başla; geç kaldıysan başa al."
+      ],
+      "watch": [
+        "Susarken sayıyı kaybedersen önce yalnız alkışla."
+      ],
+      "check": [
+        "Dört vuruşluk çalma ve susma döngüsü yapılır.",
+        "Metronomla yeniden giriş aynı anda olur."
+      ]
+    },
+    {
+      "title": "Nota çizgisi başlangıcı",
+      "goal": "Üç açık ince teli notadaki yerleriyle tanı.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "1. tel Mi, 2. tel Si, 3. tel Sol seslerini dinle ve söyle."
+        },
+        {
+          "min": 10,
+          "text": "Öğretmenin veya başlangıç nota çizelgesinin üstünde bu üç açık notayı bul."
+        },
+        {
+          "min": 10,
+          "text": "Sol-Si-Mi-Si dizisini çalarken notaları çizelgede işaret et."
+        }
+      ],
+      "why": "Nota okuma, ezbere basışın yanına bağımsız bir yol açar.",
+      "steps": [
+        "Birinci telin Mi, ikinci telin Si, üçüncü telin Sol olduğunu kartına yaz.",
+        "Karttaki sesin telini önce göster, sonra çal; tahmin ederek vurma."
+      ],
+      "watch": [
+        "Tel numarası ile parmak numarasını karıştırma."
+      ],
+      "check": [
+        "Üç açık telin adını gösterir.",
+        "Diziyi çizelgeye bakarak doğru sırada çalar."
+      ]
+    },
+    {
+      "title": "İki elde eşgüdüm",
+      "goal": "Sol el notasını sağ el vuruşuna yetiştir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "1. tel 0-1-3-1 dizisini yavaşça çal."
+        },
+        {
+          "min": 10,
+          "text": "Her notadan sonra sol elin sonraki perdeye ne zaman gittiğini izle."
+        },
+        {
+          "min": 10,
+          "text": "Diziyi 4 kez metronomla çal ve en temiz hızı yaz."
+        }
+      ],
+      "why": "Sesin başlangıcını iki el birlikte kurar.",
+      "steps": [
+        "0-1-3-1 dizisini önce metronomsuz temiz çal.",
+        "Parmağın perdeye inişiyle sağ el vuruşunu aynı anda başlat; cızırtıda yavaşla."
+      ],
+      "watch": [
+        "Sonraki perdeye aceleyle kayıp önceki sesi kesme."
+      ],
+      "check": [
+        "Dört turda sıra bozulmaz.",
+        "En az üç turda belirgin cızırtı yoktur."
+      ]
+    },
+    {
+      "title": "İkinci tel melodisi",
+      "goal": "Si telinde iki yeni nota ekle.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "2. tel boş Si, 1. perde Do, 3. perde Re seslerini çal."
+        },
+        {
+          "min": 10,
+          "text": "0-1-3-1 dizisini 2. telde sekiz kez tekrar et."
+        },
+        {
+          "min": 10,
+          "text": "1. ve 2. tel arasında Mi-Si-Do-Si kısa cümlesini kur."
+        }
+      ],
+      "why": "İki tel, küçük bir ezgi oluşturma alanı verir.",
+      "steps": [
+        "İkinci açık telin Si sesini çal; birinci ve üçüncü perdelerde Do ve Re ara.",
+        "İkinci telde dört seslik diziyi çal, sonra birinci tele geçmeden durup hedefi göster."
+      ],
+      "watch": [
+        "Tel değiştirirken sağ eli gereksiz yukarı kaldırma."
+      ],
+      "check": [
+        "İkinci tel dizisi sekiz kez doğru çalınır.",
+        "İki telli cümlede hedef tel şaşmaz."
+      ]
+    },
+    {
+      "title": "Bas ve melodi",
+      "goal": "Başparmak basını üst seslerden ayır.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "p ile açık 5. tel La sesini dört eşit vuruşta çal."
+        },
+        {
+          "min": 10,
+          "text": "p ile La, i ile 3. tel Sol, m ile 2. tel Si çal."
+        },
+        {
+          "min": 10,
+          "text": "Bas sesini biraz belirgin, üst sesleri hafif tutarak dört tur dön."
+        }
+      ],
+      "why": "Klasik gitarda ayrı ses katmanları duyurulur.",
+      "steps": [
+        "Başparmağını beşinci telin önüne, i ve m parmaklarını üçüncü ve ikinci tellere koy.",
+        "La-Sol-Si sırasını çal; kalın notayı biraz öne çıkarırken zamanı eşit tut."
+      ],
+      "watch": [
+        "Bası sert vurup üst telleri örtme."
+      ],
+      "check": [
+        "p-i-m sırası dört tur korunur.",
+        "Dinleyen basla üst sesleri ayırt eder."
+      ]
+    },
+    {
+      "title": "İlk üç sesli arpej",
+      "goal": "Akorun notalarını tek tek yay.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Am şeklini kur: 2. tel 1., 3. tel 2., 4. tel 2. perde; telleri tek tek kontrol et."
+        },
+        {
+          "min": 10,
+          "text": "p ile 5., i ile 3., m ile 2. teli çal; her sesin sürmesine izin ver."
+        },
+        {
+          "min": 10,
+          "text": "Dört arpeji yavaş metronomla kaydet."
+        }
+      ],
+      "why": "Arpej eşlikte sesleri sıralayarak açık doku kurar.",
+      "steps": [
+        "Am şeklini bastıktan sonra beşinci, üçüncü ve ikinci telleri ayrı dinle.",
+        "Bir tel boğuksa sol el parmağını dikleştir; ardından p-i-m sırasını döndür."
+      ],
+      "watch": [
+        "Bitişik tele sol el parmağı değiyorsa parmak ucunu dikleştir."
+      ],
+      "check": [
+        "Üç tel ayrı ayrı temiz ve berrak duyuluyor.",
+        "Dört arpej durmadan çalınır."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 2",
+      "goal": "Nota, bas ve arpeji sakince birleştir.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Üç açık ince telin adlarını söyle ve kısa melodiyi çal."
+        },
+        {
+          "min": 7,
+          "text": "Am arpejini üç kez; iki telli melodiyi iki kez çal."
+        },
+        {
+          "min": 5,
+          "text": "Kayıt dinleyip yalnız bir düzeltme notu yaz."
+        }
+      ],
+      "why": "Tek odaklı tekrar öğrenmeyi pekiştirir.",
+      "steps": [
+        "Üç açık ince telin adlarını gitara bakmadan söyle.",
+        "Am arpejini yavaş üç tur yap ve yalnız bir cızırtı nedenini yaz."
+      ],
+      "watch": [
+        "Hız artırma isteği varsa önce temizliği seç."
+      ],
+      "check": [
+        "Am arpeji üç temiz tur çıkar.",
+        "Bir düzeltme cümlesi kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "Mi minör ve sol el açıklığı",
+      "goal": "Em akorunu rahat kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "5. tel ve 4. tel 2. perdeye orta ve yüzük parmaklarını koy; diğer açık telleri kontrol et."
+        },
+        {
+          "min": 10,
+          "text": "p-i-m-a ile 6.-3.-2.-1. telleri sırayla çal."
+        },
+        {
+          "min": 10,
+          "text": "Am ve Em arasında her akorda iki arpej yap."
+        }
+      ],
+      "why": "İki akor arasında kontrollü hareket repertuvarın temelidir.",
+      "steps": [
+        "Em için iki parmağı beşinci ve dördüncü tellerin ikinci perdelerine yakın koy.",
+        "Am-Em geçişinde boşta kalan parmakları sapın yanında tut; hedef telleri tek tek kontrol et."
+      ],
+      "watch": [
+        "Sol eli havaya savurma; parmakları tele yakın taşı."
+      ],
+      "check": [
+        "Em telleri tek tek temizdir.",
+        "Am-Em geçişi dört defa duraksamadan olur."
+      ]
+    },
+    {
+      "title": "Dinamik: yumuşak ve güçlü",
+      "goal": "Ses yüksekliğini bilek kasmadan değiştir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Açık 1. telde i-m ile dört çok hafif, dört orta ses çal."
+        },
+        {
+          "min": 10,
+          "text": "Aynı farkı Em arpejinde uygula; yalnız başparmağı artırma."
+        },
+        {
+          "min": 10,
+          "text": "Kayıtta iki düzey duyuluyor mu dinle."
+        }
+      ],
+      "why": "İfade, sadece doğru nota çalmaktan fazlasıdır.",
+      "steps": [
+        "Aynı boş telde dört hafif, dört orta güçte ses üret.",
+        "Ses artarken bilek sertleşiyorsa ara ver; aynı farkı Em arpejine taşı."
+      ],
+      "watch": [
+        "Güçlü ses için eli kasma; kontrollü temas artır."
+      ],
+      "check": [
+        "İki ses düzeyi kayıtta ayırt edilir.",
+        "Ritim iki düzeyde de eşit kalır."
+      ]
+    },
+    {
+      "title": "İlk dört ölçülük etüt",
+      "goal": "Öğrenilen notalarla mini parça kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Ölçü 1: Mi-Si-Sol-Si; ölçü 2: Mi-Fa-Sol-Fa olarak her notaya bir vuruş ver."
+        },
+        {
+          "min": 10,
+          "text": "Bu iki ölçüyü tekrarla; toplam dört ölçü çal."
+        },
+        {
+          "min": 10,
+          "text": "Başına bir nefeslik hazırlık koyup kayıt yap."
+        }
+      ],
+      "why": "Kısa etüt teknikleri müzik cümlesinde birleştirir.",
+      "steps": [
+        "Birinci ölçüde Mi-Si-Sol-Si notalarını birer vuruşa böl.",
+        "İkinci ölçüde Mi-Fa-Sol-Fa çal; iki ölçüyü yineleyerek dört ölçü oluştur."
+      ],
+      "watch": [
+        "Fa için 1. tel 1. perdeye zamanında bas."
+      ],
+      "check": [
+        "Dört ölçü sırası kaybolmaz.",
+        "Başlangıç ve bitiş dinleyene belirgindir."
+      ]
+    },
+    {
+      "title": "Bağlı ses ve boşluk",
+      "goal": "Notaları gereksiz kesmeden taşı.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İki notalı Mi-Fa değişimini bir ses biterken diğerini hazır ederek çal."
+        },
+        {
+          "min": 10,
+          "text": "Mi-Fa-Sol-Fa motifini dört kez; ilk notayı belirgin, sonu yumuşak yap."
+        },
+        {
+          "min": 10,
+          "text": "Kayıtta cümlenin ortasında istenmeyen sessizlik ara."
+        }
+      ],
+      "why": "Bağlı duyum melodinin akmasını sağlar.",
+      "steps": [
+        "Mi çalarken Fa için işaret parmağını perdeye yakın hazır tut.",
+        "Son Fa sesinden sonra eli gevşet; cümleyi aceleyle kesme."
+      ],
+      "watch": [
+        "Basılan parmağı sonraki sese çok erken kaldırma."
+      ],
+      "check": [
+        "Motif dört tur akıcı temiz ve berrak duyuluyor.",
+        "Cümle sonundaki yumuşama seçilir."
+      ]
+    },
+    {
+      "title": "Bir oktav Do dizisi başlangıcı",
+      "goal": "Do-Re-Mi-Fa-Sol-La-Si-Do dizisinin ilk yarısını öğren.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "5. tel 3. perde Do, 4. tel boş Re, 2. perde Mi, 3. perde Fa çal."
+        },
+        {
+          "min": 10,
+          "text": "Do-Re-Mi-Fa dizisini i-m ile dört kez çal."
+        },
+        {
+          "min": 10,
+          "text": "Dört notayı adlarını söyleyerek bir kez kaydet."
+        }
+      ],
+      "why": "Dizi çalışması perde ve ses adlarını bağlar.",
+      "steps": [
+        "Beşinci tel üçüncü perdeden Do ile başla; dördüncü boş telde Re çal.",
+        "Dördüncü tel ikinci ve üçüncü perdelerde Mi-Fa bul; adları seslendir."
+      ],
+      "watch": [
+        "Notaları ezberlemek için basışla adı birlikte söyle."
+      ],
+      "check": [
+        "Dört nota doğru sıradadır.",
+        "Sağ el i-m dönüşümünü korur."
+      ]
+    },
+    {
+      "title": "Do dizisini tamamlama",
+      "goal": "Bir oktav Do majör dizisini yavaşça tamamla.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dünkü Do-Re-Mi-Fa bölümünü iki tur çal."
+        },
+        {
+          "min": 10,
+          "text": "3. tel boş Sol, 2. perde La; 2. tel boş Si, 1. perde Do ekle."
+        },
+        {
+          "min": 10,
+          "text": "Tüm diziyi çıkıp geri in; her notaya bir vuruş ver."
+        }
+      ],
+      "why": "Tam dizi melodik yönü duyurur.",
+      "steps": [
+        "Do-Re-Mi-Fa bölümünü tekrar ettikten sonra Sol ve La için üçüncü tele geç.",
+        "İkinci tel boş Si ve birinci perde Do ile tepeye var; aynı yolu geri dön."
+      ],
+      "watch": [
+        "Yukarı çıkarken gereksiz hızlanıyorsan saymayı seslendir."
+      ],
+      "check": [
+        "Çıkış ve inişte sekiz ses sıralıdır.",
+        "Dönüş noktasında vuruş kaçmaz."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 3",
+      "goal": "Dizi ve etüdü rahat hızda gözden geçir.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Do dizisini bir kez çıkıp in."
+        },
+        {
+          "min": 7,
+          "text": "Dört ölçülük etüdü iki kez, Em arpejini iki kez çal."
+        },
+        {
+          "min": 5,
+          "text": "Bir günlük notuna zorlanan ölçüyü ve nedenini yaz."
+        }
+      ],
+      "why": "Hafif değerlendirme sonraki haftanın hedefini netleştirir.",
+      "steps": [
+        "Diziyi bir kez çok rahat hızda çal; her geçişte i-m sıranı izle.",
+        "Dört ölçülük etüdü iki kez çalıp tek bir zor ölçüyü not et."
+      ],
+      "watch": [
+        "Tekrarda yanlış nota çıkarsa tüm parçayı hızlandırma."
+      ],
+      "check": [
+        "Dizi bir tur doğru çalınır.",
+        "Zorlanan ölçü açıkça belirlenir."
+      ]
+    },
+    {
+      "title": "Seçilen kısa eseri bölmek",
+      "goal": "Başlangıç düzeyinde 8-16 ölçülük bir eser seç ve haritalandır.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Telifsiz başlangıç etüdü veya öğretmenin seçtiği basit notayı al; 4 ölçümlük bölümlere ayır."
+        },
+        {
+          "min": 10,
+          "text": "İlk bölümdeki tel, perde ve sağ el parmaklarını işaretle."
+        },
+        {
+          "min": 10,
+          "text": "Yalnız ilk iki ölçüyü çok yavaş çal."
+        }
+      ],
+      "why": "Parçayı küçük parçalara ayırmak hatayı görünür kılar.",
+      "steps": [
+        "Seçtiğin notada toplam ölçü sayısını kalemle yaz; dört ölçülük bölümler çiz.",
+        "İlk iki ölçüde her notanın telini ve perdesini göstermeden çalma."
+      ],
+      "watch": [
+        "Zor eseri sırf sevdiğin için seçme; ilk bölüm okunabilir olsun."
+      ],
+      "check": [
+        "Eser 2-4 küçük bölüme ayrılır.",
+        "İlk iki ölçü notaya bakarak çalınır."
+      ]
+    },
+    {
+      "title": "Eserin ilk bölümü",
+      "goal": "İlk dört ölçüyü güvenilir şekilde çal.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İlk iki ölçüyü üç doğru tekrar yap."
+        },
+        {
+          "min": 10,
+          "text": "Sonraki iki ölçüyü ayrı çalış; sonra dördünü birleştir."
+        },
+        {
+          "min": 10,
+          "text": "Hata olan yerde yalnız iki notayı beş kez tekrar et."
+        }
+      ],
+      "why": "Yerel onarım bütün parçayı tekrar etmekten verimlidir.",
+      "steps": [
+        "İlk iki ölçüyü üç temiz tekrar yap; hata olursa yalnız sorunlu iki nota üzerinde dur.",
+        "Sonraki iki ölçüyü eklemeden önce bunları ayrı iki kez çal."
+      ],
+      "watch": [
+        "Yanlışı kayıtta görüp aynı hızda tekrarlama; böl ve yavaşlat."
+      ],
+      "check": [
+        "İlk dört ölçü sırayla gelir.",
+        "Sorunlu iki nota ayrı temiz çalınır."
+      ]
+    },
+    {
+      "title": "Eserin ikinci bölümü",
+      "goal": "Sonraki dört ölçüyü öğren.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İkinci bölümün notalarını sesli adlandır."
+        },
+        {
+          "min": 10,
+          "text": "Her ölçüyü iki kez ayrı çal; sonra dört ölçüyü birleştir."
+        },
+        {
+          "min": 10,
+          "text": "İlk ve ikinci bölüm arasında bir vuruş durup geçişi dene."
+        }
+      ],
+      "why": "Yeni bölüm önce bağımsız öğrenilince birleşme kolaylaşır.",
+      "steps": [
+        "İkinci bölümün ilk ölçüsünde notaları sesli oku ve tellerini göster.",
+        "Dört ölçüyü birleştirince ölçü sonlarını 1-2-3-4 diye say."
+      ],
+      "watch": [
+        "Ölçü sonunu yutup sonraki ölçüye erken geçme."
+      ],
+      "check": [
+        "İkinci bölümün dört ölçüsü doğru sıradadır.",
+        "Bölümler arası geçişte ölçü sayısı korunur."
+      ]
+    },
+    {
+      "title": "Bas-melodi dengesi",
+      "goal": "Eserde duyulacak ana sesi öne çıkar.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Eserin hangi notalarının melodi olduğunu kalemle işaretle."
+        },
+        {
+          "min": 10,
+          "text": "Melodi notalarını orta güçte, eşlik baslarını daha hafif çal."
+        },
+        {
+          "min": 10,
+          "text": "İki ölçülük kayıt yapıp melodiyi mırıldanarak izleyip izleyemediğini dene."
+        }
+      ],
+      "why": "Dinleyen parçanın ezgisini seçebilmelidir.",
+      "steps": [
+        "Melodi notalarını kurşun kalemle yuvarlak içine al.",
+        "Aynı ölçüde melodiyi biraz daha belirgin, bası biraz daha yumuşak çal."
+      ],
+      "watch": [
+        "Her notayı aynı sertlikte çalma; melodiye alan aç."
+      ],
+      "check": [
+        "Melodi kayıtta izlenir.",
+        "Eşlik sesleri kaybolmadan geride kalır."
+      ]
+    },
+    {
+      "title": "Sabit tempo ve durak",
+      "goal": "Eseri yavaş bir tempoda kesintisiz götür.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Önce alkışla ve her ölçüde dört vuruş say."
+        },
+        {
+          "min": 10,
+          "text": "Eserin 8 ölçüsünü rahat metronom hızında çal."
+        },
+        {
+          "min": 10,
+          "text": "Takıldığında başa dönme; bir sonraki vuruştan devam edip kaydet."
+        }
+      ],
+      "why": "Sahne pratiği hata sonrası müziği sürdürmeyi öğretir.",
+      "steps": [
+        "Metronomla dört vuruş sayıp esere girmeden bir ölçü hazırlık yap.",
+        "Hata çıkarsa elleri durdurma; bir sonraki tıkta doğru notaya dön."
+      ],
+      "watch": [
+        "Hata sonrası hızlanma; metronomun sonraki tıkına dön."
+      ],
+      "check": [
+        "Sekiz ölçüde sayım korunur.",
+        "Tek yanlış sonrası çalma devam eder."
+      ]
+    },
+    {
+      "title": "İfade işaretleri",
+      "goal": "Cümle başlangıcı ve bitişini duyur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Eserde iki cümle seç; her birinin ilk notasını hafif belirgin çal."
+        },
+        {
+          "min": 10,
+          "text": "Cümle sonundaki sesi doğal süresince bırak ve sonra nefes kadar boşluk ver."
+        },
+        {
+          "min": 10,
+          "text": "Aynı sekiz ölçüyü ifadeli ve düz çalıp kayıtta karşılaştır."
+        }
+      ],
+      "why": "İfade, notaların bir cümle gibi duyulmasını sağlar.",
+      "steps": [
+        "Birinci cümlenin başını hafif vurgula; son notasının tam süresini bekle.",
+        "İkinci cümleyi aynı yöntemle çal; iki cümlenin birbirinden ayrıldığını dinle."
+      ],
+      "watch": [
+        "Cümle sonunda gereksiz ritim uzatması yapma."
+      ],
+      "check": [
+        "İki cümle kayıtta ayırt edilir.",
+        "Ölçü içi süreler korunur."
+      ]
+    },
+    {
+      "title": "Prova kaydı",
+      "goal": "Ay sonu eserini bir kez tam kaydet.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et ve oturuşunu kontrol et; prova öncesi en zor iki ölçüyü çal."
+        },
+        {
+          "min": 10,
+          "text": "Eseri baştan sona tek seferde kaydet."
+        },
+        {
+          "min": 10,
+          "text": "Kayıtta üç şey yaz: doğru giden, aksayan, yarın düzeltilecek tek nokta."
+        }
+      ],
+      "why": "Gerçek performans, çalışma anından farklı sorunları gösterir.",
+      "steps": [
+        "Kaydı başlatmadan önce akordu ve oturuşu bir kez kontrol et.",
+        "Eseri baştan sona durmadan çal; dinlerken üç somut gözlem yaz."
+      ],
+      "watch": [
+        "Kaydı her küçük hata için durdurma."
+      ],
+      "check": [
+        "Tek parça kayıt başarıyla tamamlanıyor.",
+        "Üç gözlem somut biçimde kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "Son düzeltme",
+      "goal": "Prova kaydındaki tek temel sorunu gider.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dünkü nottaki tek aksayan ölçüyü yavaşça beş kez çal."
+        },
+        {
+          "min": 10,
+          "text": "Öncesindeki ve sonrasındaki ölçüleri ekleyip üç tur döndür."
+        },
+        {
+          "min": 10,
+          "text": "Tam eseri yalnız bir kez çal; eller yorulmadan bitir."
+        }
+      ],
+      "why": "Son günkü dar odak aşırı çalışma riskini azaltır.",
+      "steps": [
+        "Dünkü kayıtta sorunlu ölçünün numarasını bul.",
+        "Ölçüyü yavaş beş kez, sonra önündeki ve arkasındaki ölçülerle üç kez çal."
+      ],
+      "watch": [
+        "Zor pasajı hızla zorlamaya çalışma; temiz rahat hızı koru."
+      ],
+      "check": [
+        "Sorunlu ölçü beş denemede en az üç kez temizdir.",
+        "Eser bir kez bitirilir."
+      ]
+    },
+    {
+      "title": "30. gün değerlendirmesi",
+      "goal": "Kısa eseri ve temel tekniği gözlenebilir biçimde değerlendir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort, duruş ve Do dizisiyle ısın."
+        },
+        {
+          "min": 10,
+          "text": "Eseri tek çekimde çal; ardından Am veya Em arpejinden dört tur ekle."
+        },
+        {
+          "min": 10,
+          "text": "Kaydı dinleyip ses temizliği, ritim ve rahatlık için birer örnek yaz; gelecek ayın ilk hedefini seç."
+        }
+      ],
+      "why": "Değerlendirme, gelişimi bir sonraki çalışmaya dönüştürür.",
+      "steps": [
+        "Do dizisini rahat hızda bir kez çıkıp in; sonra elleri gevşet.",
+        "Kısa eseri ve dört arpeji tek kayda al; ritim, temiz ses ve rahatlığa örnek yaz."
+      ],
+      "watch": [
+        "Tek kayıtta kusursuzluk arama; ölçülebilir ilerlemeye bak."
+      ],
+      "check": [
+        "Eser ve dört arpej tek kayıt içinde bulunur.",
+        "Üç değerlendirme notu ve bir yeni hedef kendi hislerinle not defterine yazıyorsun."
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "p-i-m-a",
+      "meaning": "Sağ el başparmak, işaret, orta ve yüzük parmağının kısaltmaları.",
+      "exercise": "Her harfi söyleyip ilgili parmağı bir kez oynat."
+    },
+    {
+      "term": "Perde",
+      "meaning": "Sap üzerindeki iki metal çizgi arasındaki basma alanı.",
+      "exercise": "1. telde 1. ve 3. perdeyi göster."
+    },
+    {
+      "term": "Boş tel",
+      "meaning": "Sol elle basılmadan çalınan tel.",
+      "exercise": "1. teli boş çal, sonra 1. perdeye bas."
+    },
+    {
+      "term": "Serbest vuruş / tirando",
+      "meaning": "Parmak teli çektikten sonra komşu tele yaslanmadan döner.",
+      "exercise": "İkinci telde i-m ile sekiz hafif ses çal."
+    },
+    {
+      "term": "Destekli vuruş / apoyando",
+      "meaning": "Parmak teli çektikten sonra bitişik tele dayanır.",
+      "exercise": "Birinci telde i ile ses çıkarıp parmağı ikinci telde durdur."
+    },
+    {
+      "term": "Arpej",
+      "meaning": "Akor seslerinin birlikte değil sırayla çalınması.",
+      "exercise": "Am üzerinde p-i-m-a sırasını bir tur çal."
+    },
+    {
+      "term": "Ölçü",
+      "meaning": "Düzenli vuruşlardan oluşan kısa ritim birimi.",
+      "exercise": "Dört vuruş say ve sonraki 1 ile yeni ölçüye başla."
+    },
+    {
+      "term": "Metronom",
+      "meaning": "Düzenli tık veren tempo aracı.",
+      "exercise": "Dört tıkla eş zamanlı dört boş tel çal."
+    },
+    {
+      "term": "Dinamik",
+      "meaning": "Sesin yumuşak veya güçlü oluşu.",
+      "exercise": "Dört hafif, dört orta güçte nota üret."
+    },
+    {
+      "term": "Motif",
+      "meaning": "Kısa ve tekrar edilebilir müzik fikri.",
+      "exercise": "0-1-3-1 dizisini çal ve tekrar et."
+    },
+    {
+      "term": "Etüt",
+      "meaning": "Belirli beceriyi müzik içinde çalıştıran kısa parça.",
+      "exercise": "Dört ölçülük çalışmayı bir kez ritim sayarak çal."
+    }
+  ],
+  "nextMonth": [
+    "1. hafta: İlk eserin temizliğini koruyup ikinci başlangıç eserinin ilk dört ölçüsünü öğren.",
+    "2. hafta: G majör veya La minör dizisinden birini öğretmenle seçip her gün 5 dakika yavaş çalış.",
+    "3. hafta: Aynı eserde melodi ve bas ses düzeylerini iki farklı kayıtla karşılaştır.",
+    "4. hafta: İki kısa eseri arka arkaya, akort ve duruş kontrolüyle tek kayıtta çal."
+  ],
+  "sources": [
+    {
+      "title": "Trinity College London — Classical Guitar",
+      "url": "https://www.trinitycollege.com/qualifications/music/grade-exams/classical-guitar",
+      "usedFor": "Başlangıç repertuvarı ile teknik çalışmayı birlikte ilerletme yaklaşımı."
+    },
+    {
+      "title": "Trinity College London — Classical Guitar Initial Technical Work",
+      "url": "https://www.trinitycollege.com/resource?id=9181",
+      "usedFor": "Başlangıç düzeyinde dizi, arpej ve i-m parmak sırası kapsamı."
+    },
+    {
+      "title": "Trinity College London — Initial Repertoire",
+      "url": "https://www.trinitycollege.com/qualifications/music/grade-exams/classical-guitar/classical-guitar-repertoire",
+      "usedFor": "Kısa başlangıç eseri seçimi için düzey örneği."
+    },
+    {
+      "title": "Mauro Giuliani — 120 Right-Hand Studies for Classical Guitar",
+      "url": "https://www.classicalguitardelcamp.com/giuliani-120-studies",
+      "usedFor": "P-I-M-A sağ el formülleri, tirando arpej dengesi ve başparmak bağımsızlığı."
+    },
+    {
+      "title": "Fernando Sor — Method for the Spanish Guitar (Ergonomics & Tone)",
+      "url": "https://imslp.org/wiki/Method_for_the_Spanish_Guitar_(Sor,_Fernando)",
+      "usedFor": "Klasik gitar oturuşu, tırnak açısı, berrak ton üretimi ve sol el dik basışı."
+    }
+  ],
+  "practiceExample": {
+    "title": "Özgün İki Ölçülük Mauro Giuliani Arpej ve Melodi Etüdü (Am - C)",
+    "notation": "Ölçü 1 (Am - Tirando Arpej)         Ölçü 2 (C - Giuliani Formülü)\nParmak: p   i   m   a   m   i        p   i   m   a   m   i\ne|--------------0--------------------|--------------0--------------------|\nB|----------1-------1----------------|----------1-------1----------------|\nG|------2---------------2------------|------0---------------0------------|\nD|-----------------------------------|-----------------------------------|\nA|--0--------------------------------|--3--------------------------------|\nE|-----------------------------------|-----------------------------------|\n   (Bas)(Sol el dik)                (Bas)(Do notası)",
+    "howTo": "1. Adım: Sol ayağının altına ayak sehpasını koy, gitarın sapı yaklaşık 45 derece yukarı baksın. Sırtını dik, omuzlarını serbest tut.\n2. Adım: Sağ el parmaklarının kodlarını hatırla: p = başparmak, i = işaret, m = orta, a = yüzük.\n3. Adım: Her tele vururken parmağın bir sonraki tele yaslanmasın; serbestçe avuç içine doğru kavis yapsın (tirando vuruşu).\nHocanın Püf Noktası: Klasik gitarda ses parmaktan değil, bedenin rahatlığından doğar. Omuzlarını kastığını hissedersen dur, nefes ver ve yeniden başla!"
+  }
+}

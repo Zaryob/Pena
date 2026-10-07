@@ -1,0 +1,1079 @@
+{
+  "id": "country",
+  "title": "30 Günde Country Gitar",
+  "subtitle": "Johnny Cash ve Carter Family'nin neşeli 'Boom-Chick' ritmi, açık akorlar ve tren rayı gibi düzenli eşlik",
+  "instrument": "Akustik veya elektro gitar",
+  "level": "Tam başlangıç",
+  "dailyMinutes": "Çoğu gün 25 dakika; 7, 14 ve 21. gün 15 dakika; 30. gün 30 dakika.",
+  "monthGoal": "Amerikan halk müziğinin sıcak ve neşeli country tınısına adım atmak: Johnny Cash ve Carter Family'nin meşhur 'Boom-Chick' dönüşümlü bas-akor ritmini öğrenmek, açık akorlarla (G, C, D, Em) tren rayı gibi düzenli akan neşeli bir country eşliğini rahat tempoda kaydetmek.",
+  "prerequisites": "Akustik veya elektro gitar yeterlidir; pena ile çalışmak country ritmine harika bir parlaklık katar. Ön bilgi gerekmez. Bas notasını bulup hemen ardından akoru süpürmek ilk başta eğlenceli bir koordinasyon oyunudur.",
+  "materials": [
+    "Akustik veya elektro gitar",
+    "Pena (orta kalınlıkta, 0.73mm ideal)",
+    "Akort cihazı veya uygulaması",
+    "Metronom (76–92 BPM tren temposu)",
+    "Ses kaydedici telefon",
+    "Dinleme önerisi: Johnny Cash - Folsom Prison Blues, Carter Family - Wildwood Flower"
+  ],
+  "weeks": [
+    {
+      "title": "1. hafta · İlk baslar",
+      "focus": "Akort, G-C ve bas-akor sırası.",
+      "exitCriteria": [
+        "G ve C telleri temizdir.",
+        "İki akorla iki tur bas-akor çalar."
+      ]
+    },
+    {
+      "title": "2. hafta · Üç akor",
+      "focus": "D akoru, alternatif bas ve G-C-D-G.",
+      "exitCriteria": [
+        "G-C-D bas çiftlerini ayırır.",
+        "Dört ölçüyü durmadan çalar."
+      ]
+    },
+    {
+      "title": "3. hafta · Kısa düzen",
+      "focus": "Em, giriş, bitiş ve ses dengesi.",
+      "exitCriteria": [
+        "G-Em-C-D sırası çalınır.",
+        "Giriş ve bitiş doğru yerde gelir."
+      ]
+    },
+    {
+      "title": "4. hafta · Kayıt",
+      "focus": "İki tur eşlik ve değerlendirme.",
+      "exitCriteria": [
+        "On ölçülük kayıt vardır.",
+        "Bir güçlü yan ve sonraki hedef yazılır."
+      ]
+    }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "title": "Akort ve nabız",
+      "goal": "Altı teli akort edip dört vuruş say.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "E-A-D-G-B-e tel adlarını söyle ve akort et."
+        },
+        {
+          "min": 10,
+          "text": "60 metronomda 1-2-3-4 say, ayağınla vur."
+        },
+        {
+          "min": 8,
+          "text": "Kalın E'yi yalnız 1'de çal, diğer sayıları sus."
+        }
+      ],
+      "why": "Basın doğru zamanda gelmesi eşliği taşır.",
+      "steps": [
+        "Her dört sayıdan sonra yeniden 1'e dön.",
+        "Akorttan sonra açık telleri tek tek dinle."
+      ],
+      "watch": [
+        "1'den sonra saymayı bırakma."
+      ],
+      "check": [
+        "Dört ölçü rahatça sayabiliyorsun.",
+        "E yalnız 1'de temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "day": 2,
+      "title": "G akoru",
+      "goal": "G akorunun tellerini temiz duy.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Kalın E3, A2 ve ince e3 perdelerine bas."
+        },
+        {
+          "min": 10,
+          "text": "Altı teli tek tek vurup cızırtıyı düzelt."
+        },
+        {
+          "min": 8,
+          "text": "G'yi dört hafif aşağı vuruşla çal."
+        }
+      ],
+      "why": "Temiz akor hızlı değişimden önce gelir.",
+      "steps": [
+        "İşaret A2, orta E3, yüzük ince e3 kullan.",
+        "Parmak ucunu perde metalinin arkasına koy."
+      ],
+      "watch": [
+        "İnce tel susarsa yüzük parmağını dikleştir."
+      ],
+      "check": [
+        "Altı tel temiz ve berrak duyuluyor.",
+        "Dört vuruş eşittir."
+      ]
+    },
+    {
+      "day": 3,
+      "title": "Bas-akor",
+      "goal": "G'de bas ile akoru ayır.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G şeklini kur, kalın E3'ü tek başına çal."
+        },
+        {
+          "min": 10,
+          "text": "1'de E3, 2'de G akorunu vur; dört kez döndür."
+        },
+        {
+          "min": 8,
+          "text": "Kalıbı 60 tempoda kaydet."
+        }
+      ],
+      "why": "Tek bas ve akor farklı görevler üstlenir.",
+      "steps": [
+        "Bas için tek tel, akor için bütün hedef telleri vur.",
+        "Sayıları sesli söyle."
+      ],
+      "watch": [
+        "1'de tüm telleri vurup ses farkını yok etme."
+      ],
+      "check": [
+        "Bas ve akor ayırt edilir.",
+        "Dört döngü kopmaz."
+      ]
+    },
+    {
+      "day": 4,
+      "title": "İki bas",
+      "goal": "G'de E3 ve D0'ı değiştir.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G akorunda E3 ve açık D'yi ayrı çal."
+        },
+        {
+          "min": 10,
+          "text": "E3-akor-D0-akor sırasını dört ölçü döndür."
+        },
+        {
+          "min": 8,
+          "text": "En temiz iki ölçüyü kaydet."
+        }
+      ],
+      "why": "Alternatif bas country yürüyüşünü başlatır.",
+      "steps": [
+        "1 ve 3'te tek bas, 2 ve 4'te hafif akor çal.",
+        "G parmaklarını yerinde tut."
+      ],
+      "watch": [
+        "D'ye giderken A teline yanlışlıkla vurma."
+      ],
+      "check": [
+        "Bas çifti doğru sıradadır.",
+        "Dört ölçü eşit sürer."
+      ]
+    },
+    {
+      "day": 5,
+      "title": "C akoru",
+      "goal": "C akorunu doğru tellerle kur.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "A3, D2, B1'e bas; kalın E'yi çalma."
+        },
+        {
+          "min": 10,
+          "text": "A telinden ince e'ye kadar sesleri tek tek denetle."
+        },
+        {
+          "min": 8,
+          "text": "G-C değişimini dörder vuruşla yap."
+        }
+      ],
+      "why": "C ikinci eşlik akorunu verir.",
+      "steps": [
+        "Yüzük A3, orta D2, işaret B1 olabilir.",
+        "İlk değişimi metronomsuz çalış."
+      ],
+      "watch": [
+        "C'de kalın E çalınırsa penayı A'dan başlat."
+      ],
+      "check": [
+        "C temiz temiz ve berrak duyuluyor.",
+        "G-C iki tur gerçekleşir."
+      ]
+    },
+    {
+      "day": 6,
+      "title": "G-C yürüyüşü",
+      "goal": "İki akorda doğru bas çiftini seç.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G için E3-akor-D0-akor çal."
+        },
+        {
+          "min": 10,
+          "text": "C için A3-akor-D2-akor çal."
+        },
+        {
+          "min": 8,
+          "text": "G-C'yi ikişer ölçü kaydet."
+        }
+      ],
+      "why": "Akor değişince basın yeri de değişir.",
+      "steps": [
+        "Yeni akora ölçünün 1'inde ulaş.",
+        "C'de D2 ikinci kalın ses olsun."
+      ],
+      "watch": [
+        "C'de yanlışlıkla G'nin E3 basını sürdürme."
+      ],
+      "check": [
+        "İki bas çifti ayrılır.",
+        "Dört ölçü biter."
+      ]
+    },
+    {
+      "day": 7,
+      "title": "Hafif tekrar",
+      "goal": "İlk iki akoru yormadan tekrarla.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort ve G-C tellerini dinle."
+        },
+        {
+          "min": 5,
+          "text": "G-C kalıbını yavaş iki tur çal."
+        },
+        {
+          "min": 5,
+          "text": "Kaydı dinleyip tek karışan teli yaz."
+        }
+      ],
+      "why": "Hafif gün el dinlenirken öğrenileni sabitler.",
+      "steps": [
+        "Sorunlu teli tek başına çal.",
+        "Tempo artırma."
+      ],
+      "watch": [
+        "Uzun prova yapma."
+      ],
+      "check": [
+        "G ve C basları doğrudur.",
+        "Bir düzeltme notu vardır."
+      ]
+    },
+    {
+      "day": 8,
+      "title": "D akoru",
+      "goal": "D majörü hedef tellerle çal.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G2, B3, ince e2'ye bas; kalın E ve A'yı çalma."
+        },
+        {
+          "min": 10,
+          "text": "D'den ince e'ye dört teli dinle."
+        },
+        {
+          "min": 8,
+          "text": "G-D geçişini dörder vuruşla çal."
+        }
+      ],
+      "why": "D üç akorlu eşliği tamamlar.",
+      "steps": [
+        "İşaret G2, yüzük B3, orta ince e2 olabilir.",
+        "Akor vuruşunu D telinden başlat."
+      ],
+      "watch": [
+        "A teli duyulursa pena alanını daralt."
+      ],
+      "check": [
+        "D'nin dört teli temizdir.",
+        "G-D iki tur çıkar."
+      ]
+    },
+    {
+      "day": 9,
+      "title": "D'de iki bas",
+      "goal": "D0 ve A0'ı bas olarak sırala.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "D akorunu kur ve açık D ile A'yı ayrı dinle."
+        },
+        {
+          "min": 10,
+          "text": "D0-akor-A0-akor kalıbını dört ölçü çal."
+        },
+        {
+          "min": 8,
+          "text": "G-C-D bas çiftlerini kağıda yaz."
+        }
+      ],
+      "why": "A0, D akorunda kullanılan bir bas alternatifi verir.",
+      "steps": [
+        "A0'ı tek nota, sonraki akoru D'den vur.",
+        "Sol el şeklini koru."
+      ],
+      "watch": [
+        "A0'ı akorun bütün vuruşlarına katma."
+      ],
+      "check": [
+        "D kalıbı dört kez çıkar.",
+        "Üç bas çifti yazılmıştır."
+      ]
+    },
+    {
+      "day": 10,
+      "title": "G-C-D-G",
+      "goal": "Dört ölçülük döngü kur.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G, C, D'yi tek tek denetle."
+        },
+        {
+          "min": 10,
+          "text": "G-C-D-G'yi her akorda bir ölçü bas-akorla çal."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçüyü iki kez kaydet."
+        }
+      ],
+      "why": "Üç akorlu iskelet kısa country eşliğine uygundur.",
+      "steps": [
+        "Yeni bası her ölçünün 1'inde çal.",
+        "Son G'ye döneceğini önceden düşün."
+      ],
+      "watch": [
+        "Geçiş gecikince hızlanma."
+      ],
+      "check": [
+        "Akor sırası doğrudur.",
+        "Her ölçüde iki bas vardır."
+      ]
+    },
+    {
+      "day": 11,
+      "title": "Boom-chick hissi",
+      "goal": "1 ve 3 bas, 2 ve 4 akoru vurgula.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G kalıbını dizine vurarak say."
+        },
+        {
+          "min": 10,
+          "text": "G-C-D-G'de basları orta, akorları hafif çal."
+        },
+        {
+          "min": 8,
+          "text": "Kaydı dinleyip basların seçildiğini denetle."
+        }
+      ],
+      "why": "Bas-akor farkı ritmin karakteridir.",
+      "steps": [
+        "Tek bası penanın ucuyla vur.",
+        "Akorlarda bileği gevşet."
+      ],
+      "watch": [
+        "Akorları bas kadar sert vurma."
+      ],
+      "check": [
+        "Bas ve akor ayrılır.",
+        "Tempo sabittir."
+      ]
+    },
+    {
+      "day": 12,
+      "title": "C-D geçişi",
+      "goal": "En zor akor hareketini yavaş temizle.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "C-D geçişini metronomsuz beş kez yap."
+        },
+        {
+          "min": 10,
+          "text": "D-G geçişini beş kez yap."
+        },
+        {
+          "min": 8,
+          "text": "G-C-D-G'yi bir kez kaydet."
+        }
+      ],
+      "why": "Küçük geçişi onarmak bütün döngüye yardım eder.",
+      "steps": [
+        "Önce yeni akorun bas telini hedefle.",
+        "Parmakları havada birlikte hazırla."
+      ],
+      "watch": [
+        "Yanlış geçişte tüm parçayı başa sarma."
+      ],
+      "check": [
+        "C-D üç kez temizdir.",
+        "D-G üç kez temizdir."
+      ]
+    },
+    {
+      "day": 13,
+      "title": "Dört tur kayıt",
+      "goal": "G-C-D-G'yi durmadan çal.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Akort edip G ile ısın."
+        },
+        {
+          "min": 10,
+          "text": "Döngüyü dört tur kaydı kesmeden çal."
+        },
+        {
+          "min": 8,
+          "text": "Kayıtta en temiz turu işaretle."
+        }
+      ],
+      "why": "Tek sefer çalmak akışın sürüp sürmediğini gösterir.",
+      "steps": [
+        "Hata olursa sonraki ölçünün 1'ine katıl.",
+        "Kayıtta basları say."
+      ],
+      "watch": [
+        "Hata yüzünden durma."
+      ],
+      "check": [
+        "Dört tur başarıyla tamamlanıyor.",
+        "En net tur seçilir."
+      ]
+    },
+    {
+      "day": 14,
+      "title": "Hafif tekrar",
+      "goal": "Üç akoru sakin gözden geçir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Bas tellerini ayrı duy."
+        },
+        {
+          "min": 5,
+          "text": "G-C-D-G'yi iki yavaş tur çal."
+        },
+        {
+          "min": 5,
+          "text": "Bir ritim notu yaz."
+        }
+      ],
+      "why": "Hafif çalışma eli dinlendirir.",
+      "steps": [
+        "Önce hedef tel, sonra ritim.",
+        "Rahat tempoda kal."
+      ],
+      "watch": [
+        "Bugün hız sınavı yapma."
+      ],
+      "check": [
+        "Üç akor bası doğrudur.",
+        "Bir not yazılmıştır."
+      ]
+    },
+    {
+      "day": 15,
+      "title": "Em akoru",
+      "goal": "Em'yi açık akor olarak ekle.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "A2 ve D2'ye bas, diğer telleri açık bırak."
+        },
+        {
+          "min": 10,
+          "text": "Altı teli tek tek dinle; G-Em-G yap."
+        },
+        {
+          "min": 8,
+          "text": "Em'de E0-akor-D2-akor kalıbını çal."
+        }
+      ],
+      "why": "Em yeni bir duygu ve kolay geçiş sağlar.",
+      "steps": [
+        "İki parmağı aynı perdeye koy.",
+        "Bas telini önceden bul."
+      ],
+      "watch": [
+        "D2'yi unutma."
+      ],
+      "check": [
+        "Em temizdir.",
+        "Bas-akor iki tur çıkar."
+      ]
+    },
+    {
+      "day": 16,
+      "title": "G-Em-C-D",
+      "goal": "Dört akorlu sırayı öğren.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Dört akoru kağıda yaz."
+        },
+        {
+          "min": 10,
+          "text": "Her akora bir ölçü ayırıp bas-akorla çal."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçüyü üç kez kaydet."
+        }
+      ],
+      "why": "Bu sıra finalin ana gövdesidir.",
+      "steps": [
+        "G'den Em'ye geçişi yavaş incele.",
+        "D'den G'ye dönüşü önceden düşün."
+      ],
+      "watch": [
+        "Sırayı karıştırınca hızlanma."
+      ],
+      "check": [
+        "Akorlar doğru sıradadır.",
+        "Üç tur biter."
+      ]
+    },
+    {
+      "day": 17,
+      "title": "Bir ölçü giriş",
+      "goal": "Ana döngüden önce sade bas girişi ekle.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G'de E3 ve D0 baslarını ayrı çal."
+        },
+        {
+          "min": 10,
+          "text": "Bir ölçüde yalnız 1'de E3, 3'te D0 çal; 2 ve 4'te sus."
+        },
+        {
+          "min": 8,
+          "text": "Ardından G-Em-C-D'ye gir."
+        }
+      ],
+      "why": "Sade giriş başlangıcı duyurur.",
+      "steps": [
+        "Boş 2 ve 4'te de say.",
+        "Yeni G'ye sonraki 1'de başla."
+      ],
+      "watch": [
+        "Sessiz sayıları atlama."
+      ],
+      "check": [
+        "Giriş bir ölçüdür.",
+        "G doğru zamanda gelir."
+      ]
+    },
+    {
+      "day": 18,
+      "title": "Son G",
+      "goal": "D'den G'ye belirgin bitiş yap.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G-Em-C-D'yi bir tur çal."
+        },
+        {
+          "min": 10,
+          "text": "Sonraki 1'de G'yi vur, dört sayı beklet."
+        },
+        {
+          "min": 8,
+          "text": "Giriş-döngü-bitişi kaydet."
+        }
+      ],
+      "why": "Bitiş akoru formu tamamlar.",
+      "steps": [
+        "D'nin dördüncü vuruşunu say.",
+        "G'yi erken susturma."
+      ],
+      "watch": [
+        "Son ölçüyü acele bitirme."
+      ],
+      "check": [
+        "G tam 1'de gelir.",
+        "Dört sayı sürer."
+      ]
+    },
+    {
+      "day": 19,
+      "title": "Ses dengesi",
+      "goal": "Basları akordan biraz belirgin tut.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G'de bas orta, akor hafif çal."
+        },
+        {
+          "min": 10,
+          "text": "G-Em-C-D boyunca aynı oranı sürdür."
+        },
+        {
+          "min": 8,
+          "text": "Çok sert çıkan akoru kayıtta bul."
+        }
+      ],
+      "why": "İki ses rolü netleşince country hissi güçlenir.",
+      "steps": [
+        "Bas için tek tel, akor için hedef telleri kullan.",
+        "Pena hareketini küçük tut."
+      ],
+      "watch": [
+        "Bütün kolu savurma."
+      ],
+      "check": [
+        "Baslar seçilir.",
+        "Akorlar birbirini örtmez."
+      ]
+    },
+    {
+      "day": 20,
+      "title": "Tek üst ses",
+      "goal": "G'de ince e3 ile küçük süs ekle.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G'de ince e3'ü tek başına çal."
+        },
+        {
+          "min": 10,
+          "text": "Yalnız bir G ölçüsünün 4'ünde akor yerine e3 vur."
+        },
+        {
+          "min": 8,
+          "text": "Sonraki Em'ye geçişi kaydet."
+        }
+      ],
+      "why": "Az sayıda melodi sesi eşliği renklendirir.",
+      "steps": [
+        "Önce normal kalıbı temiz çal.",
+        "Süsü tek ölçüde kullan."
+      ],
+      "watch": [
+        "Her ölçüyü süsleyip bası kaybetme."
+      ],
+      "check": [
+        "e3 doğru yerde gelir.",
+        "Em sonraki 1'de başlar."
+      ]
+    },
+    {
+      "day": 21,
+      "title": "Hafif tekrar",
+      "goal": "Giriş, döngü ve bitişi sakin gözden geçir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Giriş baslarını çal."
+        },
+        {
+          "min": 5,
+          "text": "G-Em-C-D-G sırasını bir kez çal."
+        },
+        {
+          "min": 5,
+          "text": "Son hafta için tek hedef seç."
+        }
+      ],
+      "why": "Hafif tekrar son haftaya hazırlık sağlar.",
+      "steps": [
+        "Bölüm yerlerini kağıtta işaretle.",
+        "Elde sertlik varsa ara ver."
+      ],
+      "watch": [
+        "Uzun prova yapma."
+      ],
+      "check": [
+        "Sıra bellidir.",
+        "Hedef yazılmıştır."
+      ]
+    },
+    {
+      "day": 22,
+      "title": "Parça haritası",
+      "goal": "Giriş, iki tur ve bitişi yaz.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Bir ölçü G girişini çal."
+        },
+        {
+          "min": 10,
+          "text": "G-Em-C-D'yi iki kez yazıp çal."
+        },
+        {
+          "min": 8,
+          "text": "Son G'yi ekleyip on ölçüyü numarala."
+        }
+      ],
+      "why": "Yazılı harita kaybolmayı azaltır.",
+      "steps": [
+        "Giriş 1, ana bölüm 8, bitiş 1 ölçüdür.",
+        "Her akorun bas çiftini üstüne yaz."
+      ],
+      "watch": [
+        "Tur sayısını karıştırınca ölçü numarasına bak."
+      ],
+      "check": [
+        "On ölçü yazılıdır.",
+        "İki tur başarıyla tamamlanıyor."
+      ]
+    },
+    {
+      "day": 23,
+      "title": "Bas denetimi",
+      "goal": "Dört akorun doğru bas çiftini söyle.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G E3-D0, C A3-D2, D D0-A0, Em E0-D2 de."
+        },
+        {
+          "min": 10,
+          "text": "Her akoru bir ölçü çal."
+        },
+        {
+          "min": 8,
+          "text": "Yanlış bası beş kez tek başına düzelt."
+        }
+      ],
+      "why": "Doğru bas akorun kimliğini korur.",
+      "steps": [
+        "Akor şeklini ilk bastan önce kur.",
+        "Basın ardından hedef telleri vur."
+      ],
+      "watch": [
+        "D akorunda A0'ı her akor vuruşuna katma."
+      ],
+      "check": [
+        "Dört çift söylenir.",
+        "İlk baslar doğrudur."
+      ]
+    },
+    {
+      "day": 24,
+      "title": "Küçük varyasyon",
+      "goal": "İkinci turun sonunda bir boşluk bırak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "İlk G-Em-C-D turunu düz çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci turun D ölçüsünde 4'te sus."
+        },
+        {
+          "min": 8,
+          "text": "İki turu kaydet."
+        }
+      ],
+      "why": "Tek küçük boşluk tekrarları ayırır.",
+      "steps": [
+        "D'nin boş 4'ünü içinden say.",
+        "Son G'ye normal zamanda gir."
+      ],
+      "watch": [
+        "Boşluk yüzünden erken bitirme."
+      ],
+      "check": [
+        "İki tur fark edilir.",
+        "Son G doğru zamanda gelir."
+      ]
+    },
+    {
+      "day": 25,
+      "title": "Tempo seçimi",
+      "goal": "Temiz çalınan hızı seç.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "55, 65 ve 75 tempoda döngüyü birer kez dene."
+        },
+        {
+          "min": 10,
+          "text": "En temiz tempoda on ölçüyü çal."
+        },
+        {
+          "min": 8,
+          "text": "Zor geçişin saniyesini not et."
+        }
+      ],
+      "why": "Kişisel tempo başarılı tekrar sağlar.",
+      "steps": [
+        "Bas doğruluğu hızdan önce gelir.",
+        "Gerekirse 55'in altını seç."
+      ],
+      "watch": [
+        "Hız artınca kirleniyorsa yüksek tempoda kalma."
+      ],
+      "check": [
+        "Tempo yazılıdır.",
+        "Form o tempoda biter."
+      ]
+    },
+    {
+      "day": 26,
+      "title": "İç sayma",
+      "goal": "Metronom olmadan da nabzı koru.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G kalıbını sesli say."
+        },
+        {
+          "min": 10,
+          "text": "Tam formu içinden sayarak çal."
+        },
+        {
+          "min": 8,
+          "text": "Metronomsuz son turu kayıtla denetle."
+        }
+      ],
+      "why": "İç nabız müzikle birlikte çalmaya temel olur.",
+      "steps": [
+        "Ayağın dört sayıyı hissetsin.",
+        "Kayıtta 1 ve 3 baslarına bak."
+      ],
+      "watch": [
+        "Hızlanırsan metronoma dön."
+      ],
+      "check": [
+        "Baslar 1 ve 3'tedir.",
+        "Son tempo belirgin kaymaz."
+      ]
+    },
+    {
+      "day": 27,
+      "title": "Temiz ses provası",
+      "goal": "Parmakları gevşek tutarak tam form çal.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Akort ve kısa esneme yap."
+        },
+        {
+          "min": 10,
+          "text": "Tam formu iki kez, arada dinlenerek çal."
+        },
+        {
+          "min": 8,
+          "text": "Cızırtılı teli kayıtta işaretle."
+        }
+      ],
+      "why": "Rahat beden temiz ses verir.",
+      "steps": [
+        "Yalnız gereken kadar bas.",
+        "Sorunlu akoru yavaş tek başına düzelt."
+      ],
+      "watch": [
+        "Ağrıyı çalışarak geçirmeye uğraşma."
+      ],
+      "check": [
+        "İki tur vardır.",
+        "Bir cızırtı nedeni bulunur."
+      ]
+    },
+    {
+      "day": 28,
+      "title": "Hafıza provası",
+      "goal": "Kağıda az bakarak formu çal.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Akor ve bas çiftlerini gözden geçir."
+        },
+        {
+          "min": 10,
+          "text": "On ölçüyü kağıda yalnız bölüm başlarında bakarak çal."
+        },
+        {
+          "min": 8,
+          "text": "Unutulan ölçüyü haritada işaretle."
+        }
+      ],
+      "why": "Bölümleri bilmek çalarken yön verir.",
+      "steps": [
+        "Önce giriş, iki tur, bitiş diye düşün.",
+        "Unutunca sonraki 1'e katıl."
+      ],
+      "watch": [
+        "Bir unutma için tüm kaydı başa sarma."
+      ],
+      "check": [
+        "Bölüm sırası korunur.",
+        "Unutulan yer belirlenir."
+      ]
+    },
+    {
+      "day": 29,
+      "title": "Tek seferlik kayıt",
+      "goal": "Hata sonrası da devam et.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "İki ölçü hazırlık say."
+        },
+        {
+          "min": 10,
+          "text": "Giriş, iki tur ve bitişi kaydı kesmeden çal."
+        },
+        {
+          "min": 8,
+          "text": "Yalnız en belirgin hatayı beş yavaş tekrar düzelt."
+        }
+      ],
+      "why": "Kesintisiz prova finali kolaylaştırır.",
+      "steps": [
+        "Hata olsa sonraki 1'e dön.",
+        "Başlamadan bas çiftlerine kısa bak."
+      ],
+      "watch": [
+        "Kusursuzluk için eli yorma."
+      ],
+      "check": [
+        "Tam prova kaydı vardır.",
+        "Bir düzeltme notu vardır."
+      ]
+    },
+    {
+      "day": 30,
+      "title": "Country performansı",
+      "goal": "Kısa eşliği kaydet ve değerlendir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort edip iki dakika ısın."
+        },
+        {
+          "min": 15,
+          "text": "Giriş + G-Em-C-D iki tur + son G'yi iki kez kaydet."
+        },
+        {
+          "min": 10,
+          "text": "İlk hafta ile kıyasla; iki güçlü yan ve bir sonraki hedefi yaz."
+        }
+      ],
+      "why": "Öz değerlendirme yeni ayı yönlendirir.",
+      "steps": [
+        "Bas telleri, 1-3 yerleri, akorlar ve bitişi denetle.",
+        "Seçilen tempoyu kayıt adına yaz."
+      ],
+      "watch": [
+        "Tek yanlış akor tüm ilerlemeyi silmez."
+      ],
+      "check": [
+        "Baştan sona bir kayıt vardır.",
+        "Bir güçlü yan ve bir hedef yazılmıştır."
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Standart akort",
+      "meaning": "Tellerin kalından inceye E-A-D-G-B-e seslerinde olması.",
+      "exercise": "Her gün telleri kontrol et."
+    },
+    {
+      "term": "Açık tel",
+      "meaning": "Perdeye basmadan çalınan tel; 0 ile gösterilir.",
+      "exercise": "D ve A açık tellerini çal."
+    },
+    {
+      "term": "Perde",
+      "meaning": "Sapta metal çizgilerin arasındaki basma yeri.",
+      "exercise": "Kalın E telinde 3. perdeyi bul."
+    },
+    {
+      "term": "Akor",
+      "meaning": "Birden fazla notanın birlikte duyulması.",
+      "exercise": "G tellerini ayrı, sonra birlikte çal."
+    },
+    {
+      "term": "Bas nota",
+      "meaning": "Akorun altında duyulan kalın tek ses.",
+      "exercise": "G akorunda E3 çal."
+    },
+    {
+      "term": "Alternatif bas",
+      "meaning": "Aynı akor içinde iki farklı kalın sesin sırayla kullanılması.",
+      "exercise": "G için E3-akor-D0-akor çal."
+    },
+    {
+      "term": "Boom-chick",
+      "meaning": "1 ve 3 bas, 2 ve 4 hafif akor hissinin sözlü ifadesi.",
+      "exercise": "Bir ölçü bas-akor-bas-akor say."
+    },
+    {
+      "term": "Metronom",
+      "meaning": "Düzenli tıkla zamanı gösterir.",
+      "exercise": "60 tempoda her tıkta bir sayı söyle."
+    },
+    {
+      "term": "Ölçü",
+      "meaning": "Bu planda dört vuruşluk zaman birimi.",
+      "exercise": "1-2-3-4 sonra yeniden 1 de."
+    },
+    {
+      "term": "Vurgu",
+      "meaning": "Bazı vuruşları daha belirgin çalmak.",
+      "exercise": "Basları akorlardan biraz belirgin çal."
+    }
+  ],
+  "nextMonth": [
+    "1. hafta: G-C-D-Em bas çiftlerini günde beş dakika temizle.",
+    "2. hafta: Aynı on ölçüyü iki rahat tempoda kaydedip temiz olanı seç.",
+    "3. hafta: A veya Am açık akorunu ekleyerek ikinci dört ölçülük dizi yaz.",
+    "4. hafta: Bas ritmini bozmadan iki kısa tek nota süs ekleyip kaydet."
+  ],
+  "practiceExample": {
+    "title": "Özgün G ve C 'Boom-Chick' Country Alternating Bass Eşliği",
+    "notation": "Ölçü 1 (G Akoru - Boom Chick)       Ölçü 2 (C Akoru - Boom Chick)\nVuruş:  1       2       3       4        1       2       3       4\n        Boom    Chick   Boom    Chick    Boom    Chick   Boom    Chick\ne|--------------3---------------3----|--------------0---------------0----|\nB|--------------0---------------0----|--------------1---------------1----|\nG|--------------0---------------0----|--------------0---------------0----|\nD|--------------0-------0-------0----|--------------2-------2-------2----|\nA|-----------------------------------|--3-----------3-------0-------0----|\nE|--3-----------3--------------------|-----------------------------------|\n   (Kalın G)  (Strum)  (Açık D) (Strum) (Do Bası) (Strum)  (A Bası) (Strum)",
+    "howTo": "1. Adım: 1. vuruşta kalın bas teline tek başına vur ('Boom').\n2. Adım: 2. vuruşta akorun ince tellerini penayla aşağı doğru hafifçe tara ('Chick').\n3. Adım: 3. vuruşta alternatif bas teline (açık D teli) vur ('Boom') ve 4'te tekrar akoru tara ('Chick').\nHocanın Püf Noktası: Bu ritim bir buharlı lokomotif gibidir; teklemeden, telaşsız ve keyifle akar. Ayağınla 1 ve 3'e basarak tempo tut!"
+  },
+  "sources": [
+    {
+      "title": "Fender: Learn Classic Country Guitar Techniques",
+      "url": "https://www.fender.com/articles/techniques/how-to-play-classic-country-on-guitar",
+      "usedFor": "Alternatif bas-akor country eşliği."
+    },
+    {
+      "title": "Fender: Learn Travis Picking",
+      "url": "https://www.fender.com/articles/techniques/travis-picking-on-guitar",
+      "usedFor": "Alternatif basın fingerstyle devamı."
+    },
+    {
+      "title": "Fender: Guitar Chords 101",
+      "url": "https://www.fender.com//articles/chords/what-is-a-chord",
+      "usedFor": "Akor temelinin açıklaması."
+    },
+    {
+      "title": "Fender: 3 Common Beginner Mistakes",
+      "url": "https://www.fender.com/articles/techniques/3-common-beginner-mistakes",
+      "usedFor": "Akort ve temiz başlangıç vurgusu."
+    },
+    {
+      "title": "Chet Atkins & Mark Knopfler — Country Fingerpicking & Boom-Chick Foundations",
+      "url": "https://www.misterguitar.us/chet-atkins-style",
+      "usedFor": "Alternating bass yürüyüşü, açık akor süslemeleri ve country ritim disiplini."
+    },
+    {
+      "title": "Acoustic Guitar Magazine — The Carter Family Scratch and Flatpicking Fundamentals",
+      "url": "https://acousticguitar.com/carter-family-scratch-lesson",
+      "usedFor": "Maybelle Carter bas-akor tekniği, çekiçleme (hammer-on) ve akıcı pena kontrolü."
+    }
+  ]
+}

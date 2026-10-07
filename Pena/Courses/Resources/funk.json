@@ -1,0 +1,1078 @@
+{
+  "id": "funk",
+  "title": "30 Günde Funk Ritim Gitarı",
+  "subtitle": "Nile Rodgers ekolü sarkaç bilek hareketi, 16'lık nota kalıpları, ghost notes ve patlayıcı 9'lu akorlar",
+  "instrument": "Elektro gitar önerilir; akustik gitarla da çalışılabilir.",
+  "level": "Tam başlangıç; ritim odaklı",
+  "dailyMinutes": "Çoğu gün 25 dakika; 7, 14 ve 21. gün 15 dakika; 30. gün 30 dakika.",
+  "monthGoal": "Gitarı bir perküsyon enstrümanı gibi kullanmayı öğrenmek: Nile Rodgers (Chic) ve Jimmy Nolen (James Brown) ekolüyle sarkaç gibi hiç durmayan sağ el bilek hareketini oturtmak, hayalet vuruşlar (ghost notes/chucking) ile E9 ve D9 akorlarını harmanlayarak sekiz ölçülük kıpır kıpır bir funk groove'unu kaydetmek.",
+  "prerequisites": "Elektro gitar önerilir ancak akustik gitarla da harika çalışılır. Önceden funk çalmış olman gerekmez. Anahtar nokta, sol elin telleri tamamen susturabilmesi ve sağ el bileğinin sanki eline su damlamış da silkeliyormuş gibi rahat olmasıdır.",
+  "materials": [
+    "Elektro veya akustik gitar",
+    "Pena (0.60mm - 0.73mm esnek pena funk için çok uygundur)",
+    "Metronom veya funk davul loop'u (sayfadaki metronomu kullanabilirsin)",
+    "Ses kaydedici telefon",
+    "Dinleme önerisi: Chic - Le Freak, James Brown - Sex Machine, Cory Wong"
+  ],
+  "weeks": [
+    {
+      "title": "1. hafta · Zaman ve kısa ses",
+      "focus": "Dört ve sekiz parçalı sayım, kısa ses ve ilk çift nota.",
+      "exitCriteria": [
+        "2 ve 4 vuruşlarını dört ölçü korur.",
+        "5. perde iki sesini temiz çalar."
+      ]
+    },
+    {
+      "title": "2. hafta · İki şekil ve senkop",
+      "focus": "5. ve 7. perdeler, x sesleri ve 2-ve vuruşu.",
+      "exitCriteria": [
+        "İki perdeyi doğru sırayla çalar.",
+        "2-ve vuruşunu 3'ten ayırır."
+      ]
+    },
+    {
+      "title": "3. hafta · Groove",
+      "focus": "On altılık sayım, x ve temiz ses karşıtlığı.",
+      "exitCriteria": [
+        "İki ölçülük x-temiz döngüsü biter.",
+        "Bir ritim hedefi yazılır."
+      ]
+    },
+    {
+      "title": "4. hafta · Form ve kayıt",
+      "focus": "A-B-A-B formu, küçük varyasyon, performans.",
+      "exitCriteria": [
+        "Sekiz ölçülük tek kayıt vardır.",
+        "Bir güçlü yan ve sonraki hedef belirlenir."
+      ]
+    }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "title": "Akort ve zaman",
+      "goal": "Dört sayılık sabit nabzı kur.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "E-A-D-G-B-e tellerini akort et."
+        },
+        {
+          "min": 10,
+          "text": "60 metronomda 1-2-3-4 sayıp ayağınla vur."
+        },
+        {
+          "min": 8,
+          "text": "Gitarın gövdesine yalnız 2 ve 4'te hafif vur."
+        }
+      ],
+      "why": "Funkta güçlü zaman duygusu ilk malzemedir.",
+      "steps": [
+        "Her tık bir ana vuruştur.",
+        "Dört sayıdan sonra yeniden 1'e dön."
+      ],
+      "watch": [
+        "2 ve 4 vurgusunda hızlanma."
+      ],
+      "check": [
+        "Dört ölçü rahatça sayabiliyorsun.",
+        "2 ve 4 aynı yerde kalır."
+      ]
+    },
+    {
+      "day": 2,
+      "title": "Sekiz eşit parça",
+      "goal": "Bir ölçüde sekiz eşit hareket yap.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "1-ve-2-ve-3-ve-4-ve diye say."
+        },
+        {
+          "min": 10,
+          "text": "Pena elini tellerden uzakta aşağı-yukarı sekiz kez hareket ettir."
+        },
+        {
+          "min": 8,
+          "text": "Boş G telinde aynı hareketi hafifçe uygula."
+        }
+      ],
+      "why": "Sabit el hareketi kesik ritmi kolaylaştırır.",
+      "steps": [
+        "Sayıda aşağı, ve'de yukarı hareket et.",
+        "Metronom 60'ta kalsın."
+      ],
+      "watch": [
+        "Ve hecelerini acele söyleme."
+      ],
+      "check": [
+        "Sekiz hareket eşittir.",
+        "Tık ana sayılara denk gelir."
+      ]
+    },
+    {
+      "day": 3,
+      "title": "Sessiz vuruş",
+      "goal": "Çalmadığın yerde de eli hareket ettir.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Boş G telini her sayıda çal."
+        },
+        {
+          "min": 10,
+          "text": "Yalnız 2 ve 4'te G çal; diğer hareketler telin üstünden geçsin."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçüyü kaydet."
+        }
+      ],
+      "why": "Funk ritminde boşluk da belirgin görev taşır.",
+      "steps": [
+        "1 ve 3'te sağ el hareketi sürsün.",
+        "Sessiz yerde de say."
+      ],
+      "watch": [
+        "Sessizliği beklerken eli tamamen durdurma."
+      ],
+      "check": [
+        "2 ve 4 net temiz ve berrak duyuluyor.",
+        "Dört ölçü tempo korunur."
+      ]
+    },
+    {
+      "day": 4,
+      "title": "İlk kesik ses",
+      "goal": "Tek notayı kısa sürede sustur.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Boş G telini çalıp sol elin yumuşak dokunuşuyla sustur."
+        },
+        {
+          "min": 10,
+          "text": "Aynı teli 2 ve 4'te kısa çal."
+        },
+        {
+          "min": 8,
+          "text": "Kısa ve uzun sesleri sırayla kaydet."
+        }
+      ],
+      "why": "Kısa ses funk vuruşuna net kenar verir.",
+      "steps": [
+        "Vuruştan hemen sonra sol el parmağını tele hafif koy.",
+        "Susturma için teli perdeye bastırma."
+      ],
+      "watch": [
+        "El tele sert vurup ek ses çıkarma."
+      ],
+      "check": [
+        "Kısa ve uzun ses ayrılır.",
+        "2 ve 4 kısa kalır."
+      ]
+    },
+    {
+      "day": 5,
+      "title": "Perdeli iki ses",
+      "goal": "G ve B tellerinin 5. perdelerini temiz çal.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G5'e işaret, B5'e orta parmağı yerleştir."
+        },
+        {
+          "min": 10,
+          "text": "İki teli tek tek, sonra birlikte hafif vur."
+        },
+        {
+          "min": 8,
+          "text": "İki sesi dört kez kısa çal ve durdur."
+        }
+      ],
+      "why": "İki notalık küçük şekil hızlı ritimde kolay yönetilir.",
+      "steps": [
+        "Pena yalnız G ve B tellerine dokunsun.",
+        "Parmakları metal perdenin hemen arkasına koy."
+      ],
+      "watch": [
+        "Diğer teller çalıyorsa pena alanını daralt."
+      ],
+      "check": [
+        "İki ses temizdir.",
+        "Dört kısa vuruş yapılır."
+      ]
+    },
+    {
+      "day": 6,
+      "title": "Birinci mini kalıp",
+      "goal": "5. perdedeki iki sesi 2 ve 4'te çal.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G5-B5'i tek tek denetle."
+        },
+        {
+          "min": 10,
+          "text": "60 tempoda 2 ve 4'te iki tele kısa vur; 1 ve 3'te sus."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçü kaydet, istenmeyen teli işaretle."
+        }
+      ],
+      "why": "Az notalı tekrar ilk groove hissini kurar.",
+      "steps": [
+        "Her vuruş sonrası sol el baskısını gevşet.",
+        "Sağ elin nabız hareketi sürsün."
+      ],
+      "watch": [
+        "Baskıyı çok kaldırıp şekli kaybetme."
+      ],
+      "check": [
+        "2 ve 4'te iki ses gelir.",
+        "Diğer teller belirgin duyulmaz."
+      ]
+    },
+    {
+      "day": 7,
+      "title": "Hafif tekrar",
+      "goal": "Nabız ve kısa sesi sakin gözden geçir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort, dört sayı ve sekiz hareketi tekrarla."
+        },
+        {
+          "min": 5,
+          "text": "G5-B5 şeklini iki ölçü 2 ve 4'te çal."
+        },
+        {
+          "min": 5,
+          "text": "Kaydı dinleyip bir küçük hedef yaz."
+        }
+      ],
+      "why": "Hafif gün eli dinlendirir.",
+      "steps": [
+        "Tempo yükseltme.",
+        "Ses temizliğine odaklan."
+      ],
+      "watch": [
+        "Bugün uzun tekrar yapma."
+      ],
+      "check": [
+        "Şekil temiz çıkar.",
+        "Bir hedef yazılmıştır."
+      ]
+    },
+    {
+      "day": 8,
+      "title": "İkinci konum",
+      "goal": "İki sesli şekli 7. perdeye taşı.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G5-B5'i dört kez çal."
+        },
+        {
+          "min": 10,
+          "text": "İki parmağı birlikte G7-B7'ye taşı; iki sesi dinle."
+        },
+        {
+          "min": 8,
+          "text": "5 ve 7. perde şekillerini birer ölçü çal."
+        }
+      ],
+      "why": "Şekli taşıyarak iki farklı renk elde edilir.",
+      "steps": [
+        "Önce elleri durdurup hedef perdeyi bul.",
+        "Sağ el yalnız iki teli vursun."
+      ],
+      "watch": [
+        "Kayarken yüksek tel gürültüsü çıkarma."
+      ],
+      "check": [
+        "7. perde iki sesi temizdir.",
+        "İki konum sırayla gelir."
+      ]
+    },
+    {
+      "day": 9,
+      "title": "Kısa akor dokunuşu",
+      "goal": "Çift sesi çalınca hemen sustur.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "5. perde şeklini basıp kısa vur."
+        },
+        {
+          "min": 10,
+          "text": "Vuruştan sonra parmak baskısını kaldır ama tellerde kal."
+        },
+        {
+          "min": 8,
+          "text": "Aynısını 7. perde şeklinde dört kez yap."
+        }
+      ],
+      "why": "Bu kesik akor vuruşuna staccato denir.",
+      "steps": [
+        "Baskıyı gevşetmek sesi keser.",
+        "Aynı şekli korumak sonraki vuruşu kolaylaştırır."
+      ],
+      "watch": [
+        "Parmakları tellerden tamamen fırlatma."
+      ],
+      "check": [
+        "Her ses kısa biter.",
+        "İki şekil sırayla susturulur."
+      ]
+    },
+    {
+      "day": 10,
+      "title": "Sessiz çizik",
+      "goal": "Perdeli ses ile kuru ritim sesini ayır.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "G5-B5'i temiz, kısa çal."
+        },
+        {
+          "min": 10,
+          "text": "İki tele basmadan hafif dokunup penayla vur; kuru x sesi üret."
+        },
+        {
+          "min": 8,
+          "text": "Temiz-x-temiz-x dizisini 60 tempoda çal."
+        }
+      ],
+      "why": "Susturulmuş çizik ritme vurmalı bir renk katar.",
+      "steps": [
+        "x için sol el tele değsin ama perdeye bastırmasın.",
+        "Penayı çok küçük hareket ettir."
+      ],
+      "watch": [
+        "x sesinde belirgin nota çıkarsa baskıyı azalt."
+      ],
+      "check": [
+        "Temiz ve x ayrılır.",
+        "Dört vuruş eşit kalır."
+      ]
+    },
+    {
+      "day": 11,
+      "title": "İki ölçü sıra",
+      "goal": "5. ve 7. perdeyi birleştir.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Birinci ölçü G5-B5'te 2 ve 4'e kısa vur."
+        },
+        {
+          "min": 10,
+          "text": "İkinci ölçü G7-B7'de 2 ve 4'e kısa vur."
+        },
+        {
+          "min": 8,
+          "text": "İki ölçüyü dört kez kaydet."
+        }
+      ],
+      "why": "İki ölçülük döngü ayırt edilebilir bir fikir verir.",
+      "steps": [
+        "Değişimi yeni ölçünün 1'inde sessizce yap.",
+        "Her vuruştan sonra baskıyı gevşet."
+      ],
+      "watch": [
+        "Şekli değiştirmek için fazladan ölçü ekleme."
+      ],
+      "check": [
+        "İki perde doğru sıradadır.",
+        "Dört tur başarıyla tamamlanıyor."
+      ]
+    },
+    {
+      "day": 12,
+      "title": "Ve'de vuruş",
+      "goal": "Ana vuruşun arasına ses koy.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "1-ve-2-ve-3-ve-4-ve say."
+        },
+        {
+          "min": 10,
+          "text": "5. perde şeklini yalnız 2'nin ve'sinde kısa çal."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçü kaydet, 2 sayısından sonra vurduğunu dinle."
+        }
+      ],
+      "why": "Senkop, beklenen ana vuruşun arasını öne çıkarır.",
+      "steps": [
+        "2'de pena aşağı geçsin, ve'de yukarı vursun.",
+        "Boş diğer vuruşlarda el hareketini sürdür."
+      ],
+      "watch": [
+        "Ve'yi 3'e yapıştırma."
+      ],
+      "check": [
+        "Ses 2 ile 3 arasındadır.",
+        "Dört ölçü aynı yerde gelir."
+      ]
+    },
+    {
+      "day": 13,
+      "title": "Kısa ve ara ses",
+      "goal": "2'nin ve'si ile 4'ü birleştir.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Önce yalnız 2'nin ve'sini dört kez dene."
+        },
+        {
+          "min": 10,
+          "text": "5. perde şeklini 2'nin ve'sinde ve 4'te vur."
+        },
+        {
+          "min": 8,
+          "text": "İkinci ölçüde 7. perdeye taşıyıp tekrar et."
+        }
+      ],
+      "why": "İki sesin farklı yerlere konması groove'u kurar.",
+      "steps": [
+        "2-ve vuruşu yukarı, 4 vuruşu aşağı olsun.",
+        "Her ses kısa bitsin."
+      ],
+      "watch": [
+        "4'ü bir sonraki 1'e geciktirme."
+      ],
+      "check": [
+        "İki vurgu yerindedir.",
+        "İki ölçü tekrar edilir."
+      ]
+    },
+    {
+      "day": 14,
+      "title": "Hafif tekrar",
+      "goal": "İki şekli ve senkopu yavaş tekrarla.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "5. ve 7. perde seslerini denetle."
+        },
+        {
+          "min": 5,
+          "text": "2-ve ve 4 kalıbını iki ölçü çal."
+        },
+        {
+          "min": 5,
+          "text": "Kayıtta sorunlu bir vuruşu not et."
+        }
+      ],
+      "why": "Kısa tekrar ritmi pekiştirir.",
+      "steps": [
+        "Zor yeri gitar olmadan say.",
+        "Temiz sesleri tercih et."
+      ],
+      "watch": [
+        "Hız denemesi yapma."
+      ],
+      "check": [
+        "İki şekil temizdir.",
+        "Bir sorun yeri yazılmıştır."
+      ]
+    },
+    {
+      "day": 15,
+      "title": "On altı alt bölüm",
+      "goal": "Bir vuruşu dört eşit parçaya bölmeyi anlamak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Her tıkta 1-e-ve-a diye sesli say."
+        },
+        {
+          "min": 10,
+          "text": "Gitar olmadan her hecede küçük aşağı-yukarı el hareketi yap."
+        },
+        {
+          "min": 8,
+          "text": "60 tempoda yalnız 1 ve 3'te dizine vur."
+        }
+      ],
+      "why": "On altılık sayım yoğun funk ritmini okumayı kolaylaştırır.",
+      "steps": [
+        "e ve a heceleri ara bölümlerdir.",
+        "Saymak zor gelirse tempoyu 50'ye indir."
+      ],
+      "watch": [
+        "Heceleri eşit aralık yerine kümeler halinde hızlı söyleme."
+      ],
+      "check": [
+        "Bir ölçüde 16 hece vardır.",
+        "Ana sayılar tıklara denk gelir."
+      ]
+    },
+    {
+      "day": 16,
+      "title": "El motoru",
+      "goal": "Sağ eli on altılık akışta rahat tut.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Gitar olmadan 1-e-ve-a hareketini iki ölçü dene."
+        },
+        {
+          "min": 10,
+          "text": "G ve B tellerine sol elle dokunup x sesini yalnız 1 ve 3'te çıkar."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçü kaydet."
+        }
+      ],
+      "why": "Sabit el motoru seçilen sesleri zamanında yerleştirir.",
+      "steps": [
+        "Her hecede küçük yön değiştir.",
+        "x dışında eli tele değdirmeden geçir."
+      ],
+      "watch": [
+        "Tüm kolu büyük hareketle savurma."
+      ],
+      "check": [
+        "El dört alt bölümü izler.",
+        "x yalnız 1 ve 3'tedir."
+      ]
+    },
+    {
+      "day": 17,
+      "title": "Temiz vuruşu ekle",
+      "goal": "x ile 5. perde sesini birleştir.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Bir ölçü 1 ve 3'te x çal."
+        },
+        {
+          "min": 10,
+          "text": "Aynı ölçünün 2 ve 4'ünde G5-B5'i kısa çal."
+        },
+        {
+          "min": 8,
+          "text": "x-temiz-x-temiz örüntüsünü dört ölçü döndür."
+        }
+      ],
+      "why": "Susturulmuş ses ve net nota kontrast kurar.",
+      "steps": [
+        "Temiz vuruşta bas, hemen ardından baskıyı gevşet.",
+        "x sırasında aynı tellerde hafif dokunuş yeter."
+      ],
+      "watch": [
+        "x sesinde nota sızıyorsa fazla basıyorsun."
+      ],
+      "check": [
+        "İki x ve iki temiz ses ayrılır.",
+        "Dört ölçü kopmaz."
+      ]
+    },
+    {
+      "day": 18,
+      "title": "Vurguyu kaydır",
+      "goal": "Temiz sesi 2-ve'ye yerleştir.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "x seslerini 1 ve 3'te bırak."
+        },
+        {
+          "min": 10,
+          "text": "G5-B5'i 2-ve ve 4'te kısa vur."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçü 55-65 tempoda kaydet."
+        }
+      ],
+      "why": "Beklenmedik ara vuruş funk hareketini artırır.",
+      "steps": [
+        "2-ve'de yukarı pena kullan.",
+        "4'e kadar saymayı sürdür."
+      ],
+      "watch": [
+        "2-ve ile 3'ü birbirine karıştırma."
+      ],
+      "check": [
+        "Temiz ses 2-ve ve 4'tedir.",
+        "x 1 ve 3'tedir."
+      ]
+    },
+    {
+      "day": 19,
+      "title": "İki şekilli groove",
+      "goal": "Aynı ritmi 5 ve 7. perdede çal.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Bir ölçü G5-B5'te x, 2-ve, x, 4 sırasını çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci ölçüde G7-B7'ye geç."
+        },
+        {
+          "min": 8,
+          "text": "İki ölçüyü dört kez kaydet."
+        }
+      ],
+      "why": "Aynı ritmin iki perdeye taşınması küçük bir bölüm yapar.",
+      "steps": [
+        "Değişim için bir sonraki ölçünün 1'ini kullan.",
+        "İki şeklin ses yüksekliği dengeli olsun."
+      ],
+      "watch": [
+        "7'ye geçerken metronomdan kopma."
+      ],
+      "check": [
+        "İki perde doğru sıradadır.",
+        "Dört tur aynı ritimdedir."
+      ]
+    },
+    {
+      "day": 20,
+      "title": "Sessizlik deneyi",
+      "goal": "Bir x sesini çıkarıp boşluk bırak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Önce dünkü kalıbı çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci ölçüde 3'teki x'i atla ama eli hareket ettir."
+        },
+        {
+          "min": 8,
+          "text": "İki sürümü kaydedip farkı dinle."
+        }
+      ],
+      "why": "Boşluk yoğun ritmi nefes aldırır.",
+      "steps": [
+        "Atlanan 3'ü içinden söyle.",
+        "4'teki temiz sesi zamanında vur."
+      ],
+      "watch": [
+        "Boşlukta eli durdurma."
+      ],
+      "check": [
+        "İki sürüm fark edilir.",
+        "4 vuruşu yerindedir."
+      ]
+    },
+    {
+      "day": 21,
+      "title": "Hafif tekrar",
+      "goal": "İki ölçülük groove'u sakin çal.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Şekilleri temiz denetle."
+        },
+        {
+          "min": 5,
+          "text": "İki ölçülük ana kalıbı iki kez çal."
+        },
+        {
+          "min": 5,
+          "text": "Son hafta için tek ritim hedefi yaz."
+        }
+      ],
+      "why": "Hafif gün eli ve kulağı dinlendirir.",
+      "steps": [
+        "Zor yeri önce dizde say.",
+        "Tempo yükseltme."
+      ],
+      "watch": [
+        "Bugün yeni on altılık kalıp ekleme."
+      ],
+      "check": [
+        "Döngü biter.",
+        "Hedef yazılıdır."
+      ]
+    },
+    {
+      "day": 22,
+      "title": "Dört ölçülük form",
+      "goal": "İki ölçüyü iki kez tekrar et.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "5. perde ölçüsünü tek başına çal."
+        },
+        {
+          "min": 10,
+          "text": "7. perde ölçüsünü ekle ve bu ikiliyi iki kez döndür."
+        },
+        {
+          "min": 8,
+          "text": "Dört ölçüyü kağıda A-B-A-B diye yaz."
+        }
+      ],
+      "why": "Yazılı form tekrar sayısını korur.",
+      "steps": [
+        "A 5. perde, B 7. perde anlamına gelsin.",
+        "Ölçü başında perdeye ulaş."
+      ],
+      "watch": [
+        "A-B sırasını unutup aynı perdeyi dört ölçü çalma."
+      ],
+      "check": [
+        "Dört ölçü doğru sıradadır.",
+        "Her ölçüde 2-ve ve 4 vardır."
+      ]
+    },
+    {
+      "day": 23,
+      "title": "Kayma sesini temizle",
+      "goal": "5'ten 7'ye geçerken gürültüyü azalt.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "5 ve 7 şekillerini ayrı çal."
+        },
+        {
+          "min": 10,
+          "text": "5'teki son vuruş sonrası baskıyı gevşetip parmakları tele yakın taşı."
+        },
+        {
+          "min": 8,
+          "text": "A-B-A-B formunu kaydet."
+        }
+      ],
+      "why": "Temiz geçiş ritim aralarını açık tutar.",
+      "steps": [
+        "Kayarken penayla vurma.",
+        "Yeni perdeye ilk vuruştan önce ulaş."
+      ],
+      "watch": [
+        "Sürüklenme gürültüsü çoksa parmakları hafif kaldır."
+      ],
+      "check": [
+        "Geçişte uzun uğultu yoktur.",
+        "A-B formu kopmaz."
+      ]
+    },
+    {
+      "day": 24,
+      "title": "İkinci turun farkı",
+      "goal": "Son ölçüde tek seslik varyasyon yap.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "A-B-A-B düz formu çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci B ölçüsünde 4'te temiz vuruş yerine x koy."
+        },
+        {
+          "min": 8,
+          "text": "Sekiz ölçüye çıkarıp iki dört ölçülük turu kaydet."
+        }
+      ],
+      "why": "Küçük değişiklik tekrarların sonunu duyurur.",
+      "steps": [
+        "İlk dört ölçüyü aynen koru.",
+        "İkinci tur sonundaki x'ten sonra yeni 1'e dön."
+      ],
+      "watch": [
+        "Varyasyon yüzünden ölçü atlama."
+      ],
+      "check": [
+        "İki tur ayrılır.",
+        "Son x doğru yerdedir."
+      ]
+    },
+    {
+      "day": 25,
+      "title": "Tempo denemesi",
+      "goal": "Temiz çalabildiğin hızı seç.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "55, 65 ve 75 tempoda A-B'yi birer tur dene."
+        },
+        {
+          "min": 10,
+          "text": "En temiz tempoda sekiz ölçüyü çal."
+        },
+        {
+          "min": 8,
+          "text": "Kayıtta kayan yeri saniyeyle not et."
+        }
+      ],
+      "why": "Temiz ve sabit ritim yüksek hızdan değerlidir.",
+      "steps": [
+        "Sesler ve boşluklar yerindeyse tempoyu seç.",
+        "Gerekirse 55'in altına in."
+      ],
+      "watch": [
+        "Hız artınca şekil kirleniyorsa hızlı kalma."
+      ],
+      "check": [
+        "Tempo yazılıdır.",
+        "Sekiz ölçü o tempoda biter."
+      ]
+    },
+    {
+      "day": 26,
+      "title": "Dinleme ve yanıt",
+      "goal": "Kendi ritmini kayıttan tanımak.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "İki ölçülük A-B kalıbını çal."
+        },
+        {
+          "min": 10,
+          "text": "Kaydı dinleyip 1, 2-ve, 3, 4 yerlerini elinle işaretle."
+        },
+        {
+          "min": 8,
+          "text": "Yanlış bir vuruşu yalnız o ölçüde düzelt."
+        }
+      ],
+      "why": "Kulağa güvenmek eşlik becerisini güçlendirir.",
+      "steps": [
+        "Kaydı daha yavaş dinleyebiliyorsan kullan.",
+        "Hata yerini ölçü adıyla yaz."
+      ],
+      "watch": [
+        "Hata duyunca bütün parçayı baştan defalarca çalma."
+      ],
+      "check": [
+        "Dört ritim yeri gösterilir.",
+        "Bir yer düzeltilir."
+      ]
+    },
+    {
+      "day": 27,
+      "title": "Rahat el",
+      "goal": "Sekiz ölçüyü gereksiz güç kullanmadan çal.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Akort et, G ve B tellerini hafifçe yokla."
+        },
+        {
+          "min": 10,
+          "text": "Formu iki kez, arada dinlenerek çal."
+        },
+        {
+          "min": 8,
+          "text": "Omuz, bilek ve ses temizliğini kayıtta denetle."
+        }
+      ],
+      "why": "Gevşek hareket uzun ritimde tutarlılık sağlar.",
+      "steps": [
+        "Pena vuruşunu küçük tut.",
+        "Sol el baskısını yalnız temiz ses için kullan."
+      ],
+      "watch": [
+        "Ağrıyı çalışarak geçirmeye uğraşma."
+      ],
+      "check": [
+        "İki tam tur vardır.",
+        "Gergin bir hareket fark edilir."
+      ]
+    },
+    {
+      "day": 28,
+      "title": "Hazırlık sayısı",
+      "goal": "Groove'a tam 1'de girmek.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Metronomla iki ölçü sesli say."
+        },
+        {
+          "min": 10,
+          "text": "Üçüncü ölçünün 1'inde A şekliyle başla."
+        },
+        {
+          "min": 8,
+          "text": "Dört farklı başlangıcı kaydet ve erken olanı işaretle."
+        }
+      ],
+      "why": "Doğru giriş birlikte çalmanın temelidir.",
+      "steps": [
+        "Başlangıçtan önce iki kez 1-2-3-4 say.",
+        "İlk x'i tıkla aynı anda vur."
+      ],
+      "watch": [
+        "Hazırlığı kısaltma."
+      ],
+      "check": [
+        "Dört girişin üçü tıktadır.",
+        "A-B sırası korunur."
+      ]
+    },
+    {
+      "day": 29,
+      "title": "Tek sefer prova",
+      "goal": "Sekiz ölçüyü hata sonrası devam ederek kaydet.",
+      "blocks": [
+        {
+          "min": 7,
+          "text": "Şekilleri yavaş ısıt."
+        },
+        {
+          "min": 10,
+          "text": "İki tur A-B-A-B'yi durmadan çal."
+        },
+        {
+          "min": 8,
+          "text": "Kaydı dinleyip tek belirgin hatayı kısa düzelt."
+        }
+      ],
+      "why": "Tek seferlik performans akışı sınar.",
+      "steps": [
+        "Hata olsa sonraki ölçünün 1'ine katıl.",
+        "Kayıt başlamadan tempoyu söyle."
+      ],
+      "watch": [
+        "Kusursuzluk için eli yoracak kadar yineleme."
+      ],
+      "check": [
+        "Sekiz ölçülük prova vardır.",
+        "Bir düzeltme notu vardır."
+      ]
+    },
+    {
+      "day": 30,
+      "title": "Funk groove kaydı",
+      "goal": "Kısa özgün groove'u kaydedip değerlendir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et ve iki dakika hafif ısın."
+        },
+        {
+          "min": 15,
+          "text": "A-B-A-B dizisini iki tur seçtiğin tempoda iki kez kaydet."
+        },
+        {
+          "min": 10,
+          "text": "İlk haftayla karşılaştır; iki güçlü yan ve sonraki hedefi yaz."
+        }
+      ],
+      "why": "Öz değerlendirme bir sonraki çalışmayı yönlendirir.",
+      "steps": [
+        "2-ve ve 4 temiz seslerini; 1 ve 3 x seslerini denetle.",
+        "Kaydın temposunu not et."
+      ],
+      "watch": [
+        "Tek hata tüm ilerlemeyi geçersiz kılmaz."
+      ],
+      "check": [
+        "Sekiz ölçülük kesintisiz kayıt vardır.",
+        "Bir güçlü yan ve bir hedef yazılmıştır."
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Groove",
+      "meaning": "Tekrar eden ritmin düzenli ve hissedilir akışı.",
+      "exercise": "Aynı iki ölçüyü dört kez çal."
+    },
+    {
+      "term": "Ana vuruş",
+      "meaning": "1-2-3-4 diye sayılan büyük zaman noktası.",
+      "exercise": "Metronomla dört sayı say."
+    },
+    {
+      "term": "Sekizlik",
+      "meaning": "Bir ana vuruşun iki eşit parçaya bölünmesi.",
+      "exercise": "1-ve-2-ve-3-ve-4-ve say."
+    },
+    {
+      "term": "On altılık",
+      "meaning": "Bir ana vuruşun dört eşit parçaya bölünmesi.",
+      "exercise": "1-e-ve-a say."
+    },
+    {
+      "term": "Senkop",
+      "meaning": "Sesi ana vuruşun arası gibi beklenmedik yere koyma.",
+      "exercise": "2-ve'de tek kısa ses çal."
+    },
+    {
+      "term": "x sesi",
+      "meaning": "Sol elin telleri sustururken penanın çıkardığı kuru ritim sesi.",
+      "exercise": "G ve B tellerine hafif değip vur."
+    },
+    {
+      "term": "Staccato",
+      "meaning": "Notayı kısa keserek çalmak.",
+      "exercise": "Çift sesi vurunca sol el baskısını gevşet."
+    },
+    {
+      "term": "Çift ses",
+      "meaning": "İki telin birlikte duyulması; burada G ve B telleri.",
+      "exercise": "G5 ve B5'i birlikte çal."
+    },
+    {
+      "term": "Metronom",
+      "meaning": "Düzenli tıkla zamanı gösteren araç.",
+      "exercise": "60 tempoda dört ölçü say."
+    },
+    {
+      "term": "Vurgu",
+      "meaning": "Seçilen sesin çevresinden daha belirgin duyulması.",
+      "exercise": "2 ve 4 temiz seslerini x seslerinden belirgin çal."
+    }
+  ],
+  "nextMonth": [
+    "1. hafta: Aynı groove'u 5, 7 ve 9. perde çift seslerine taşı; her konumu yavaş temizle.",
+    "2. hafta: 2-ve dışında 4-ve vuruşunu ayrı bir ölçüde dene.",
+    "3. hafta: Dört ölçülük yeni x-temiz düzeni yazıp iki tempoda kaydet.",
+    "4. hafta: Bas veya davul döngüsüyle kendi ritminin girişini ve bitişini çalış."
+  ],
+  "practiceExample": {
+    "title": "Özgün İki Ölçülük Nile Rodgers Tarzı E9 Funk Ritim Kalıbı",
+    "notation": "Ölçü 1 (E9 Groove - Sarkaç Bilek)\nSayım:  1  e  &  a   2  e  &  a   3  e  &  a   4  e  &  a\nPena:   ↓  ↑  ↓  ↑   ↓  ↑  ↓  ↑   ↓  ↑  ↓  ↑   ↓  ↑  ↓  ↑\ne|------x--x--7--x---x--x--7--x---x--x--7--x---x--x--7--x---|\nB|------x--x--7--x---x--x--7--x---x--x--7--x---x--x--7--x---|\nG|------x--x--7--x---x--x--7--x---x--x--7--x---x--x--7--x---|\nD|------x--x--6--x---x--x--6--x---x--x--6--x---x--x--6--x---|\nA|-----------------------------------------------------------|\nE|-----------------------------------------------------------|\n       (chk-chk-ÇIK-chk-chk-chk-ÇIK...) Sol el bas-bırak tekniği",
+    "howTo": "1. Adım: Sağ el bileğin 16'lık notalarda (1-e-&-a) aşağı-yukarı hiç durmadan bir sarkaç gibi sallansın.\n2. Adım: Sol elin E9 akorunun üzerinde dursun ama basmasın; tellere hafifçe değerek 'tıkır tıkır' perküsyone ses (ghost note) çıkarsın.\n3. Adım: Yalnızca '&' vuruşlarında sol elinle telleri perdeye sıkıca bastırıp anında gevşet! Ses birden parlayıp hemen susmalıdır.\nHocanın Püf Noktası: Funkta sessizlik de bir notadır! Akoru ne kadar çabuk susturursan, groove o kadar lezzetli ve dans ettirici olur!"
+  },
+  "sources": [
+    {
+      "title": "Berklee Online: Rhythm and Groove Guitar",
+      "url": "https://online.berklee.edu/courses/rhythm-and-groove-guitar",
+      "usedFor": "Senkop, susturulmuş ritim, on altılık ve groove pedagojisi."
+    },
+    {
+      "title": "Fender: Learn to Play R&B and Soul Songs",
+      "url": "https://www.fender.com/articles/songs/r-and-b-soul-path",
+      "usedFor": "Vurmalı ritim, tel susturma ve James Brown funk bağlantısı."
+    },
+    {
+      "title": "Fender: Easy Tips for Playing Rhythm Guitar",
+      "url": "https://www.fender.com//articles/techniques/killer-rhythm-without-practice",
+      "usedFor": "Bölünmüş vuruş ve aşağı-yukarı pena temeli."
+    },
+    {
+      "title": "Fender: Fret Buzz: 5 Ways to Stop the Buzz",
+      "url": "https://www.fender.com/articles/techniques/5-ways-to-stop-fret-buzz",
+      "usedFor": "Perde arkasına basma, uygun baskı ve sert vuruştan kaçınma."
+    },
+    {
+      "title": "Guitar World — Nile Rodgers: The Secrets of 'Chucking' and 16th-Note Rhythm",
+      "url": "https://www.guitarworld.com/lessons/nile-rodgers-funk-rhythm-guitar-secrets",
+      "usedFor": "Sürekli 16'lık sarkaç bilek hareketi, hayalet vuruşlar ve üç tele odaklanma."
+    },
+    {
+      "title": "Premier Guitar — Funk Guitar 101: 9th Chords and Syncopated Grooves",
+      "url": "https://www.premierguitar.com/lessons/funk-guitar-101",
+      "usedFor": "Dominant 9 akor şekilleri, sol el susturma dinamiği ve mikrotonal zamanlama."
+    }
+  ]
+}

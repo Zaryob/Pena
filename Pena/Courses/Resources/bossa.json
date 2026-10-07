@@ -1,0 +1,1053 @@
+{
+  "id": "bossa",
+  "title": "30 Günde Bossa Nova Gitar Eşliği",
+  "subtitle": "João Gilberto'nun efsanevi 'batida' ritmi, senkoplu üst akorlar ve Rio sahillerinin büyüleyici armoni dili",
+  "instrument": "Tercihen naylon telli gitar; akustik gitar da kullanılabilir",
+  "level": "Temel açık akorları bilen başlangıç öğrencisi",
+  "dailyMinutes": 25,
+  "monthGoal": "Bossa Nova'nın kalbi olan João Gilberto 'batida'sını keşfetmek: Başparmağın surdo davulu gibi düzenli bas yürürken, diğer parmaklarınla zarif ve senkoplu üst akorları (Cmaj7, Dm7, G13, Am7) dans ettirebilmek. Ay sonunda Rio sahillerinin o büyüleyici, serin ve akıcı tınısını kendi gitarından gururla duyabilmek.",
+  "prerequisites": "Temel açık akorları basabilmek ve iki vuruşlu ritimleri takip edebilmek faydalıdır. Bossa Nova'da teller sertçe çekilmez; parmak uçlarıyla adeta fısıldanır. Başparmak ve diğer parmakların bağımsız hareket etmesi ilk birkaç gün beyin jimnastiği gibi gelebilir; bu çok doğaldır ve kısa sürede alışkanlığa dönüşür.",
+  "materials": [
+    "Tercihen naylon telli klasik gitar (akustik gitarla da çalışılabilir)",
+    "Akort cihazı veya telefon uygulaması",
+    "Dahili sayfa metronomu (70–80 BPM arası tavsiye edilir)",
+    "Klasik bir Bossa Nova albümü (örn: João Gilberto - Chega de Saudade veya Getz/Gilberto)",
+    "Ses kaydı yapabilen telefon ve çalışma günlüğü"
+  ],
+  "weeks": [
+    {
+      "title": "1. hafta: İki vuruş ve el görevleri",
+      "focus": "Bas, üst akor ve ara vuruşları ayrı öğrenme.",
+      "exitCriteria": [
+        "Sekiz 2/4 ölçüsü sayar.",
+        "Am7 üzerinde bası ve üst akoru ayırır."
+      ]
+    },
+    {
+      "title": "2. hafta: İki ölçülük giriş örneği",
+      "focus": "Seçilen senkoplu alıştırma ve iki akor.",
+      "exitCriteria": [
+        "Basları 1 ve 2 üzerinde tutar.",
+        "Am7-Cmaj7 arasında dört çift ölçü çalar."
+      ]
+    },
+    {
+      "title": "3. hafta: Dört akor ve bas çeşidi",
+      "focus": "Dm7-G7 ekleme, isteğe bağlı beşinci bas.",
+      "exitCriteria": [
+        "Dört akoru sırayla çalar.",
+        "Dm7 ve G7 kök-beşinci seslerini bulur."
+      ]
+    },
+    {
+      "title": "4. hafta: Çeşit ve kayıt",
+      "focus": "Kaydı dinleme ve sekiz ölçülük ilerleyişi sürdürme.",
+      "exitCriteria": [
+        "Sekiz ölçüyü iki tur kaydeder.",
+        "Üç somut değerlendirme notu yazar."
+      ]
+    }
+  ],
+  "days": [
+    {
+      "title": "Dinleme",
+      "goal": "Bas ve üst akoru ayır.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kısa bossa gitar kaydı aç."
+        },
+        {
+          "min": 10,
+          "text": "Ayağınla iki vuruş say, kalın sesleri dinle."
+        },
+        {
+          "min": 10,
+          "text": "Üst akorun aradaki seslerini yaz."
+        }
+      ],
+      "why": "Kulak olmadan kalıp ezberi stil kurmaz.",
+      "steps": [
+        "Kaydı dinlerken ayağınla 1-2 say; kalın sesleri işaretle.",
+        "Aynı yeri tekrar açıp ince tellerin ana vuruşun arasına gelip gelmediğini yaz."
+      ],
+      "watch": [
+        "İlk anda her şeyi birden kusursuz yapmaya çalışma; adım adım kulak ver."
+      ],
+      "check": [
+        "Dört ölçü rahatça sayabiliyorsun.",
+        "İki ses görevi kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "2/4 sayımı",
+      "goal": "İki vuruşlu ölçüyü koru.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Metronom açıp 1-2 say."
+        },
+        {
+          "min": 10,
+          "text": "Her iki tıkta dizine hafif vur."
+        },
+        {
+          "min": 10,
+          "text": "Sekiz ölçü boyunca yeni 1 yerini izle."
+        }
+      ],
+      "why": "Bas çizgisi bu sayıya dayanır.",
+      "steps": [
+        "Metronom tıklarına sırayla 1 ve 2 de.",
+        "Sekizinci ölçüye kadar say; her yeni 1 için ayağını aynı güçte bas."
+      ],
+      "watch": [
+        "Dört sayıya kayma."
+      ],
+      "check": [
+        "Sekiz ölçü rahatça oturuyor.",
+        "Yeni 1 tıkla tam bir uyumla örtüşüyor."
+      ]
+    },
+    {
+      "title": "Ara sesler",
+      "goal": "1-ve-2-ve say.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Tıklarda 1 ve 2 de."
+        },
+        {
+          "min": 10,
+          "text": "Arada kalan noktalarda ve diye alkışla."
+        },
+        {
+          "min": 10,
+          "text": "Dört ölçü yalnız ve noktalarını alkışla."
+        }
+      ],
+      "why": "Senkop için boşluğu duymak gerekir.",
+      "steps": [
+        "Bir metronom tıkına 1, sonraki tıkına 2 de; aradaki zamanları ve diye söyle.",
+        "Dört ölçü boyunca yalnız ve noktalarında hafif alkış yap."
+      ],
+      "watch": [
+        "Ve vuruşa yapışmasın."
+      ],
+      "check": [
+        "Dört ölçü rahatça sayabiliyorsun.",
+        "Alkış tık arasıdır."
+      ]
+    },
+    {
+      "title": "Başparmak bası",
+      "goal": "İki düzenli bas çal.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Am7 için açık 5. tel La bul."
+        },
+        {
+          "min": 10,
+          "text": "Başparmakla 1 ve 2 üzerine La çal."
+        },
+        {
+          "min": 10,
+          "text": "Sekiz ölçü boyunca saymayı sürdür."
+        }
+      ],
+      "why": "Bas zaman çıpasıdır.",
+      "steps": [
+        "Am7 akorunun açık La telini başparmakla bul.",
+        "1 ve 2 üzerinde aynı teli çal; diğer sağ el parmaklarını hareketsiz tut."
+      ],
+      "watch": [
+        "Teli sert koparma."
+      ],
+      "check": [
+        "Her ölçüde iki bas sesi temiz ve berrak duyuluyor.",
+        "Sekiz ölçü sürer."
+      ]
+    },
+    {
+      "title": "Üst akor eli",
+      "goal": "İnce telleri birlikte çek.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Sol elle telleri nazikçe sustur."
+        },
+        {
+          "min": 10,
+          "text": "Sağ i-m-a parmaklarını üç ince tele yerleştirip birlikte çek."
+        },
+        {
+          "min": 10,
+          "text": "Başparmak ve parmak seslerini sırayla dene."
+        }
+      ],
+      "why": "El görevleri ayrılmalıdır.",
+      "steps": [
+        "İşaret, orta ve yüzük parmağını üç ince telin önüne yerleştir.",
+        "Üçünü birlikte küçük hareketle çek; başparmak sesinden ayrı duyulmasını sağla."
+      ],
+      "watch": [
+        "Bütün telleri vurma."
+      ],
+      "check": [
+        "Üç tel birlikte temiz ve berrak duyuluyor.",
+        "Bas ayrı temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "Am7",
+      "goal": "İlk yedili akoru kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Am7 x02010 şeklinde 4. tel 2., 2. tel 1. perdeyi bas."
+        },
+        {
+          "min": 10,
+          "text": "5. açık tel La basını ve üst telleri kontrol et."
+        },
+        {
+          "min": 10,
+          "text": "Bir ölçü bas, bir ölçü üst akor çal."
+        }
+      ],
+      "why": "Temiz akor ritimden önce gelir.",
+      "steps": [
+        "Am7 şeklinde dördüncü tel ikinci, ikinci tel birinci perdeye bas.",
+        "Beşinci açık La telini çal, sonra ince telleri ayrı yokla; altıncı teli sustur."
+      ],
+      "watch": [
+        "Kalın 6. teli sustur."
+      ],
+      "check": [
+        "Am7 temizdir.",
+        "İki ölçü biter."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 1",
+      "goal": "El ve sayımı gözden geçir.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Dört ölçü 1-ve-2-ve say."
+        },
+        {
+          "min": 7,
+          "text": "Am7 basını 1 ve 2 üzerinde dört ölçü çal."
+        },
+        {
+          "min": 5,
+          "text": "Bir üst akor ekleyip el rahatlığını yaz."
+        }
+      ],
+      "why": "Hafif gün dinleme fırsatıdır.",
+      "steps": [
+        "1-ve-2-ve sayımını dört ölçü boyunca yürüt.",
+        "Başparmağı yalnız 1 ve 2 üzerine koy; tek üst akordan sonra elinin rahatlığını yaz."
+      ],
+      "watch": [
+        "Ağrıda ara ver."
+      ],
+      "check": [
+        "Dört ölçü sürer.",
+        "Rahatlık not edilir."
+      ]
+    },
+    {
+      "title": "İki ölçü örneği",
+      "goal": "Başlangıç bas-akor kalıbı dene.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Am7 üstünde 1-ve-2-ve say."
+        },
+        {
+          "min": 10,
+          "text": "Ölçü 1: bas, akor, bas, sus yerleştir."
+        },
+        {
+          "min": 10,
+          "text": "Ölçü 2: bas, akor, bas, akor yerleştir; dört çift dön."
+        }
+      ],
+      "why": "Bu bir eğitim örneğidir.",
+      "steps": [
+        "İlk ölçüyü 1 bas, 1-ve akor, 2 bas, 2-ve sessiz olarak say.",
+        "İkinci ölçüde son ve yerine de hafif akor koy; iki ölçüyü dört tur döndür."
+      ],
+      "watch": [
+        "Son akoru yeni 1 sanma."
+      ],
+      "check": [
+        "Dört çift biter.",
+        "Baslar ana vuruştadır."
+      ]
+    },
+    {
+      "title": "Sabit bas",
+      "goal": "Üst akor değişirken bası koru.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Örneği bir kez yalnız say."
+        },
+        {
+          "min": 10,
+          "text": "Sekiz ölçü yalnız bas çal."
+        },
+        {
+          "min": 10,
+          "text": "Akorları ekleyip basın kayıp kaymadığını dinle."
+        }
+      ],
+      "why": "Katmanlar bağımsız kalmalıdır.",
+      "steps": [
+        "Sekiz ölçü boyunca yalnız başparmakla iki bas çal.",
+        "İnce tel akorlarını aralara eklerken başparmağın metronomla aynı anda kaldığını dinle."
+      ],
+      "watch": [
+        "Senkopta başparmağı erkene çekme."
+      ],
+      "check": [
+        "Bas yerindedir.",
+        "Akor arada temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "Sessiz ara",
+      "goal": "Boş 2-ve noktasını koru.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İlk ölçü örneğini dört kez çal."
+        },
+        {
+          "min": 10,
+          "text": "2-ve üzerinde ve de ama çalma."
+        },
+        {
+          "min": 10,
+          "text": "İkinci ölçünün son akorunu ekle."
+        }
+      ],
+      "why": "Susuş yön duygusu verir.",
+      "steps": [
+        "İlk ölçünün son ve noktasını sesli söyle ama telleri çekme.",
+        "İkinci ölçünün son ve noktasında akoru çal; iki ölçü arasındaki farkı kaydet."
+      ],
+      "watch": [
+        "Boşluğu vurma."
+      ],
+      "check": [
+        "Susuş korunur.",
+        "Son akor yalnız ikinci ölçüdedir."
+      ]
+    },
+    {
+      "title": "Cmaj7",
+      "goal": "İkinci akoru kur.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Cmaj7 x32000 şeklinde 5. tel 3., 4. tel 2. perdeyi bas."
+        },
+        {
+          "min": 10,
+          "text": "5.-1. telleri kontrol et."
+        },
+        {
+          "min": 10,
+          "text": "İki ölçü örneğini üç çift uygula."
+        }
+      ],
+      "why": "Yeni akor aynı ritme taşınır.",
+      "steps": [
+        "Cmaj7 için beşinci tel üçüncü, dördüncü tel ikinci perdeye bas.",
+        "Kalın altıncı teli sustur; diğer telleri sırayla temiz çal."
+      ],
+      "watch": [
+        "6. tel çınlamasın."
+      ],
+      "check": [
+        "Akor temizdir.",
+        "Üç çift yapılır."
+      ]
+    },
+    {
+      "title": "Am7-Cmaj7",
+      "goal": "Akor değiştirirken bası tut.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Bir çift Am7, bir çift Cmaj7 say."
+        },
+        {
+          "min": 10,
+          "text": "Her çift başında ilgili kökü bul."
+        },
+        {
+          "min": 10,
+          "text": "Dört çift çal; zorlanırsan yalnız bas sürdür."
+        }
+      ],
+      "why": "Bas geçişi taşır.",
+      "steps": [
+        "Am7 ve Cmaj7 için bas telini önce ayrı göster.",
+        "Akor değişirken parmak gecikse de başparmak basını yeni 1 üzerinde tut."
+      ],
+      "watch": [
+        "Saymayı durdurma."
+      ],
+      "check": [
+        "Dört çift vardır.",
+        "Yeni bas zamanındadır."
+      ]
+    },
+    {
+      "title": "Yumuşaklık",
+      "goal": "Üst akoru hafiflet.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Am7 basını orta güçte çal."
+        },
+        {
+          "min": 10,
+          "text": "Üst akoru hafif tutarak iki çift kaydet."
+        },
+        {
+          "min": 10,
+          "text": "İkinci sürümde üstü daha yumuşak yap."
+        }
+      ],
+      "why": "Doku melodiyi örtmemelidir.",
+      "steps": [
+        "Başparmak basını orta güçte, ince telleri daha hafif çal.",
+        "İki kısa kaydı dinleyip hangisinde üst akorun melodiyi daha az örteceğini söyle."
+      ],
+      "watch": [
+        "Yumuşaklık ritmi bozmasın."
+      ],
+      "check": [
+        "İki düzey temiz ve berrak duyuluyor.",
+        "Bas yerindedir."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 2",
+      "goal": "İki akoru rahat dene.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Örneği yalnız say."
+        },
+        {
+          "min": 7,
+          "text": "Am7 ve Cmaj7 üzerinde birer çift çal."
+        },
+        {
+          "min": 5,
+          "text": "Zor ara vuruşu yaz."
+        }
+      ],
+      "why": "Sorunu adlandırmak çalışmayı yönlendirir.",
+      "steps": [
+        "Önce ara noktaları yalnız sözle say, gitara uzanma.",
+        "Am7 ve Cmaj7 akorlarını birer iki ölçülük tur çal; zor ve noktasını işaretle."
+      ],
+      "watch": [
+        "Hızı artırma."
+      ],
+      "check": [
+        "İki akor çalınır.",
+        "Zor yer kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "Dm7",
+      "goal": "Re baslı akoru ekle.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dm7 xx0211 şeklini kur."
+        },
+        {
+          "min": 10,
+          "text": "Açık 4. tel Re basını, üst telleri ayrı kontrol et."
+        },
+        {
+          "min": 10,
+          "text": "Bir çift yalnız bas, bir çift tam örnek çal."
+        }
+      ],
+      "why": "Yeni kök armoniyi ilerletir.",
+      "steps": [
+        "Dm7 için açık dördüncü tel Re basını hazırla.",
+        "İkinci ve birinci telin birinci perdesini basıp üst sesleri yokla; kalın telleri dışarıda bırak."
+      ],
+      "watch": [
+        "5 ve 6. telleri vurma."
+      ],
+      "check": [
+        "Üst sesler temizdir.",
+        "İki çift biter."
+      ]
+    },
+    {
+      "title": "G7",
+      "goal": "Sol baslı akoru ekle.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "G7 320001 şeklini kur."
+        },
+        {
+          "min": 10,
+          "text": "6. tel 3. perde Sol basını bul."
+        },
+        {
+          "min": 10,
+          "text": "İki ölçü örneğini iki çift çal."
+        }
+      ],
+      "why": "Dört akor ilerleyiş olur.",
+      "steps": [
+        "G7 için altıncı tel üçüncü perde Sol sesini bul.",
+        "Akorun öbür tellerini tek tek dinle; iki ölçü bas-akor görevini ayır."
+      ],
+      "watch": [
+        "Açık 5. teli bas sanma."
+      ],
+      "check": [
+        "G7 temizdir.",
+        "İki çift vardır."
+      ]
+    },
+    {
+      "title": "Dört akor",
+      "goal": "Cmaj7-Am7-Dm7-G7 sırasını çal.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kök basları sırayla söyle."
+        },
+        {
+          "min": 10,
+          "text": "Her akora iki ölçülük örneği uygula."
+        },
+        {
+          "min": 10,
+          "text": "Dört akoru iki tam tur yap."
+        }
+      ],
+      "why": "Harmoni ritimde duyulur.",
+      "steps": [
+        "Cmaj7-Am7-Dm7-G7 adlarını dört satıra yaz.",
+        "Her akora iki ölçü ayır; sekizinci ölçüden sonra yeni turun ilk Do basına dön."
+      ],
+      "watch": [
+        "2-ve akorunu unutma."
+      ],
+      "check": [
+        "Dört akor sıralıdır.",
+        "İki tur biter."
+      ]
+    },
+    {
+      "title": "Beşinci ses",
+      "goal": "Kökten sonraki beşinciyi duy.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dm7 için Re açık 4., La açık 5. tel bul."
+        },
+        {
+          "min": 10,
+          "text": "G7 için Sol 6. tel 3. perde, Re açık 4. tel bul."
+        },
+        {
+          "min": 10,
+          "text": "Birer ölçü 1 kök, 2 beşinci çal."
+        }
+      ],
+      "why": "Bas çeşidi renk verir.",
+      "steps": [
+        "Dm7 kökü Re için açık dördüncü teli, beşinci La için açık beşinci teli çal.",
+        "G7 kökü Sol ile beşinci Re sesini aynı 1-2 sayımında karşılaştır."
+      ],
+      "watch": [
+        "Beşinci zorunlu değildir."
+      ],
+      "check": [
+        "Dört ses doğrudur.",
+        "Vuruşlar eşittir."
+      ]
+    },
+    {
+      "title": "Bas çeşidi",
+      "goal": "Dm7 ve G7 üzerinde beşinci dene.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kök-beşinci çiftlerini tekrarla."
+        },
+        {
+          "min": 10,
+          "text": "İki ölçü örneğinde 1 kök, 2 beşinci çal."
+        },
+        {
+          "min": 10,
+          "text": "Üst akoru ekleyip bas zamanını dinle."
+        }
+      ],
+      "why": "Renk değişirken ritim kalır.",
+      "steps": [
+        "Dm7 üzerinde 1 Re ve 2 La çal; G7 üzerinde 1 Sol ve 2 Re çal.",
+        "Üst akorları ve noktalarında ekle; basların erken kaymadığını kontrol et."
+      ],
+      "watch": [
+        "Yeni tele giderken acele etme."
+      ],
+      "check": [
+        "Bas yerindedir.",
+        "Üst akor aradadır."
+      ]
+    },
+    {
+      "title": "2-ve akoru",
+      "goal": "Son akoru yeni ölçüye bağla.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İki ölçü örneğini say."
+        },
+        {
+          "min": 10,
+          "text": "İkinci ölçü 2-ve akorunu biraz uzat."
+        },
+        {
+          "min": 10,
+          "text": "Sonraki 1 basını zamanında getir."
+        }
+      ],
+      "why": "Öne alma akış hissi verir.",
+      "steps": [
+        "İkinci ölçüdeki son üst akoru 2-ve üzerine koy.",
+        "Akor hafifçe sürerken sonraki ölçünün 1 basını geciktirmeden çal."
+      ],
+      "watch": [
+        "2-ve sesini 2 üzerine çekme."
+      ],
+      "check": [
+        "Son akor aradadır.",
+        "Yeni bas gecikmez."
+      ]
+    },
+    {
+      "title": "Hafif tekrar 3",
+      "goal": "Akor ve basları kontrol et.",
+      "blocks": [
+        {
+          "min": 3,
+          "text": "Dört kök bası sırayla çal."
+        },
+        {
+          "min": 7,
+          "text": "Dm7-G7 üzerinde birer çift örnek uygula."
+        },
+        {
+          "min": 5,
+          "text": "Bas mı akor mu kaydı yaz."
+        }
+      ],
+      "why": "Hafif gün kaymayı gösterir.",
+      "steps": [
+        "Cmaj7-Am7-Dm7-G7 köklerini ayrı birer kez çal.",
+        "Dm7-G7 üzerinde yalnız iki ölçülük tur yap; hangi elin kaydığını yaz."
+      ],
+      "watch": [
+        "Zor çeşidi çıkarabilirsin."
+      ],
+      "check": [
+        "İki akor vardır.",
+        "Kayma not edilir."
+      ]
+    },
+    {
+      "title": "Kayıt karşılaştır",
+      "goal": "Gerçek icra çeşitliliğini duy.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Bossa gitar kaydını iki kez dinle."
+        },
+        {
+          "min": 10,
+          "text": "Bizim örnekten farklı gelen bir akor yerini bul."
+        },
+        {
+          "min": 10,
+          "text": "Farkı cümleyle yaz."
+        }
+      ],
+      "why": "Gerçek eşliklerde kalıp çeşidi vardır.",
+      "steps": [
+        "Kısa kayıtta başparmak baslarını dinle, sonra üst akorları dinle.",
+        "Bizim alıştırmadan farklı gelen tek akor zamanını yaz; kalıp çeşitliliğini kabul et."
+      ],
+      "watch": [
+        "Örneği evrensel sayma."
+      ],
+      "check": [
+        "Bir fark bulunur.",
+        "Fark kendi hislerinle not defterine yazıyorsun."
+      ]
+    },
+    {
+      "title": "Tek değişim",
+      "goal": "Küçük ritim seçeneği üret.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Cmaj7 örneğini bir çift çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci ölçü 1-ve akorunu sustur."
+        },
+        {
+          "min": 10,
+          "text": "İki sürümü kaydet; basların aynı kaldığını kontrol et."
+        }
+      ],
+      "why": "Tek değişim dinlemeyi geliştirir.",
+      "steps": [
+        "Cmaj7 üzerinde önce temel iki ölçüyü çal.",
+        "Tek bir 1-ve akorunu kaldırıp tekrar et; basların yerinin değişmediğini kayıtta ara."
+      ],
+      "watch": [
+        "Birden çok yeri değiştirme."
+      ],
+      "check": [
+        "Tek akor çıkar.",
+        "Bas sabittir."
+      ]
+    },
+    {
+      "title": "İki akor eşliği",
+      "goal": "Melodiye yer bırak.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Am7-Dm7 çiftini hazırla."
+        },
+        {
+          "min": 10,
+          "text": "Her akora iki ölçü uygula."
+        },
+        {
+          "min": 10,
+          "text": "Üstüne bir uzun ses mırıldanıp bası dinle."
+        }
+      ],
+      "why": "Eşlik melodiyi taşımalıdır.",
+      "steps": [
+        "Am7 ve Dm7 köklerini yeni 1 üzerinde başlat.",
+        "Dört ölçü akor eşliği çalarken tek uzun ses mırıldan; basın hızını koru."
+      ],
+      "watch": [
+        "Mırıldanırken hızlanma."
+      ],
+      "check": [
+        "Dört ölçü biter.",
+        "Bas sürer."
+      ]
+    },
+    {
+      "title": "Sekiz ölçü kayıt",
+      "goal": "Dört akoru biçimde tut.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Cmaj7-Am7-Dm7-G7 köklerini çal."
+        },
+        {
+          "min": 10,
+          "text": "Her akora iki ölçü verip kaydet."
+        },
+        {
+          "min": 10,
+          "text": "Kayıtta ölçü atlanmış mı say."
+        }
+      ],
+      "why": "Kayıt kesintiyi gösterir.",
+      "steps": [
+        "Dört akorun kök baslarını sırayla gösterip adlarını söyle.",
+        "Her akora iki ölçü ver; kaydı dinlerken sekiz yeni 1 noktasını say."
+      ],
+      "watch": [
+        "Yanlışta kaydı hemen durdurma."
+      ],
+      "check": [
+        "Sekiz ölçü vardır.",
+        "Sıra doğrudur."
+      ]
+    },
+    {
+      "title": "İkinci tur çeşidi",
+      "goal": "Bas varyasyonu ekle.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İlk sekiz ölçüyü temel örnekle çal."
+        },
+        {
+          "min": 10,
+          "text": "İkinci turda yalnız Dm7 basına beşinciyi koy."
+        },
+        {
+          "min": 10,
+          "text": "İki sürümü kaydet ve farkı söyle."
+        }
+      ],
+      "why": "Sınırlı değişim biçimi korur.",
+      "steps": [
+        "İlk turda her akora iki ölçü ayır; ikinci tura geçmeden sekize kadar ölçüleri say.",
+        "İkinci turda yalnız Dm7 ölçülerinin ikinci basını La yap; farkı dinle."
+      ],
+      "watch": [
+        "Tüm basları değiştirme."
+      ],
+      "check": [
+        "İki tur vardır.",
+        "Fark söylenir."
+      ]
+    },
+    {
+      "title": "Prova",
+      "goal": "Eşliği durmadan sürdür.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et ve 1-ve-2-ve say."
+        },
+        {
+          "min": 10,
+          "text": "Sekiz ölçüyü iki tur kaydet."
+        },
+        {
+          "min": 10,
+          "text": "Bas, üst akor ve susuş için birer gözlem yaz."
+        }
+      ],
+      "why": "Prova devam etmeyi öğretir.",
+      "steps": [
+        "Akorttan sonra iki ölçü 1-ve-2-ve diye say.",
+        "İki sekiz ölçülük turu durmadan kaydet; bas, akor ve susuşu ayrı değerlendir."
+      ],
+      "watch": [
+        "Hata sonrası yeni 1 yakala."
+      ],
+      "check": [
+        "İki tur kayıttadır.",
+        "Üç gözlem vardır."
+      ]
+    },
+    {
+      "title": "Ritim onarımı",
+      "goal": "En belirgin kaymayı düzelt.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dünkü sorunlu akoru bul."
+        },
+        {
+          "min": 10,
+          "text": "İki ölçüsünü altı kez yalnız bas ve sonra tam örnekle çal."
+        },
+        {
+          "min": 10,
+          "text": "Tam ilerleyişi bir kez dene."
+        }
+      ],
+      "why": "Dar odak etkilidir.",
+      "steps": [
+        "Dünkü kayıtta bası kaydıran akoru işaretle.",
+        "O akorda önce yalnız iki bası, sonra üst akorları altı yavaş turda ekle."
+      ],
+      "watch": [
+        "Hızla hatayı örtme."
+      ],
+      "check": [
+        "Altı deneme vardır.",
+        "Tam ilerleyiş biter."
+      ]
+    },
+    {
+      "title": "Son temizleme",
+      "goal": "Çalışmayı gevşek biçimde toparla.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "En rahat akoru bir çift ölçü çal."
+        },
+        {
+          "min": 10,
+          "text": "En zor akoru yavaş altı kez döndür."
+        },
+        {
+          "min": 10,
+          "text": "Dört akoru bir kez çalıp bırak."
+        }
+      ],
+      "why": "Son gün aşırı tekrar fayda vermez.",
+      "steps": [
+        "En temiz akorla iki ölçülük tur yapıp eli gevşet.",
+        "En zor akorda altı çok yavaş tekrar yap; dört akoru yalnız bir tur bitir."
+      ],
+      "watch": [
+        "Ağrı varsa çalışmayı bitir."
+      ],
+      "check": [
+        "Altı yavaş deneme vardır.",
+        "Tam tur bir kez biter."
+      ]
+    },
+    {
+      "title": "30. gün kayıt",
+      "goal": "Bossa giriş eşliğini değerlendir.",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Dört kök bası bir kez çal."
+        },
+        {
+          "min": 10,
+          "text": "Dört akoru ikişer ölçüyle iki tur kaydet."
+        },
+        {
+          "min": 10,
+          "text": "Ritim, denge ve temizlik kanıtı yazıp yeni hedef seç."
+        }
+      ],
+      "why": "Somut gözlem sonraki aya yön verir.",
+      "steps": [
+        "Dört kök bası ayrı ayrı temiz sesle çal.",
+        "İki tam turu kaydet; bas zamanına, ses dengesine ve akor temizliğine birer kanıt yaz."
+      ],
+      "watch": [
+        "Tek örneği bütün stil sanma."
+      ],
+      "check": [
+        "İki tur kayıttadır.",
+        "Üç kanıt ve hedef vardır."
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "2/4 ölçü",
+      "meaning": "Her ölçüde iki ana vuruş.",
+      "exercise": "1-2 sayıp yeni 1 ile tekrar başla."
+    },
+    {
+      "term": "Ara vuruş",
+      "meaning": "İki ana vuruş arasındaki eşit zaman.",
+      "exercise": "1-ve-2-ve say ve ve üzerinde alkışla."
+    },
+    {
+      "term": "Senkop",
+      "meaning": "Sesin ana vuruş yerine ara noktada duyulması.",
+      "exercise": "1-ve üzerine üst akor koy."
+    },
+    {
+      "term": "Bas",
+      "meaning": "Kalın sesli temel çizgi.",
+      "exercise": "Am7 için açık La telini başparmakla çal."
+    },
+    {
+      "term": "Üst akor",
+      "meaning": "Başparmak basından ayrı ince tel grubu.",
+      "exercise": "i-m-a ile üç ince tel çek."
+    },
+    {
+      "term": "Kök",
+      "meaning": "Akora adını veren ses.",
+      "exercise": "Dört akorun kökünü bul."
+    },
+    {
+      "term": "Beşinci",
+      "meaning": "Kökten beşinci derece ses.",
+      "exercise": "Dm7 için La, G7 için Re çal."
+    },
+    {
+      "term": "Yedili akor",
+      "meaning": "Üçlüye yedinci ses eklenen akor.",
+      "exercise": "Am7 ile Am farkını dinle."
+    },
+    {
+      "term": "Çift ölçü",
+      "meaning": "Alıştırmadaki iki ölçülük tur.",
+      "exercise": "1-ve-2-ve sayımını iki kez sürdür."
+    },
+    {
+      "term": "Varyasyon",
+      "meaning": "Bir sesin bilinçli değiştirilmesi.",
+      "exercise": "Tek üst akoru çıkar."
+    },
+    {
+      "term": "i-m-a",
+      "meaning": "Sağ el işaret, orta ve yüzük parmakları.",
+      "exercise": "Üç ince tele sırayla yerleştirip birlikte çek."
+    }
+  ],
+  "practiceExample": {
+    "title": "Özgün İki Ölçülük João Gilberto Batida Örneği (Cmaj7 - Dm7)",
+    "notation": "Ölçü 1 (Cmaj7 - Batida)            Ölçü 2 (Dm7'ye Senkoplu Geçiş)\nRitim:  1   ve   2   ve             1   ve   2   ve\ne|---------------------------------|---------------------------------|\nB|------5-------5-------5----------|------5-------5-------6----------|\nG|------4-------4-------4----------|------4-------4-------5----------|\nD|------5-------5-------5----------|------5-------5-------7----------|\nA|--3---------------3--------------|--3---------------5--------------|\nE|---------------------------------|---------------------------------|\n    p   i-m-a   i-m-a   p   i-m-a     p   i-m-a   i-m-a   p (Yeni Bas)\n    (Bas) (Üst akor)    (Bas) (Akor)  (Bas) (Üst akor)    (Dm7 Kökü)",
+    "howTo": "1. Adım: Sol elinle Cmaj7 kapalı şeklini bas (A: 3, D: 5, G: 4, B: 5). Boş tellerin tınlamamasına dikkat et.\n2. Adım: Sağ el başparmağın (p) 1 ve 2. vuruşlarda bas telini tek başına çalsın. Surdo davulu gibi tıkır tıkır işlesin.\n3. Adım: İşaret, orta ve yüzük parmakların (i-m-a) üst üç teli aynı anda hafifçe çekip hemen tellere geri yaslanarak sesi kessin (staccato hissi).\nHocanın Püf Noktası: Bossa Nova'da güç değil, hafiflik ve elastikiyet konuşur. Bileğini kasmadan, nefes alır gibi rahatça çal!"
+  },
+  "nextMonth": [
+    "1. hafta: İki farklı bossa kaydındaki üst akor yerlerini not et.",
+    "2. hafta: Dört akorlu ilerleyişte iki bas için uygun beşinciyi ekle.",
+    "3. hafta: Öğretmenin seçtiği lisanslı kısa şarkının dört ölçüsüne eşlik et.",
+    "4. hafta: Şarkı melodisini mırıldanırken bası sabit tutarak kaydet."
+  ],
+  "sources": [
+    {
+      "title": "Universidade de Brasília / ABRAPEM — João Gilberto eşlik araştırması",
+      "url": "https://abrapem.org/wp-content/uploads/2024/09/219.-Padroes-de-acompanhamento-na-bossa-nova-ao-violao-de-Joao-Gilberto-em-quatro-faixas-de-seus-dois-primeiros-LPs.pdf",
+      "usedFor": "Birden fazla eşlik kalıbı bulunduğu ve dinleme önemi."
+    },
+    {
+      "title": "Faber Music — The Brazilian Guitar Book",
+      "url": "https://www.fabermusic.com/shop/the-brazilian-guitar-book-p199013",
+      "usedFor": "Brezilya gitar eşliğinde ritim çeşidi ve akor yerleşimi."
+    },
+    {
+      "title": "Berklee Online — Jane Miller söyleşisi",
+      "url": "https://online.berklee.edu/takenote/start-playing-jazz-guitar-an-interview-with-jane-miller/",
+      "usedFor": "Parmakla bas ve akoru ayrı denetleme."
+    },
+    {
+      "title": "Berklee Online — Arranging 1",
+      "url": "https://online.berklee.edu/courses/arranging-1-rhythm-section",
+      "usedFor": "Bossa bas çizgileri ve gitar eşlik görevleri."
+    },
+    {
+      "title": "Acoustic Guitar Magazine — The Essential Bossa Nova Batida & Chord Inversions",
+      "url": "https://acousticguitar.com/guide-to-bossa-nova-guitar",
+      "usedFor": "João Gilberto ritmik kalıbı, senkop teknikleri ve kapalı akor basışları."
+    },
+    {
+      "title": "Almir Chediak — Bossa Nova Guitar Songbook & Harmonies",
+      "url": "https://www.songbook.com.br/chediak-bossa-nova",
+      "usedFor": "Majör yedili, minör yedili ve eksik beşli akorların seslendirme prensipleri."
+    }
+  ]
+}

@@ -1,0 +1,1032 @@
+{
+  "id": "blues",
+  "title": "30 Günlük Başlangıç Blues Gitar Planı",
+  "subtitle": "12 ölçülük zamansız form, sallantılı shuffle ritmi ve La minör pentatonik ile ilk blues cümlen",
+  "instrument": "Standart akortlu akustik veya elektrik gitar",
+  "level": "Tam başlangıç",
+  "dailyMinutes": "Çoğu gün 20 dakika; 7, 14 ve 21. günler 15 dakika",
+  "monthGoal": "Blues müziğinin 12 ölçülük omurgasını (A7, D7, E7) sallantılı shuffle ritmiyle rahatça eşlemek ve La minör pentatonik gamından alacağın birkaç samimi notayla kendi ilk blues soru-cevap cümleni kaydetmek. Ay sonunda B.B. King ve Muddy Waters'ın izinde, arkana yaslanıp keyifle tam bir blues turu çalabilmek.",
+  "prerequisites": "Standart akortlu bir akustik veya elektrik gitar yeterli; pena kullanmak tercihe bağlıdır. Blues hissi parmakların hızından değil, notalar arasındaki boşluktan ve ritmin salınımından doğar. İlk günlerde akor basarken acele etme; her notanın tınlamasına izin ver.",
+  "materials": [
+    "Akustik veya elektro gitar",
+    "Akort cihazı veya telefon uygulaması",
+    "Metronom (dahili metronomu swing/shuffle hissiyle dinleyebilirsin)",
+    "İsteğe bağlı pena (orta sertlikte 0.73mm - 0.88mm ideal)",
+    "Ses kaydı yapabilen telefon",
+    "12 ölçülük akor takip çizelgesi ve not defteri"
+  ],
+  "weeks": [
+    {
+      "title": "1–7. gün: Akor ve biçim",
+      "focus": "A7, D7, E7, dört vuruş ve 12 ölçülük harita",
+      "exitCriteria": "12 ölçünün akor sırasını çizelgeye bakarak doğru söyler."
+    },
+    {
+      "title": "8–14. gün: Shuffle eşliği",
+      "focus": "Uzun-kısa ritim, 2 ve 4 vurgusu, bir tam tur kayıt",
+      "exitCriteria": "Yavaş hızda 12 ölçülük bir eşlik turunu kaydeder."
+    },
+    {
+      "title": "15–21. gün: Beş nota ve cümle",
+      "focus": "La minör pentatonik, soru-cevap, boşluk ve ritim değişimi",
+      "exitCriteria": "La-Do-Re-Mi-Sol seslerini bulup iki ölçülük soru-cevap çalar."
+    },
+    {
+      "title": "22–30. gün: Tam tur ve değerlendirme",
+      "focus": "Ayrı eşlik ve solo turları, La’ya dönüş, yerel hata onarımı",
+      "exitCriteria": "İki ayrı 12 ölçülük tek deneme kaydı ve dört ölçütlü değerlendirme hazırdır."
+    }
+  ],
+  "days": [
+    {
+      "title": "Akort ve ses",
+      "goal": "Gitarın altı telini ve temiz sesini tanımak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort uygulamasıyla kalından inceye Mi-La-Re-Sol-Si-Mi yap."
+        },
+        {
+          "min": 8,
+          "text": "Her boş teli tek tek yavaşça çek ve numarasını söyle."
+        },
+        {
+          "min": 7,
+          "text": "Altı sesin kısa kaydını dinle."
+        }
+      ],
+      "why": "Blues ritmi ve notaları doğru akortta anlam kazanır.",
+      "steps": [
+        "6. tel en kalın, 1. tel en incedir.",
+        "Teli hafif çekip sesin sönmesine izin ver."
+      ],
+      "watch": [
+        "Burguyu büyük hareketle çevirme."
+      ],
+      "check": [
+        "Altı telin numarasını rahatça bulabiliyorsun.",
+        "Uygulama doğru notaları gösterir."
+      ]
+    },
+    {
+      "title": "Dört vuruş",
+      "goal": "4/4 ölçüsünde 1-2-3-4 saymak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Metronomu 60’a ayarla ve dört tık say."
+        },
+        {
+          "min": 8,
+          "text": "Her tıkta dizine vur, 1’e geri dön."
+        },
+        {
+          "min": 7,
+          "text": "Boş 5. telde her tıkta bir aşağı vuruşla sekiz ölçü kaydet."
+        }
+      ],
+      "why": "12 ölçülük biçim önce düzenli dört vuruşa dayanır.",
+      "steps": [
+        "Her dört tık bir ölçüdür.",
+        "8 ölçüyü kağıtta sekiz kutu olarak işaretle."
+      ],
+      "watch": [
+        "3’ten sonra yeniden 1’e dönme; 4’ü tamamla."
+      ],
+      "check": [
+        "Sekiz kutuyu sırayla işaretlersin.",
+        "Kayıtta vuruşlar eşittir."
+      ]
+    },
+    {
+      "title": "A7 akoru",
+      "goal": "La yedili akorunda açık ses almak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "A7 için 4. tel 2. perde ve 2. tel 2. perdeyi bas."
+        },
+        {
+          "min": 8,
+          "text": "5’ten 1’e telleri tek tek çal, 6. teli dışarıda bırak."
+        },
+        {
+          "min": 7,
+          "text": "A7 ile 1-2-3-4 sayarak dört ölçü çal."
+        }
+      ],
+      "why": "A7, bu ayki La blues eşliğinin ana akorudur.",
+      "steps": [
+        "İki basılı telin arasındaki 3. tel açık kalır.",
+        "Vuruşa 5. telden başla."
+      ],
+      "watch": [
+        "3. tel boğuksa iki parmağı birbirinden ayır."
+      ],
+      "check": [
+        "5-1 telleri ayrı ayrı temiz ve berrak duyuluyor.",
+        "Dört ölçü sayım sürer."
+      ]
+    },
+    {
+      "title": "D7 akoru",
+      "goal": "Re yedili akorunu ve başlangıç telini bulmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "D7 için 3. tel 2, 2. tel 1, 1. tel 2. perdeyi kur."
+        },
+        {
+          "min": 8,
+          "text": "4’ten 1’e telleri tek tek denetle."
+        },
+        {
+          "min": 7,
+          "text": "Bir ölçü A7, bir ölçü D7 yavaşça değiştir."
+        }
+      ],
+      "why": "İkinci akor biçimin IV durağını tanıtır.",
+      "steps": [
+        "D7 vuruşunu 4. telden başlat.",
+        "Parmakları perde metalinin gerisinde tut."
+      ],
+      "watch": [
+        "D7’de 5. ve 6. teli süpürme."
+      ],
+      "check": [
+        "Dört D7 teli temizdir.",
+        "A7–D7 geçişini iki kez yaparsın."
+      ]
+    },
+    {
+      "title": "E7 akoru",
+      "goal": "Mi yedili akorunu altı telde temiz kurmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "E7 için 5. tel 2 ve 3. tel 1. perdeyi bas."
+        },
+        {
+          "min": 8,
+          "text": "Altı teli tek tek denetle, ardından aşağı vuruş yap."
+        },
+        {
+          "min": 7,
+          "text": "A7–D7–E7 sırasını ikişer kez seslendir."
+        }
+      ],
+      "why": "Üçüncü akor 12 ölçülük dönüşün son gerilimini kurar.",
+      "steps": [
+        "E7’de 6. tel açık Mi basıdır.",
+        "3. teldeki işaret parmağın 2. teli susturmasın."
+      ],
+      "watch": [
+        "Kısa geçiş için akoru yarım bırakma; temiz ses öncelikli."
+      ],
+      "check": [
+        "E7’de en az beş tel temiz temiz ve berrak duyuluyor.",
+        "Üç akoru sırayla kurarsın."
+      ]
+    },
+    {
+      "title": "12 ölçünün haritası",
+      "goal": "A7, D7, E7 akorlarının ölçü sırasını okumak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Kağıda 12 kutu çiz ve 1’den 12’ye numarala."
+        },
+        {
+          "min": 8,
+          "text": "1–4 A7, 5–6 D7, 7–8 A7, 9 E7, 10 D7, 11 A7, 12 E7 yaz."
+        },
+        {
+          "min": 7,
+          "text": "Her kutuda yalnız bir aşağı vuruşla haritayı izle."
+        }
+      ],
+      "why": "Biçimi bilmek akor değişim yerlerini önceden gösterir.",
+      "steps": [
+        "Her kutu dört vuruş sürer; boşluğu da 1-2-3-4 say.",
+        "12. kutudan sonra yeniden 1. kutuya dön."
+      ],
+      "watch": [
+        "Akoru her vuruşta değiştirme; her kutuyu tamamla."
+      ],
+      "check": [
+        "12 kutunun akorları doğru yazılıdır.",
+        "12’den 1’e dönebilirsin."
+      ]
+    },
+    {
+      "title": "Hafif harita tekrarı",
+      "goal": "İlk haftanın akor ve ölçü sırasını pekiştirmek",
+      "blocks": [
+        {
+          "min": 4,
+          "text": "Akort et ve üç akoru ayrı ayrı birer kez çal."
+        },
+        {
+          "min": 5,
+          "text": "12 kutulu haritayı sesli oku."
+        },
+        {
+          "min": 6,
+          "text": "İlk altı kutuyu her ölçüde tek vuruşla çal."
+        }
+      ],
+      "why": "Kısa tekrar biçimi sindirmeye zaman verir.",
+      "steps": [
+        "Akoru kaçırırsan bir önceki kutudan başla.",
+        "El yorulursa mola ver."
+      ],
+      "watch": [
+        "Hız artırmak için eli kasma."
+      ],
+      "check": [
+        "İlk altı kutunun adını söylersin.",
+        "Üç akorun bas telini rahatça bulabiliyorsun."
+      ]
+    },
+    {
+      "title": "Tam bir chorus",
+      "goal": "12 ölçülük A blues biçimini baştan sona çalmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "A7–D7–E7 geçişlerini ayrı çalış."
+        },
+        {
+          "min": 8,
+          "text": "60 tıkta her ölçü dört yavaş aşağı vuruş yap."
+        },
+        {
+          "min": 7,
+          "text": "12 ölçüyü bir kez kaydet ve akor kaçırdığın kutuyu işaretle."
+        }
+      ],
+      "why": "Bir tam tur, blues biçimini müzik içinde öğretir.",
+      "steps": [
+        "Chorus burada 12 ölçülük bir tam tur demektir.",
+        "Yavaş hızda akoru temiz kurmak için bir önceki ölçünün sonunda hazırlan."
+      ],
+      "watch": [
+        "Bir ölçü erken akor değiştirme."
+      ],
+      "check": [
+        "12 ölçünün tamamı kayıtta vardır.",
+        "Hatalı kutuyu bulursun."
+      ]
+    },
+    {
+      "title": "Uzun-kısa hissi",
+      "goal": "Shuffle ritmini alkışla tanımak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Bir ana vuruşu 1-a diye iki eşit olmayan sese ayır."
+        },
+        {
+          "min": 8,
+          "text": "Her tıkta önce uzun sonra kısa alkış yap; uzun ses yaklaşık iki küçük parçalık, kısa ses bir parçalık olsun."
+        },
+        {
+          "min": 7,
+          "text": "Dört ölçüyü sesli sayıp telefona kaydet."
+        }
+      ],
+      "why": "Blues shuffle düz sekizliklerden farklı sallanma hissi verir.",
+      "steps": [
+        "İstersen her tık arasında üç küçük ses düşün: 1-ü-ç; ilk ve üçüncü küçük yere vur.",
+        "Çok hızlı değil, rahat 60 tıkta dene."
+      ],
+      "watch": [
+        "İki sesi eşit aralığa zorlama."
+      ],
+      "check": [
+        "Uzun-kısa çifti dört ölçü sürer.",
+        "Ana tık kaybolmaz."
+      ]
+    },
+    {
+      "title": "A7 ile shuffle",
+      "goal": "Akoru uzun-kısa alt vuruşlara yerleştirmek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Boş tellerde dört ana tık boyunca uzun-kısa aşağı vuruş dene."
+        },
+        {
+          "min": 8,
+          "text": "A7’de her ana tık için aşağı-aşağı iki hafif vuruş yap."
+        },
+        {
+          "min": 7,
+          "text": "Dört ölçü A7 kaydet; ana 1-2-3-4 sayımını dinle."
+        }
+      ],
+      "why": "Ritim önce tek akorda güvenli hale gelir.",
+      "steps": [
+        "İkinci küçük vuruşu daha hafif yap.",
+        "Gerekirse yalnız 5-4-3 tellerini hedefle."
+      ],
+      "watch": [
+        "İki vuruş yüzünden ana vuruş hızlanmasın."
+      ],
+      "check": [
+        "Dört ölçüde uzun-kısa hissi vardır.",
+        "A7 biçimi bozulmaz."
+      ]
+    },
+    {
+      "title": "Akor değişiminde shuffle",
+      "goal": "D7’ye geçerken ritmi sürdürmek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "A7 iki ölçü shuffle çalış."
+        },
+        {
+          "min": 8,
+          "text": "D7 iki ölçü shuffle çalış; D7’de 4. telden başla."
+        },
+        {
+          "min": 7,
+          "text": "A7–D7 dört ölçü geçişini üç kez kaydet."
+        }
+      ],
+      "why": "Değişim noktasında zamanın kaybolması sık başlangıç sorunudur.",
+      "steps": [
+        "Son A7 kısa vuruşundan sonra eli D7’ye götür.",
+        "Geçiş yetişmiyorsa 50 tıka in."
+      ],
+      "watch": [
+        "D7’yi yetiştirmek için önceki ölçüyü kısaltma."
+      ],
+      "check": [
+        "Dört ölçü sayımı sürer.",
+        "D7’ye doğru kutuda geçersin."
+      ]
+    },
+    {
+      "title": "2 ve 4 vurgusu",
+      "goal": "Blues’un arka vuruş hissini duymak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "1-2-3-4 sayarken yalnız 2 ve 4’te el çırp."
+        },
+        {
+          "min": 8,
+          "text": "A7 akorunda 1 ve 3 hafif, 2 ve 4 biraz belirgin vuruş yap."
+        },
+        {
+          "min": 7,
+          "text": "Aynı vurguyla sekiz ölçü çal ve dinle."
+        }
+      ],
+      "why": "Arka vuruş dinleyenin ritmi kavramasını kolaylaştırır.",
+      "steps": [
+        "Vurguyu sert vurmak yerine biraz daha kararlı çal.",
+        "Ayak dört ana vuruşu da tutsun."
+      ],
+      "watch": [
+        "2 ve 4’ü vurgularken 1 ve 3’ü atlama."
+      ],
+      "check": [
+        "Sekiz ölçüde dört ana vuruş vardır.",
+        "2 ve 4 biraz daha belirgindir."
+      ]
+    },
+    {
+      "title": "Shuffle chorus kaydı",
+      "goal": "Bir tam turda ritim ve akor yerlerini denetlemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "12 kutulu çizelgeyi önüne koy."
+        },
+        {
+          "min": 8,
+          "text": "Her kutuda yavaş shuffle ile doğru akoru çal."
+        },
+        {
+          "min": 7,
+          "text": "Tek 12 ölçülük kayıt al; yanlış akor ve kayıp tıkları işaretle."
+        }
+      ],
+      "why": "Ritimle biçimi birlikte çalmak ilk büyük eşik olur.",
+      "steps": [
+        "12. ölçü E7’den sonra 1. ölçü A7’ye döneceğini bil.",
+        "Zor gelirse her tıkta tek aşağı vuruşa dönüp biçimi koru."
+      ],
+      "watch": [
+        "Shuffle için 12 ölçü haritasını feda etme."
+      ],
+      "check": [
+        "Tek tam tur kaydı oluşur.",
+        "En çok zorlandığın iki ölçüyü yazarsın."
+      ]
+    },
+    {
+      "title": "Hafif ritim dinleme",
+      "goal": "İki haftalık eşliği sakin gözden geçirmek",
+      "blocks": [
+        {
+          "min": 4,
+          "text": "Akort ve üç akoru temizce birer kez kur."
+        },
+        {
+          "min": 5,
+          "text": "12 ölçü haritasını çalmadan sesli oku."
+        },
+        {
+          "min": 6,
+          "text": "Shuffle kaydını dinle, yalnız 9–12. ölçülerin akorlarını işaretle."
+        }
+      ],
+      "why": "Dinleme, son dört ölçüdeki sık karışıklığı ayırır.",
+      "steps": [
+        "Bugün yeni ritim veya nota ekleme.",
+        "Gerekirse 9 E7, 10 D7, 11 A7, 12 E7 sırasını kağıda tekrar yaz."
+      ],
+      "watch": [
+        "Yanlışı duyunca tüm turu hızla tekrarlama."
+      ],
+      "check": [
+        "Son dört ölçüyü doğru söylersin.",
+        "Bir düzeltme notu yazarsın."
+      ]
+    },
+    {
+      "title": "Beş notalık alan 1",
+      "goal": "La minör pentatonik dizinin ilk üç sesini bulmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "5. açık tel La, 5. tel 3. perde Do çal."
+        },
+        {
+          "min": 8,
+          "text": "4. açık tel Re ekleyip La-Do-Re-Do-La sırala."
+        },
+        {
+          "min": 7,
+          "text": "Her sesi adlandırarak dizi parçasını kaydet."
+        }
+      ],
+      "why": "Beş notalık alan, kısa cevap cümleleri için güvenli bir başlangıçtır.",
+      "steps": [
+        "Pentatonik burada beş farklı notadan oluşan ses kümesidir.",
+        "Do için parmağı perde metalinin biraz gerisine koy."
+      ],
+      "watch": [
+        "Nota adlarını hızla söyleyip sesi dinlemeyi unutma."
+      ],
+      "check": [
+        "Üç sesi doğru tellerde bulursun.",
+        "La-Do-Re dönüşünü çalarsın."
+      ]
+    },
+    {
+      "title": "Beş notalık alan 2",
+      "goal": "Mi ve Sol ekleyerek beş sesi tamamlamak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "4. tel 2. perde Mi ve 3. açık tel Sol bul."
+        },
+        {
+          "min": 8,
+          "text": "La-Do-Re-Mi-Sol çık; Sol-Mi-Re-Do-La in."
+        },
+        {
+          "min": 7,
+          "text": "Yavaş ses kaydı al ve her notanın ayrı duyulduğunu denetle."
+        }
+      ],
+      "why": "Az sayıda nota, ritim ve ifade için alan bırakır.",
+      "steps": [
+        "Sıra: 5. açık, 5/3, 4. açık, 4/2, 3. açık.",
+        "İlk turu metronomsuz yavaş çal."
+      ],
+      "watch": [
+        "Hız için parmakları tellerden uzak savurma."
+      ],
+      "check": [
+        "Beş sesi sırayla çıkarsın.",
+        "Aynı yolu geri dönersin."
+      ]
+    },
+    {
+      "title": "Üç notalık cümle",
+      "goal": "La-Do-Re ile kısa bir soru oluşturmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "La-Do-Re üç sesini farklı sürelerle dene."
+        },
+        {
+          "min": 8,
+          "text": "La, Do, Re’yi 1, 2 ve 3 vuruşlarında çal; 4’te sus."
+        },
+        {
+          "min": 7,
+          "text": "İki ölçüde aynı cümleyi tekrarlayıp kaydet."
+        }
+      ],
+      "why": "Blues ifadesinde boşluk ve süre, nota sayısı kadar önemlidir.",
+      "steps": [
+        "Önce 1-2-3-4 say, sonra notaları koy.",
+        "Sondaki susuşta iç sayımı sürdür."
+      ],
+      "watch": [
+        "Her vuruşu notayla doldurma."
+      ],
+      "check": [
+        "Üç notalık cümle iki kez aynıdır.",
+        "4. vuruşta bilinçli boşluk vardır."
+      ]
+    },
+    {
+      "title": "Soru-cevap",
+      "goal": "İki kısa cümleyi birbirine karşılık gibi çalmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İlk ölçüde La-Do-Re ve bir vuruş boşluk çal."
+        },
+        {
+          "min": 8,
+          "text": "İkinci ölçüde Sol-Mi-La ve bir vuruş boşluk çal."
+        },
+        {
+          "min": 7,
+          "text": "İki ölçüyü üç kez kaydet ve ikinci cümlenin cevaba benzeyip benzemediğini dinle."
+        }
+      ],
+      "why": "Blues cümleleri tekrar ve yanıtla anlam kazanır.",
+      "steps": [
+        "Son La’yı 5. açık telden al.",
+        "İki ölçü arasında sayımı sürdür."
+      ],
+      "watch": [
+        "Cevaba girerken yeni ölçünün 1’ini kaçırma."
+      ],
+      "check": [
+        "İki ölçü ayrı cümle gibi temiz ve berrak duyuluyor.",
+        "Her ölçünün sonunda boşluk vardır."
+      ]
+    },
+    {
+      "title": "Ritim değişimi",
+      "goal": "Aynı notaları başka sürelerle söylemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "La-Do-Re notalarını dört eşit vuruşta dene."
+        },
+        {
+          "min": 8,
+          "text": "İkinci denemede ilk La’yı iki vuruş tut, Do ve Re’yi üçüncü-dördüncü vuruşa koy."
+        },
+        {
+          "min": 7,
+          "text": "İki sürümü art arda kaydet."
+        }
+      ],
+      "why": "Nota değiştirmeden ritim değiştirmek yeni ifade üretir.",
+      "steps": [
+        "Notayı iki vuruş tutarken elin sayımı yapsın.",
+        "Cümleleri mırıldanarak karşılaştır."
+      ],
+      "watch": [
+        "Uzun La sırasında zamanı kaybetme."
+      ],
+      "check": [
+        "İki ritim kayıtta ayırt edilir.",
+        "Her sürüm dört vuruşa sığar."
+      ]
+    },
+    {
+      "title": "Akor üstünde dinleme",
+      "goal": "Beş notanın 12 ölçülük eşlikle ilişkisini duymak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Önce A7 üzerinde La-Do-Re ve Sol-Mi-La çal."
+        },
+        {
+          "min": 8,
+          "text": "12 ölçülük eski eşlik kaydını dinleyip akor değişimlerini say."
+        },
+        {
+          "min": 7,
+          "text": "Kayıt çalarken kısa cümleleri düşük sesle mırıldan veya gitarla dene."
+        }
+      ],
+      "why": "Doğru biçimi duymak notaların ne zaman cevap verdiğini öğretir.",
+      "steps": [
+        "Telefon aynı anda çalıp kaydedemiyorsa yalnız dinleyerek eşlik et.",
+        "Önce dört ölçü A7 kısmında kal."
+      ],
+      "watch": [
+        "Duyduğun akoru tahmin edemiyorsan sayımı bırakma."
+      ],
+      "check": [
+        "İlk dört ölçüyü sayarsın.",
+        "Bir kısa cümleyi uygun yere koyarsın."
+      ]
+    },
+    {
+      "title": "Hafif pentatonik tekrar",
+      "goal": "Beş sesi ve soru-cevabı sakin tekrar etmek",
+      "blocks": [
+        {
+          "min": 4,
+          "text": "Akort edip beş sesi yavaşça çık-in yap."
+        },
+        {
+          "min": 5,
+          "text": "İki ölçülük soru-cevabı iki kez çal."
+        },
+        {
+          "min": 6,
+          "text": "Dünkü kayıtta bir boşluk ve bir uzun notayı işaretle."
+        }
+      ],
+      "why": "Sade tekrar, çok nota ekleme isteğini dengeler.",
+      "steps": [
+        "Bugün yeni perde öğrenme.",
+        "Zor gelen sesleri tek başına dene."
+      ],
+      "watch": [
+        "Hızı artırmak için eli sıkma."
+      ],
+      "check": [
+        "Beş sesin telini rahatça bulabiliyorsun.",
+        "İki cümle arasında boşluğu duyarsın."
+      ]
+    },
+    {
+      "title": "Eşlik ve ezgiyi ayır",
+      "goal": "Tek gitarla ritim ve cümle görevlerini sırayla yapmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "12 ölçü eşliği bir tur yavaşça çal."
+        },
+        {
+          "min": 8,
+          "text": "İkinci turda akor çalmadan yalnız La-Do-Re ve Sol-Mi-La cümlelerini uygun boşluklarla çal."
+        },
+        {
+          "min": 7,
+          "text": "İki turu ayrı kaydet, ölçü sayımını karşılaştır."
+        }
+      ],
+      "why": "Ritim ve solo işlerini ayrı yönetmek yeni başlayan için gerçekçi bir aşamadır.",
+      "steps": [
+        "Solo turunda 12 ölçüyü kağıttan izle.",
+        "Her ölçüye nota doldurma; susulan ölçüleri de say."
+      ],
+      "watch": [
+        "Solo sırasında 12 ölçü sayısını kaybetme."
+      ],
+      "check": [
+        "İki ayrı tur kaydı vardır.",
+        "İkisinde de 12 ölçü sayarsın."
+      ]
+    },
+    {
+      "title": "Cümleyi dönüştür",
+      "goal": "Bir cevabı yalnız bir ses değiştirerek yenilemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "İlk ölçü La-Do-Re sorusunu çal."
+        },
+        {
+          "min": 8,
+          "text": "Sol-Mi-La cevabını Sol-Re-La yaparak dene."
+        },
+        {
+          "min": 7,
+          "text": "Eski ve yeni cevabı yan yana kaydet."
+        }
+      ],
+      "why": "Küçük değişim kişisel söyleyiş kurmanın başlangıcıdır.",
+      "steps": [
+        "Yeni cevapta Re için 4. açık teli kullan.",
+        "Her cevapta son La’yı aynı yerde tut."
+      ],
+      "watch": [
+        "Değişiklik yaparken toplam dört vuruşu uzatma."
+      ],
+      "check": [
+        "İki farklı cevap vardır.",
+        "İkisi de dört vuruşa sığar."
+      ]
+    },
+    {
+      "title": "La’ya dönmek",
+      "goal": "Cümleyi ana sese indirip bitiş hissettirmek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "La-Do-Re-Mi-Sol seslerini yavaş gözden geçir."
+        },
+        {
+          "min": 8,
+          "text": "İki ölçülük cümle sonunda 5. açık tel La’yı daha uzun tut."
+        },
+        {
+          "min": 7,
+          "text": "A7 eşlik kaydının 11. ölçüsünde bitiş La’sını dinleyerek dene."
+        }
+      ],
+      "why": "Ana sese dönüş, kısa melodinin nereye vardığını duyurur.",
+      "steps": [
+        "Son La’yı iki vuruş tutup kalan sürede sus.",
+        "Kayıtla senkron zor gelirse yalnız metronomla çalış."
+      ],
+      "watch": [
+        "Son La’yı bitiş diye sertçe vurma."
+      ],
+      "check": [
+        "Cümle La’da biter.",
+        "Bitişten sonra sayım sürer."
+      ]
+    },
+    {
+      "title": "İlk altı ölçü solo",
+      "goal": "12 ölçünün 1–6. bölümüne seyrek cümle koymak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "1–4 A7 ölçülerini kağıttan sayarak mırıldan."
+        },
+        {
+          "min": 8,
+          "text": "1. ve 3. ölçüye kısa soru; 5. D7 ölçüsüne cevap yerleştir."
+        },
+        {
+          "min": 7,
+          "text": "1–6. ölçüleri gitarla çal ve 6. ölçüde susmayı dene."
+        }
+      ],
+      "why": "Seyrek notalar akor değişimini dinlemeye alan bırakır.",
+      "steps": [
+        "Kısa cümleleri bir veya iki ölçüye sığdır.",
+        "Hata olursa bir sonraki ölçünün 1’ini yakala."
+      ],
+      "watch": [
+        "Akor değişti diye tüm beş notayı hızla çalma."
+      ],
+      "check": [
+        "Altı ölçünün sırası korunur.",
+        "En az bir ölçüde bilinçli boşluk vardır."
+      ]
+    },
+    {
+      "title": "Son altı ölçü solo",
+      "goal": "7–12. bölümde bitiş noktasını bulmak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "7–8 A7 ölçülerini say; bir kısa cümle yerleştir."
+        },
+        {
+          "min": 8,
+          "text": "9 E7, 10 D7, 11 A7, 12 E7 kutularını sesli söyle."
+        },
+        {
+          "min": 7,
+          "text": "11. ölçüde La’ya varıp 12. ölçüde susarak yeni tura hazırlan."
+        }
+      ],
+      "why": "Son dört ölçüyü bilmek turu kaybetmeyi önler.",
+      "steps": [
+        "9–12 akorlarını kağıtta parmağınla izle.",
+        "12’den sonra 1’e dönecekmiş gibi bir hazırlık say."
+      ],
+      "watch": [
+        "11’de bitince 12. ölçüyü atlama."
+      ],
+      "check": [
+        "9–12 ölçülerini doğru söylersin.",
+        "12. ölçü sayımda vardır."
+      ]
+    },
+    {
+      "title": "Bitiş E7 ve dönüş",
+      "goal": "Eşlikte son ölçüyü yeni tura bağlamak",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "E7 akorunu temiz kur, altı teli kontrol et."
+        },
+        {
+          "min": 8,
+          "text": "11 A7, 12 E7, 1 A7 ölçülerini üç kez döndür."
+        },
+        {
+          "min": 7,
+          "text": "Döngüyü kaydedip 12’den 1’e geçişi dinle."
+        }
+      ],
+      "why": "Blues biçimi her turda aynı başlangıca döner.",
+      "steps": [
+        "Her ölçü dört ana vuruş sürsün.",
+        "A7’ye geçmek için E7’nin son vuruşundan sonra sol eli hazırla."
+      ],
+      "watch": [
+        "12. ölçüyü iki vuruşa kısaltma."
+      ],
+      "check": [
+        "Üç ölçülük dönüş doğru sıradadır.",
+        "Yeni 1 zamanında gelir."
+      ]
+    },
+    {
+      "title": "Değerlendirme provası",
+      "goal": "Eşlik ve kısa solo turunu art arda denemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "12 ölçü A7–D7–E7 eşliğini bir kez çal."
+        },
+        {
+          "min": 8,
+          "text": "İkinci 12 ölçüde beş notayla seyrek soru-cevap cümleleri çal."
+        },
+        {
+          "min": 7,
+          "text": "İki turu ayrı kaydet; akor, sayım ve boşluklar için puan ver."
+        }
+      ],
+      "why": "İki görev ayrı kayıtlarla net değerlendirilebilir.",
+      "steps": [
+        "0=henüz yok, 1=bazen, 2=çoğunlukla puanla.",
+        "Solo turunda her ölçüyü içinden say."
+      ],
+      "watch": [
+        "Solo kaydını rastgele uzun nota dizisine çevirme."
+      ],
+      "check": [
+        "İki ayrı tam tur vardır.",
+        "Üç ölçüt puanlanır."
+      ]
+    },
+    {
+      "title": "Yerel onarım",
+      "goal": "Bir eşlik ve bir solo hatasını hedeflemek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Önceki eşlikte en zayıf iki ölçüyü bul."
+        },
+        {
+          "min": 8,
+          "text": "Bu iki ölçüyü yavaş beş kez, sonra solo cümlendeki sorunlu ölçüyü beş kez çalış."
+        },
+        {
+          "min": 7,
+          "text": "Dört ölçülük iki kısa düzeltme kaydı al."
+        }
+      ],
+      "why": "Sorunlu küçük bölümü ayırmak tam turu güçlendirir.",
+      "steps": [
+        "Hata akorsa yalnız geçişi; ritimse yalnız alkışı çalış.",
+        "Solo hatasında notanın telini ayrıca söyle."
+      ],
+      "watch": [
+        "Bütün turu peş peşe hızla tekrarlama."
+      ],
+      "check": [
+        "İki yerel çalışma başarıyla tamamlanıyor.",
+        "Yeni kayıtta en az bir düzeltme temiz ve berrak duyuluyor."
+      ]
+    },
+    {
+      "title": "30. gün: blues değerlendirmesi",
+      "goal": "Bir tam eşlik ve bir tam cümle turunu değerlendirmek",
+      "blocks": [
+        {
+          "min": 5,
+          "text": "Akort et, A7–D7–E7 akorlarını kısaca ısıt."
+        },
+        {
+          "min": 8,
+          "text": "12 ölçü eşliği tek denemede kaydet."
+        },
+        {
+          "min": 7,
+          "text": "Beş notayla seyrek soru-cevap içeren ikinci 12 ölçüyü kaydet; ölçütleri puanla."
+        }
+      ],
+      "why": "Son kayıt, sonraki ayın öğrenme sırasını seçtirir; kusursuzluk beklentisi değildir.",
+      "steps": [
+        "Eşlikte doğru akor ve düzenli sayımı, soloda boşluk ve La’ya dönüşü 0–2 puanla.",
+        "En düşük ölçütü gelecek ay ilk hedef olarak yaz."
+      ],
+      "watch": [
+        "Hata olduğunda bile iki turu sonuna götür."
+      ],
+      "check": [
+        "İki tek denemelik 12 ölçü kaydı vardır.",
+        "Dört puan ve sonraki hedef yazılıdır."
+      ]
+    }
+  ],
+  "practiceExample": {
+    "title": "Klasik 12 Ölçülük Blues Shuffle Çekirdeği (La Tonunda)",
+    "notation": "A7 Shuffle (Ölçü 1 - 2)\nRitim:  1  &  2  &  3  &  4  &     1  &  2  &  3  &  4  &   (Shuffle Salınımı)\ne|---------------------------------|---------------------------------|\nB|---------------------------------|---------------------------------|\nG|---------------------------------|---------------------------------|\nD|--2---2---4---2---2---2---4---2--|--2---2---4---2---2---2---4---2--|\nA|--0---0---0---0---0---0---0---0--|--0---0---0---0---0---0---0---0--|\nE|---------------------------------|---------------------------------|\n    ↓   ↑   ↓   ↑   ↓   ↑   ↓   ↑     ↓   ↑   ↓   ↑   ↓   ↑   ↓   ↑\n\nD7 Shuffle (Ölçü 3)               E7 -> Turnaround (Ölçü 4)\ne|---------------------------------|---------------------------------|\nB|---------------------------------|---------------------------------|\nG|--2---2---4---2---2---2---4---2--|---------------------------------|\nD|--0---0---0---0---0---0---0---0--|--2---2---4---2---2--------------|\nA|---------------------------------|--2---2---2---2---2--------------|\nE|---------------------------------|--0---0---0---0---0--------------|",
+    "howTo": "1. Adım: A teli boş çalarken, işaret parmağınla D telinin 2. perdesine bas. İki vuruş sonra yüzük parmağınla 4. perdeye basıp geri çek.\n2. Adım: Ritim düz değil 'sallantılı' (uzun-kısa) olmalıdır: 'Da-ba Da-ba Da-ba Da-ba'.\n3. Adım: Pena ile yalnızca çaldığın iki tele vur; diğer tellere sağ elinin kenarıyla hafifçe yaslanarak istenmeyen sesleri engelle.\nHocanın Püf Noktası: Blues bir hız sporu değil, bir dertleşmedir. B.B. King tek bir notayla koca bir salonu ağlatabilirdi. Her notayı hissederek, telaşsız çal!"
+  },
+  "glossary": [
+    {
+      "term": "Blues",
+      "meaning": "Belirli ritim, ifade ve sık kullanılan 12 ölçülük biçimle ilişkili müzik geleneği.",
+      "exercise": "Bir 12 ölçü sayımını akor çizelgesiyle takip et."
+    },
+    {
+      "term": "12 ölçülük blues",
+      "meaning": "Burada A7, D7, E7 akorlarının 12 kutuluk tekrarlanan sırası.",
+      "exercise": "12 kutuya akorları yaz."
+    },
+    {
+      "term": "Chorus",
+      "meaning": "12 ölçülük biçimin bir tam turu.",
+      "exercise": "Bir turu 1’den 12’ye say."
+    },
+    {
+      "term": "Shuffle",
+      "meaning": "Her ana vuruş içinde uzun-kısa duyulan ritim hissi.",
+      "exercise": "Her tıkta uzun-kısa alkış yap."
+    },
+    {
+      "term": "Yedili akor",
+      "meaning": "Bu planda A7, D7, E7 adlarıyla gösterilen dört sesli akor türü.",
+      "exercise": "A7 ve D7’yi sırayla kur."
+    },
+    {
+      "term": "Pentatonik",
+      "meaning": "Beş farklı notadan kurulan ses kümesi; burada La-Do-Re-Mi-Sol.",
+      "exercise": "Beş sesi çık ve geri in."
+    },
+    {
+      "term": "Soru-cevap",
+      "meaning": "Bir kısa müzik cümlesine başka kısa cümleyle karşılık verme.",
+      "exercise": "La-Do-Re, sonra Sol-Mi-La çal."
+    },
+    {
+      "term": "Arka vuruş",
+      "meaning": "4/4 sayımında 2 ve 4’ün duyulur biçimde öne çıkması.",
+      "exercise": "1-2-3-4 sayarken 2 ve 4’te alkışla."
+    },
+    {
+      "term": "Ölçü",
+      "meaning": "Dört ana vuruşun bir kutuda toplanması.",
+      "exercise": "Dört tık say ve yeni kutuya geç."
+    },
+    {
+      "term": "Kök ses",
+      "meaning": "Bu La merkezli alıştırmada eve dönüş gibi duyulan La sesi.",
+      "exercise": "Kısa cümleyi 5. açık tel La’da bitir."
+    }
+  ],
+  "nextMonth": [
+    "1. hafta: 30. gün en düşük puanlı ölçütü her gün iki ölçülük yavaş çalışmayla düzelt.",
+    "2. hafta: Aynı 12 ölçülük biçimi iki farklı rahat hızda çal; akor değişimlerini koru.",
+    "3. hafta: Beş notaya mavi notayı ancak öğretmen veya güvenilir ders yardımıyla ekle; yeni sesi kısa cümlede dene.",
+    "4. hafta: Eşlik ve solo kayıtlarını dinleyip iki turda ortak ritim duygusunu geliştiren yeni bir kayıt yap."
+  ],
+  "sources": [
+    {
+      "title": "Berklee Online — Blues Guitar",
+      "url": "https://online.berklee.edu/courses/blues-guitar",
+      "usedFor": "12 ölçülük armoni, temel ritim, pentatonik ve soru-cevap öğretim sırası."
+    },
+    {
+      "title": "Fender — How to Play Blues Scales on Guitar",
+      "url": "https://www.fender.com/articles/scales/blues-guitar-scale",
+      "usedFor": "Blues dizisi, La merkezli örnek ve 12 ölçülük biçim bilgisi."
+    },
+    {
+      "title": "Fender — Learn Essential Blues Guitar Riffs",
+      "url": "https://www.fender.com/articles/songs/essential-blues-guitar-riffs",
+      "usedFor": "Başlangıç için üç akorlu 12 ölçülük blues önerisi."
+    },
+    {
+      "title": "Fender Play — Open Position Chords",
+      "url": "https://www.fender.com/play/guitar/collections/open-position-chords",
+      "usedFor": "A7, D7 ve E7 açık akorlarının başlangıç öğretiminde kullanımı."
+    },
+    {
+      "title": "Stefan Grossman's Guitar Workshop — Country Blues and Alternating Bass",
+      "url": "https://www.guitarvideos.com/blues-foundations",
+      "usedFor": "Blues eşliğinde sağ el vuruş kontrolü ve soru-cevap cümleleme ilkeleri."
+    }
+  ]
+}
