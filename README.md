@@ -118,9 +118,17 @@ Select the `Pena` scheme in Xcode and run (⌘R).
 
 #### Tests
 ```bash
-xcodebuild test -project Pena.xcodeproj -scheme Pena -destination 'platform=iOS Simulator,name=iPhone 16'
+xcodebuild -project Pena.xcodeproj -scheme Pena -showdestinations
+# Use the id of an available iOS 27 simulator from the command above:
+xcodebuild test -project Pena.xcodeproj -scheme Pena -destination 'platform=iOS Simulator,id=YOUR_SIMULATOR_UDID' CODE_SIGNING_ALLOWED=NO
 ```
 The test suite lives under `PenaTests/` and covers pitch detection, pitch stabilization, string matching, and course models.
+
+[Local validation](docs/VALIDATION.md) records the tested simulator, SDK and actual test counts. The deterministic harmonic/noise tests do not establish physical microphone accuracy or end-to-end detection latency.
+
+#### Distribution status
+
+No public binary release was present on 9 October 2026. Build from source above. A signed beta still requires physical-device microphone, permission-denial, audio-interruption and installation checks.
 
 ### 🌍 Localization
 
