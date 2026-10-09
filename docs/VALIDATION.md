@@ -13,6 +13,6 @@ xcodebuild -project Pena.xcodeproj -scheme Pena \
   -derivedDataPath build/validation CODE_SIGNING_ALLOWED=NO test
 ```
 
-Xcode reported **39 test definitions passed**, zero failures/skips; the per-device execution count was **93** including parameterized cases. The result summary is retained in [test-summary.json](test-summary.json). Synthetic cases exercise supported tuning presets, harmonic/noisy/detuned signals, octave handling, A4 changes and invalid configurations. Counts describe this run, not a CI badge or a universal tuning-accuracy claim.
+Xcode reported **39 test definitions passed**, zero failures/skips; the per-device execution count was **93** including parameterized cases. The test command above produces a local result bundle; exported test reports are not tracked in the repository. Synthetic cases exercise supported tuning presets, harmonic/noisy/detuned signals, octave handling, A4 changes and invalid configurations. Counts describe this run, not a CI badge or a universal tuning-accuracy claim.
 
 Not verified: microphone permissions/input on physical hardware, acoustic accuracy across instruments/noise levels, audio-session interruptions, route changes, latency, battery cost, signed distribution or a beta binary. No GitHub Release was published at the audit snapshot. The physical audio and beta acceptance work remains in [#2](https://github.com/Zaryob/Pena/issues/2).
